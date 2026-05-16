@@ -11,7 +11,7 @@
   name: "железный слиток"
   icon: { sprite: _FactoryStation/Items/Materials/iron_ingot.rsi, state: icon }
   spawn: IngotIronSheet1
-  maxCount: 30
+  maxCount: 15
 
 - type: stack
   parent: BaseSheetStack
@@ -26,7 +26,7 @@
   name: "медный слиток"
   icon: { sprite: _FactoryStation/Items/Materials/copper_ingot.rsi, state: icon }
   spawn: IngotCopperSheet1
-  maxCount: 30
+  maxCount: 15
 
 - type: stack
   parent: BaseSheetStack
@@ -34,7 +34,7 @@
   name: "песок"
   icon: { sprite: _FactoryStation/Items/Materials/sandstone.rsi, state: icon }
   spawn: OreSandstoneFactSheet1
-  maxCount: 30
+  maxCount: 10
 
 - type: stack
   parent: BaseSheetStack

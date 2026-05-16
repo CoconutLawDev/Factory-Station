@@ -19,10 +19,15 @@
         - RawMaterial
         - Ingot
         - OreSandstoneFact
+      capacity: 250
   - type: OreSiloClient
   - type: Lathe
     idleState: icon          # Когда стоит на месте
     runningState: burning
     staticPacks:
     - SheetifierRecipe
+  - type: AutoCollector
+  interval: 0.5          # интервал проверки (секунды)
+  pullForce: 25.0        # сила подтягивания предметов
+  collectionRadius: 0.7  # радиус захвата (0.7 ~ один тайл)
 

@@ -2,41 +2,41 @@
   id: SmeltIronOre
   name: "выплавка железа"
   result: IngotIronSheet1
-  completetime: 5
+  completetime: 10
   materials:
-    OreIronFact: 5
+    OreIronFact: 200
 
 - type: latheRecipe
   id: SmeltCopperOre
   name: "выплавка меди"
   result: IngotCopperSheet1
-  completetime: 5
+  completetime: 10
   materials:
-    OreCopperFact: 5
+    OreCopperFact: 200
 
 - type: latheRecipe
   id: SmeltsheetifierIron
   name: "Создание листов железа"
   result: SheetSteel1
-  completetime: 5
+  completetime: 10
   materials:
-    IngotIron: 5
+    IngotIron: 100
 
 - type: latheRecipe
   id: SmeltsheetifierCopper
   name: "Создание листов меди"
   result: ListCopperSheet1
-  completetime: 5
+  completetime: 10
   materials:
-    IngotCopper: 5
+    IngotCopper: 100
 
 - type: latheRecipe
   id: SmeltsheetifierGlassSandstone
   name: "Создание стекла из песка"
   result: SheetGlass1
-  completetime: 5
+  completetime: 10
   materials:
-    SandstoneFact: 5
+    SandstoneFact: 100
 
 - type: latheRecipePack
   id: IngotIronRecipe
