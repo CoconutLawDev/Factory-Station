@@ -20,13 +20,13 @@ namespace Content.Server.Automation;
 // 2. Используем современные пространства имён (MindComponent, ActorComponent).
 public sealed partial class AutoCollectorSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
-    [Dependency] private readonly SharedPhysicsSystem _physicsSystem = default!;
-    [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private EntityWhitelistSystem _whitelistSystem = default!;
+    [Dependency] private SharedPhysicsSystem _physicsSystem = default!;
+    [Dependency] private SharedTransformSystem _transformSystem = default!;
     // 3. Используем серверную MaterialStorageSystem для вызова TryInsertMaterialEntity
-    [Dependency] private readonly MaterialStorageSystem _materialStorageSystem = default!;
-    [Dependency] private readonly EntityLookupSystem _entityLookup = default!;
+    [Dependency] private MaterialStorageSystem _materialStorageSystem = default!;
+    [Dependency] private EntityLookupSystem _entityLookup = default!;
 
     private readonly Dictionary<EntityUid, TimeSpan> _nextCheck = new();
     // 4. Используем современный HashSet, совместимый с EntityLookupSystem
