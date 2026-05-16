@@ -1,0 +1,45 @@
+- type: stack
+  parent: BaseSheetStack
+  id: OreIronSheet
+  name: "железная руда"
+  icon: { sprite: _FactoryStation/Items/Materials/iron_ore.rsi, state: icon }
+  spawn: OreIronSheet1
+
+- type: stack
+  parent: BaseSheetStack
+  id: IngotIronSheet
+  name: "железный слиток"
+  icon: { sprite: _FactoryStation/Items/Materials/iron_ingot.rsi, state: icon }
+  spawn: IngotIronSheet1
+  maxCount: 30
+
+- type: stack
+  parent: BaseSheetStack
+  id: OreCopperSheet
+  name: "медная руда"
+  icon: { sprite: _FactoryStation/Items/Materials/copper_ore.rsi, state: icon }
+  spawn: OreCopperSheet1
+
+- type: stack
+  parent: BaseSheetStack
+  id: IngotCopperSheet
+  name: "медный слиток"
+  icon: { sprite: _FactoryStation/Items/Materials/copper_ingot.rsi, state: icon }
+  spawn: IngotCopperSheet1
+  maxCount: 30
+
+- type: stack
+  parent: BaseSheetStack
+  id: OreSandstoneFactSheet
+  name: "песок"
+  icon: { sprite: _FactoryStation/Items/Materials/sandstone.rsi, state: icon }
+  spawn: OreSandstoneFactSheet1
+  maxCount: 30
+
+- type: stack
+  parent: BaseSheetStack
+  id: ListCopperSheet
+  name: "медный лист"
+  icon: { sprite: _FactoryStation/Items/Materials/copperlist.rsi, state: icon }
+  spawn: ListCopperSheet1
+  maxCount: 30

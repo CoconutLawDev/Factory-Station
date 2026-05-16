@@ -1,0 +1,13 @@
+- type: entity
+  parent: BaseMachineCircuitboard
+  id: SheetifierMachineCircuitboard3001
+  name: "плата лист-мастера"
+  description: "Печатная плата для лист-мастера."
+  components:
+  - type: MachineBoard
+    prototype: Sheetifier
+    stackRequirements:
+      Glass: 500
+      Steel: 800
+  - type: Sprite
+    state: generic  # стандартный спрайт платы

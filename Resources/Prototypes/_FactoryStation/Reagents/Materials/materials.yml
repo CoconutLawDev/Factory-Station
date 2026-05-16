@@ -1,0 +1,38 @@
+- type: material
+  id: Iron
+  name: iron
+  color: "#b0b0b0"  # светло-серый, как металл
+  price: 0.05        # цена за единицу материала
+
+- type: material
+  id: OreIronFact
+  stackEntity: OreIronSheet1
+  name: Железная руда
+  icon: { sprite: _FactoryStation/Items/Materials/iron_ore.rsi, state: icon }
+  color: "#8B5A2B"
+  price: 0.03
+
+- type: material
+  id: OreCopperFact
+  stackEntity: OreCopperSheet1
+  name: Медная руда
+  icon: { sprite: _FactoryStation/Items/Materials/copper_ore.rsi, state: icon }
+  color: "#8B5A2B"
+  price: 0.03
+
+- type: material
+  id: IngotIron
+  stackEntity: IngotIronSheet1
+  name: Железные слитки
+  icon: { sprite: _FactoryStation/Items/Materials/iron_ingot.rsi, state: icon }
+  color: "#B0B0B0"
+  price: 0.10
+
+- type: material
+  id: IngotCopper
+  stackEntity: IngotCopperSheet1
+  name: Медные слитки
+  icon: { sprite: _FactoryStation/Items/Materials/copper_ingot.rsi, state: icon }
+  color: "#D4AF37"
+  price: 0.15
+

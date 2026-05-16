@@ -1,0 +1,250 @@
+# Железная руда
+- type: entity
+  abstract: true
+  parent: BaseSheet
+  id: SheetFactoryOreIronBase
+  description: несколько кусков железной руды, используемых в различных приложениях на станции.
+  components:
+  - type: Sprite
+    sprite: _FactoryStation/Items/Materials/iron_ore.rsi
+  - type: Item
+    sprite: _FactoryStation/Items/Materials/iron_ore.rsi
+  - type: Tag
+    tags:
+    - OreIronFact
+    - RawMaterial
+    - Sheet
+  - type: Damageable
+    damageModifierSet: Metallic
+  - type: GuideHelp
+    guides:
+    - ExpandingRepairingStation
+
+- type: entity
+  parent: SheetFactoryOreIronBase
+  id: OreIronSheet
+  name: "железная руда"
+  suffix: Full
+  components:
+  - type: Material
+    removed: true
+  - type: PhysicalComposition
+    materialComposition:
+      OreIronFact: 100 # Проблема в том, что руда сразу считается железом ( листами), если пытаться исправить, то печь не будет принимать руду
+  - type: Stack
+    stackType: OreIronSheet
+    baseLayer: icon
+    layerStates:
+    - icon
+    - icon
+  - type: Sprite
+    state: icon
+    layers:
+    - state: icon
+      map: ["base"]
+  - type: Item
+    heldPrefix: OreIronSheet
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Iron
+        Quantity: 9
+      - ReagentId: Carbon
+        Quantity: 1
+  - type: Tag
+    tags:
+    - OreIronFact
+    - RawMaterial
+    - Sheet
+    - Ore
+
+- type: entity
+  parent: OreIronSheet
+  id: OreIronSheet10
+  name: "железная руда"
+  suffix: 10
+  components:
+  - type: Sprite
+    state: icon
+  - type: Stack
+    stackType: OreIronSheet
+    count: 10
+
+- type: entity
+  parent: OreIronSheet
+  id: OreIronSheet1
+  name: "железная руда"
+  suffix: Single
+  components:
+  - type: Sprite
+    state: icon
+  - type: Stack
+    stackType: OreIronSheet
+    count: 1
+
+
+# Медная руда
+- type: entity
+  abstract: true
+  parent: BaseSheet
+  id: SheetFactoryOreCopperBase
+  description: несколько кусков медной руды, используемых в различных приложениях на станции.
+  components:
+  - type: Sprite
+    sprite: _FactoryStation/Items/Materials/copper_ore.rsi
+  - type: Item
+    sprite: _FactoryStation/Items/Materials/copper_ore.rsi
+  - type: Tag
+    tags:
+    - OreCopperFact
+    - RawMaterial
+    - Sheet
+  - type: Damageable
+    damageModifierSet: Metallic
+  - type: GuideHelp
+    guides:
+    - ExpandingRepairingStation
+
+- type: entity
+  parent: SheetFactoryOreCopperBase
+  id: OreCopperSheet
+  name: "медная руда"
+  suffix: Full
+  components:
+  - type: Material
+    removed: true
+  - type: PhysicalComposition
+    materialComposition:
+      OreCopperFact: 100 # Проблема в том, что руда сразу считается медью ( листами), если пытаться исправить, то печь не будет принимать руду
+  - type: Stack
+    stackType: OreCopperSheet
+    baseLayer: icon
+    layerStates:
+    - icon
+    - icon
+  - type: Sprite
+    state: icon
+    layers:
+    - state: icon
+      map: ["base"]
+  - type: Item
+    heldPrefix: OreCopperSheet
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Copper
+        Quantity: 9
+      - ReagentId: Carbon
+        Quantity: 1
+  - type: Tag
+    tags:
+    - OreCopperFact
+    - RawMaterial
+    - Sheet
+    - Ore
+
+- type: entity
+  parent: OreCopperSheet
+  id: OreCopperSheet10
+  name: "медная руда"
+  suffix: 10
+  components:
+  - type: Sprite
+    state: icon
+  - type: Stack
+    stackType: OreCopperSheet
+    count: 10
+
+- type: entity
+  parent: OreCopperSheet
+  id: OreCopperSheet1
+  name: "медная руда"
+  suffix: Single
+  components:
+  - type: Sprite
+    state: icon
+  - type: Stack
+    stackType: OreCopperSheet
+    count: 1
+
+#  Песок для стекла
+- type: entity
+  abstract: true
+  parent: BaseSheet
+  id: SheetFactoryOreSandstoneFactBase
+  description: несколько кусков медной руды, используемых в различных приложениях на станции.
+  components:
+  - type: Sprite
+    sprite: _FactoryStation/Items/Materials/sandstone.rsi
+  - type: Item
+    sprite: _FactoryStation/Items/Materials/sandstone.rsi
+  - type: Tag
+    tags:
+    - OreSandstoneFact
+    - RawMaterial
+    - Sheet
+  - type: Damageable
+    damageModifierSet: Metallic
+  - type: GuideHelp
+    guides:
+    - ExpandingRepairingStation
+
+- type: entity
+  parent: SheetFactoryOreSandstoneFactBase
+  id: OreSandstoneFactSheet
+  name: "песок"
+  suffix: Full
+  components:
+  - type: Material
+    removed: true
+  - type: PhysicalComposition
+    materialComposition:
+      SandstoneFact: 100 # Проблема в том, что руда сразу считается медью ( листами), если пытаться исправить, то печь не будет принимать руду
+  - type: Stack
+    stackType: OreSandstoneFactSheet
+    baseLayer: icon
+    layerStates:
+    - icon
+    - icon
+  - type: Sprite
+    state: icon
+    layers:
+    - state: icon
+      map: ["base"]
+  - type: Item
+    heldPrefix: OreSandstoneFactSheet
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Carbon
+        Quantity: 10
+  - type: Tag
+    tags:
+    - OreSandstoneFact
+    - RawMaterial
+    - Sheet
+    - Ore
+
+- type: entity
+  parent: OreSandstoneFactSheet
+  id: OreSandstoneFactSheet10
+  name: "песок"
+  suffix: 10
+  components:
+  - type: Sprite
+    state: icon
+  - type: Stack
+    stackType: OreSandstoneFactSheet
+    count: 10
+
+- type: entity
+  parent: OreSandstoneFactSheet
+  id: OreSandstoneFactSheet1
+  name: "песок"
+  suffix: Single
+  components:
+  - type: Sprite
+    state: icon
+  - type: Stack
+    stackType: OreSandstoneFactSheet
+    count: 1

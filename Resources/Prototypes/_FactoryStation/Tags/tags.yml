@@ -1,0 +1,35 @@
+- type: Tag
+  id: OreIronFact
+
+- type: Tag
+  id: IngotIron
+
+- type: Tag
+  id: OreIronSheet
+
+- type: Tag
+  id: IngotIronSheet
+
+- type: Tag
+  id: OreCopperSheet
+
+- type: Tag
+  id: IngotCopper
+
+- type: Tag
+  id: OreCopperFact
+
+- type: Tag
+  id: IngotCopperSheet
+
+- type: Tag
+  id: OreSandstoneFactSheet
+
+- type: Tag
+  id: SandstoneFact
+
+- type: Tag
+  id: OreSandstoneFact
+
+- type: Tag
+  id: ListCopperSheet

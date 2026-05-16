@@ -1,0 +1,256 @@
+# Железные слитки и их производные для использования в различных приложениях на станции, таких как производство инструментов, конструкций и других изделий.
+- type: entity
+  abstract: true
+  parent: BaseSheet
+  id: SheetFactoryInfotsBase
+  description: слиток металла, используемый в различных приложениях на станции.
+  components:
+  - type: Sprite
+    sprite: _FactoryStation/Items/Materials/iron_ingot.rsi
+  - type: Item
+    sprite: _FactoryStation/Items/Materials/iron_ingot.rsi
+  - type: Tag
+    tags:
+    - Ingot
+    - IngotIron
+    - RawMaterial
+    - Sheet
+  - type: Damageable
+    damageModifierSet: Metallic
+  - type: GuideHelp
+    guides:
+    - ExpandingRepairingStation
+
+- type: entity
+  parent: SheetFactoryInfotsBase
+  id: IngotIronSheet
+  name: "железный слиток"
+  suffix: Full
+  components:
+  - type: Material
+    removed: true
+  - type: PhysicalComposition
+    materialComposition:
+      IngotIron: 100
+  - type: Stack
+    stackType: IngotIronSheet
+    baseLayer: icon
+    layerStates:
+    - icon
+    - icon
+  - type: Sprite
+    state: icon
+    layers:
+    - state: icon
+      map: ["base"]
+  - type: Item
+    heldPrefix: IngotIronSheet
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Iron
+        Quantity: 9
+      - ReagentId: Carbon
+        Quantity: 1
+  - type: Tag
+    tags:
+    - Ingot
+    - IngotIron
+    - RawMaterial
+    - Sheet
+
+- type: entity
+  parent: IngotIronSheet
+  id: IngotIronSheet10
+  name: "железный слиток"
+  suffix: 10
+  components:
+  - type: Sprite
+    state: icon
+  - type: Stack
+    stackType: IngotIronSheet
+    count: 10
+
+- type: entity
+  parent: IngotIronSheet
+  id: IngotIronSheet1
+  name: "железный слиток"
+  suffix: Single
+  components:
+  - type: Sprite
+    state: icon
+  - type: Stack
+    stackType: IngotIronSheet
+    count: 1
+
+
+# Медные слитки и их производные для использования в различных приложениях на станции, таких как производство инструментов, конструкций и других изделий.
+- type: entity
+  abstract: true
+  parent: BaseSheet
+  id: SheetFactoryCopperBase
+  description: слиток металла, используемый в различных приложениях на станции.
+  components:
+  - type: Sprite
+    sprite: _FactoryStation/Items/Materials/copper_ingot.rsi
+  - type: Item
+    sprite: _FactoryStation/Items/Materials/copper_ingot.rsi
+  - type: Tag
+    tags:
+    - Ingot
+    - IngotCopper
+    - RawMaterial
+    - Sheet
+  - type: Damageable
+    damageModifierSet: Metallic
+  - type: GuideHelp
+    guides:
+    - ExpandingRepairingStation
+
+- type: entity
+  parent: SheetFactoryCopperBase
+  id: IngotCopperSheet
+  name: "медный слиток"
+  suffix: Full
+  components:
+  - type: Material
+    removed: true
+  - type: PhysicalComposition
+    materialComposition:
+      IngotCopper: 100
+  - type: Stack
+    stackType: IngotCopperSheet
+    baseLayer: icon
+    layerStates:
+    - icon
+    - icon
+  - type: Sprite
+    state: icon
+    layers:
+    - state: icon
+      map: ["base"]
+  - type: Item
+    heldPrefix: IngotCopperSheet
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Copper
+        Quantity: 9
+      - ReagentId: Carbon
+        Quantity: 1
+  - type: Tag
+    tags:
+    - Ingot
+    - IngotCopper
+    - RawMaterial
+    - Sheet
+
+- type: entity
+  parent: IngotCopperSheet
+  id: IngotCopperSheet10
+  name: "медный слиток"
+  suffix: 10
+  components:
+  - type: Sprite
+    state: icon
+  - type: Stack
+    stackType: IngotCopperSheet
+    count: 10
+
+- type: entity
+  parent: IngotCopperSheet
+  id: IngotCopperSheet1
+  name: "медный слиток"
+  suffix: Single
+  components:
+  - type: Sprite
+    state: icon
+  - type: Stack
+    stackType: IngotCopperSheet
+    count: 1
+
+
+# Медные Листы
+- type: entity
+  abstract: true
+  parent: BaseSheet
+  id: SheetFactoryCopperListBase
+  description: листы металла, используемый в различных приложениях на станции.
+  components:
+  - type: Sprite
+    sprite: _FactoryStation/Items/Materials/copperlist.rsi
+  - type: Item
+    sprite: _FactoryStation/Items/Materials/copperlist.rsi
+  - type: Tag
+    tags:
+    - Ingot
+    - IngotCopper
+    - RawMaterial
+    - Sheet
+  - type: Damageable
+    damageModifierSet: Metallic
+  - type: GuideHelp
+    guides:
+    - ExpandingRepairingStation
+
+- type: entity
+  parent: SheetFactoryCopperListBase
+  id: ListCopperSheet
+  name: "медный лист"
+  suffix: Full
+  components:
+  - type: Material
+    removed: true
+  - type: PhysicalComposition
+    materialComposition:
+      IngotCopper: 100
+  - type: Stack
+    stackType: ListCopperSheet
+    baseLayer: icon
+    layerStates:
+    - icon
+    - icon
+  - type: Sprite
+    state: icon
+    layers:
+    - state: icon
+      map: ["base"]
+  - type: Item
+    heldPrefix: ListCopperSheet
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Copper
+        Quantity: 9
+      - ReagentId: Carbon
+        Quantity: 1
+  - type: Tag
+    tags:
+    - Ingot
+    - IngotCopper
+    - RawMaterial
+    - Sheet
+
+- type: entity
+  parent: ListCopperSheet
+  id: ListCopperSheet10
+  name: "медный лист"
+  suffix: 10
+  components:
+  - type: Sprite
+    state: icon
+  - type: Stack
+    stackType: ListCopperSheet
+    count: 10
+
+- type: entity
+  parent: ListCopperSheet
+  id: ListCopperSheet1
+  name: "медный лист"
+  suffix: Single
+  components:
+  - type: Sprite
+    state: icon
+  - type: Stack
+    stackType: ListCopperSheet
+    count: 1

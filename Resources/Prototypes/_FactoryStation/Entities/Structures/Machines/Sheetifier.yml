@@ -1,0 +1,28 @@
+- type: entity
+  id: SheetifierFactory
+  parent: BaseLatheLube
+  name: Лист-мастер 3001
+  description: "Лист-мастер 3001 используется для обработки материалов в листы. Он может обрабатывать большие объемы материалов, что делает его незаменимым в производственных процессах."
+  components:
+  - type: Sprite
+    sprite: _FactoryStation/Machines/sheetifier.rsi
+    snapCardinals: true
+    layers:
+    - state: icon
+      map: ["enum.LatheVisualLayers.IsRunning"]   # Этот слой будет меняться на burning
+  - type: Machine
+    board: SheetifierMachineCircuitboard3001
+  - type: MaterialStorage
+    whitelist:
+      tags:
+        - Sheet
+        - RawMaterial
+        - Ingot
+        - OreSandstoneFact
+  - type: OreSiloClient
+  - type: Lathe
+    idleState: icon          # Когда стоит на месте
+    runningState: burning
+    staticPacks:
+    - SheetifierRecipe
+

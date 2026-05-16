@@ -1,0 +1,7 @@
+- type: material
+  id: SandstoneFact
+  stackEntity: OreSandstoneFactSheet1
+  name: Песок
+  icon: { sprite: _FactoryStation/Items/Materials/sandstone.rsi, state: icon }
+  color: "#ccbc85"
+  price: 0.15
