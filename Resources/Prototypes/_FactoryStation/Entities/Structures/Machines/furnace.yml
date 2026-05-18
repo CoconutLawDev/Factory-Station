@@ -26,7 +26,40 @@
     staticPacks:
     - IngotIronRecipe
   - type: AutoCollector
-  interval: 0.5          # интервал проверки (секунды)
-  pullForce: 25.0        # сила подтягивания предметов
-  collectionRadius: 0.7  # радиус захвата (0.7 ~ один тайл)
+    interval: 0.5          # интервал проверки (секунды)
+    pullForce: 25.0        # сила подтягивания предметов
+    collectionRadius: 0.7  # радиус захвата (0.7 ~ один тайл)
+
+
+- type: entity
+  id: Furnace2
+  parent: BaseLatheLube
+  name: Промышленная печь 2.0
+  description: "Промышленная печь 2.0 раюотает в два раза быстрее."
+  components:
+  - type: Sprite
+    sprite: _FactoryStation/Machines/smelter2.rsi
+    snapCardinals: true
+    layers:
+    - state: icon
+      map: ["enum.LatheVisualLayers.IsRunning"]   # Этот слой будет меняться на burning
+  - type: Machine
+    board: FurnaceMachineCircuitboard2
+  - type: MaterialStorage
+    whitelist:
+      tags:
+        - Sheet
+        - RawMaterial
+        - Ingot
+      capacity: 500
+  - type: OreSiloClient
+  - type: Lathe
+    idleState: icon          # Когда стоит на месте
+    runningState: burning
+    staticPacks:
+    - IngotIronRecipe2
+  - type: AutoCollector
+    interval: 0.5          # интервал проверки (секунды)
+    pullForce: 25.0        # сила подтягивания предметов
+    collectionRadius: 0.7  # радиус захвата (0.7 ~ один тайл)
 

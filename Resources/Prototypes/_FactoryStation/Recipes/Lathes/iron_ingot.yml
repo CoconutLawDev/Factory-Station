@@ -1,3 +1,4 @@
+#Первый уровень печи
 - type: latheRecipe
   id: SmeltIronOre
   name: "выплавка железа"
@@ -15,26 +16,18 @@
     OreCopperFact: 200
 
 - type: latheRecipe
-  id: SmeltsheetifierIron
-  name: "Создание листов железа"
-  result: SheetSteel1
-  completetime: 10
+  id: SmeltCrystalOre
+  name: "выплавка кристаллов"
+  result: IngotCrystalSheet1
+  completetime: 15
   materials:
-    IngotIron: 100
-
-- type: latheRecipe
-  id: SmeltsheetifierCopper
-  name: "Создание листов меди"
-  result: ListCopperSheet1
-  completetime: 10
-  materials:
-    IngotCopper: 100
+    OreCrystal: 200
 
 - type: latheRecipe
   id: SmeltsheetifierGlassSandstone
   name: "Создание стекла из песка"
   result: SheetGlass1
-  completetime: 10
+  completetime: 5
   materials:
     SandstoneFact: 100
 
@@ -44,9 +37,122 @@
     - SmeltIronOre
     - SmeltCopperOre
     - SmeltsheetifierGlassSandstone
+    - SmeltCrystalOre
+
+
+#Второй уровень печи
+- type: latheRecipe
+  id: SmeltIronOre2
+  name: "выплавка железа"
+  result: IngotIronSheet1
+  completetime: 5
+  materials:
+    OreIronFact: 200
+
+- type: latheRecipe
+  id: SmeltCopperOre2
+  name: "выплавка меди"
+  result: IngotCopperSheet1
+  completetime: 5
+  materials:
+    OreCopperFact: 200
+
+- type: latheRecipe
+  id: SmeltCrystalOre2
+  name: "выплавка кристаллов"
+  result: IngotCrystalSheet1
+  completetime: 7
+  materials:
+    OreCrystal: 200
+
+- type: latheRecipe
+  id: SmeltsheetifierGlassSandstone2
+  name: "Создание стекла из песка"
+  result: SheetGlass1
+  completetime: 5
+  materials:
+    SandstoneFact: 100
+
 
 - type: latheRecipePack
-  id: SheetifierRecipe
+  id: IngotIronRecipe2
+  recipes:
+    - SmeltIronOre2
+    - SmeltCopperOre2
+    - SmeltsheetifierGlassSandstone2
+    - SmeltCrystalOre2
+
+
+#Первый уровень Лист-Мастера
+- type: latheRecipe
+  id: SmeltsheetifierCopper
+  name: "Создание листов меди"
+  result: ListCopperSheet1
+  completetime: 10
+  materials:
+    IngotCopper: 100
+
+- type: latheRecipe
+  id: SmeltsheetifierIron
+  name: "Создание листов железа"
+  result: SheetSteel1
+  completetime: 10
+  materials:
+    IngotIron: 100
+
+
+- type: latheRecipePack
+  id: SheetifierRecipe3001
   recipes:
     - SmeltsheetifierIron
     - SmeltsheetifierCopper
+
+#Второй уровень Лист-Мастера
+- type: latheRecipe
+  id: SmeltsheetifierCopper2
+  name: "Создание листов меди"
+  result: ListCopperSheet1
+  completetime: 5
+  materials:
+    IngotCopper: 100
+
+- type: latheRecipe
+  id: SmeltsheetifierIron2
+  name: "Создание листов железа"
+  result: SheetSteel1
+  completetime: 5
+  materials:
+    IngotIron: 100
+
+
+- type: latheRecipePack
+  id: SheetifierRecipe4001
+  recipes:
+    - SmeltsheetifierIron2
+    - SmeltsheetifierCopper2
+
+#Третий уровень Лист-Мастера
+- type: latheRecipe
+  id: SmeltsheetifierCopper3
+  name: "Создание листов меди"
+  result: ListCopperSheet1
+  completetime: 5
+  materials:
+    IngotCopper: 50
+
+- type: latheRecipe
+  id: SmeltsheetifierIron3
+  name: "Создание листов железа"
+  result: SheetSteel1
+  completetime: 5
+  materials:
+    IngotIron: 50
+
+
+- type: latheRecipePack
+  id: SheetifierRecipe5001
+  recipes:
+    - SmeltsheetifierIron3
+    - SmeltsheetifierCopper3
+
+

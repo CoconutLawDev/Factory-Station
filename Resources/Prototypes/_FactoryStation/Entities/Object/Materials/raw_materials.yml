@@ -248,3 +248,173 @@
   - type: Stack
     stackType: OreSandstoneFactSheet
     count: 1
+
+
+# Космический кристалл
+- type: entity
+  abstract: true
+  parent: BaseSheet
+  id: SheetFactoryOreCrystalBase
+  description: кристал космический, редкий материал, используемый в различных приложениях на станции, таких как производство высокотехнологичных устройств, конструкций и других изделий.
+  components:
+  - type: Sprite
+    sprite: _FactoryStation/Items/Materials/crystal_ore.rsi
+  - type: Item
+    sprite: _FactoryStation/Items/Materials/crystal_ore.rsi
+  - type: Tag
+    tags:
+    - OreCrystal
+    - RawMaterial
+    - Sheet
+  - type: Damageable
+    damageModifierSet: Metallic
+  - type: GuideHelp
+    guides:
+    - ExpandingRepairingStation
+
+- type: entity
+  parent: SheetFactoryOreCrystalBase
+  id: OreCrystalSheet
+  name: "космический кристалл"
+  suffix: Full
+  components:
+  - type: Material
+    removed: true
+  - type: PhysicalComposition
+    materialComposition:
+      OreCrystal: 100 # Проблема в том, что руда сразу считается медью ( листами), если пытаться исправить, то печь не будет принимать руду
+  - type: Stack
+    stackType: OreCrystalSheet
+    baseLayer: icon
+    layerStates:
+    - icon
+    - icon
+  - type: Sprite
+    state: icon
+    layers:
+    - state: icon
+      map: ["base"]
+  - type: Item
+    heldPrefix: OreCrystalSheet
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Copper
+        Quantity: 9
+      - ReagentId: Carbon
+        Quantity: 1
+  - type: Tag
+    tags:
+    - OreCrystal
+    - RawMaterial
+    - Sheet
+    - Ore
+
+- type: entity
+  parent: OreCrystalSheet
+  id: OreCrystalSheet10
+  name: "космический кристалл"
+  suffix: 10
+  components:
+  - type: Sprite
+    state: icon
+  - type: Stack
+    stackType: OreCrystalSheet
+    count: 10
+
+- type: entity
+  parent: OreCrystalSheet
+  id: OreCrystalSheet1
+  name: "космический кристалл"
+  suffix: Single
+  components:
+  - type: Sprite
+    state: icon
+  - type: Stack
+    stackType: OreCrystalSheet
+    count: 1
+
+
+# Зелёная слизь
+- type: entity
+  abstract: true
+  parent: BaseSheet
+  id: SheetFactoryOreSlimeGreenBase
+  description: слизь зелёная, редкий материал, используемый в различных приложениях на станции, таких как производство высокотехнологичных устройств, конструкций и других изделий.
+  components:
+  - type: Sprite
+    sprite: _FactoryStation/Items/Materials/slimesourcegreen.rsi
+  - type: Item
+    sprite: _FactoryStation/Items/Materials/slimesourcegreen.rsi
+  - type: Tag
+    tags:
+    - OreSlimeGreen
+    - RawMaterial
+    - Sheet
+  - type: Damageable
+    damageModifierSet: Metallic
+  - type: GuideHelp
+    guides:
+    - ExpandingRepairingStation
+
+- type: entity
+  parent: SheetFactoryOreSlimeGreenBase
+  id: OreSlimeGreenSheet
+  name: "зелёная слизь"
+  suffix: Full
+  components:
+  - type: Material
+    removed: true
+  - type: PhysicalComposition
+    materialComposition:
+      OreSlimeGreen: 100 # Проблема в том, что руда сразу считается медью ( листами), если пытаться исправить, то печь не будет принимать руду
+  - type: Stack
+    stackType: OreSlimeGreenSheet
+    baseLayer: icon
+    layerStates:
+    - icon
+    - icon
+  - type: Sprite
+    state: icon
+    layers:
+    - state: icon
+      map: ["base"]
+  - type: Item
+    heldPrefix: OreSlimeGreenSheet
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Copper
+        Quantity: 9
+      - ReagentId: Carbon
+        Quantity: 1
+  - type: Tag
+    tags:
+    - OreSlimeGreen
+    - RawMaterial
+    - Sheet
+    - Ore
+
+- type: entity
+  parent: OreSlimeGreenSheet
+  id: OreSlimeGreenSheet10
+  name: "зелёная слизь"
+  suffix: 10
+  components:
+  - type: Sprite
+    state: icon
+  - type: Stack
+    stackType: OreSlimeGreenSheet
+    count: 10
+
+- type: entity
+  parent: OreSlimeGreenSheet
+  id: OreSlimeGreenSheet1
+  name: "зелёная слизь"
+  suffix: Single
+  components:
+  - type: Sprite
+    state: icon
+  - type: Stack
+    stackType: OreSlimeGreenSheet
+    count: 1

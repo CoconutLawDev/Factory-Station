@@ -254,3 +254,88 @@
   - type: Stack
     stackType: ListCopperSheet
     count: 1
+
+# Обработанные кристаллы
+- type: entity
+  abstract: true
+  parent: BaseSheet
+  id: SheetFactoryIngotCrystalBase
+  description: обработанные космические кристаллы, используемые в различных приложениях на станции.
+  components:
+  - type: Sprite
+    sprite: _FactoryStation/Items/Materials/crystal_ingot.rsi
+  - type: Item
+    sprite: _FactoryStation/Items/Materials/crystal_ingot.rsi
+  - type: Tag
+    tags:
+    - Ingot
+    - IngotCrystal
+    - RawMaterial
+    - Sheet
+  - type: Damageable
+    damageModifierSet: Metallic
+  - type: GuideHelp
+    guides:
+    - ExpandingRepairingStation
+
+- type: entity
+  parent: SheetFactoryIngotCrystalBase
+  id: IngotCrystalSheet
+  name: "обработанный кристалл"
+  suffix: Full
+  components:
+  - type: Material
+    removed: true
+  - type: PhysicalComposition
+    materialComposition:
+      IngotCrystal: 100
+  - type: Stack
+    stackType: IngotCrystalSheet
+    baseLayer: icon
+    layerStates:
+    - icon
+    - icon
+  - type: Sprite
+    state: icon
+    layers:
+    - state: icon
+      map: ["base"]
+  - type: Item
+    heldPrefix: IngotCrystalSheet
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Copper
+        Quantity: 9
+      - ReagentId: Carbon
+        Quantity: 1
+  - type: Tag
+    tags:
+    - Ingot
+    - IngotCrystal
+    - RawMaterial
+    - Sheet
+
+- type: entity
+  parent: IngotCrystalSheet
+  id: IngotCrystalSheet10
+  name: "обработанный кристалл"
+  suffix: 10
+  components:
+  - type: Sprite
+    state: icon
+  - type: Stack
+    stackType: IngotCrystalSheet
+    count: 10
+
+- type: entity
+  parent: IngotCrystalSheet
+  id: IngotCrystalSheet1
+  name: "обработанный кристалл"
+  suffix: Single
+  components:
+  - type: Sprite
+    state: icon
+  - type: Stack
+    stackType: IngotCrystalSheet
+    count: 1

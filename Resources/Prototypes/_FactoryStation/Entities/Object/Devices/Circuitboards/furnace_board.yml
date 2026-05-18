@@ -11,3 +11,17 @@
       Steel: 800
   - type: Sprite
     state: generic  # стандартный спрайт платы
+
+- type: entity
+  parent: BaseMachineCircuitboard
+  id: FurnaceMachineCircuitboard2
+  name: "плата промышленной печи 2.0"
+  description: "Печатная плата для промышленной печи 2.0."
+  components:
+  - type: MachineBoard
+    prototype: Furnace2
+    stackRequirements:
+      Glass: 1000
+      Steel: 3000
+  - type: Sprite
+    state: generic  # стандартный спрайт платы

@@ -10,12 +10,12 @@
     {
       "name": "icon",
       "directions": 1,
-      "delays": null
+      "delays": [[0.3, 0.3]]
     },
     {
       "name": "burning",
       "directions": 1,
-      "delays": null
+      "delays": [[0.3, 0.2, 0.3, 0.2]]
     }
   ]
 }

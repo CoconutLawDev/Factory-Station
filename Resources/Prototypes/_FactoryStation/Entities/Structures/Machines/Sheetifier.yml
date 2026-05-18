@@ -1,5 +1,5 @@
 - type: entity
-  id: SheetifierFactory
+  id: SheetifierFactory3001
   parent: BaseLatheLube
   name: Лист-мастер 3001
   description: "Лист-мастер 3001 используется для обработки материалов в листы. Он может обрабатывать большие объемы материалов, что делает его незаменимым в производственных процессах."
@@ -25,7 +25,73 @@
     idleState: icon          # Когда стоит на месте
     runningState: burning
     staticPacks:
-    - SheetifierRecipe
+    - SheetifierRecipe3001
+  - type: AutoCollector
+  interval: 0.5          # интервал проверки (секунды)
+  pullForce: 25.0        # сила подтягивания предметов
+  collectionRadius: 0.7  # радиус захвата (0.7 ~ один тайл)
+
+- type: entity
+  id: SheetifierFactory4001
+  parent: BaseLatheLube
+  name: Лист-мастер 4001
+  description: "Лист-мастер 4001 используется для обработки материалов в листы. Он может обрабатывать большие объемы материалов, что делает его незаменимым в производственных процессах."
+  components:
+  - type: Sprite
+    sprite: _FactoryStation/Machines/sheetifier2.rsi
+    snapCardinals: true
+    layers:
+    - state: icon
+      map: ["enum.LatheVisualLayers.IsRunning"]   # Этот слой будет меняться на burning
+  - type: Machine
+    board: SheetifierMachineCircuitboard4001
+  - type: MaterialStorage
+    whitelist:
+      tags:
+        - Sheet
+        - RawMaterial
+        - Ingot
+        - OreSandstoneFact
+      capacity: 250
+  - type: OreSiloClient
+  - type: Lathe
+    idleState: icon          # Когда стоит на месте
+    runningState: burning
+    staticPacks:
+    - SheetifierRecipe4001
+  - type: AutoCollector
+  interval: 0.5          # интервал проверки (секунды)
+  pullForce: 25.0        # сила подтягивания предметов
+  collectionRadius: 0.7  # радиус захвата (0.7 ~ один тайл)
+
+- type: entity
+  id: SheetifierFactory5001
+  parent: BaseLatheLube
+  name: Лист-мастер 5001
+  description: "Лист-мастер 5001 используется для обработки материалов в листы. Он может обрабатывать большие объемы материалов, что делает его незаменимым в производственных процессах."
+  components:
+  - type: Sprite
+    sprite: _FactoryStation/Machines/sheetifier3.rsi
+    snapCardinals: true
+    layers:
+    - state: icon
+      map: ["enum.LatheVisualLayers.IsRunning"]   # Этот слой будет меняться на burning
+  - type: Machine
+    board: SheetifierMachineCircuitboard5001
+  - type: MaterialStorage
+    whitelist:
+      tags:
+        - Sheet
+        - RawMaterial
+        - Ingot
+        - OreSandstoneFact
+      capacity: 500
+  - type: OreSiloClient
+  - type: Lathe
+    idleState: icon          # Когда стоит на месте
+    runningState: burning
+    staticPacks:
+    - SheetifierRecipe5001
   - type: AutoCollector
   interval: 0.5          # интервал проверки (секунды)
   pullForce: 25.0        # сила подтягивания предметов

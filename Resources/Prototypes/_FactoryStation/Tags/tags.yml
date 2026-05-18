@@ -33,3 +33,33 @@
 
 - type: Tag
   id: ListCopperSheet
+
+- type: Tag
+  id: OreCrystalSheet
+
+- type: Tag
+  id: OreCrystal
+
+- type: Tag
+  id: IngotCrystal
+
+- type: Tag
+  id: IngotCrystalSheet
+
+- type: Tag
+  id: OreSlimeGreenSheet
+
+- type: Tag
+  id: OreSlimeGreen
+
+- type: Tag
+  id: OilFactory
+
+- type: Tag
+  id: OilFactorySheet
+
+- type: Tag
+  id: GasFactory
+
+- type: Tag
+  id: GasFactorySheet

@@ -36,3 +36,43 @@
   color: "#D4AF37"
   price: 0.15
 
+- type: material
+  id: OreCrystal
+  stackEntity: OreCrystalSheet1
+  name: Космические кристаллы
+  icon: { sprite: _FactoryStation/Items/Materials/crystal_ore.rsi, state: icon }
+  color: "#9237d4"
+  price: 0.15
+
+- type: material
+  id: IngotCrystal
+  stackEntity: IngotCrystalSheet1
+  name: Обработанные кристаллы
+  icon: { sprite: _FactoryStation/Items/Materials/crystal_ingot.rsi, state: icon }
+  color: "#ac79d1"
+  price: 0.55
+
+- type: material
+  id: OreSlimeGreen
+  stackEntity: OreSlimeGreenSheet1
+  name: Зелёная слизь
+  icon: { sprite: _FactoryStation/Items/Materials/slimesourcegreen.rsi, state: icon }
+  color: "#79d1b2"
+  price: 0.85
+
+- type: material
+  id: OilFactory
+  stackEntity: OilFactorySheet1
+  name: Нефть
+  icon: { sprite: _FactoryStation/Items/Materials/oilfactory.rsi, state: icon }
+  color: "#79d1b2"
+  price: 0.85
+
+- type: material
+  id: GasFactory
+  stackEntity: GasFactorySheet1
+  name: Космический газ
+  icon: { sprite: _FactoryStation/Items/Materials/gasfactory.rsi, state: icon }
+  color: "#79d1b2"
+  price: 0.85
+
