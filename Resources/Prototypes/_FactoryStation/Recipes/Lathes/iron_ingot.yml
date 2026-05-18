@@ -1,3 +1,4 @@
+
 #Первый уровень печи
 - type: latheRecipe
   id: SmeltIronOre
@@ -156,3 +157,26 @@
     - SmeltsheetifierCopper3
 
 
+#Упаковщик
+- type: latheRecipe
+  id: PackCoal
+  name: "Упаковка и обработка угля"
+  result: IngotCoalSheet1
+  completetime: 5
+  materials:
+    OreCoal: 50
+
+- type: latheRecipe
+  id: PackSlimeGreen
+  name: "Упаковка и обработка зеленой слизи"
+  result: SlimeGelSheet1
+  completetime: 5
+  materials:
+    OreSlimeGreen: 500
+    Plastic: 200
+
+- type: latheRecipePack
+  id: PackFactory
+  recipes:
+    - PackCoal
+    - PackSlimeGreen

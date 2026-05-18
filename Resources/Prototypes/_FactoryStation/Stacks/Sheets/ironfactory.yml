@@ -83,3 +83,43 @@
   icon: { sprite: _FactoryStation/Items/Materials/gasfactory.rsi, state: icon }
   spawn: GasFactorySheet1
   maxCount: 1
+
+- type: stack
+  parent: BaseSheetStack
+  id: OreCoalSheet
+  name: "уголь"
+  icon: { sprite: _FactoryStation/Items/Materials/coal_ore.rsi, state: icon }
+  spawn: OreCoalSheet1
+  maxCount: 30
+
+- type: stack
+  parent: BaseSheetStack
+  id: IngotCoalSheet
+  name: "упакованный уголь"
+  icon: { sprite: _FactoryStation/Items/Materials/coal_ingot.rsi, state: icon }
+  spawn: IngotCoalSheet1
+  maxCount: 30
+
+- type: stack
+  parent: BaseSheetStack
+  id: SlimeGelSheet
+  name: "синтез-гель"
+  icon: { sprite: _FactoryStation/Items/Materials/slimegel.rsi, state: icon }
+  spawn: SlimeGelSheet1
+  maxCount: 15
+
+- type: stack
+  parent: BaseSheetStack
+  id: OreSlimeBlueSheet
+  name: "синяя слизь"
+  icon: { sprite: _FactoryStation/Items/Materials/slimesourceblue.rsi, state: icon }
+  spawn: OreSlimeBlueSheet1
+  maxCount: 20
+
+- type: stack
+  parent: BaseSheetStack
+  id: OreSlimePinkSheet
+  name: "фиолетовая слизь"
+  icon: { sprite: _FactoryStation/Items/Materials/slimesourcepink.rsi, state: icon }
+  spawn: OreSlimePinkSheet1
+  maxCount: 20

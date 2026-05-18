@@ -76,3 +76,26 @@
   color: "#79d1b2"
   price: 0.85
 
+- type: material
+  id: OreCoal
+  stackEntity: OreCoalSheet1
+  name: Уголь
+  icon: { sprite: _FactoryStation/Items/Materials/coal_ore.rsi, state: icon }
+  color: "#000000"
+  price: 0.03
+
+- type: material
+  id: IngotCoal
+  stackEntity: IngotCoalSheet1
+  name: Упакованный уголь
+  icon: { sprite: _FactoryStation/Items/Materials/coal_ingot.rsi, state: icon }
+  color: "#000000"
+  price: 0.03
+
+- type: material
+  id: SlimeGel
+  stackEntity: SlimeGelSheet1
+  name: Синтез-Гель
+  icon: { sprite: _FactoryStation/Items/Materials/slimegel.rsi, state: icon }
+  color: "#3949c6"
+  price: 0.03

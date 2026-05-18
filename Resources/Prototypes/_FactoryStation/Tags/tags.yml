@@ -63,3 +63,33 @@
 
 - type: Tag
   id: GasFactorySheet
+
+- type: Tag
+  id: OreCoalSheet
+
+- type: Tag
+  id: OreCoal
+
+- type: Tag
+  id: IngotCoal
+
+- type: Tag
+  id: IngotCoalSheet
+
+- type: Tag
+  id: SlimeGelSheet
+
+- type: Tag
+  id: SlimeGel
+
+- type: Tag
+  id: OreSlimeBlueSheet
+
+- type: Tag
+  id: OreSlimeBlue
+
+- type: Tag
+  id: OreSlimePinkSheet
+
+- type: Tag
+  id: OreSlimePink

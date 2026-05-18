@@ -1,9 +1,50 @@
-# Железные слитки и их производные для использования в различных приложениях на станции, таких как производство инструментов, конструкций и других изделий.
+# =============================================================================
+# Общий базовый класс для всех слитков
+# =============================================================================
 - type: entity
   abstract: true
   parent: BaseSheet
-  id: SheetFactoryInfotsBase
-  description: слиток металла, используемый в различных приложениях на станции.
+  id: SheetFactoryIngotBase
+  description: слиток металла, используемый в различных производственных процессах.
+  components:
+  - type: Damageable
+    damageModifierSet: Metallic
+  - type: GuideHelp
+    guides:
+    - ExpandingRepairingStation
+  - type: Tag
+    tags:
+    - Ingot
+    - RawMaterial
+    - Sheet
+
+# =============================================================================
+# Общий базовый класс для всех листов
+# =============================================================================
+- type: entity
+  abstract: true
+  parent: BaseSheet
+  id: SheetFactoryListBase
+  description: лист металла, используемый в различных производственных процессах.
+  components:
+  - type: Damageable
+    damageModifierSet: Metallic
+  - type: GuideHelp
+    guides:
+    - ExpandingRepairingStation
+  - type: Tag
+    tags:
+    - Sheet
+    - RawMaterial
+
+# =============================================================================
+# Железные слитки
+# =============================================================================
+- type: entity
+  abstract: true
+  parent: SheetFactoryIngotBase
+  id: SheetFactoryIngotIronBase
+  description: железный слиток.
   components:
   - type: Sprite
     sprite: _FactoryStation/Items/Materials/iron_ingot.rsi
@@ -11,24 +52,14 @@
     sprite: _FactoryStation/Items/Materials/iron_ingot.rsi
   - type: Tag
     tags:
-    - Ingot
     - IngotIron
-    - RawMaterial
-    - Sheet
-  - type: Damageable
-    damageModifierSet: Metallic
-  - type: GuideHelp
-    guides:
-    - ExpandingRepairingStation
 
 - type: entity
-  parent: SheetFactoryInfotsBase
+  parent: SheetFactoryIngotIronBase
   id: IngotIronSheet
   name: "железный слиток"
   suffix: Full
   components:
-  - type: Material
-    removed: true
   - type: PhysicalComposition
     materialComposition:
       IngotIron: 100
@@ -45,19 +76,6 @@
       map: ["base"]
   - type: Item
     heldPrefix: IngotIronSheet
-  - type: Solution
-    solution:
-      reagents:
-      - ReagentId: Iron
-        Quantity: 9
-      - ReagentId: Carbon
-        Quantity: 1
-  - type: Tag
-    tags:
-    - Ingot
-    - IngotIron
-    - RawMaterial
-    - Sheet
 
 - type: entity
   parent: IngotIronSheet
@@ -65,10 +83,7 @@
   name: "железный слиток"
   suffix: 10
   components:
-  - type: Sprite
-    state: icon
   - type: Stack
-    stackType: IngotIronSheet
     count: 10
 
 - type: entity
@@ -77,19 +92,17 @@
   name: "железный слиток"
   suffix: Single
   components:
-  - type: Sprite
-    state: icon
   - type: Stack
-    stackType: IngotIronSheet
     count: 1
 
-
-# Медные слитки и их производные для использования в различных приложениях на станции, таких как производство инструментов, конструкций и других изделий.
+# =============================================================================
+# Медные слитки
+# =============================================================================
 - type: entity
   abstract: true
-  parent: BaseSheet
-  id: SheetFactoryCopperBase
-  description: слиток металла, используемый в различных приложениях на станции.
+  parent: SheetFactoryIngotBase
+  id: SheetFactoryIngotCopperBase
+  description: медный слиток.
   components:
   - type: Sprite
     sprite: _FactoryStation/Items/Materials/copper_ingot.rsi
@@ -97,24 +110,14 @@
     sprite: _FactoryStation/Items/Materials/copper_ingot.rsi
   - type: Tag
     tags:
-    - Ingot
     - IngotCopper
-    - RawMaterial
-    - Sheet
-  - type: Damageable
-    damageModifierSet: Metallic
-  - type: GuideHelp
-    guides:
-    - ExpandingRepairingStation
 
 - type: entity
-  parent: SheetFactoryCopperBase
+  parent: SheetFactoryIngotCopperBase
   id: IngotCopperSheet
   name: "медный слиток"
   suffix: Full
   components:
-  - type: Material
-    removed: true
   - type: PhysicalComposition
     materialComposition:
       IngotCopper: 100
@@ -131,19 +134,6 @@
       map: ["base"]
   - type: Item
     heldPrefix: IngotCopperSheet
-  - type: Solution
-    solution:
-      reagents:
-      - ReagentId: Copper
-        Quantity: 9
-      - ReagentId: Carbon
-        Quantity: 1
-  - type: Tag
-    tags:
-    - Ingot
-    - IngotCopper
-    - RawMaterial
-    - Sheet
 
 - type: entity
   parent: IngotCopperSheet
@@ -151,10 +141,7 @@
   name: "медный слиток"
   suffix: 10
   components:
-  - type: Sprite
-    state: icon
   - type: Stack
-    stackType: IngotCopperSheet
     count: 10
 
 - type: entity
@@ -163,19 +150,17 @@
   name: "медный слиток"
   suffix: Single
   components:
-  - type: Sprite
-    state: icon
   - type: Stack
-    stackType: IngotCopperSheet
     count: 1
 
-
-# Медные Листы
+# =============================================================================
+# Медные листы
+# =============================================================================
 - type: entity
   abstract: true
-  parent: BaseSheet
+  parent: SheetFactoryListBase
   id: SheetFactoryCopperListBase
-  description: листы металла, используемый в различных приложениях на станции.
+  description: медный лист.
   components:
   - type: Sprite
     sprite: _FactoryStation/Items/Materials/copperlist.rsi
@@ -183,15 +168,7 @@
     sprite: _FactoryStation/Items/Materials/copperlist.rsi
   - type: Tag
     tags:
-    - Ingot
     - IngotCopper
-    - RawMaterial
-    - Sheet
-  - type: Damageable
-    damageModifierSet: Metallic
-  - type: GuideHelp
-    guides:
-    - ExpandingRepairingStation
 
 - type: entity
   parent: SheetFactoryCopperListBase
@@ -199,8 +176,6 @@
   name: "медный лист"
   suffix: Full
   components:
-  - type: Material
-    removed: true
   - type: PhysicalComposition
     materialComposition:
       IngotCopper: 100
@@ -217,19 +192,6 @@
       map: ["base"]
   - type: Item
     heldPrefix: ListCopperSheet
-  - type: Solution
-    solution:
-      reagents:
-      - ReagentId: Copper
-        Quantity: 9
-      - ReagentId: Carbon
-        Quantity: 1
-  - type: Tag
-    tags:
-    - Ingot
-    - IngotCopper
-    - RawMaterial
-    - Sheet
 
 - type: entity
   parent: ListCopperSheet
@@ -237,10 +199,7 @@
   name: "медный лист"
   suffix: 10
   components:
-  - type: Sprite
-    state: icon
   - type: Stack
-    stackType: ListCopperSheet
     count: 10
 
 - type: entity
@@ -249,18 +208,17 @@
   name: "медный лист"
   suffix: Single
   components:
-  - type: Sprite
-    state: icon
   - type: Stack
-    stackType: ListCopperSheet
     count: 1
 
+# =============================================================================
 # Обработанные кристаллы
+# =============================================================================
 - type: entity
   abstract: true
-  parent: BaseSheet
+  parent: SheetFactoryIngotBase
   id: SheetFactoryIngotCrystalBase
-  description: обработанные космические кристаллы, используемые в различных приложениях на станции.
+  description: обработанный космический кристалл.
   components:
   - type: Sprite
     sprite: _FactoryStation/Items/Materials/crystal_ingot.rsi
@@ -268,15 +226,7 @@
     sprite: _FactoryStation/Items/Materials/crystal_ingot.rsi
   - type: Tag
     tags:
-    - Ingot
     - IngotCrystal
-    - RawMaterial
-    - Sheet
-  - type: Damageable
-    damageModifierSet: Metallic
-  - type: GuideHelp
-    guides:
-    - ExpandingRepairingStation
 
 - type: entity
   parent: SheetFactoryIngotCrystalBase
@@ -284,8 +234,6 @@
   name: "обработанный кристалл"
   suffix: Full
   components:
-  - type: Material
-    removed: true
   - type: PhysicalComposition
     materialComposition:
       IngotCrystal: 100
@@ -302,19 +250,6 @@
       map: ["base"]
   - type: Item
     heldPrefix: IngotCrystalSheet
-  - type: Solution
-    solution:
-      reagents:
-      - ReagentId: Copper
-        Quantity: 9
-      - ReagentId: Carbon
-        Quantity: 1
-  - type: Tag
-    tags:
-    - Ingot
-    - IngotCrystal
-    - RawMaterial
-    - Sheet
 
 - type: entity
   parent: IngotCrystalSheet
@@ -322,10 +257,7 @@
   name: "обработанный кристалл"
   suffix: 10
   components:
-  - type: Sprite
-    state: icon
   - type: Stack
-    stackType: IngotCrystalSheet
     count: 10
 
 - type: entity
@@ -334,8 +266,121 @@
   name: "обработанный кристалл"
   suffix: Single
   components:
+  - type: Stack
+    count: 1
+
+# =============================================================================
+# Упакованный уголь
+# =============================================================================
+- type: entity
+  abstract: true
+  parent: SheetFactoryIngotBase
+  id: SheetFactoryIngotCoalBase
+  description: упакованный уголь.
+  components:
+  - type: Sprite
+    sprite: _FactoryStation/Items/Materials/coal_ingot.rsi
+  - type: Item
+    sprite: _FactoryStation/Items/Materials/coal_ingot.rsi
+  - type: Tag
+    tags:
+    - IngotCoal
+
+- type: entity
+  parent: SheetFactoryIngotCoalBase
+  id: IngotCoalSheet
+  name: "упакованный уголь"
+  suffix: Full
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      IngotCoal: 100
+  - type: Stack
+    stackType: IngotCoalSheet
+    baseLayer: icon
+    layerStates:
+    - icon
+    - icon
   - type: Sprite
     state: icon
+    layers:
+    - state: icon
+      map: ["base"]
+  - type: Item
+    heldPrefix: IngotCoalSheet
+
+- type: entity
+  parent: IngotCoalSheet
+  id: IngotCoalSheet10
+  name: "упакованный уголь"
+  suffix: 10
+  components:
   - type: Stack
-    stackType: IngotCrystalSheet
+    count: 10
+
+- type: entity
+  parent: IngotCoalSheet
+  id: IngotCoalSheet1
+  name: "упакованный уголь"
+  suffix: Single
+  components:
+  - type: Stack
+    count: 1
+
+# =============================================================================
+# Синтез-гель
+# =============================================================================
+- type: entity
+  abstract: true
+  parent: SheetFactoryIngotBase
+  id: SheetFactorySlimeGelBase
+  description: синтез-гель.
+  components:
+  - type: Sprite
+    sprite: _FactoryStation/Items/Materials/slimegel.rsi
+  - type: Item
+    sprite: _FactoryStation/Items/Materials/slimegel.rsi
+  - type: Tag
+    tags:
+    - SlimeGel
+
+- type: entity
+  parent: SheetFactorySlimeGelBase
+  id: SlimeGelSheet
+  name: "синтез-гель"
+  suffix: Full
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      SlimeGel: 100
+  - type: Stack
+    stackType: SlimeGelSheet
+    baseLayer: icon
+    layerStates:
+    - icon
+    - icon
+  - type: Sprite
+    state: icon
+    layers:
+    - state: icon
+      map: ["base"]
+  - type: Item
+    heldPrefix: SlimeGelSheet
+
+- type: entity
+  parent: SlimeGelSheet
+  id: SlimeGelSheet10
+  name: "синтез-гель"
+  suffix: 10
+  components:
+  - type: Stack
+    count: 10
+
+- type: entity
+  parent: SlimeGelSheet
+  id: SlimeGelSheet1
+  name: "синтез-гель"
+  suffix: Single
+  components:
+  - type: Stack
     count: 1

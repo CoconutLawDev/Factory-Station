@@ -24,7 +24,7 @@
     idleState: icon          # Когда стоит на месте
     runningState: burning
     staticPacks:
-    - IngotIronRecipe
+    - PackFactory
   - type: AutoCollector
     interval: 0.5          # интервал проверки (секунды)
     pullForce: 25.0        # сила подтягивания предметов

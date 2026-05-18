@@ -263,7 +263,7 @@
     - CargoBoardsStatic
     - MedicalBoardsStatic
     - EngineeringBoardsStatic
-    dynamicPacks:
+    - FactoryCircuitboardRecipes # CoconutLawDev Add
     - EngineeringBoards
     - CargoBoards
     - MedicalBoards
