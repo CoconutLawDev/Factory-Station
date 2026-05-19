@@ -29,6 +29,9 @@
     interval: 0.5          # интервал проверки (секунды)
     pullForce: 25.0        # сила подтягивания предметов
     collectionRadius: 0.7  # радиус захвата (0.7 ~ один тайл)
+  - type: ActiveRecipe
+    enabled: true
+    activeRecipeId:   # Можете указать конкретный рецепт по умолчанию (или оставить пустым)
 
 
 - type: entity

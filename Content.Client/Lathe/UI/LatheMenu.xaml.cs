@@ -31,6 +31,8 @@ public sealed partial class LatheMenu : FancyWindow
     public event Action<int>? QueueMoveUpAction;
     public event Action<int>? QueueMoveDownAction;
     public event Action? DeleteFabricatingAction;
+    // Событие для авто-режима
+    public event Action<string?, bool>? OnAutoRecipeToggled;
 
     public List<ProtoId<LatheRecipePrototype>> Recipes = new();
 
@@ -39,6 +41,9 @@ public sealed partial class LatheMenu : FancyWindow
     public ProtoId<LatheCategoryPrototype>? CurrentCategory;
 
     public EntityUid Entity;
+
+    private string? _activeRecipeId;
+    private bool _autoMode;
 
     public LatheMenu()
     {
@@ -70,6 +75,12 @@ public sealed partial class LatheMenu : FancyWindow
 
         ServerListButton.OnPressed += a => OnServerListButtonPressed?.Invoke(a);
         DeleteFabricating.OnPressed += _ => DeleteFabricatingAction?.Invoke();
+
+        AutoButton.OnToggled += args =>
+        {
+            _autoMode = args.Pressed;
+            OnAutoRecipeToggled?.Invoke(_activeRecipeId, _autoMode);
+        };
     }
 
     public void SetEntity(EntityUid uid)
@@ -88,11 +99,12 @@ public sealed partial class LatheMenu : FancyWindow
         }
 
         MaterialsList.SetOwner(Entity);
+
+        _activeRecipeId = null;
+        _autoMode = false;
+        AutoButton.Pressed = false;
     }
 
-    /// <summary>
-    /// Populates the list of all the recipes
-    /// </summary>
     public void PopulateRecipes()
     {
         var recipesToShow = new List<LatheRecipePrototype>();
@@ -101,14 +113,12 @@ public sealed partial class LatheMenu : FancyWindow
             if (!_prototypeManager.Resolve(recipe, out var proto))
                 continue;
 
-            // Category filtering
             if (CurrentCategory != null)
             {
                 if (proto.Categories.Count <= 0)
                     continue;
 
                 var validRecipe = proto.Categories.Any(category => category == CurrentCategory);
-
                 if (!validRecipe)
                     continue;
             }
@@ -130,8 +140,6 @@ public sealed partial class LatheMenu : FancyWindow
         RecipeCount.Text = Loc.GetString("lathe-menu-recipe-count", ("count", recipesToShow.Count));
 
         var sortedRecipesToShow = recipesToShow.OrderBy(_lathe.GetRecipeName);
-
-        // Get the existing list of queue controls
         var oldChildCount = RecipeList.ChildCount;
         _entityManager.TryGetComponent(Entity, out LatheComponent? lathe);
 
@@ -146,6 +154,10 @@ public sealed partial class LatheMenu : FancyWindow
                 var control = new RecipeControl(_lathe, prototype, tooltipFunction, canProduce, GetRecipeDisplayControl(prototype));
                 control.OnButtonPressed += s =>
                 {
+                    _activeRecipeId = prototype.ID;
+                    if (_autoMode && AutoButton.Pressed)
+                        OnAutoRecipeToggled?.Invoke(prototype.ID, true);
+
                     if (!int.TryParse(AmountLineEdit.Text, out var amount) || amount <= 0)
                         amount = 1;
                     RecipeQueueAction?.Invoke(s, amount);
@@ -155,10 +167,9 @@ public sealed partial class LatheMenu : FancyWindow
             else
             {
                 var child = RecipeList.GetChild(idx) as RecipeControl;
-
                 if (child == null)
                 {
-                    DebugTools.Assert($"Lathe menu recipe control at {idx} is not of type RecipeControl"); // Something's gone terribly wrong.
+                    DebugTools.Assert($"Lathe menu recipe control at {idx} is not of type RecipeControl");
                     continue;
                 }
 
@@ -170,7 +181,6 @@ public sealed partial class LatheMenu : FancyWindow
             idx++;
         }
 
-        // Shrink list if new list is shorter than old list.
         for (var childIdx = oldChildCount - 1; idx <= childIdx; childIdx--)
         {
             RecipeList.RemoveChild(childIdx);
@@ -217,7 +227,6 @@ public sealed partial class LatheMenu : FancyWindow
         if (!string.IsNullOrWhiteSpace(desc))
             sb.AppendLine(Loc.GetString("lathe-menu-description-display", ("description", desc)));
 
-        // Remove last newline
         if (sb.Length > 0)
             sb.Remove(sb.Length - 1, 1);
 
@@ -226,7 +235,6 @@ public sealed partial class LatheMenu : FancyWindow
 
     public void UpdateCategories()
     {
-        // Get categories from recipes
         var currentCategories = new List<ProtoId<LatheCategoryPrototype>>();
         foreach (var recipeId in Recipes)
         {
@@ -263,13 +271,8 @@ public sealed partial class LatheMenu : FancyWindow
         FilterOption.SelectId(-1);
     }
 
-    /// <summary>
-    /// Populates the build queue list with all queued items
-    /// </summary>
-    /// <param name="queue"></param>
     public void PopulateQueueList(IReadOnlyCollection<LatheRecipeBatch> queue)
     {
-        // Get the existing list of queue controls
         var oldChildCount = QueueList.ChildCount;
 
         var idx = 0;
@@ -298,7 +301,7 @@ public sealed partial class LatheMenu : FancyWindow
 
                 if (child == null)
                 {
-                    DebugTools.Assert($"Lathe menu queued recipe control at {idx} is not of type QueuedRecipeControl"); // Something's gone terribly wrong.
+                    DebugTools.Assert($"Lathe menu queued recipe control at {idx} is not of type QueuedRecipeControl");
                     continue;
                 }
 
@@ -309,7 +312,6 @@ public sealed partial class LatheMenu : FancyWindow
             idx++;
         }
 
-        // Shrink list if new list is shorter than old list.
         for (var childIdx = oldChildCount - 1; idx <= childIdx; childIdx--)
         {
             QueueList.RemoveChild(childIdx);

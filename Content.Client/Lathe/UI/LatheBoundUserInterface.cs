@@ -10,6 +10,7 @@ namespace Content.Client.Lathe.UI
     {
         [ViewVariables]
         private LatheMenu? _menu;
+
         public LatheBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
         {
         }
@@ -34,6 +35,12 @@ namespace Content.Client.Lathe.UI
             _menu.QueueMoveUpAction += index => SendMessage(new LatheMoveRequestMessage(index, -1));
             _menu.QueueMoveDownAction += index => SendMessage(new LatheMoveRequestMessage(index, 1));
             _menu.DeleteFabricatingAction += () => SendMessage(new LatheAbortFabricationMessage());
+
+            // Подписка на событие авто-режима
+            _menu.OnAutoRecipeToggled += (recipeId, enabled) =>
+            {
+                SendMessage(new LatheSetActiveRecipeMessage(recipeId, enabled));
+            };
         }
 
         protected override void UpdateState(BoundUserInterfaceState state)

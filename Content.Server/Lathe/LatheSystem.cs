@@ -33,6 +33,7 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
+using Content.Shared.Automation;
 
 namespace Content.Server.Lathe
 {
@@ -83,6 +84,16 @@ namespace Content.Server.Lathe
             SubscribeLocalEvent<TechnologyDatabaseComponent, LatheGetRecipesEvent>(OnGetRecipes);
             SubscribeLocalEvent<EmagLatheRecipesComponent, LatheGetRecipesEvent>(GetEmagLatheRecipes);
             SubscribeLocalEvent<LatheHeatProducingComponent, LatheStartPrintingEvent>(OnHeatStartPrinting);
+            SubscribeLocalEvent<LatheComponent, LatheSetActiveRecipeMessage>(OnSetActiveRecipe);
+        }
+        private void OnSetActiveRecipe(EntityUid uid, LatheComponent component, LatheSetActiveRecipeMessage args)
+        {
+            if (TryComp<ActiveRecipeComponent>(uid, out var active))
+            {
+                active.ActiveRecipeId = args.RecipeId;
+                active.Enabled = args.Enabled;
+                // Dirty не требуется, компонент не сетевой
+            }
         }
         public override void Update(float frameTime)
         {
