@@ -1,0 +1,71 @@
+- type: entity
+  id: DrillTileIron
+  parent: BaseStructure
+  name: клетка для добычи железа
+  description: Специальная клетка, на которой можно добывать железную руду с помощью бура.
+  components:
+  - type: Sprite
+    sprite: _FactoryStation/Tiles/drill_tile_iron.rsi
+    state: icon
+  - type: DrillableTile
+    spawnPrototype: OreIronSheet1
+    amountPerDrill: 2
+    totalAmount: 200
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Physics
+    bodyType: Static
+
+- type: entity
+  id: DrillTileCopper
+  parent: BaseStructure
+  name: клетка для добычи меди
+  description: Специальная клетка, на которой можно добывать медную руду с помощью бура.
+  components:
+  - type: Sprite
+    sprite: _FactoryStation/Tiles/drill_tile_copper.rsi
+    state: icon
+  - type: DrillableTile
+    spawnPrototype: OreCopperSheet1
+    amountPerDrill: 2
+    totalAmount: 200
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Physics
+    bodyType: Static
+
+- type: entity
+  id: DrillTileCoal
+  parent: BaseStructure
+  name: клетка для добычи угля
+  description: Специальная клетка, на которой можно добывать уголь с помощью бура.
+  components:
+  - type: Sprite
+    sprite: _FactoryStation/Tiles/drill_tile_coal.rsi
+    state: icon
+  - type: DrillableTile
+    spawnPrototype: OreCoalSheet1
+    amountPerDrill: 2
+    totalAmount: 200
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Physics
+    bodyType: Static
+
+- type: entity
+  id: DrillTileSandStone
+  parent: BaseStructure
+  name: клетка для добычи песчаника
+  description: Специальная клетка, на которой можно добывать песчаник с помощью бура.
+  components:
+  - type: Sprite
+    sprite: _FactoryStation/Tiles/drill_tile_sandstone.rsi
+    state: icon
+  - type: DrillableTile
+    spawnPrototype: OreSandstoneFactSheet1
+    amountPerDrill: 2
+    totalAmount: 200
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Physics
+    bodyType: Static

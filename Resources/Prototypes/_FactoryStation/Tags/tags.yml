@@ -93,3 +93,12 @@
 
 - type: Tag
   id: OreSlimePink
+
+- type: Tag
+  id: DrillTile
+
+- type: Tag
+  id: DrillFactory
+
+- type: Tag
+  id: DrillActive

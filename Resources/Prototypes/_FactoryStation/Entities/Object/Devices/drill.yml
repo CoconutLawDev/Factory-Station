@@ -1,0 +1,20 @@
+- type: entity
+  id: DrillFactory
+  parent: BaseItem
+  name: бур
+  description: Переносной бур для добычи ресурсов с клеток. Требует батарейку.
+  components:
+  - type: Sprite
+    sprite: _FactoryStation/items/devices/drill.rsi
+    state: icon
+  - type: Item
+    size: Large
+    activate: true          # чтобы работал ActivateInWorldEvent
+  - type: Drill
+    interval: 5
+  - type: Battery
+    maxCharge: 1000
+    startingCharge: 1000
+  - type: Tag
+    tags:
+    - DrillFactory

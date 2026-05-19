@@ -175,6 +175,7 @@
           - BatteryAmmoProvider
           - Stunbaton
           - PowerCell
+          - Battery # CoconutLawDev Add
         blacklist:
           tags:
           - PotatoBattery
@@ -203,6 +204,7 @@
           - BatteryAmmoProvider
           - Stunbaton
           - PowerCell
+          - Battery # CoconutLawDev Add
         blacklist:
           tags:
           - PotatoBattery
