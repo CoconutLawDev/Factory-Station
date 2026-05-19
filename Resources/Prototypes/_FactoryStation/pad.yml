@@ -1,0 +1,26 @@
+- type: entity
+  id: FactoryGoalPad
+  parent: BaseStructure
+  name: платформа приёма промышленных товаров
+
+  components:
+  - type: Sprite
+    sprite: Structures/cargo_telepad.rsi
+    drawdepth: HighFloorObjects
+    layers:
+    - state: offline
+      map: [ "enum.CargoTelepadLayers.Base" ]
+    - state: idle
+      map: [ "enum.CargoTelepadLayers.Beam" ]
+      shader: unshaded
+
+  - type: FactoryGoalPad
+
+  - type: Clickable
+
+  - type: InteractionOutline
+
+  - type: Physics
+    bodyType: Static
+
+  - type: StationMember

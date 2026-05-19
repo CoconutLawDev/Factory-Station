@@ -1,0 +1,10 @@
+- type: entity
+  id: FactoryGoalConsoleCircuitboard
+  parent: BaseComputerCircuitboard
+  name: плата консоли промышленного плана
+  description: Содержит программу для выбора производственных целей станции.
+  components:
+  - type: ComputerBoard
+    prototype: FactoryGoalConsole
+  - type: Sprite
+    state: generic  # стандартный спрайт платы

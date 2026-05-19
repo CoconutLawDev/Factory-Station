@@ -1,0 +1,51 @@
+# Лёгкие цели
+- type: factoryGoal
+  id: LightIronIngot
+  name: "Лёгкая цель: Железные слитки"
+  difficulty: Light
+  requiredItem: IngotIronSheet1
+  requiredAmount: 50
+  rewardMessage: "ЦентКом благодарит за выполнение лёгкой цели. Награда переведена на счета."
+
+- type: factoryGoal
+  id: LightGlass
+  name: "Лёгкая цель: Стекло"
+  difficulty: Light
+  requiredItem: SheetGlass1
+  requiredAmount: 50
+  rewardMessage: "ЦентКом благодарит за выполнение лёгкой цели. Награда переведена на счета."
+
+- type: factoryGoal
+  id: LightCopperIngot
+  name: "Лёгкая цель: Медные слитки"
+  difficulty: Light
+  requiredItem: IngotCopperSheet1
+  requiredAmount: 50
+  rewardMessage: "ЦентКом благодарит за выполнение лёгкой цели. Награда переведена на счета."
+
+# Средние цели
+
+- type: factoryGoal
+  id: MediumCrystal
+  name: "Средняя цель: Обработанные кристаллы"
+  difficulty: Medium
+  requiredItem: IngotCrystalSheet1
+  requiredAmount: 100
+  rewardMessage: "ЦентКом благодарит за выполнение средней цели. Награда переведена на счета."
+
+# Сложные цели
+- type: factoryGoal
+  id: HardAlloy
+  name: "Сложная цель: Синтез-гель"
+  difficulty: Hard
+  requiredItem: SlimeGelSheet1
+  requiredAmount: 200
+  rewardMessage: "ЦентКом выражает особую благодарность за выполнение сложной цели. Значительная награда переведена на счета."
+
+- type: factoryGoal
+  id: HardCoal
+  name: "Сложная цель: Упакованный уголь"
+  difficulty: Hard
+  requiredItem: IngotCoalSheet1
+  requiredAmount: 200
+  rewardMessage: "ЦентКом выражает особую благодарность за выполнение сложной цели. Значительная награда переведена на счета."
