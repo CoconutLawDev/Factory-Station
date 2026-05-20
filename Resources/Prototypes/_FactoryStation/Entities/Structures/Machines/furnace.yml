@@ -2,16 +2,19 @@
   id: Furnace
   parent: BaseLatheLube
   name: Промышленная печь
-  description: "Промышленная печь используется для выплавки руды в слитки. Она может обрабатывать большие объемы материалов, что делает её незаменимой в производственных процессах."
+  description: "Промышленная печь используется для выплавки руды в слитки."
   components:
+
   - type: Sprite
     sprite: _FactoryStation/Machines/smelter.rsi
     snapCardinals: true
     layers:
     - state: icon
-      map: ["enum.LatheVisualLayers.IsRunning"]   # Этот слой будет меняться на burning
+      map: ["enum.LatheVisualLayers.IsRunning"]
+
   - type: Machine
     board: FurnaceMachineCircuitboard
+
   - type: MaterialStorage
     whitelist:
       tags:
@@ -19,19 +22,33 @@
         - RawMaterial
         - Ingot
       capacity: 500
+
   - type: OreSiloClient
+
   - type: Lathe
-    idleState: icon          # Когда стоит на месте
+    idleState: icon
     runningState: burning
     staticPacks:
-    - IngotIronRecipe
+      - IngotIronRecipe
+
   - type: AutoCollector
-    interval: 0.5          # интервал проверки (секунды)
-    pullForce: 25.0        # сила подтягивания предметов
-    collectionRadius: 0.7  # радиус захвата (0.7 ~ один тайл)
+    interval: 0.5
+    pullForce: 25.0
+    collectionRadius: 0.7
+
   - type: ActiveRecipe
     enabled: true
-    activeRecipeId:   # Можете указать конкретный рецепт по умолчанию (или оставить пустым)
+
+  - type: FactoryIndustrialHeat
+    maxHeat: 1500
+    heatPerSecond: 55
+    cooldownPerSecond: 8
+    smokeThreshold: 200
+    dangerThreshold: 900
+    smokeInterval: 3
+
+    runningSound:
+      path: /Audio/Machines/circuitprinter.ogg
 
 
 - type: entity

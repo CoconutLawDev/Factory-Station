@@ -102,3 +102,15 @@
 
 - type: Tag
   id: DrillActive
+
+- type: Tag
+  id: WireCopperFact
+
+- type: Tag
+  id: WireCopperSheet
+
+- type: Tag
+  id: WireGoldFact
+
+- type: Tag
+  id: WireGoldSheet

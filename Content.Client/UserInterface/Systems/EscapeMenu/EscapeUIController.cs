@@ -17,7 +17,9 @@ using static Robust.Client.UserInterface.Controls.BaseButton;
 namespace Content.Client.UserInterface.Systems.EscapeMenu;
 
 [UsedImplicitly]
-public sealed partial class EscapeUIController : UIController, IOnStateEntered<GameplayState>, IOnStateExited<GameplayState>
+public sealed partial class EscapeUIController : UIController,
+    IOnStateEntered<GameplayState>,
+    IOnStateExited<GameplayState>
 {
     [Dependency] private IClientConsoleHost _console = default!;
     [Dependency] private IUriOpener _uri = default!;
@@ -26,18 +28,18 @@ public sealed partial class EscapeUIController : UIController, IOnStateEntered<G
     [Dependency] private InfoUIController _info = default!;
     [Dependency] private OptionsUIController _options = default!;
     [Dependency] private GuidebookUIController _guidebook = default!;
-    [Dependency] private FeedbackPopupUIController _feedback = null!;
+    [Dependency] private FeedbackPopupUIController _feedback = default!;
 
     private Options.UI.EscapeMenu? _escapeWindow;
 
-    private MenuButton? EscapeButton => UIManager.GetActiveUIWidgetOrNull<MenuBar.Widgets.GameTopMenuBar>()?.EscapeButton;
+    private MenuButton? EscapeButton =>
+        UIManager.GetActiveUIWidgetOrNull<MenuBar.Widgets.GameTopMenuBar>()
+            ?.EscapeButton;
 
     public void UnloadButton()
     {
         if (EscapeButton == null)
-        {
             return;
-        }
 
         EscapeButton.Pressed = false;
         EscapeButton.OnPressed -= EscapeButtonOnOnPressed;
@@ -46,15 +48,20 @@ public sealed partial class EscapeUIController : UIController, IOnStateEntered<G
     public void LoadButton()
     {
         if (EscapeButton == null)
-        {
             return;
-        }
 
         EscapeButton.OnPressed += EscapeButtonOnOnPressed;
     }
 
-    private void ActivateButton() => EscapeButton!.SetClickPressed(true);
-    private void DeactivateButton() => EscapeButton!.SetClickPressed(false);
+    private void ActivateButton()
+    {
+        EscapeButton?.SetClickPressed(true);
+    }
+
+    private void DeactivateButton()
+    {
+        EscapeButton?.SetClickPressed(false);
+    }
 
     public void OnStateEntered(GameplayState state)
     {
@@ -65,57 +72,73 @@ public sealed partial class EscapeUIController : UIController, IOnStateEntered<G
         _escapeWindow.OnClose += DeactivateButton;
         _escapeWindow.OnOpen += ActivateButton;
 
+        // Feedback
         _escapeWindow.FeedbackButton.OnPressed += _ =>
         {
             CloseEscapeWindow();
             _feedback.ToggleWindow();
         };
 
+        // Discord
+        _escapeWindow.DiscordButton.OnPressed += _ =>
+        {
+            _uri.OpenUri("https://discord.gg/e2zwWhxRr8");
+        };
+
+        // Changelog
         _escapeWindow.ChangelogButton.OnPressed += _ =>
         {
             CloseEscapeWindow();
             _changelog.ToggleWindow();
         };
 
+        // Rules
         _escapeWindow.RulesButton.OnPressed += _ =>
         {
             CloseEscapeWindow();
             _info.OpenWindow();
         };
 
+        // Disconnect
         _escapeWindow.DisconnectButton.OnPressed += _ =>
         {
             CloseEscapeWindow();
             _console.ExecuteCommand("disconnect");
         };
 
+        // Options
         _escapeWindow.OptionsButton.OnPressed += _ =>
         {
             CloseEscapeWindow();
             _options.OpenWindow();
         };
 
+        // Quit
         _escapeWindow.QuitButton.OnPressed += _ =>
         {
             CloseEscapeWindow();
             _console.ExecuteCommand("quit");
         };
 
+        // Wiki
         _escapeWindow.WikiButton.OnPressed += _ =>
         {
             _uri.OpenUri(_cfg.GetCVar(CCVars.InfoLinksWiki));
         };
 
+        // Guidebook
         _escapeWindow.GuidebookButton.OnPressed += _ =>
         {
             _guidebook.ToggleGuidebook();
         };
 
-        // Hide wiki button if we don't have a link for it.
-        _escapeWindow.WikiButton.Visible = _cfg.GetCVar(CCVars.InfoLinksWiki) != "";
+        // Hide wiki button if link is empty.
+        _escapeWindow.WikiButton.Visible =
+            _cfg.GetCVar(CCVars.InfoLinksWiki) != "";
 
         CommandBinds.Builder
-            .Bind(EngineKeyFunctions.EscapeMenu,
+            .Bind(
+                EngineKeyFunctions.EscapeMenu,
                 InputCmdHandler.FromDelegate(_ => ToggleWindow()))
             .Register<EscapeUIController>();
     }
@@ -131,7 +154,7 @@ public sealed partial class EscapeUIController : UIController, IOnStateEntered<G
         CommandBinds.Unregister<EscapeUIController>();
     }
 
-    private void EscapeButtonOnOnPressed(ButtonEventArgs obj)
+    private void EscapeButtonOnOnPressed(ButtonEventArgs args)
     {
         ToggleWindow();
     }
@@ -152,12 +175,16 @@ public sealed partial class EscapeUIController : UIController, IOnStateEntered<G
         if (_escapeWindow.IsOpen)
         {
             CloseEscapeWindow();
-            EscapeButton!.Pressed = false;
+
+            if (EscapeButton != null)
+                EscapeButton.Pressed = false;
         }
         else
         {
             _escapeWindow.OpenCentered();
-            EscapeButton!.Pressed = true;
+
+            if (EscapeButton != null)
+                EscapeButton.Pressed = true;
         }
     }
 }

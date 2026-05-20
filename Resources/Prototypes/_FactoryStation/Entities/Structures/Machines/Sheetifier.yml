@@ -93,7 +93,15 @@
     staticPacks:
     - SheetifierRecipe5001
   - type: AutoCollector
-  interval: 0.5          # интервал проверки (секунды)
-  pullForce: 25.0        # сила подтягивания предметов
-  collectionRadius: 0.7  # радиус захвата (0.7 ~ один тайл)
+    interval: 0.5          # интервал проверки (секунды)
+    pullForce: 25.0        # сила подтягивания предметов
+    collectionRadius: 0.7  # радиус захвата (0.7 ~ один тайл)
+  - type: FactoryIndustrialHeat
+    maxHeat: 1500
+    heatPerSecond: 55
+    cooldownPerSecond: 8
+    smokeThreshold: 200
+    dangerThreshold: 900
+    workingSound:
+      path: /Audio/Machines/circuitprinter.ogg
 

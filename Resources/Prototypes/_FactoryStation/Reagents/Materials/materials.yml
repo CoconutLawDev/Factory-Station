@@ -99,3 +99,19 @@
   icon: { sprite: _FactoryStation/Items/Materials/slimegel.rsi, state: icon }
   color: "#3949c6"
   price: 0.03
+
+- type: material
+  id: WireCopperFact
+  stackEntity: WireCopperSheet1
+  name: Медная проволока
+  icon: { sprite: _FactoryStation/Items/Materials/wire.rsi, state: icon }
+  color: "#D4AF37"
+  price: 0.03
+
+- type: material
+  id: WireGoldFact
+  stackEntity: WireGoldSheet1
+  name: Золотая проволока
+  icon: { sprite: _FactoryStation/Items/Materials/wire-gold.rsi, state: icon }
+  color: "#D4AF37"
+  price: 0.03

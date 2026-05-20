@@ -1,0 +1,13 @@
+- type: entity
+  id: FactoryHeavySmoke
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 3
+  - type: Sprite
+    drawdepth: Effects
+    sprite: Effects/atmospherics.rsi
+    state: water_vapor
+  - type: Appearance
+  - type: Transform
+    anchored: true

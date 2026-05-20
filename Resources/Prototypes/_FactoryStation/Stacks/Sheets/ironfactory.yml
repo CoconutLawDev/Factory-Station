@@ -123,3 +123,19 @@
   icon: { sprite: _FactoryStation/Items/Materials/slimesourcepink.rsi, state: icon }
   spawn: OreSlimePinkSheet1
   maxCount: 20
+
+- type: stack
+  parent: BaseSheetStack
+  id: WireCopperSheet
+  name: "медная проволока"
+  icon: { sprite: _FactoryStation/Items/Materials/wire.rsi, state: icon }
+  spawn: WireCopperSheet1
+  maxCount: 30
+
+- type: stack
+  parent: BaseSheetStack
+  id: WireGoldSheet
+  name: "золотая проволока"
+  icon: { sprite: _FactoryStation/Items/Materials/wire-gold.rsi, state: icon }
+  spawn: WireGoldSheet1
+  maxCount: 30
