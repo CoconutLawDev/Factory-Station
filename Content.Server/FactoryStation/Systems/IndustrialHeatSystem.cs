@@ -1,15 +1,24 @@
 using System;
+using Content.Server.Explosion.EntitySystems;
+using Content.Server.Damage.Systems;
 using Content.Server.FactoryStation.Components;
+using Content.Shared.Damage;
 using Content.Shared.Lathe;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Log;
+using Robust.Shared.Random;
+using Content.Shared.Damage.Components;
+using Content.Shared.Damage.Systems;
 
 namespace Content.Server.FactoryStation.Systems;
 
 public sealed partial class IndustrialHeatSystem : EntitySystem
 {
     [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private DamageableSystem _damageable = default!;
+    [Dependency] private ExplosionSystem _explosion = default!;
+    [Dependency] private IRobustRandom _random = default!;
 
     private readonly ISawmill _sawmill = Logger.GetSawmill("factory.heat");
 
@@ -47,38 +56,48 @@ public sealed partial class IndustrialHeatSystem : EntitySystem
         {
             var running = lathe.CurrentRecipe != null;
 
+            // 1. Изменение температуры
             if (running)
             {
-                UpdateRunningState(uid, heat);
+                heat.CurrentHeat += heat.HeatPerSecond;
+                EnsureRunningSound(uid, heat);
             }
             else
             {
-                UpdateIdleState(heat);
+                heat.CurrentHeat -= heat.CooldownPerSecond;
+                StopRunningSound(heat);
             }
 
-            heat.CurrentHeat = Math.Clamp(
-                heat.CurrentHeat,
-                20f,
-                heat.MaxHeat);
+            heat.CurrentHeat = Math.Clamp(heat.CurrentHeat, 20f, heat.MaxHeat);
 
-            UpdateSmoke(uid, heat);
+            // 2. Определение состояния
+            var state = heat.CurrentHeat >= heat.CriticalThreshold ? OverheatState.Critical
+                : heat.CurrentHeat >= heat.DangerThreshold ? OverheatState.Warning
+                : OverheatState.Normal;
+
+            // 3. Обработка критического состояния
+            if (state == OverheatState.Critical)
+            {
+                ProcessCriticalOverheat(uid, heat);
+            }
+
+            // 4. Генерация одиночного дыма (облако создаётся в FactorySmokeSystem)
+            if (heat.ProducingSmoke && heat.CurrentHeat >= heat.SmokeThreshold)
+            {
+                heat.SmokeAccumulator++;
+                if (heat.SmokeAccumulator >= heat.SmokeInterval)
+                {
+                    heat.SmokeAccumulator = 0f;
+                    Spawn("FactoryHeavySmoke", Transform(uid).Coordinates);
+                }
+            }
         }
     }
 
-    private void UpdateRunningState(
-        EntityUid uid,
-        FactoryIndustrialHeatComponent component)
+    private void EnsureRunningSound(EntityUid uid, FactoryIndustrialHeatComponent component)
     {
-        component.CurrentHeat += component.HeatPerSecond;
-
-        if (component.RunningSound == null)
-            return;
-
-        // Уже играет
-        if (component.AudioStream != null)
-            return;
-
-        _sawmill.Info($"Starting furnace sound for entity {uid}");
+        if (component.RunningSound == null) return;
+        if (component.AudioStream != null) return;
 
         var stream = _audio.PlayPvs(
             component.RunningSound,
@@ -94,42 +113,49 @@ public sealed partial class IndustrialHeatSystem : EntitySystem
         }
 
         component.AudioStream = stream.Value.Entity;
-
-        _sawmill.Info($"Created audio stream entity {component.AudioStream}");
     }
 
-    private void UpdateIdleState(
-        FactoryIndustrialHeatComponent component)
+    private void StopRunningSound(FactoryIndustrialHeatComponent component)
     {
-        component.CurrentHeat -= component.CooldownPerSecond;
-
-        if (component.AudioStream == null)
-            return;
-
+        if (component.AudioStream == null) return;
         _audio.Stop(component.AudioStream.Value);
-
         component.AudioStream = null;
     }
 
-    private void UpdateSmoke(
-        EntityUid uid,
-        FactoryIndustrialHeatComponent component)
+    private void ProcessCriticalOverheat(EntityUid uid, FactoryIndustrialHeatComponent heat)
     {
-        if (!component.ProducingSmoke)
-            return;
+        // Повреждение станка
+        if (TryComp<DamageableComponent>(uid, out var damageable))
+        {
+            // Урон теплом – подставьте нужный тип, если "Heat" нет, замените на "Blunt" или "Slash"
+            var damageSpec = new DamageSpecifier
+            {
+                DamageDict = { ["Heat"] = heat.DamagePerSecondCritical }
+            };
+            _damageable.TryChangeDamage(uid, damageSpec, interruptsDoAfters: false);
+        }
 
-        if (component.CurrentHeat < component.SmokeThreshold)
-            return;
+        // Шанс взрыва
+        if (_random.Prob(heat.ExplosionChance))
+        {
+            _explosion.QueueExplosion(
+                uid,
+                "Default",
+                heat.ExplosionIntensity,
+                heat.ExplosionSlope,
+                heat.ExplosionMaxTileIntensity,
+                user: null,
+                addLog: true);
 
-        component.SmokeAccumulator += 1f;
+            // Сброс температуры после взрыва, чтобы не взрывалось каждый тик
+            heat.CurrentHeat = heat.MaxHeat * 0.6f;
+        }
+    }
 
-        if (component.SmokeAccumulator < component.SmokeInterval)
-            return;
-
-        component.SmokeAccumulator = 0f;
-
-        Spawn(
-            "FactoryHeavySmoke",
-            Transform(uid).Coordinates);
+    private enum OverheatState
+    {
+        Normal,
+        Warning,
+        Critical
     }
 }

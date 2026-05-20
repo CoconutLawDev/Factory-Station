@@ -9,7 +9,7 @@
     snapCardinals: true
     layers:
     - state: icon
-      map: ["enum.LatheVisualLayers.IsRunning"]   # Этот слой будет меняться на burning
+      map: ["enum.LatheVisualLayers.IsRunning"]
   - type: Machine
     board: ShaperMachineCircuitboard261
   - type: MaterialStorage
@@ -21,13 +21,36 @@
       capacity: 500
   - type: OreSiloClient
   - type: Lathe
-    idleState: icon          # Когда стоит на месте
+    idleState: icon
     runningState: burning
     staticPacks:
     - IngotIronRecipe
   - type: AutoCollector
-    interval: 0.5          # интервал проверки (секунды)
-    pullForce: 25.0        # сила подтягивания предметов
-    collectionRadius: 0.7  # радиус захвата (0.7 ~ один тайл)
-
-
+    interval: 0.5
+    pullForce: 25.0
+    collectionRadius: 0.7
+  - type: ActiveRecipe
+    enabled: true
+  - type: FactoryIndustrialHeat
+    maxHeat: 1350
+    heatPerSecond: 11
+    cooldownPerSecond: 11
+    smokeThreshold: 340
+    dangerThreshold: 740
+    criticalThreshold: 1120
+    smokeInterval: 4
+    runningSound:
+      path: /Audio/Machines/circuitprinter.ogg
+    atmosHeatPerSecond: 21
+    co2PerSecond: 0.21
+    explosionChance: 0.04
+    explosionIntensity: 42
+    explosionSlope: 3
+    explosionMaxTileIntensity: 9
+    damagePerSecondCritical: 13
+    alarmSound:
+      path: /Audio/_FactoryStation/alertfactory1.ogg   # убедитесь, что звук существует
+    spillageInterval: 5
+    spillagePrototype: PuddleFactoryLubricant
+    spillageChance: 0.4
+    emitsSparks: true

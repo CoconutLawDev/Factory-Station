@@ -9,7 +9,7 @@
     snapCardinals: true
     layers:
     - state: icon
-      map: ["enum.LatheVisualLayers.IsRunning"]   # Этот слой будет меняться на burning
+      map: ["enum.LatheVisualLayers.IsRunning"]
   - type: Machine
     board: SheetifierMachineCircuitboard3001
   - type: MaterialStorage
@@ -22,14 +22,40 @@
       capacity: 250
   - type: OreSiloClient
   - type: Lathe
-    idleState: icon          # Когда стоит на месте
+    idleState: icon
     runningState: burning
     staticPacks:
     - SheetifierRecipe3001
   - type: AutoCollector
-  interval: 0.5          # интервал проверки (секунды)
-  pullForce: 25.0        # сила подтягивания предметов
-  collectionRadius: 0.7  # радиус захвата (0.7 ~ один тайл)
+    interval: 0.5
+    pullForce: 25.0
+    collectionRadius: 0.7
+  - type: ActiveRecipe
+    enabled: true
+  - type: FactoryIndustrialHeat
+    maxHeat: 1300
+    heatPerSecond: 10
+    cooldownPerSecond: 12
+    smokeThreshold: 350
+    dangerThreshold: 750
+    criticalThreshold: 1100
+    smokeInterval: 4
+    runningSound:
+      path: /Audio/Machines/circuitprinter.ogg
+    atmosHeatPerSecond: 20
+    co2PerSecond: 0.2
+    explosionChance: 0.03
+    explosionIntensity: 40
+    explosionSlope: 3
+    explosionMaxTileIntensity: 8
+    damagePerSecondCritical: 12
+    alarmSound:
+      path: /Audio/_FactoryStation/alertfactory1.ogg   # убедитесь, что звук существует
+    spillageInterval: 5
+    spillagePrototype: PuddleFactoryLubricant
+    spillageChance: 0.4
+    emitsSparks: true
+
 
 - type: entity
   id: SheetifierFactory4001
@@ -42,7 +68,7 @@
     snapCardinals: true
     layers:
     - state: icon
-      map: ["enum.LatheVisualLayers.IsRunning"]   # Этот слой будет меняться на burning
+      map: ["enum.LatheVisualLayers.IsRunning"]
   - type: Machine
     board: SheetifierMachineCircuitboard4001
   - type: MaterialStorage
@@ -55,14 +81,40 @@
       capacity: 250
   - type: OreSiloClient
   - type: Lathe
-    idleState: icon          # Когда стоит на месте
+    idleState: icon
     runningState: burning
     staticPacks:
     - SheetifierRecipe4001
   - type: AutoCollector
-  interval: 0.5          # интервал проверки (секунды)
-  pullForce: 25.0        # сила подтягивания предметов
-  collectionRadius: 0.7  # радиус захвата (0.7 ~ один тайл)
+    interval: 0.5
+    pullForce: 25.0
+    collectionRadius: 0.7
+  - type: ActiveRecipe
+    enabled: true
+  - type: FactoryIndustrialHeat
+    maxHeat: 1450
+    heatPerSecond: 14
+    cooldownPerSecond: 10
+    smokeThreshold: 300
+    dangerThreshold: 700
+    criticalThreshold: 1050
+    smokeInterval: 3
+    runningSound:
+      path: /Audio/Machines/circuitprinter.ogg
+    atmosHeatPerSecond: 25
+    co2PerSecond: 0.25
+    explosionChance: 0.05
+    explosionIntensity: 50
+    explosionSlope: 3
+    explosionMaxTileIntensity: 10
+    damagePerSecondCritical: 15
+    alarmSound:
+      path: /Audio/_FactoryStation/alertfactory1.ogg   # убедитесь, что звук существует
+    spillageInterval: 5
+    spillagePrototype: PuddleFactoryLubricant
+    spillageChance: 0.4
+    emitsSparks: true
+
 
 - type: entity
   id: SheetifierFactory5001
@@ -75,7 +127,7 @@
     snapCardinals: true
     layers:
     - state: icon
-      map: ["enum.LatheVisualLayers.IsRunning"]   # Этот слой будет меняться на burning
+      map: ["enum.LatheVisualLayers.IsRunning"]
   - type: Machine
     board: SheetifierMachineCircuitboard5001
   - type: MaterialStorage
@@ -88,20 +140,36 @@
       capacity: 500
   - type: OreSiloClient
   - type: Lathe
-    idleState: icon          # Когда стоит на месте
+    idleState: icon
     runningState: burning
     staticPacks:
     - SheetifierRecipe5001
   - type: AutoCollector
-    interval: 0.5          # интервал проверки (секунды)
-    pullForce: 25.0        # сила подтягивания предметов
-    collectionRadius: 0.7  # радиус захвата (0.7 ~ один тайл)
+    interval: 0.5
+    pullForce: 25.0
+    collectionRadius: 0.7
+  - type: ActiveRecipe
+    enabled: true
   - type: FactoryIndustrialHeat
-    maxHeat: 1500
-    heatPerSecond: 55
+    maxHeat: 1600
+    heatPerSecond: 22
     cooldownPerSecond: 8
-    smokeThreshold: 200
-    dangerThreshold: 900
-    workingSound:
+    smokeThreshold: 250
+    dangerThreshold: 650
+    criticalThreshold: 1000
+    smokeInterval: 2
+    runningSound:
       path: /Audio/Machines/circuitprinter.ogg
-
+    atmosHeatPerSecond: 30
+    co2PerSecond: 0.35
+    explosionChance: 0.07
+    explosionIntensity: 60
+    explosionSlope: 3
+    explosionMaxTileIntensity: 12
+    damagePerSecondCritical: 20
+    alarmSound:
+      path: /Audio/_FactoryStation/alertfactory1.ogg   # убедитесь, что звук существует
+    spillageInterval: 5
+    spillagePrototype: PuddleFactoryLubricant
+    spillageChance: 0.4
+    emitsSparks: true
