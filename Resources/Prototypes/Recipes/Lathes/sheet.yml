@@ -113,7 +113,7 @@
   completetime: 0
   materials:
     RawPlasma: 100
-    RawIron: 200 #Twice as durable as steel, Twice the material cost
+    IngotIron: 200 #Twice as durable as steel, Twice the material cost
     Coal: 30
 
 - type: latheRecipe

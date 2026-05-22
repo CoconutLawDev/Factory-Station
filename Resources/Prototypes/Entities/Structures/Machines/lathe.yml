@@ -97,8 +97,8 @@
 - type: entity
   id: Autolathe
   parent: BaseLatheLube
-  name: autolathe
-  description: It produces basic items using metal and glass. Has the ability to process blueprints to print new recipes.
+  name: автолат
+  description: Производит базовые предметы из металла и стекла. Может считывать чертежи для новых рецептов.
   components:
   - type: Sprite
     sprite: Structures/Machines/autolathe.rsi
@@ -158,6 +158,36 @@
   - type: EmptyOnMachineDeconstruct
     containers:
     - blueprint
+  # Новые компоненты
+  - type: AutoCollector
+    interval: 0.5
+    pullForce: 25.0
+    collectionRadius: 0.7
+  - type: ActiveRecipe
+    enabled: true
+  - type: FactoryIndustrialHeat
+    maxHeat: 1400
+    heatPerSecond: 12
+    cooldownPerSecond: 10
+    smokeThreshold: 320
+    dangerThreshold: 720
+    criticalThreshold: 1080
+    smokeInterval: 3
+    runningSound:
+      path: /Audio/Machines/circuitprinter.ogg
+    atmosHeatPerSecond: 22
+    co2PerSecond: 0.22
+    explosionChance: 0.04
+    explosionIntensity: 45
+    explosionSlope: 3
+    explosionMaxTileIntensity: 9
+    damagePerSecondCritical: 14
+    alarmSound:
+      path: /Audio/_FactoryStation/alertfactory1.ogg
+    spillageInterval: 5
+    spillagePrototype: PuddleFactoryLubricant
+    spillageChance: 0.4
+    emitsSparks: true
 
 - type: entity
   id: AutolatheHyperConvection
@@ -173,8 +203,8 @@
 - type: entity
   id: Protolathe
   parent: BaseLatheLube
-  name: protolathe
-  description: Converts raw materials into advanced items.
+  name: протолат
+  description: Преобразует сырьё в продвинутые предметы.
   components:
   - type: Sprite
     sprite: Structures/Machines/protolathe.rsi
@@ -202,7 +232,6 @@
     staticPacks:
     - ChemistryStatic
     - SurgeryStatic
-    dynamicPacks:
     - AdvancedTools
     - ScienceEquipment
     - ScienceExplosives
@@ -222,6 +251,35 @@
     - SecurityExplosives
     - SecurityEquipment
     - SecurityWeapons
+  - type: AutoCollector
+    interval: 0.5
+    pullForce: 25.0
+    collectionRadius: 0.7
+  - type: ActiveRecipe
+    enabled: true
+  - type: FactoryIndustrialHeat
+    maxHeat: 1400
+    heatPerSecond: 12
+    cooldownPerSecond: 10
+    smokeThreshold: 320
+    dangerThreshold: 720
+    criticalThreshold: 1080
+    smokeInterval: 3
+    runningSound:
+      path: /Audio/Machines/circuitprinter.ogg
+    atmosHeatPerSecond: 22
+    co2PerSecond: 0.22
+    explosionChance: 0.04
+    explosionIntensity: 45
+    explosionSlope: 3
+    explosionMaxTileIntensity: 9
+    damagePerSecondCritical: 14
+    alarmSound:
+      path: /Audio/_FactoryStation/alertfactory1.ogg
+    spillageInterval: 5
+    spillagePrototype: PuddleFactoryLubricant
+    spillageChance: 0.4
+    emitsSparks: true
 
 - type: entity
   id: ProtolatheHyperConvection
@@ -237,8 +295,8 @@
 - type: entity
   id: CircuitImprinter
   parent: BaseLatheLube
-  name: circuit imprinter
-  description: Prints circuit boards for machines.
+  name: принтер плат
+  description: Печатает платы для машин.
   components:
   - type: Sprite
     sprite: Structures/Machines/circuit_imprinter.rsi
@@ -263,7 +321,7 @@
     - CargoBoardsStatic
     - MedicalBoardsStatic
     - EngineeringBoardsStatic
-    - FactoryCircuitboardRecipes # CoconutLawDev Add
+    - FactoryCircuitboardRecipes
     - EngineeringBoards
     - CargoBoards
     - MedicalBoards
@@ -279,6 +337,35 @@
     whitelist: *StandardMaterialWhitelist
   - type: OreSiloClient
   - type: RequireProjectileTarget
+  - type: AutoCollector
+    interval: 0.5
+    pullForce: 25.0
+    collectionRadius: 0.7
+  - type: ActiveRecipe
+    enabled: true
+  - type: FactoryIndustrialHeat
+    maxHeat: 1400
+    heatPerSecond: 12
+    cooldownPerSecond: 10
+    smokeThreshold: 320
+    dangerThreshold: 720
+    criticalThreshold: 1080
+    smokeInterval: 3
+    runningSound:
+      path: /Audio/Machines/circuitprinter.ogg
+    atmosHeatPerSecond: 22
+    co2PerSecond: 0.22
+    explosionChance: 0.04
+    explosionIntensity: 45
+    explosionSlope: 3
+    explosionMaxTileIntensity: 9
+    damagePerSecondCritical: 14
+    alarmSound:
+      path: /Audio/_FactoryStation/alertfactory1.ogg
+    spillageInterval: 5
+    spillagePrototype: PuddleFactoryLubricant
+    spillageChance: 0.4
+    emitsSparks: true
 
 - type: entity
   id: CircuitImprinterHyperConvection
@@ -294,8 +381,8 @@
 - type: entity
   id: ExosuitFabricator
   parent: BaseLatheLube
-  name: exosuit fabricator
-  description: Creates parts for robotics and other mechanical needs.
+  name: фабрикатор экзокостюмов
+  description: Создаёт детали для робототехники и других механических нужд.
   components:
   - type: Sprite
     sprite: Structures/Machines/exosuit_fabricator.rsi
@@ -315,7 +402,6 @@
     - RoboticsStatic
     - BorgModulesStatic
     - BorgLimbsStatic
-    dynamicPacks:
     - Robotics
     - BorgModules
     - MechParts
@@ -326,12 +412,41 @@
   - type: GuideHelp
     guides:
     - Robotics
+  - type: AutoCollector
+    interval: 0.5
+    pullForce: 25.0
+    collectionRadius: 0.7
+  - type: ActiveRecipe
+    enabled: true
+  - type: FactoryIndustrialHeat
+    maxHeat: 1400
+    heatPerSecond: 12
+    cooldownPerSecond: 10
+    smokeThreshold: 320
+    dangerThreshold: 720
+    criticalThreshold: 1080
+    smokeInterval: 3
+    runningSound:
+      path: /Audio/Machines/circuitprinter.ogg
+    atmosHeatPerSecond: 22
+    co2PerSecond: 0.22
+    explosionChance: 0.04
+    explosionIntensity: 45
+    explosionSlope: 3
+    explosionMaxTileIntensity: 9
+    damagePerSecondCritical: 14
+    alarmSound:
+      path: /Audio/_FactoryStation/alertfactory1.ogg
+    spillageInterval: 5
+    spillagePrototype: PuddleFactoryLubricant
+    spillageChance: 0.4
+    emitsSparks: true
 
 - type: entity
   id: Biofabricator
   parent: BaseLathe
-  name: biocube fabricator
-  description: Produces animal cubes using biomass.
+  name: био-фабрикатор
+  description: Производит кубики животных, используя биомассу.
   components:
   - type: Sprite
     sprite: Structures/Machines/biofabricator.rsi
@@ -365,12 +480,41 @@
   - type: EmagLatheRecipes
     emagStaticPacks:
     - HostileCubesStatic
+  - type: AutoCollector
+    interval: 0.5
+    pullForce: 25.0
+    collectionRadius: 0.7
+  - type: ActiveRecipe
+    enabled: true
+  - type: FactoryIndustrialHeat
+    maxHeat: 1400
+    heatPerSecond: 12
+    cooldownPerSecond: 10
+    smokeThreshold: 320
+    dangerThreshold: 720
+    criticalThreshold: 1080
+    smokeInterval: 3
+    runningSound:
+      path: /Audio/Machines/circuitprinter.ogg
+    atmosHeatPerSecond: 22
+    co2PerSecond: 0.22
+    explosionChance: 0.04
+    explosionIntensity: 45
+    explosionSlope: 3
+    explosionMaxTileIntensity: 9
+    damagePerSecondCritical: 14
+    alarmSound:
+      path: /Audio/_FactoryStation/alertfactory1.ogg
+    spillageInterval: 5
+    spillagePrototype: PuddleFactoryLubricant
+    spillageChance: 0.4
+    emitsSparks: true
 
 - type: entity
   id: SecurityTechFab
   parent: BaseLatheLube
-  name: security techfab
-  description: Prints equipment for use by security crew.
+  name: техфаб безопасности
+  description: Печатает снаряжение для службы безопасности.
   components:
   - type: Sprite
     sprite: Structures/Machines/techfab.rsi
@@ -397,7 +541,6 @@
     - SecurityPracticeStatic
     - SecurityAmmoStatic
     - SecurityWeaponsStatic
-    dynamicPacks:
     - SalvageSecurityBoards
     - SalvageSecurityWeapons
     - SecurityEquipment
@@ -414,47 +557,106 @@
   - type: OreSiloClient
   - type: LatheAnnouncing
     channels: [Security]
+  - type: AutoCollector
+    interval: 0.5
+    pullForce: 25.0
+    collectionRadius: 0.7
+  - type: ActiveRecipe
+    enabled: true
+  - type: FactoryIndustrialHeat
+    maxHeat: 1400
+    heatPerSecond: 12
+    cooldownPerSecond: 10
+    smokeThreshold: 320
+    dangerThreshold: 720
+    criticalThreshold: 1080
+    smokeInterval: 3
+    runningSound:
+      path: /Audio/Machines/circuitprinter.ogg
+    atmosHeatPerSecond: 22
+    co2PerSecond: 0.22
+    explosionChance: 0.04
+    explosionIntensity: 45
+    explosionSlope: 3
+    explosionMaxTileIntensity: 9
+    damagePerSecondCritical: 14
+    alarmSound:
+      path: /Audio/_FactoryStation/alertfactory1.ogg
+    spillageInterval: 5
+    spillagePrototype: PuddleFactoryLubricant
+    spillageChance: 0.4
+    emitsSparks: true
+
 
 - type: entity
   id: AmmoTechFab
   parent: BaseLatheLube
-  name: ammo techfab
-  description: Prints the bare minimum of bullets that any budget military or armory could need. Nothing fancy.
+  name: техфаб боеприпасов
+  description: Печатает минимум патронов, необходимых любому бюджетному военному складу или оружейной.
   components:
-    - type: Sprite
-      sprite: Structures/Machines/techfab.rsi
-      layers:
-        - state: icon
-          map: ["enum.LatheVisualLayers.IsRunning"]
-        - state: ammo
-        - state: unlit
-          shader: unshaded
-          map: ["enum.PowerDeviceVisualLayers.Powered"]
-        - state: inserting
-          map: ["enum.MaterialStorageVisualLayers.Inserting"]
-        - state: panel
-          map: ["enum.WiresVisualLayers.MaintenancePanel"]
-    - type: Machine
-      board: AmmoTechFabCircuitboard
-    - type: Lathe
-      idleState: icon
-      runningState: icon
-      unlitIdleState: unlit
-      unlitRunningState: unlit-building
-      staticPacks:
-      - SecurityAmmoStatic
-    - type: EmagLatheRecipes
-      emagStaticPacks:
-      - SyndicateAmmoStatic
-    - type: MaterialStorage
-      whitelist: *StandardMaterialWhitelist
-    - type: OreSiloClient
+  - type: Sprite
+    sprite: Structures/Machines/techfab.rsi
+    layers:
+    - state: icon
+      map: ["enum.LatheVisualLayers.IsRunning"]
+    - state: ammo
+    - state: unlit
+      shader: unshaded
+      map: ["enum.PowerDeviceVisualLayers.Powered"]
+    - state: inserting
+      map: ["enum.MaterialStorageVisualLayers.Inserting"]
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: Machine
+    board: AmmoTechFabCircuitboard
+  - type: Lathe
+    idleState: icon
+    runningState: icon
+    unlitIdleState: unlit
+    unlitRunningState: unlit-building
+    staticPacks:
+    - SecurityAmmoStatic
+  - type: EmagLatheRecipes
+    emagStaticPacks:
+    - SyndicateAmmoStatic
+  - type: MaterialStorage
+    whitelist: *StandardMaterialWhitelist
+  - type: OreSiloClient
+  - type: AutoCollector
+    interval: 0.5
+    pullForce: 25.0
+    collectionRadius: 0.7
+  - type: ActiveRecipe
+    enabled: true
+  - type: FactoryIndustrialHeat
+    maxHeat: 1400
+    heatPerSecond: 12
+    cooldownPerSecond: 10
+    smokeThreshold: 320
+    dangerThreshold: 720
+    criticalThreshold: 1080
+    smokeInterval: 3
+    runningSound:
+      path: /Audio/Machines/circuitprinter.ogg
+    atmosHeatPerSecond: 22
+    co2PerSecond: 0.22
+    explosionChance: 0.04
+    explosionIntensity: 45
+    explosionSlope: 3
+    explosionMaxTileIntensity: 9
+    damagePerSecondCritical: 14
+    alarmSound:
+      path: /Audio/_FactoryStation/alertfactory1.ogg
+    spillageInterval: 5
+    spillagePrototype: PuddleFactoryLubricant
+    spillageChance: 0.4
+    emitsSparks: true
 
 - type: entity
   id: MedicalTechFab
   parent: BaseLatheLube
-  name: medical techfab
-  description: Prints equipment for use by the medbay.
+  name: медицинский техфаб
+  description: Печатает оборудование для медблока.
   components:
   - type: Sprite
     sprite: Structures/Machines/techfab.rsi
@@ -482,7 +684,6 @@
     - MedicalClothingStatic
     - EmptyMedkitsStatic
     - SurgeryStatic
-    dynamicPacks:
     - Chemistry
   - type: Machine
     board: MedicalTechFabCircuitboard
@@ -491,12 +692,41 @@
   - type: OreSiloClient
   - type: LatheAnnouncing
     channels: [Medical]
+  - type: AutoCollector
+    interval: 0.5
+    pullForce: 25.0
+    collectionRadius: 0.7
+  - type: ActiveRecipe
+    enabled: true
+  - type: FactoryIndustrialHeat
+    maxHeat: 1400
+    heatPerSecond: 12
+    cooldownPerSecond: 10
+    smokeThreshold: 320
+    dangerThreshold: 720
+    criticalThreshold: 1080
+    smokeInterval: 3
+    runningSound:
+      path: /Audio/Machines/circuitprinter.ogg
+    atmosHeatPerSecond: 22
+    co2PerSecond: 0.22
+    explosionChance: 0.04
+    explosionIntensity: 45
+    explosionSlope: 3
+    explosionMaxTileIntensity: 9
+    damagePerSecondCritical: 14
+    alarmSound:
+      path: /Audio/_FactoryStation/alertfactory1.ogg
+    spillageInterval: 5
+    spillagePrototype: PuddleFactoryLubricant
+    spillageChance: 0.4
+    emitsSparks: true
 
 - type: entity
   parent: BaseLathe
   id: UniformPrinter
-  name: uniform printer
-  description: Prints new or replacement uniforms.
+  name: принтер униформы
+  description: Печатает новую или запасную униформу.
   components:
   - type: Transform
     noRot: false
@@ -534,12 +764,41 @@
   - type: MaterialStorage
     whitelist: *StandardMaterialWhitelist
   - type: OreSiloClient
+  - type: AutoCollector
+    interval: 0.5
+    pullForce: 25.0
+    collectionRadius: 0.7
+  - type: ActiveRecipe
+    enabled: true
+  - type: FactoryIndustrialHeat
+    maxHeat: 1400
+    heatPerSecond: 12
+    cooldownPerSecond: 10
+    smokeThreshold: 320
+    dangerThreshold: 720
+    criticalThreshold: 1080
+    smokeInterval: 3
+    runningSound:
+      path: /Audio/Machines/circuitprinter.ogg
+    atmosHeatPerSecond: 22
+    co2PerSecond: 0.22
+    explosionChance: 0.04
+    explosionIntensity: 45
+    explosionSlope: 3
+    explosionMaxTileIntensity: 9
+    damagePerSecondCritical: 14
+    alarmSound:
+      path: /Audio/_FactoryStation/alertfactory1.ogg
+    spillageInterval: 5
+    spillagePrototype: PuddleFactoryLubricant
+    spillageChance: 0.4
+    emitsSparks: true
 
 - type: entity
   id: Biogenerator
   parent: BaseLathe
-  name: biogenerator
-  description: Converts plants into biomass, which can be used to construct useful items.
+  name: биогенератор
+  description: Превращает растения в биомассу, которую можно использовать для создания полезных предметов.
   components:
   - type: Sprite
     sprite: Structures/Machines/biofabricator.rsi
@@ -581,12 +840,41 @@
     emagStaticPacks:
     - BioGenEmagStatic
     - HostileCubesStatic
+  - type: AutoCollector
+    interval: 0.5
+    pullForce: 25.0
+    collectionRadius: 0.7
+  - type: ActiveRecipe
+    enabled: true
+  - type: FactoryIndustrialHeat
+    maxHeat: 1400
+    heatPerSecond: 12
+    cooldownPerSecond: 10
+    smokeThreshold: 320
+    dangerThreshold: 720
+    criticalThreshold: 1080
+    smokeInterval: 3
+    runningSound:
+      path: /Audio/Machines/circuitprinter.ogg
+    atmosHeatPerSecond: 22
+    co2PerSecond: 0.22
+    explosionChance: 0.04
+    explosionIntensity: 45
+    explosionSlope: 3
+    explosionMaxTileIntensity: 9
+    damagePerSecondCritical: 14
+    alarmSound:
+      path: /Audio/_FactoryStation/alertfactory1.ogg
+    spillageInterval: 5
+    spillagePrototype: PuddleFactoryLubricant
+    spillageChance: 0.4
+    emitsSparks: true
 
 - type: entity
   parent: BaseLathe
   id: OreProcessor
-  name: ore processor
-  description: It produces sheets and ingots using ores.
+  name: переработчик руды (Продвинутый)
+  description: Производит листы и слитки из руды.
   components:
     - type: Sprite
       sprite: Structures/Machines/ore_processor.rsi
@@ -614,12 +902,41 @@
       staticPacks:
       - OreSmelting
       - RGlassSmelting
+    - type: AutoCollector
+      interval: 0.5
+      pullForce: 25.0
+      collectionRadius: 0.7
+    - type: ActiveRecipe
+      enabled: true
+    - type: FactoryIndustrialHeat
+      maxHeat: 1400
+      heatPerSecond: 12
+      cooldownPerSecond: 10
+      smokeThreshold: 320
+      dangerThreshold: 720
+      criticalThreshold: 1080
+      smokeInterval: 3
+      runningSound:
+        path: /Audio/Machines/circuitprinter.ogg
+      atmosHeatPerSecond: 22
+      co2PerSecond: 0.22
+      explosionChance: 0.04
+      explosionIntensity: 45
+      explosionSlope: 3
+      explosionMaxTileIntensity: 9
+      damagePerSecondCritical: 14
+      alarmSound:
+        path: /Audio/_FactoryStation/alertfactory1.ogg
+      spillageInterval: 5
+      spillagePrototype: PuddleFactoryLubricant
+      spillageChance: 0.4
+      emitsSparks: true
 
 - type: entity
   parent: OreProcessor
   id: OreProcessorIndustrial
-  name: industrial ore processor
-  description: An ore processor specifically designed for mass-producing metals in industrial applications.
+  name: промышленный переработчик руды (Продвинутый)
+  description: Переработчик руды, специально предназначенный для массового производства металлов в промышленных применениях.
   components:
   - type: Sprite
     sprite: Structures/Machines/ore_processor_industrial.rsi
@@ -632,12 +949,41 @@
     - OreSmelting
     - RGlassSmelting
     - AdvancedSmelting
+  - type: AutoCollector
+    interval: 0.5
+    pullForce: 25.0
+    collectionRadius: 0.7
+  - type: ActiveRecipe
+    enabled: true
+  - type: FactoryIndustrialHeat
+    maxHeat: 1400
+    heatPerSecond: 12
+    cooldownPerSecond: 10
+    smokeThreshold: 320
+    dangerThreshold: 720
+    criticalThreshold: 1080
+    smokeInterval: 3
+    runningSound:
+      path: /Audio/Machines/circuitprinter.ogg
+    atmosHeatPerSecond: 22
+    co2PerSecond: 0.22
+    explosionChance: 0.04
+    explosionIntensity: 45
+    explosionSlope: 3
+    explosionMaxTileIntensity: 9
+    damagePerSecondCritical: 14
+    alarmSound:
+      path: /Audio/_FactoryStation/alertfactory1.ogg
+    spillageInterval: 5
+    spillagePrototype: PuddleFactoryLubricant
+    spillageChance: 0.4
+    emitsSparks: true
 
 - type: entity
   parent: BaseLathe
   id: Sheetifier
-  name: sheet-meister 2000
-  description: A very sheety machine.
+  name: лист-мейстер 2000
+  description: Очень листовая машина.
   components:
   - type: Sprite
     sprite: Structures/Machines/sheetifier.rsi
@@ -650,7 +996,7 @@
   - type: Machine
     board: SheetifierMachineCircuitboard
   - type: MaterialStorage
-    dropOnDeconstruct: false #should drop ores instead of ingots/sheets
+    dropOnDeconstruct: false
     ignoreColor: true
     canEjectStoredMaterials: false
     whitelist:
@@ -663,12 +1009,41 @@
     runningState: base_machine_processing
     staticPacks:
     - SheetifierStatic
+  - type: AutoCollector
+    interval: 0.5
+    pullForce: 25.0
+    collectionRadius: 0.7
+  - type: ActiveRecipe
+    enabled: true
+  - type: FactoryIndustrialHeat
+    maxHeat: 1400
+    heatPerSecond: 12
+    cooldownPerSecond: 10
+    smokeThreshold: 320
+    dangerThreshold: 720
+    criticalThreshold: 1080
+    smokeInterval: 3
+    runningSound:
+      path: /Audio/Machines/circuitprinter.ogg
+    atmosHeatPerSecond: 22
+    co2PerSecond: 0.22
+    explosionChance: 0.04
+    explosionIntensity: 45
+    explosionSlope: 3
+    explosionMaxTileIntensity: 9
+    damagePerSecondCritical: 14
+    alarmSound:
+      path: /Audio/_FactoryStation/alertfactory1.ogg
+    spillageInterval: 5
+    spillagePrototype: PuddleFactoryLubricant
+    spillageChance: 0.4
+    emitsSparks: true
 
 - type: entity
   parent: BaseLathe
   id: CutterMachine
-  name: cutter machine
-  description: This is a cutter. It cuts. Add variety to your station floor with eye-pleasing patterns! Don't stick your fingers in.
+  name: резательный станок
+  description: Это резак. Он режет. Разнообразьте пол вашей станции приятными глазу узорами! Не суйте пальцы внутрь.
   components:
   - type: Sprite
     sprite: Structures/Machines/cuttermachine.rsi
@@ -701,8 +1076,36 @@
     - PlasticTilesStatic
     - CarpetTilesStatic
     - PreciousTilesStatic
-    dynamicPacks:
     - FauxTiles
   - type: MaterialStorage
     whitelist: *StandardMaterialWhitelist
   - type: OreSiloClient
+  - type: AutoCollector
+    interval: 0.5
+    pullForce: 25.0
+    collectionRadius: 0.7
+  - type: ActiveRecipe
+    enabled: true
+  - type: FactoryIndustrialHeat
+    maxHeat: 1400
+    heatPerSecond: 12
+    cooldownPerSecond: 10
+    smokeThreshold: 320
+    dangerThreshold: 720
+    criticalThreshold: 1080
+    smokeInterval: 3
+    runningSound:
+      path: /Audio/Machines/circuitprinter.ogg
+    atmosHeatPerSecond: 22
+    co2PerSecond: 0.22
+    explosionChance: 0.04
+    explosionIntensity: 45
+    explosionSlope: 3
+    explosionMaxTileIntensity: 9
+    damagePerSecondCritical: 14
+    alarmSound:
+      path: /Audio/_FactoryStation/alertfactory1.ogg
+    spillageInterval: 5
+    spillagePrototype: PuddleFactoryLubricant
+    spillageChance: 0.4
+    emitsSparks: true

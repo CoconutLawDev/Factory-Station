@@ -111,6 +111,7 @@
   - type: Tag
     tags:
     - IngotCopper
+    - Ingot
 
 - type: entity
   parent: SheetFactoryIngotCopperBase

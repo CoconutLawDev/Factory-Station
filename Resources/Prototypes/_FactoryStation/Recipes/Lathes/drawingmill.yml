@@ -1,0 +1,23 @@
+#Волочильный станок 261
+- type: latheRecipe
+  id: DrawingMillRecipe1
+  name: "Упаковка и обработка угля"
+  result: WireCopperSheet1
+  completetime: 5
+  materials:
+    IngotCopper: 300
+
+- type: latheRecipe
+  id: DrawingMillRecipe2
+  name: "Упаковка и обработка зеленой слизи"
+  result: WireGoldSheet1
+  completetime: 10
+  materials:
+    IngotCopper: 500
+    Gold: 200
+
+- type: latheRecipePack
+  id: DrawingMillPackFactory
+  recipes:
+    - DrawingMillRecipe1
+    - DrawingMillRecipe2

@@ -33,11 +33,11 @@
     enabled: true
   - type: FactoryIndustrialHeat
     maxHeat: 1500
-    heatPerSecond: 12         # Было 55, теперь греется медленно
-    cooldownPerSecond: 10     # Было 8, остывает чуть быстрее
-    smokeThreshold: 300       # Дым появляется позже
-    dangerThreshold: 700      # Опасная зона
-    criticalThreshold: 1100   # Критический перегрев
+    heatPerSecond: 12
+    cooldownPerSecond: 10
+    smokeThreshold: 300
+    dangerThreshold: 700
+    criticalThreshold: 1100
     smokeInterval: 3
     runningSound:
       path: /Audio/Machines/circuitprinter.ogg
@@ -49,66 +49,14 @@
     explosionMaxTileIntensity: 10
     damagePerSecondCritical: 15
     alarmSound:
-      path: /Audio/_FactoryStation/alertfactory1.ogg   # убедитесь, что звук существует
+      path: /Audio/_FactoryStation/alertfactory1.ogg
     spillageInterval: 5
     spillagePrototype: PuddleFactoryLubricant
     spillageChance: 0.4
     emitsSparks: true
-
-
-- type: entity
-  id: Furnace2
-  parent: BaseLatheLube
-  name: Промышленная печь 2.0
-  description: "Промышленная печь 2.0 работает в два раза быстрее."
-  components:
-  - type: Sprite
-    sprite: _FactoryStation/Machines/smelter2.rsi
-    snapCardinals: true
-    layers:
-    - state: icon
-      map: ["enum.LatheVisualLayers.IsRunning"]
-  - type: Machine
-    board: FurnaceMachineCircuitboard2
-  - type: MaterialStorage
-    whitelist:
-      tags:
-        - Sheet
-        - RawMaterial
-        - Ingot
-      capacity: 500
-  - type: OreSiloClient
-  - type: Lathe
-    idleState: icon
-    runningState: burning
-    staticPacks:
-    - IngotIronRecipe2
-  - type: AutoCollector
-    interval: 0.5
-    pullForce: 25.0
-    collectionRadius: 0.7
-  - type: ActiveRecipe
-    enabled: true
-  - type: FactoryIndustrialHeat
-    maxHeat: 1600                  # немного выше максимум
-    heatPerSecond: 15              # греется быстрее (было 12 у обычной)
-    cooldownPerSecond: 9           # остывает медленнее (10 у обычной)
-    smokeThreshold: 250            # дым появляется раньше
-    dangerThreshold: 650           # опасная зона тоже раньше
-    criticalThreshold: 1050        # критический перегрев
-    smokeInterval: 2               # дымит чаще
-    runningSound:
-      path: /Audio/Machines/circuitprinter.ogg
-    atmosHeatPerSecond: 30         # сильнее греет воздух
-    co2PerSecond: 0.35             # больше CO₂
-    explosionChance: 0.07          # выше шанс взрыва
-    explosionIntensity: 60         # мощнее взрыв
-    explosionSlope: 3
-    explosionMaxTileIntensity: 12
-    damagePerSecondCritical: 20    # сильнее повреждается
-    alarmSound:
-      path: /Audio/_FactoryStation/alertfactory1.ogg   # убедитесь, что звук существует
-    spillageInterval: 5
-    spillagePrototype: PuddleFactoryLubricant
-    spillageChance: 0.4
-    emitsSparks: true
+    # Включение атмосферного охлаждения
+    ambientCoolingEnabled: true
+    ambientCoolingCoefficient: 0.8   # сильное охлаждение от холодного воздуха
+    roomTemperature: 293.15         # 20°C — выше не охлаждается
+    minAmbientTemperature: 73.15    # -200°C — предел эффективности
+    requireAtmosphereForCooling: true

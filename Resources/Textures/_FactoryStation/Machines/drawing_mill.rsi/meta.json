@@ -8,9 +8,7 @@
   },
   "states": [
     {
-      "name": "icon",
-      "directions": 1,
-      "delays": [[0.3, 0.2]]
+      "name": "icon"
     },
     {
       "name": "burning",

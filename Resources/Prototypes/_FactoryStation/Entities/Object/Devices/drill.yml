@@ -9,7 +9,6 @@
     state: icon
   - type: Item
     size: Large
-    activate: true          # чтобы работал ActivateInWorldEvent
   - type: Drill
     interval: 5
   - type: Battery
@@ -18,3 +17,10 @@
   - type: Tag
     tags:
     - DrillFactory
+
+  # По желанию – постоянный звук работы (пока включено)
+  # - type: ItemToggleActiveSound
+  #   activeSound:
+  #     path: /Audio/Items/drill_loop.ogg
+  #     params:
+  #       loop: true

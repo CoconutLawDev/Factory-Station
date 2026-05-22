@@ -293,7 +293,7 @@
   components:
   - type: OreVein
     oreChance: 1.0
-    currentOre: OreSteel
+    currentOre: OreIronFact
   - type: Sprite
     layers:
     - state: rock_asteroid
@@ -1337,7 +1337,7 @@
   components:
   - type: OreVein
     oreChance: 1.0
-    currentOre: OreSteel
+    currentOre: OreIronFact
   - type: Sprite
     layers:
     - state: rock_wall
@@ -2440,7 +2440,7 @@
   components:
   - type: OreVein
     oreChance: 1.0
-    currentOre: OreSteel
+    currentOre: OreIronFact
   - type: Sprite
     layers:
     - state: rock_andesite

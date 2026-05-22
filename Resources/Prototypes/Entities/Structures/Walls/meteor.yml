@@ -160,7 +160,7 @@
   components:
     - type: OreVein
       oreChance: 1.0
-      currentOre: OreSteel
+      currentOre: OreIron
     - type: Sprite
       layers:
         - state: rock_asteroid

@@ -1,4 +1,5 @@
 using System;
+using Content.Server.Atmos.EntitySystems;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.Damage.Systems;
 using Content.Server.FactoryStation.Components;
@@ -19,6 +20,7 @@ public sealed partial class IndustrialHeatSystem : EntitySystem
     [Dependency] private DamageableSystem _damageable = default!;
     [Dependency] private ExplosionSystem _explosion = default!;
     [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private AtmosphereSystem _atmosphere = default!; // <-- ДОБАВЛЕНО
 
     private readonly ISawmill _sawmill = Logger.GetSawmill("factory.heat");
 
@@ -44,7 +46,6 @@ public sealed partial class IndustrialHeatSystem : EntitySystem
         base.Update(frameTime);
 
         _updateAccumulator += frameTime;
-
         if (_updateAccumulator < 1f)
             return;
 
@@ -56,7 +57,7 @@ public sealed partial class IndustrialHeatSystem : EntitySystem
         {
             var running = lathe.CurrentRecipe != null;
 
-            // 1. Изменение температуры
+            // 1. Базовый нагрев/охлаждение
             if (running)
             {
                 heat.CurrentHeat += heat.HeatPerSecond;
@@ -68,20 +69,25 @@ public sealed partial class IndustrialHeatSystem : EntitySystem
                 StopRunningSound(heat);
             }
 
+            // 2. Применяем атмосферное охлаждение (новое!)
+            if (heat.AmbientCoolingEnabled)
+                ApplyAmbientCooling(uid, heat, running);
+
+            // 3. Ограничиваем температуру
             heat.CurrentHeat = Math.Clamp(heat.CurrentHeat, 20f, heat.MaxHeat);
 
-            // 2. Определение состояния
+            // 4. Определение состояния
             var state = heat.CurrentHeat >= heat.CriticalThreshold ? OverheatState.Critical
                 : heat.CurrentHeat >= heat.DangerThreshold ? OverheatState.Warning
                 : OverheatState.Normal;
 
-            // 3. Обработка критического состояния
+            // 5. Обработка критического состояния
             if (state == OverheatState.Critical)
             {
                 ProcessCriticalOverheat(uid, heat);
             }
 
-            // 4. Генерация одиночного дыма (облако создаётся в FactorySmokeSystem)
+            // 6. Дым (одиночный) – облака создаются в FactorySmokeSystem
             if (heat.ProducingSmoke && heat.CurrentHeat >= heat.SmokeThreshold)
             {
                 heat.SmokeAccumulator++;
@@ -92,6 +98,51 @@ public sealed partial class IndustrialHeatSystem : EntitySystem
                 }
             }
         }
+    }
+
+    /// <summary>
+    /// Охлаждение или нагрев станка в зависимости от температуры окружающего воздуха.
+    /// </summary>
+    private void ApplyAmbientCooling(EntityUid uid, FactoryIndustrialHeatComponent heat, bool running)
+    {
+        var mixture = _atmosphere.GetContainingMixture(uid, true);
+        float ambientTemp;
+
+        if (mixture != null)
+        {
+            ambientTemp = mixture.Temperature;
+        }
+        else if (heat.RequireAtmosphereForCooling)
+        {
+            // Вакуум и флаг требует атмосферу — ничего не делаем
+            return;
+        }
+        else
+        {
+            // Вакуум, но охлаждение разрешено (радиационное) — считаем космический холод
+            ambientTemp = 2.7f;
+        }
+
+        // Если окружение холоднее комнатной температуры – охлаждаем станок
+        if (ambientTemp < heat.RoomTemperature && ambientTemp > heat.MinAmbientTemperature)
+        {
+            float tempDiff = heat.CurrentHeat - ambientTemp; // >0
+            if (tempDiff > 0)
+            {
+                float cooling = tempDiff * heat.AmbientCoolingCoefficient;
+                heat.CurrentHeat -= cooling;
+            }
+        }
+        // Если окружение горячее станка – ускоряем нагрев
+        else if (ambientTemp > heat.CurrentHeat)
+        {
+            float tempDiff = ambientTemp - heat.CurrentHeat;
+            heat.CurrentHeat += tempDiff * heat.AmbientCoolingCoefficient;
+        }
+
+        // Не даём температуре упасть ниже 20°C (или ниже комнатной при работе)
+        if (running)
+            heat.CurrentHeat = Math.Max(heat.CurrentHeat, 20f);
     }
 
     private void EnsureRunningSound(EntityUid uid, FactoryIndustrialHeatComponent component)
@@ -127,7 +178,6 @@ public sealed partial class IndustrialHeatSystem : EntitySystem
         // Повреждение станка
         if (TryComp<DamageableComponent>(uid, out var damageable))
         {
-            // Урон теплом – подставьте нужный тип, если "Heat" нет, замените на "Blunt" или "Slash"
             var damageSpec = new DamageSpecifier
             {
                 DamageDict = { ["Heat"] = heat.DamagePerSecondCritical }
@@ -147,7 +197,7 @@ public sealed partial class IndustrialHeatSystem : EntitySystem
                 user: null,
                 addLog: true);
 
-            // Сброс температуры после взрыва, чтобы не взрывалось каждый тик
+            // Сброс температуры после взрыва
             heat.CurrentHeat = heat.MaxHeat * 0.6f;
         }
     }
