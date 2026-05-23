@@ -1,0 +1,13 @@
+- type: entity
+  parent: BaseMachineCircuitboard
+  id: AssemblyFabCircuitboard
+  name: "плата сборфаба"
+  description: "Печатная плата для сборфаба."
+  components:
+  - type: MachineBoard
+    prototype: AssemblyFab
+    stackRequirements:
+      Glass: 500
+      Steel: 800
+  - type: Sprite
+    state: generic  # стандартный спрайт платы

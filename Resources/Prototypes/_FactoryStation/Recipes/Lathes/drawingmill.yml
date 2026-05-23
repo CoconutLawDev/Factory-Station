@@ -21,3 +21,32 @@
   recipes:
     - DrawingMillRecipe1
     - DrawingMillRecipe2
+
+
+
+- type: latheRecipe
+  id: KreningOilRecipe
+  name: "Создание пластика из нефти"
+  result: SheetPlastic1
+  completetime: 10
+  materials:
+    OilFactory: 300
+
+- type: latheRecipePack
+  id: KreningFurnacePack
+  recipes:
+    - KreningOilRecipe
+
+
+- type: latheRecipe
+  id: GlassBlowingRecipe
+  name: "Выплавка стекла из песка"
+  result: SheetGlass1
+  completetime: 10
+  materials:
+    SandstoneFact: 300
+
+- type: latheRecipePack
+  id: GlassBlowingFurnacePack
+  recipes:
+    - GlassBlowingRecipe

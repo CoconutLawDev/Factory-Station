@@ -1,0 +1,13 @@
+- type: entity
+  parent: BaseMachineCircuitboard
+  id: GlassBlowingFurnaceCircuitboard
+  name: "плата стеклодувной печи"
+  description: "Печатная плата для стеклодувной печи."
+  components:
+  - type: MachineBoard
+    prototype: GlassBlowingFurnace
+    stackRequirements:
+      Glass: 500
+      Steel: 800
+  - type: Sprite
+    state: generic  # стандартный спрайт платы

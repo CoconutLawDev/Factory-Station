@@ -24,20 +24,11 @@
   materials:
     OreCrystal: 200
 
-- type: latheRecipe
-  id: SmeltsheetifierGlassSandstone
-  name: "Создание стекла из песка"
-  result: SheetGlass1
-  completetime: 5
-  materials:
-    SandstoneFact: 100
-
 - type: latheRecipePack
   id: IngotIronRecipe
   recipes:
     - SmeltIronOre
     - SmeltCopperOre
-    - SmeltsheetifierGlassSandstone
     - SmeltCrystalOre
 
 
@@ -66,21 +57,11 @@
   materials:
     OreCrystal: 200
 
-- type: latheRecipe
-  id: SmeltsheetifierGlassSandstone2
-  name: "Создание стекла из песка"
-  result: SheetGlass1
-  completetime: 5
-  materials:
-    SandstoneFact: 100
-
-
 - type: latheRecipePack
   id: IngotIronRecipe2
   recipes:
     - SmeltIronOre2
     - SmeltCopperOre2
-    - SmeltsheetifierGlassSandstone2
     - SmeltCrystalOre2
 
 

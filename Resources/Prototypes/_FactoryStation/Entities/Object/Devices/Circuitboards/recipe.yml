@@ -11,6 +11,9 @@
     - SheetifierMachineCircuitboard3001Recipe
     - SheetifierMachineCircuitboard4001Recipe
     - SheetifierMachineCircuitboard5001Recipe
+    - GlassBlowingFurnaceCircuitboardRecipe
+    - FurnaceKreningMachineCircuitboardRecipe
+    - FactoryGoalConsoleCircuitboardRecipe
 
 
 # =============================================================================
@@ -94,3 +97,36 @@
     Gold: 1800
     Silver: 1500
   result: SheetifierMachineCircuitboard5001
+
+- type: latheRecipe
+  id: GlassBlowingFurnaceCircuitboardRecipe
+  name: Плата стеклодувной печи
+  category: Circuits
+  materials:
+    Glass: 1200
+    Steel: 2500
+    Gold: 1800
+    Silver: 1500
+  result: GlassBlowingFurnaceCircuitboard
+
+- type: latheRecipe
+  id: FurnaceKreningMachineCircuitboardRecipe
+  name: Плата кренинг печи
+  category: Circuits
+  materials:
+    Glass: 1200
+    Steel: 2500
+    Gold: 1800
+    Silver: 1500
+  result: FurnaceKreningMachineCircuitboard
+
+- type: latheRecipe
+  id: FactoryGoalConsoleCircuitboardRecipe
+  name: Плата консоли целей фабрики
+  category: Circuits
+  materials:
+    Glass: 6000
+    Steel: 5000
+    Gold: 1800
+    Silver: 1500
+  result: FactoryGoalConsoleCircuitboard

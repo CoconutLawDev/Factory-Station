@@ -1,11 +1,11 @@
 ﻿<Document>
-  # Ban Types
+  # Типы блокировок
 
-  Bans can be appealed at forum.ss14.io in the ban appeals section.
+  Обжаловать блокировки можно на нашем Discord сервере. Обжалованием занимается Совет Администрации, который рассматривает каждую апелляцию индивидуально, учитывая обстоятельства нарушения и историю игрока.
 
-  ## Role Ban
-  Also called a "job ban", this ban prevents your character from joining or late-joining a round as one or more jobs or roles. These are often used in response to problematic behavior in particular departments or address gross inexperience in important roles such as heads of staff. These bans do not mechanically prevent you from switching to the role during a round or acting as that role, but doing so is considered ban evasion.
+  ## Ролевая блокировка (Role Ban)
+  Также называется «блокировкой должности». Запрещает персонажу присоединяться к раунду или заходить в него позже на одну или несколько должностей либо ролей. Часто применяется в ответ на проблемное поведение в конкретных отделах либо в случае крайней некомпетентности на важных должностях, например главы персонала. Технически не запрещает переключиться на эту должность в ходе раунда или выполнять её обязанности, однако подобные действия расцениваются как обход бана.
 
-  ## Game Ban
-  Also called a "server ban", this ban prevents you from connecting to all Wizard's Den servers.
+  ## Игровая блокировка (Game Ban)
+  Также называется «блокировкой сервера». Запрещает подключение ко всем серверам CoconutLawDev Studio.
 </Document>
