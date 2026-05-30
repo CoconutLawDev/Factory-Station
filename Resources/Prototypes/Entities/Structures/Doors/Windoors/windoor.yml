@@ -1,47 +1,47 @@
 - type: entity
   id: Windoor
   parent: BaseWindoor
-  name: windoor
-  description: It's a window and a sliding door. Wow!
+  name: стеклянный шлюз
+  description: Это и окно, и раздвижная дверь. Вау!
 
 - type: entity
   id: WindoorSecure
   parent: BaseSecureWindoor
-  name: secure windoor
-  description: It's a sturdy window and a sliding door. Wow!
+  name: бронированная стеклянный шлюз
+  description: Это прочное окно и раздвижная дверь. Вау!
 
 - type: entity
   id: WindoorClockwork
   parent: BaseClockworkWindoor
-  name: clockwork windoor
-  description: It's a sturdy window and a sliding door. Wow!
+  name: стеклянный шлюз из часового механизма
+  description: Это прочное окно и раздвижная дверь. Вау!
 
 - type: entity
   id: WindoorPlasma
   parent: BasePlasmaWindoor
-  name: plasma windoor
-  description: It's a pink window *and* a sliding door. Amazing!
+  name: плазмовая стеклянный шлюз
+  description: Это розовое окно *и* раздвижная дверь. Потрясающе!
 
 - type: entity
   id: WindoorSecurePlasma
   parent: BaseSecurePlasmaWindoor
-  name: secure plasma windoor
-  description: It's a sturdy purple window *and* a sliding door. Spectacular!
+  name: бронированная плазмовая стеклянный шлюз
+  description: Это прочное фиолетовое окно *и* раздвижная дверь. Великолепно!
 
 - type: entity
   id: WindoorUranium
   parent: BaseUraniumWindoor
-  name: uranium windoor
-  description: It's a window and a sliding door. Huh? Oh, and it's green!
+  name: урановая стеклянный шлюз
+  description: Это окно и раздвижная дверь. А? О, и она зелёная!
 
 - type: entity
   id: WindoorSecureUranium
   parent: BaseSecureUraniumWindoor
-  name: secure uranium windoor
-  description: It's a sturdy window and a sliding door. It's so neon green, it might even taste like limes!
+  name: бронированная урановая стеклянный шлюз
+  description: Это прочное окно и раздвижная дверь. Она настолько неоново-зелёная, что может даже иметь вкус лайма!
 
-# TODO remove these with parameterized prototypes/whatever we end up doing
-# Windoors (alphabetical)
+# TODO удалить это после параметризации прототипов/чего-то ещё
+# Стеклодвери (в алфавитном порядке)
 
 - type: entity
   parent: WindoorServiceLocked
@@ -148,7 +148,7 @@
     containers:
       board: [ DoorElectronicsTheatre ]
 
-# Secure
+# Бронированные
 
 - type: entity
   parent: WindoorSecure
@@ -489,7 +489,7 @@
     containers:
       board: [ DoorElectronicsHeadOfPersonnel ]
 
-# Syndicate
+# Синдикат
 
 - type: entity
   parent: Windoor

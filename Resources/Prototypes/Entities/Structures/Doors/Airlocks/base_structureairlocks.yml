@@ -1,7 +1,7 @@
 ﻿- type: entity
   id: Airlock
   parent: BaseStructure
-  name: airlock
+  name: шлюз
   description: It opens, it closes, and maybe crushes you.
   components:
   - type: Anchorable
@@ -200,7 +200,7 @@
 - type: entity
   id: AirlockGlass
   parent: Airlock
-  name: glass airlock
+  name: стеклянный шлюз
   components:
   - type: MeleeSound
     soundGroups:

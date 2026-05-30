@@ -2,7 +2,7 @@
   abstract: true
   parent: BaseStructure
   id: BaseMaterialDoor
-  name: door
+  name: дверь
   description: A door, where will it lead?
   components:
   - type: Anchorable
@@ -75,7 +75,7 @@
 - type: entity
   parent: BaseMaterialDoorNavMap
   id: MetalDoor
-  name: metal door
+  name: металическая дверь
   components:
   - type: Construction
     graph: DoorGraph
@@ -133,7 +133,7 @@
 - type: entity
   parent: BaseMaterialDoorNavMap
   id: GoldDoor
-  name: gold door
+  name: золотая дверь
   components:
   - type: Sprite
     sprite: Structures/Doors/MineralDoors/gold_door.rsi
@@ -160,7 +160,7 @@
 - type: entity
   parent: BaseMaterialDoorNavMap
   id: SilverDoor
-  name: silver door
+  name: дверь из серебра
   components:
   - type: Sprite
     sprite: Structures/Doors/MineralDoors/silver_door.rsi
@@ -187,7 +187,7 @@
 - type: entity
   parent: BaseMaterialDoorNavMap
   id: BananiumDoor
-  name: bananium door
+  name: дверь из бананиума
   components:
   - type: Sprite
     sprite: Structures/Doors/MineralDoors/bananium_door.rsi
@@ -222,7 +222,7 @@
 - type: entity
   parent: BaseMaterialDoorNavMap
   id: WoodDoor
-  name: wooden door
+  name: дверь из дерева
   components:
   - type: Sprite
     sprite: Structures/Doors/MineralDoors/wood_door.rsi
@@ -258,7 +258,7 @@
 - type: entity
   parent: BaseMaterialDoorNavMap
   id: PaperDoor
-  name: paper door
+  name: дверь из бумаги
   components:
   - type: Sprite
     sprite: Structures/Doors/MineralDoors/paper_door.rsi
@@ -294,8 +294,8 @@
 - type: entity
   parent: BaseMaterialDoorNavMap
   id: WebDoor
-  name: web door
-  description: A door, leading to the lands of the spiders... or a spaced room.
+  name: дверь из паутины
+  description: Дверь, ведущая в земли пауков... или изолированная комната.
   components:
   - type: Sprite
     sprite: Structures/Doors/web_door.rsi
@@ -331,7 +331,7 @@
 - type: entity
   parent: BaseMaterialDoorNavMap
   id: CardDoor
-  name: cardboard door
+  name: дверь из картона
   components:
   - type: Sprite
     sprite: Structures/Doors/MineralDoors/card_door.rsi
@@ -372,8 +372,8 @@
 - type: entity
   parent: BaseMaterialDoorNavMap
   id: IronstoneDoor
-  name: ironstone door
-  description: A mysterious door made of rune-etched stone.
+  name: дверь из железного песка
+  description: Таинственная дверь, сделанная из камня с выгравированными на нем рунами.
   components:
   - type: Sprite
     sprite: Structures/Doors/MineralDoors/ironstone_door.rsi
@@ -412,8 +412,8 @@
 - type: entity
   parent: IronstoneDoor
   id: EncrustedIronstoneDoor
-  name: encrusted ironstone door
-  description: A stone door covered in nacreous blobs of an unknown substance.
+  name: инкрустированная дверь из железняка
+  description: Каменная дверь, покрытая перламутровыми каплями неизвестного вещества.
   components:
   - type: Sprite
     sprite: Structures/Doors/MineralDoors/encrusted_ironstone_door.rsi

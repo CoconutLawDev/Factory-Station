@@ -183272,4 +183272,24 @@ entities:
     - type: Transform
       pos: -51.5,7.5
       parent: 8364
+- type: AsteroidField
+  debrisCount: 6
+  minRadius: 20
+  maxRadius: 45
+  minSize: 4
+  maxSize: 7
+  baseTile: FloorAsteroidSand
+  oreEntries:
+    - prototype: DrillTileIron
+      weight: 25
+      maxPerDebris: 2
+    - prototype: DrillTileCopper
+      weight: 20
+      maxPerDebris: 2
+    - prototype: DrillTileCoal
+      weight: 15
+      maxPerDebris: 2
+    - prototype: DrillTileSandStone
+      weight: 10
+      maxPerDebris: 1
 ...

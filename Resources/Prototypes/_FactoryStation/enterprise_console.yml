@@ -1,0 +1,43 @@
+- type: entity
+  id: EnterpriseConsole
+  parent: BaseComputer
+  name: консоль предприятия
+  description: Отображает состояние всех производственных машин на станции.
+  components:
+  - type: Sprite
+    sprite: Structures/Machines/computer.rsi
+    layers:
+    - state: computer
+  - type: ActivatableUI
+    key: enum.EnterpriseConsoleUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.EnterpriseConsoleUiKey.Key:
+        type: EnterpriseConsoleBoundUserInterface
+  - type: EnterpriseConsole
+    range: -1
+    updateInterval: 1
+  - type: EnterpriseConsoleData
+  - type: Anchorable
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,0.25,0.5,0.5"
+        density: 190
+        mask:
+        - MachineMask
+        layer:
+          - MachineLayer
+  - type: Damageable
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]

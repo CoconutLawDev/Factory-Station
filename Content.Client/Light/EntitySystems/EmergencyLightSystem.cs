@@ -19,8 +19,16 @@ public sealed class EmergencyLightSystem : VisualizerSystem<EmergencyLightCompon
 
         if (AppearanceSystem.TryGetData<Color>(uid, EmergencyLightVisuals.Color, out var color, args.Component))
         {
+            // Меняем цвет спрайта
             SpriteSystem.LayerSetColor((uid, args.Sprite), EmergencyLightVisualLayers.LightOn, color);
             SpriteSystem.LayerSetColor((uid, args.Sprite), EmergencyLightVisualLayers.LightOff, color);
+
+            // Меняем цвет самого источника света
+            if (TryComp<PointLightComponent>(uid, out var pointLight))
+            {
+                var lightSystem = EntityManager.System<PointLightSystem>();
+                lightSystem.SetColor(uid, color, pointLight);
+            }
         }
     }
 }

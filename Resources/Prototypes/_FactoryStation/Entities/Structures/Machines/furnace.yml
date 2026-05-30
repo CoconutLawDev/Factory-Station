@@ -60,6 +60,8 @@
     roomTemperature: 293.15         # 20°C — выше не охлаждается
     minAmbientTemperature: 73.15    # -200°C — предел эффективности
     requireAtmosphereForCooling: true
+  - type: FactoryMachineName
+    name: Промышленная печь
 
 
 - type: entity

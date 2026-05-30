@@ -1823,8 +1823,8 @@ entities:
   - uid: 5
     components:
     - type: MetaData
-      desc: It opens, it closes, and maybe crushes you. This one will probably crush you.
-      name: broken command airlock
+      desc: Он открывается, закрывается и, возможно, раздавит вас. Этот, вероятно, раздавит вас.
+      name: сломанный командный шлюз
     - type: Transform
       pos: 4.5,-5.5
       parent: 1
