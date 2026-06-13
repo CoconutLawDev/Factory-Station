@@ -5,7 +5,7 @@
   description: Скользкая маслянистая жидкость. Лучше не наступать.
   components:
   - type: Sprite
-    sprite: Fluids/puddle.rsi   # <-- правильный спрайт лужи
+    sprite: Fluids/puddle.rsi
     state: splat0
   - type: Slippery
     launchForwardsMultiplier: 1.5

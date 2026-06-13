@@ -453,6 +453,13 @@
   - type: OreVein
     oreChance: 0.33
     oreRarityPrototypeId: RandomOreDistributionStandard
+  - type: RandomDrillVein #FactoryStation Add
+    chance: 0.02 #FactoryStation Add
+    veinPrototypes: #FactoryStation Add
+      - DrillTileIron #FactoryStation Add
+      - DrillTileCopper #FactoryStation Add
+      - DrillTileCoal #FactoryStation Add
+      - DrillTileSandStone #FactoryStation Add
 
 - type: entity
   id: IronRock
@@ -480,6 +487,13 @@
       state: ironrock_north
     - map: [ "enum.EdgeLayer.West" ]
       state: ironrock_west
+  - type: RandomDrillVein #FactoryStation Add
+    chance: 0.02 #FactoryStation Add
+    veinPrototypes: #FactoryStation Add
+      - DrillTileIron #FactoryStation Add
+      - DrillTileCopper #FactoryStation Add
+      - DrillTileCoal #FactoryStation Add
+      - DrillTileSandStone #FactoryStation Add
 
 - type: entity
   id: IronRockMining
@@ -491,6 +505,13 @@
   - type: OreVein
     oreChance: 0.33
     oreRarityPrototypeId: RandomOreDistributionStandard
+  - type: RandomDrillVein #FactoryStation Add
+    chance: 0.02 #FactoryStation Add
+    veinPrototypes: #FactoryStation Add
+      - DrillTileIron #FactoryStation Add
+      - DrillTileCopper #FactoryStation Add
+      - DrillTileCoal #FactoryStation Add
+      - DrillTileSandStone #FactoryStation Add
 
 - type: entity
   id: IronSandstone
@@ -522,6 +543,13 @@
   - type: OreVein
     oreChance: 0.33
     oreRarityPrototypeId: RandomOreDistributionStandard
+  - type: RandomDrillVein #FactoryStation Add
+    chance: 0.02 #FactoryStation Add
+    veinPrototypes: #FactoryStation Add
+      - DrillTileIron #FactoryStation Add
+      - DrillTileCopper #FactoryStation Add
+      - DrillTileCoal #FactoryStation Add
+      - DrillTileSandStone #FactoryStation Add
 
 # Ore veins
 - type: entity
@@ -842,6 +870,13 @@
       state: rock_north
     - map: [ "enum.EdgeLayer.West" ]
       state: rock_west
+  - type: RandomDrillVein #FactoryStation Add
+    chance: 0.02 #FactoryStation Add
+    veinPrototypes: #FactoryStation Add
+      - DrillTileIron #FactoryStation Add
+      - DrillTileCopper #FactoryStation Add
+      - DrillTileCoal #FactoryStation Add
+      - DrillTileSandStone #FactoryStation Add
 
 # Ore veins
 - type: entity
@@ -1190,6 +1225,13 @@
       state: rock_wall_north
     - map: [ "enum.EdgeLayer.West" ]
       state: rock_wall_west
+  - type: RandomDrillVein #FactoryStation Add
+    chance: 0.02 #FactoryStation Add
+    veinPrototypes: #FactoryStation Add
+      - DrillTileIron #FactoryStation Add
+      - DrillTileCopper #FactoryStation Add
+      - DrillTileCoal #FactoryStation Add
+      - DrillTileSandStone #FactoryStation Add
 
 - type: entity
   id: WallRockBasaltCoal
@@ -1466,6 +1508,13 @@
       state: rock_snow_north
     - map: [ "enum.EdgeLayer.West" ]
       state: rock_snow_west
+  - type: RandomDrillVein #FactoryStation Add
+    chance: 0.02 #FactoryStation Add
+    veinPrototypes: #FactoryStation Add
+      - DrillTileIron #FactoryStation Add
+      - DrillTileCopper #FactoryStation Add
+      - DrillTileCoal #FactoryStation Add
+      - DrillTileSandStone #FactoryStation Add
 
 - type: entity
   id: WallRockSnowCoal
