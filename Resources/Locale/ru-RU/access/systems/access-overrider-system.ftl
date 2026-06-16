@@ -1,4 +1,4 @@
-access-overrider-window-privileged-id = Привилегированная ID:
+access-overrider-window-privileged-id = Основная ID:
 access-overrider-window-eject-button = Извлечь
 access-overrider-window-insert-button = Вставить
 access-overrider-window-target-label = Подключённое устройство:

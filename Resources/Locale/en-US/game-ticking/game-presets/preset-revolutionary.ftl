@@ -1,70 +1,73 @@
 ## Rev Head
 
-roles-antag-rev-head-name = Head Revolutionary
-roles-antag-rev-head-objective = Your objective is to take over the station by converting people to your cause and eliminating all members of Command.
+roles-antag-rev-head-name = Глава революции
+roles-antag-rev-head-objective = Ваша задача — захватить станцию, переманивая людей на свою сторону и устраняя всех членов командования.
 
 head-rev-role-greeting =
-    You are a head revolutionary. You are tasked with removing all of Command from power through death, restraint, or conversion.
-    The Syndicate has sponsored you with a flash that converts others to your cause. Beware, this won't work on those with eye protection or mindshield implants. Remember that Command and Security are implanted with mindshields as part of the hiring process.
-    Viva la revolución!
+    Вы — глава революционеров. Перед вами стоит задача отстранить от власти всех членов Командования — убив, задержав или переманив их на свою сторону.
+    Синдикат предоставил вам вспышку, которая поможет переманивать других на вашу сторону. Помните, что Командование и Служба безопасности имплантированы щитами разума в рамках процесса найма.
+    ¡Viva la revolución!
 
 head-rev-briefing =
-    Use flashes to convert people to your cause.
-    Kill, restrain, or convert all members of Command to take over the station.
+    Используйте вспышку, чтобы переманивать людей на свою сторону.
+    Убейте, задержите или переманите всех членов Командования, чтобы захватить станцию.
 
-head-rev-break-mindshield = The mindshield implant was destroyed!
+head-rev-break-mindshield = Имплант щита разума был уничтожен!
 
 ## Rev
 
-roles-antag-rev-name = Revolutionary
-roles-antag-rev-objective = Your objective is to ensure the safety and follow the orders of the head revolutionaries, and to help them take over the station by eliminating all members of Command.
+roles-antag-rev-name = Революционер
+roles-antag-rev-objective = Ваша задача — обеспечивать безопасность глав революционеров и следовать их приказам, помогая им захватить станцию путём устранения всех членов Командования.
 
-rev-break-control = {$name} has remembered their true allegiance!
+rev-break-control = {$name} вспомнил(а) свою истинную принадлежность!
 
 rev-role-greeting =
-    You are a revolutionary. You are tasked with protecting the head revolutionaries and helping them take over the station.
-    The revolution must work together to kill, restrain, or convert all members of Command.
-    Viva la revolución!
+    Вы — революционер. На вас возложена задача защищать глав революционеров и помогать им захватить станцию.
+    Революция должна действовать сообща, чтобы убить, задержать или переманить всех членов Командования.
+    ¡Viva la revolución!
 
-rev-briefing = Help the head revolutionaries kill, restrain, or convert all members of Command to take over the station.
+rev-briefing = Помогайте главам революционеров убивать, задерживать или переманивать всех членов Командования, чтобы захватить станцию.
 
 ## General
 
-rev-title = Revolutionaries
-rev-description = Revolutionaries hidden among the crew are seeking to convert others to their cause and overthrow Command.
+rev-title = Революционеры
+rev-description = Революционеры, затерявшиеся среди экипажа, стремятся переманить других на свою сторону и свергнуть Командование.
 
-rev-not-enough-ready-players = Not enough players readied up for the game. There were {$readyPlayersCount} players readied up out of {$minimumPlayers} needed. Can't start Revolutionaries.
-rev-no-one-ready = No players readied up! Can't start Revolutionaries.
-rev-no-heads = There were no Head Revolutionaries to be selected. Can't start Revolutionaries.
+rev-not-enough-ready-players = Недостаточно игроков готово к игре. Было готово {$readyPlayersCount} из {$minimumPlayers} необходимых. Не удаётся запустить революционеров.
+rev-no-one-ready = Нет готовых игроков! Не удаётся запустить революционеров.
+rev-no-heads = Не было выбрано ни одного главы революционеров. Не удаётся запустить революционеров.
 
-rev-won = The head revolutionaries survived and successfully seized control of the station.
+rev-won = Главы революционеров выжили и успешно захватили контроль над станцией.
 
-rev-lost = All head revolutionaries have died, and Command survived.
+rev-lost = Все главы революционеров погибли, а Командование выжило.
 
-rev-stalemate = Both Command and the head revolutionaries have all died. It's a draw.
+rev-stalemate = И Командование, и все главы революционеров погибли. Ничья.
 
-rev-reverse-stalemate = Both Command and the head revolutionaries survived.
+rev-reverse-stalemate = И Командование, и главы революционеров выжили.
 
-rev-headrev-count = {$initialCount ->
-    [one] There was one head revolutionary:
-    *[other] There were {$initialCount} head revolutionaries:
+rev-headrev-count = { $initialCount ->
+    [one] Был один глава революционеров:
+    [few] Было {$initialCount} главы революционеров:
+   *[many] Было {$initialCount} глав революционеров:
 }
 
-rev-headrev-name-user = [color=#5e9cff]{$name}[/color] ([color=gray]{$username}[/color]) converted {$count} {$count ->
-    [one] person
-    *[other] people
+rev-headrev-name-user = [color=#5e9cff]{$name}[/color] ([color=gray]{$username}[/color]) завербовал(а) {$count} {$count ->
+    [one] человека
+    [few] человек
+   *[many] человек
 }
 
-rev-headrev-name = [color=#5e9cff]{$name}[/color] converted {$count} {$count ->
-    [one] person
-    *[other] people
+rev-headrev-name = [color=#5e9cff]{$name}[/color] завербовал(а) {$count} {$count ->
+    [one] человека
+    [few] человек
+   *[many] человек
 }
 
 ## Deconverted window
 
-rev-deconverted-title = Deconverted!
+rev-deconverted-title = Перевосстановление!
 rev-deconverted-text =
-    As the last head revolutionary has died, the revolution is over.
+    Поскольку последний глава революционеров погиб, революция окончена.
 
-    You are no longer a revolutionary, so be nice.
-rev-deconverted-confirm = Confirm
+    Вы больше не революционер, так что ведите себя хорошо.
+rev-deconverted-confirm = Подтвердить

@@ -1,3 +1,3 @@
-reflect-component-examine = It has a [color=lightblue]{$value}%[/color] chance to [color=cyan]reflect[/color] {$type}.
-reflect-component-nonenergy = bullets
-reflect-component-energy = energy bolts
+reflect-component-examine = [color=lightblue]{$value}%[/color] вероятность [color=cyan]отразить[/color] {$type}.
+reflect-component-nonenergy = пули
+reflect-component-energy = энергетические заряды

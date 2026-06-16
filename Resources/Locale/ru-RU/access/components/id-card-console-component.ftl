@@ -1,4 +1,4 @@
-id-card-console-window-privileged-id = Привилегированная ID:
+id-card-console-window-privileged-id = Основная ID:
 id-card-console-window-target-id = Целевая ID:
 id-card-console-window-full-name-label = Полное имя:
 id-card-console-window-save-button = Сохранить
@@ -10,6 +10,6 @@ id-card-console-window-select-all-button = Выдать всё
 id-card-console-window-deselect-all-button = Забрать всё
 
 access-id-card-console-component-no-hands-error = У вас нет рук.
-id-card-console-privileged-id = Привилегированная ID
+id-card-console-privileged-id = Основная ID
 id-card-console-target-id = Целевая ID
 id-card-console-damaged = Нарушена структурная целостность, извлечение содержимого.

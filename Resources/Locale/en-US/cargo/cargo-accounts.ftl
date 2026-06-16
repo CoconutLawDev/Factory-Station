@@ -1,17 +1,17 @@
-cargo-account-cargo-name = Station Supply Budget
-cargo-account-cargo-code = SUP
+cargo-account-cargo-name = Бюджет снабжения станции
+cargo-account-cargo-code = СНАБ
 
-cargo-account-engineering-name = Maintenance Savings
-cargo-account-engineering-code = ENG
+cargo-account-engineering-name = Резерв на обслуживание
+cargo-account-engineering-code = ИНЖ
 
-cargo-account-medical-name = Crew Healthcare Fund
-cargo-account-medical-code = MED
+cargo-account-medical-name = Фонд здоровья экипажа
+cargo-account-medical-code = МЕД
 
-cargo-account-science-name = Interstellar Development Funding
-cargo-account-science-code = RND
+cargo-account-science-name = Фонд межзвёздного производства
+cargo-account-science-code = ПО
 
-cargo-account-security-name = Station Defense Reserves
-cargo-account-security-code = SEC
+cargo-account-security-name = Резерв обороны станции
+cargo-account-security-code = СБ
 
-cargo-account-service-name = Collective Service Holdings
-cargo-account-service-code = SRV
+cargo-account-service-name = Коллективные фонды обслуживания
+cargo-account-service-code = ОБС

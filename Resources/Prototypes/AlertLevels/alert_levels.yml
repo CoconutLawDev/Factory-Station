@@ -70,3 +70,39 @@
       emergencyLightColor: DarkViolet
       forceEnableEmergencyLights: true
       shuttleTime: 1200
+    omega:
+      announcement: alert-level-omega-announcement
+      selectable: false
+      sound:
+        path: /Audio/Misc/epsilon.ogg
+        params:
+          volume: -2
+      disableSelection: true
+      color: DarkViolet
+      emergencyLightColor: DarkViolet
+      forceEnableEmergencyLights: true
+      shuttleTime: 1200
+    alpha:
+      announcement: alert-level-alpha-announcement
+      selectable: false
+      sound:
+        path: /Audio/Misc/alpha.ogg
+        params:
+          volume: -2
+      disableSelection: true
+      color: DarkRed
+      emergencyLightColor: DarkRed
+      forceEnableEmergencyLights: true
+      shuttleTime: 1200
+    charlie:
+      announcement: alert-level-charlie-announcement
+      selectable: false
+      sound:
+        path: /Audio/Misc/alpha.ogg
+        params:
+          volume: -2
+      disableSelection: true
+      color: DarkGreen
+      emergencyLightColor: DarkGreen
+      forceEnableEmergencyLights: true
+      shuttleTime: 1200

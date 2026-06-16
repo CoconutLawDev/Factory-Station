@@ -1,37 +1,38 @@
-shared-solution-container-component-on-examine-main-text = It contains {INDEFINITE($desc)} [color={$color}]{$desc}[/color] { $chemCount ->
-    [1] chemical.
-   *[other] mixture of chemicals.
+shared-solution-container-component-on-examine-main-text = Содержит {INDEFINITE($desc)} [color={$color}]{$desc}[/color] { $chemCount ->
+    [1] химикат.
+    [few] химиката.
+   *[many] химикатов.
     }
 
-examinable-solution-has-recognizable-chemicals = You can recognize {$recognizedString} in the solution.
+examinable-solution-has-recognizable-chemicals = Вы можете распознать в растворе {$recognizedString}.
 examinable-solution-recognized = [color={$color}]{$chemical}[/color]
 
-examinable-solution-on-examine-volume = The contained solution is { $fillLevel ->
-    [exact] holding [color=white]{$current}/{$max}u[/color].
+examinable-solution-on-examine-volume = Содержимое раствора { $fillLevel ->
+    [exact] составляет [color=white]{$current}/{$max} ед[/color].
    *[other] [bold]{ -solution-vague-fill-level(fillLevel: $fillLevel) }[/bold].
 }
 
-examinable-solution-on-examine-volume-no-max = The contained solution is { $fillLevel ->
-    [exact] holding [color=white]{$current}u[/color].
+examinable-solution-on-examine-volume-no-max = Содержимое раствора { $fillLevel ->
+    [exact] составляет [color=white]{$current} ед[/color].
    *[other] [bold]{ -solution-vague-fill-level(fillLevel: $fillLevel) }[/bold].
 }
 
-examinable-solution-on-examine-volume-puddle = The puddle is { $fillLevel ->
-    [exact] [color=white]{$current}u[/color].
-    [full] huge and overflowing!
-    [mostlyfull] huge and overflowing!
-    [halffull] deep and flowing.
-    [halfempty] very deep.
-   *[mostlyempty] pooling together.
-    [empty] forming multiple small pools.
+examinable-solution-on-examine-volume-puddle = Лужа { $fillLevel ->
+    [exact] составляет [color=white]{$current} ед[/color].
+    [full] огромна и переполнена!
+    [mostlyfull] огромна и переполнена!
+    [halffull] глубока и течёт.
+    [halfempty] очень глубока.
+   *[mostlyempty] собирается в лужи.
+    [empty] образует несколько маленьких лужиц.
 }
 
 -solution-vague-fill-level =
     { $fillLevel ->
-        [full] [color=white]Full[/color]
-        [mostlyfull] [color=#DFDFDF]Mostly Full[/color]
-        [halffull] [color=#C8C8C8]Half Full[/color]
-        [halfempty] [color=#C8C8C8]Half Empty[/color]
-        [mostlyempty] [color=#A4A4A4]Mostly Empty[/color]
-       *[empty] [color=gray]Empty[/color]
+        [full] [color=white]Полна[/color]
+        [mostlyfull] [color=#DFDFDF]Почти полна[/color]
+        [halffull] [color=#C8C8C8]Наполовину полна[/color]
+        [halfempty] [color=#C8C8C8]Наполовину пуста[/color]
+        [mostlyempty] [color=#A4A4A4]Почти пуста[/color]
+       *[empty] [color=gray]Пуста[/color]
     }

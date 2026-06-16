@@ -1,2 +1,2 @@
-sandbox-title = Sandbox
-sandbox-description = No stress, build something!
+sandbox-title = Режим кокосика
+sandbox-description = Самый опасный режим, когда кокосик онлайн!

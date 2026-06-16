@@ -1,56 +1,56 @@
 # Command
-highlights-captain = Captain, "Cap", Bridge, Command
-highlights-head-of-personnel = Head Of Personnel, "HoP", Service, Bridge, Command
-highlights-chief-engineer = Chief Engineer, "CE", Engineering, Engineer, "Engi", Bridge, Command
-highlights-chief-medical-officer = Chief Medical Officer, "CMO", Medbay, Medical, "Med", Bridge, Command
-highlights-head-of-security = Head of Security, "HoS", Armory, Security, "Sec", Bridge, Command
-highlights-quartermaster = Quartermaster, "QM", Cargo, Supply, Bridge, Command
-highlights-research-director = Research Director, "RD", Science, "Sci", "RND", "R&D", Bridge, Command
+highlights-captain = Капитан, «Кэп», Мостик, Командование
+highlights-head-of-personnel = Глава персонала, «ГП», Сервис, Мостик, Командование
+highlights-chief-engineer = Старший инженер, «СИ», Инженерия, Инженер, «Инж», Мостик, Командование
+highlights-chief-medical-officer = Главный врач, «ГВ», Медбей, Медицинский, «Мед», Мостик, Командование
+highlights-head-of-security = Глава службы безопасности, «ГСБ», Оружейная, Безопасность, «СБ», Мостик, Командование
+highlights-quartermaster = Квартирмейстер, «КМ», Грузовой, Снабжение, Мостик, Командование
+highlights-research-director = Научный руководитель, «НР», Наука, «Наук», «НИО», «НИОКР», Мостик, Командование
 
 # Security
-highlights-detective = Detective, "Det", Armory, Security, "Sec"
-highlights-security-cadet = Security Cadet, Secoff, Cadet, Armory, Security, "Sec"
-highlights-security-officer = Security Officer, Secoff, Officer, Armory, Security, "Sec"
-highlights-warden = Warden, "Ward", Brig, Genpop, Jail, "Prison", Armory, Security, "Sec"
+highlights-detective = Детектив, «Дет», Оружейная, Безопасность, «СБ»
+highlights-security-cadet = Курсант службы безопасности, Офицер СБ, Курсант, Оружейная, Безопасность, «СБ»
+highlights-security-officer = Офицер службы безопасности, Офицер СБ, Офицер, Оружейная, Безопасность, «СБ»
+highlights-warden = Смотритель, «Смотр», Бриг, Зона ОП, Тюрьма, Оружейная, Безопасность, «СБ»
 
 # Cargo
-highlights-cargo-technician = Cargo Technician, Cargo Tech, "Cargo", Supply
-highlights-salvage-specialist = Salvage Specialist, Salvager, Salvage, "Salv", Miner, "Cargo", Supply
+highlights-cargo-technician = Грузовой техник, Техник грузового отдела, «Грузовой», Снабжение
+highlights-salvage-specialist = Специалист по утилизации, Утилизатор, Утилизация, «Утил», Шахтёр, «Грузовой», Снабжение
 
 # Engineering
-highlights-atmospheric-technician = Atmospheric Technician, Atmos Tech, Atmospheric, Engineering, "Atmos", "Engi"
-highlights-station-engineer = Station Engineer, Engineering, Engineer, "Engi"
-highlights-technical-assistant = Technical Assistant, Tech Assistant, Engineering, Engineer, "Engi"
+highlights-atmospheric-technician = Атмосферный техник, Техник атмосферы, Атмосфера, Инженерия, «Атмос», «Инж»
+highlights-station-engineer = Станционный инженер, Инженерия, Инженер, «Инж»
+highlights-technical-assistant = Технический ассистент, Ассистент инженера, Инженерия, Инженер, «Инж»
 
 # Medical
-highlights-chemist = Chemist, Chemistry, "Chem", Medbay, Medical, "Med"
-highlights-medical-doctor = Medical Doctor, Doctor, "Doc", Medbay, Medical, "Med"
-highlights-medical-intern = Medical Intern, Intern, Medbay, Medical, "Med"
-highlights-paramedic = Paramedic, "Para", "Medic", Medbay, Medical, "Med"
+highlights-chemist = Химик, Химия, «Хим», Медбей, Медицинский, «Мед»
+highlights-medical-doctor = Врач, Доктор, «Док», Медбей, Медицинский, «Мед»
+highlights-medical-intern = Медицинский интерн, Интерн, Медбей, Медицинский, «Мед»
+highlights-paramedic = Парамедик, «Пара», «Медик», Медбей, Медицинский, «Мед»
 
 # Science
-highlights-scientist = Scientist, Science, "Sci", "RND", "R&D"
-highlights-research-assistant = Research Assistant, Science, "Sci", "RND", "R&D"
+highlights-scientist = Учёный, Наука, «Наук», «НИО», «НИОКР»
+highlights-research-assistant = Научный ассистент, Наука, «Наук», «НИО», «НИОКР»
 
 # Civilian
-highlights-bartender = Bartender, Barkeeper, Barkeep, "Bar", Service, "Serv"
-highlights-botanist = Botanist, Botany, Hydroponics, Service, "Serv"
-highlights-chaplain = Chaplain, "Chap", Chapel, Service, "Serv"
-highlights-chef = Chef, "Cook", Kitchen, Service, "Serv"
-highlights-clown = Clown, Theatre, Theater, Service, "Serv"
-highlights-janitor = Janitor, "Jani", Service, "Serv"
-highlights-lawyer = Lawyer, Attorney, "Law", Service, "Serv"
-highlights-librarian = Librarian, Library, Service, "Serv"
-highlights-mime = Mime, Theatre, Theater, Service, "Serv"
-highlights-musician = Musician, "Music", Theatre, Theater, Service, "Serv"
-highlights-passenger = Passenger, Greytider, Graytider, "Tider", "Tide"
-highlights-service-worker = Service Worker, Service, "Serv"
+highlights-bartender = Бармен, Буфетчик, «Бар», Сервис, «Обс»
+highlights-botanist = Ботаник, Ботаника, Гидропоника, Сервис, «Обс»
+highlights-chaplain = Капеллан, «Кап», Часовня, Сервис, «Обс»
+highlights-chef = Шеф-повар, «Повар», Кухня, Сервис, «Обс»
+highlights-clown = Клоун, Театр, Сервис, «Обс»
+highlights-janitor = Уборщик, «Убор», Сервис, «Обс»
+highlights-lawyer = Юрист, Адвокат, «Закон», Сервис, «Обс»
+highlights-librarian = Библиотекарь, Библиотека, Сервис, «Обс»
+highlights-mime = Мим, Театр, Сервис, «Обс»
+highlights-musician = Музыкант, «Музыка», Театр, Сервис, «Обс»
+highlights-passenger = Пассажир, Серобот, «Бот», «Волна»
+highlights-service-worker = Работник сервиса, Сервис, «Обс»
 
 # Station-specific
-highlights-reporter = Reporter, Journalist, Newsroom, News
-highlights-psychologist = Psychologist, Psychology, "Psych", Medbay, Medical, "Med"
+highlights-reporter = Репортёр, Журналист, Редакция, Новости
+highlights-psychologist = Психолог, Психология, «Псих», Медбей, Медицинский, «Мед»
 
 # Silicon
-highlights-personal-ai = Personal AI, "pAI"
-highlights-cyborg = Cyborg, Silicon, Borg, Robotics, "Robot"
-highlights-station-ai = Station AI, Silicon, "AI", "sAI"
+highlights-personal-ai = Персональный ИИ, «пИИ»
+highlights-cyborg = Киборг, Кремний, Борг, Робототехника, «Робот»
+highlights-station-ai = Станционный ИИ, Кремний, «ИИ», «сИИ»

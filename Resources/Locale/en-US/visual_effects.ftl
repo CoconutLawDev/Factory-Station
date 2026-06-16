@@ -1,1 +1,1 @@
-stealth-visual-effect = [color=lightslategray]{CAPITALIZE(SUBJECT($target))} {CONJUGATE-BASIC($target, "shimmer", "shimmers")} with strange transparency.[/color]
+stealth-visual-effect = [color=lightslategray]{CAPITALIZE($target)} {CONJUGATE-BASIC($target, "мерцает", "мерцают")} странной прозрачностью.[/color]

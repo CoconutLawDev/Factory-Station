@@ -1,12 +1,12 @@
 agent-id-new = { $number ->
-    [0] Didn't gain any new accesses from {THE($card)}.
-    [one] Gained one new access from {THE($card)}.
-   *[other] Gained {$number} new accesses from {THE($card)}.
+    [0] Не получено ни одного нового доступа от {THE($card)}.
+    [one] Получен один новый доступ от {THE($card)}.
+   *[other] Получено новых доступов: {$number} от {THE($card)}.
 }
 
-agent-id-card-current-name = Name:
-agent-id-card-current-job = Job:
-agent-id-card-job-icon-label = Job icon:
-agent-id-menu-title = Agent ID Card
+agent-id-card-current-name = Имя:
+agent-id-card-current-job = Должность:
+agent-id-card-job-icon-label = Иконка должности:
+agent-id-menu-title = Агентская ID-карта
 
-agent-id-open-ui-verb = Change settings
+agent-id-open-ui-verb = Изменить настройки
