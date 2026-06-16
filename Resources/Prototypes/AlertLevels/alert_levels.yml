@@ -78,8 +78,8 @@
         params:
           volume: -2
       disableSelection: true
-      color: DarkViolet
-      emergencyLightColor: DarkViolet
+      color: White
+      emergencyLightColor: White
       forceEnableEmergencyLights: true
       shuttleTime: 1200
     alpha:
@@ -102,7 +102,7 @@
         params:
           volume: -2
       disableSelection: true
-      color: DarkGreen
-      emergencyLightColor: DarkGreen
+      color: Orange
+      emergencyLightColor: Orange
       forceEnableEmergencyLights: true
       shuttleTime: 1200
