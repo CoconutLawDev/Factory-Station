@@ -2,7 +2,7 @@
 
 # Bound Interface
 
-gas-canister-bound-user-interface-title = Газовый баллон
+gas-canister-bound-user-interface-title = Газовая канистра
 
 # Popup
 gas-canister-popup-denied = Доступ запрещён

@@ -1,84 +1,84 @@
-news-dataset-1 = Таджар застрял в дереве; пожарные в недоумении.
-news-dataset-2 = Броненосцы требуют удалить трубкозубов из словаря, заявляя «мы здесь первые».
-news-dataset-3 = Ангелу, танцующему на кончике иглы, приказано прекратить; признан виновным в нарушении общественного порядка.
-news-dataset-4 = Буквы заявляют, что они лучше цифр: «Так было всегда».
-news-dataset-5 = Ручки провозглашают карандаши устаревшими: «Свинец мёртв».
-news-dataset-6 = Камень и бумага подают в суд на ножницы за дискриминацию.
-news-dataset-7 = Стейк в книге-откровении признаётся, что ему никогда не нравилось лежать рядом с картошкой.
-news-dataset-8 = Сурок перестал считать, сколько раз он метался: «Никогда больше».
-news-dataset-9 = «Кис-кис-кис» больше не является предпочтительной техникой поимки таджаров.
-news-dataset-10 = Мужчина пролетел 7000 световых лет, чтобы найти потерянный носовой платок: «Это был мой любимый».
-news-dataset-11 = Новая дорожка для боулинга, стреляющая мини-метеорами в игроков, пользуется большой популярностью.
-news-dataset-12 = Скрелл женится на компьютере; на свадьбе присутствовало 100 модемов.
-news-dataset-13 = Шеф-повар сообщает, что успешно использовал губную гармошку в качестве тёрки для сыра.
-news-dataset-14 = Nanotrasen изобретает носовой платок, который говорит «Будьте здоровы» после чихания.
-news-dataset-15 = Клона обвиняют в том, что он позировал для школьной фотографии другого клона.
-news-dataset-16 = Клона обвиняют в краже награды «Сотрудник месяца» у другого клона.
-news-dataset-17 = Женщина грабит станцию феном; экипажу нравится новый стиль.
-news-dataset-18 = Это место сдаётся в аренду.
-news-dataset-19 = Учёный-скрелл открывает, что счёты можно использовать для сушки полотенец.
-news-dataset-20 = Опрос: «Сырная Луиза» признан лучшим пицца-рестораном в Тау Кита.
-news-dataset-21 = Подтверждено, что болотный газ — это выдыхание звёзд... кинозвёзд... давно ушедших.
-news-dataset-22 = Отравленные брокколи — оружие выбора для убийц Синдиката.
-news-dataset-23 = Повара находят брокколи эффективным инструментом для нарезки сыра.
-news-dataset-24 = Обнаружено, что брокколи вызывает раздражительность у обезьян.
-news-dataset-25 = У гигантского волосяного кома идеальная грамматика, но он слишком сильно картавит, говорят лингвисты.
-news-dataset-26 = Опрос показывает, что «Gibson Gazette» часто публикует абсурдные новости.
-news-dataset-27 = Таджары требуют более длительных перерывов, более чистого наполнителя и более медленных мышей.
-news-dataset-28 = Опрос: 3 из 5 скреллов ненавидят современное искусство.
-news-dataset-29 = Учёный-скрелл открывает гравитацию, падая с лестницы.
-news-dataset-30 = Люди повсюду согласны: мурлыкающие таджары — счастливые таджары.
-news-dataset-31 = Из заметок Сэмми Умника: Одно слово в этой газете — тывабкардс.
-news-dataset-32 = Из заметок Сэмми Умника: Слишком много места на полках не бывает.
-news-dataset-33 = Из заметок Сэмми Умника: Вино и дружба становятся лучше с возрастом.
-news-dataset-34 = Из заметок Сэмми Умника: Внутри мячей для гольфа в основном резинки.
-news-dataset-35 = Из заметок Сэмми Умника: Не нужно обманывать всех, нужно обмануть нужных.
-news-dataset-36 = Из заметок Сэмми Умника: Если вы устроили беспорядок, вы его и убираете.
-news-dataset-37 = Из заметок Сэмми Умника: Легче получить прощение, чем разрешение.
-news-dataset-38 = Из заметок Сэмми Умника: Проверяйте факты, прежде чем выставить себя дураком.
-news-dataset-39 = Из заметок Сэмми Умника: Бюрократию не пересидишь.
-news-dataset-40 = Из заметок Сэмми Умника: Лучше уступить дорогу, чем требовать её.
-news-dataset-41 = Из заметок Сэмми Умника: Человек, который любит кошек, не может быть совсем плохим.
-news-dataset-42 = Из заметок Сэмми Умника: Помощь — это светлая сторона контроля.
-news-dataset-43 = Из заметок Сэмми Умника: Две точки определяют прямую линию.
-news-dataset-44 = Из заметок Сэмми Умника: Чтение улучшает ум и поднимает дух.
-news-dataset-45 = Из заметок Сэмми Умника: Лучше целиться высоко и промахнуться, чем низко и попасть.
-news-dataset-46 = Из заметок Сэмми Умника: Метеоры часто попадают в одно и то же место больше одного раза.
-news-dataset-47 = Томми Б. Сейф советует: Посмотрите по сторонам, прежде чем садиться на шаттл.
-news-dataset-48 = Томми Б. Сейф советует: Держитесь крепче; внезапные остановки иногда необходимы.
-news-dataset-49 = Томми Б. Сейф советует: Держите пальцы подальше от движущихся панелей.
-news-dataset-50 = Томми Б. Сейф советует: Поворот налево запрещён, кроме шаттлов.
-news-dataset-51 = Томми Б. Сейф советует: Верните сиденья и столики в исходное вертикальное положение.
-news-dataset-52 = Томми Б. Сейф советует: Еда и питьё в стыковочных отсеках запрещены.
-news-dataset-53 = Томми Б. Сейф советует: Никаких заменителей, и не дайте себя обмануть подделками.
-news-dataset-54 = Томми Б. Сейф советует: Не удаляйте эту бирку под страхом наказания.
-news-dataset-55 = Томми Б. Сейф советует: Всегда тщательно перемешивайте, если даны такие указания.
-news-dataset-56 = Томми Б. Сейф советует: Старайтесь держать про запас средства на шесть месяцев.
-news-dataset-57 = Томми Б. Сейф советует: Сдача не выдаётся без покупки.
-news-dataset-58 = Томми Б. Сейф советует: Сломаешь — заплатишь.
-news-dataset-59 = Томми Б. Сейф советует: Бронирование должно быть отменено за 48 часов до мероприятия для получения возврата.
-news-dataset-60 = Пончики: есть ли что-то, что они не могут сделать?
-news-dataset-61 = Если жестяные свистки делают из жести, то из чего делают туманы?
-news-dataset-62 = Обнаружено, что брокколи — это колонии крошечных пришельцев с убийственными намерениями.
+news-dataset-1 = Tree stuck in tajaran; firefighters baffled.
+news-dataset-2 = Armadillos want aardvarks removed from dictionary claims 'here first'.
+news-dataset-3 = Angel found dancing on pinhead ordered to stop; cited for public nuisance.
+news-dataset-4 = Letters claim they are better than number; 'Always have been'.
+news-dataset-5 = Pens proclaim pencils obsolete, 'lead is dead'.
+news-dataset-6 = Rock and paper sues scissors for discrimination.
+news-dataset-7 = Steak tell-all book reveals he never liked sitting by potato.
+news-dataset-8 = Woodchuck stops counting how many times he’s chucked 'Never again'.
+news-dataset-9 = 'Here kitty kitty' no longer preferred tajaran retrieval technique.
+news-dataset-10 = Man travels 7000 light years to retrieve lost hankie, 'It was my favourite'.
+news-dataset-11 = New bowling lane that shoots mini-meteors at bowlers very popular.
+news-dataset-12 = Skrell marries computer; wedding attended by 100 modems.
+news-dataset-13 = Chef reports successfully using harmonica as cheese grater.
+news-dataset-14 = Nanotrasen invents handkerchief that says 'Bless you' after sneeze.
+news-dataset-15 = Clone accused of posing for other clones’s school photo.
+news-dataset-16 = Clone accused of stealing other clones’s employee of the month award.
+news-dataset-17 = Woman robs station with hair dryer; crewmen love new style.
+news-dataset-18 = This space for rent.
+news-dataset-19 = Skrell Scientist Discovers Abacus Can Be Used To Dry Towels
+news-dataset-20 = Survey: 'Cheese Louise' Voted Best Pizza Restaurant In Tau Ceti
+news-dataset-21 = Swamp Gas Verified To Be Exhalations Of Stars--Movie Stars--Long Passed
+news-dataset-22 = Tainted Broccoli Weapon Of Choice For Syndicate Assassins
+news-dataset-23 = Chefs Find Broccoli Effective Tool For Cutting Cheese
+news-dataset-24 = Broccoli Found To Cause Grumpiness In Monkeys
+news-dataset-25 = Giant Hairball Has Perfect Grammar But Rolls rr's Too Much, Linguists Say
+news-dataset-26 = Gibson Gazette Updates Frequently Absurd, Poll Indicates
+news-dataset-27 = Taj Demand Longer Breaks, Cleaner Litter, Slower Mice
+news-dataset-28 = Survey: 3 Out Of 5 Skrell Loathe Modern Art
+news-dataset-29 = Skrell Scientist Discovers Gravity While Falling Down Stairs
+news-dataset-30 = Humans Everywhere Agree: Purring Tajarans Are Happy Tajarans
+news-dataset-31 = From The Desk Of Wise Guy Sammy: One Word In This Gazette Is Sdrawkcab
+news-dataset-32 = From The Desk Of Wise Guy Sammy: It's Hard To Have Too Much Shelf Space
+news-dataset-33 = From The Desk Of Wise Guy Sammy: Wine And Friendships Get Better With Age
+news-dataset-34 = From The Desk Of Wise Guy Sammy: The Insides Of Golf Balls Are Mostly Rubber Bands
+news-dataset-35 = From The Desk Of Wise Guy Sammy: You Don't Have To Fool All The People, Just The Right Ones
+news-dataset-36 = From The Desk Of Wise Guy Sammy: If You Made The Mess, You Clean It Up
+news-dataset-37 = From The Desk Of Wise Guy Sammy: It Is Easier To Get Forgiveness Than Permission
+news-dataset-38 = From The Desk Of Wise Guy Sammy: Check Your Facts Before Making A Fool Of Yourself
+news-dataset-39 = From The Desk Of Wise Guy Sammy: You Can't Outwait A Bureaucracy
+news-dataset-40 = From The Desk Of Wise Guy Sammy: It's Better To Yield Right Of Way Than To Demand It
+news-dataset-41 = From The Desk Of Wise Guy Sammy: A Person Who Likes Cats Can't Be All Bad
+news-dataset-42 = From The Desk Of Wise Guy Sammy: Help Is The Sunny Side Of Control
+news-dataset-43 = From The Desk Of Wise Guy Sammy: Two Points Determine A Straight Line
+news-dataset-44 = From The Desk Of Wise Guy Sammy: Reading Improves The Mind And Lifts The Spirit
+news-dataset-45 = From The Desk Of Wise Guy Sammy: Better To Aim High And Miss Then To Aim Low And Hit
+news-dataset-46 = From The Desk Of Wise Guy Sammy: Meteors Often Strike The Same Place More Than Once
+news-dataset-47 = Tommy B. Saif Sez: Look Both Ways Before Boarding The Shuttle
+news-dataset-48 = Tommy B. Saif Sez: Hold On; Sudden Stops Sometimes Necessary
+news-dataset-49 = Tommy B. Saif Sez: Keep Fingers Away From Moving Panels
+news-dataset-50 = Tommy B. Saif Sez: No Left Turn, Except Shuttles
+news-dataset-51 = Tommy B. Saif Sez: Return Seats And Trays To Their Proper Upright Position
+news-dataset-52 = Tommy B. Saif Sez: Eating And Drinking In Docking Bays Is Prohibited
+news-dataset-53 = Tommy B. Saif Sez: Accept No Substitutes, And Don't Be Fooled By Imitations
+news-dataset-54 = Tommy B. Saif Sez: Do Not Remove This Tag Under Penalty Of Law
+news-dataset-55 = Tommy B. Saif Sez: Always Mix Thoroughly When So Instructed
+news-dataset-56 = Tommy B. Saif Sez: Try To Keep Six Month's Expenses In Reserve
+news-dataset-57 = Tommy B. Saif Sez: Change Not Given Without Purchase
+news-dataset-58 = Tommy B. Saif Sez: If You Break It, You Buy It
+news-dataset-59 = Tommy B. Saif Sez: Reservations Must Be Cancelled 48 Hours Prior To Event To Obtain Refund
+news-dataset-60 = Doughnuts: Is There Anything They Can't Do
+news-dataset-61 = If Tin Whistles Are Made Of Tin, What Do They Make Foghorns Out Of?
+news-dataset-62 = Broccoli discovered to be colonies of tiny aliens with murder on their minds
 
 ## Commented
-# {{AFFECTED}} клерк первым смог произнести '@*$%!'.
-# {{AFFECTED}} закусочные подают варёные бумажные словари; клиенты объявляют прилагательные «жёвкими».
-# {{AFFECTED}} погода признана «скучной»; метеоры и радиационные бури будут импортированы.
-# Большинство {{AFFECTED}} офицеров службы безопасности предпочитают сливки сахару.
-# Конференция любителей палиндромов в {{AFFECTED}}; «Ого!» — говорит Отто.
-# Вопросительный знак почитался как божество древними жителями {{AFFECTED}}.
-# Разлитое молоко заставляет всё население {{AFFECTED}} плакать.
-# На выставке в {{AFFECTED}} представлен самый большой в мире карповый пирожок.
-# Парень делает татуировку Тау Кита на груди; «[pick(ЦентКом,звезда,звездолёт,астероид)] щекочет больше всего».
-# {{AFFECTED}} Пекарь выигрывает метание маринованных лепёшек третий год подряд.
-# Меня подставили, — шутит {{AFFECTED}} художник.
-# Загадочные громкие грохочущие звуки в {{AFFECTED}} оказались загадочными громкими грохотами.
-# Инопланетный посол заблудился в {{AFFECTED}}, отказывается спрашивать дорогу.
-# Опрос: 80% людей в {{AFFECTED}} любят чечётку в клогах.
-# {{AFFECTED}} телефонные справочники печатают все неверные номера; результат — 15 новых браков.
-# Таджар-грабитель замечен в {{AFFECTED}}, принят за далматинца.
-# Эзотерическое многословие приводит к коммуникативной апатии, отмечают академики {{AFFECTED}}.
-# Мальчик спасает таджара из дерева в {{AFFECTED}}, тысячи ликуют.
-# Партия яблок переворачивается, закусочная в {{AFFECTED}} предлагает специальное яблочное пюре.
-# Пятнистая сова замечена в {{AFFECTED}}.
+# {{AFFECTED}} clerk first person able to pronounce '@*$%!'.
+# {{AFFECTED}} delis serving boiled paperback dictionaries, 'Adjectives chewy' customers declare.
+# {{AFFECTED}} weather deemed 'boring'; meteors and rad storms to be imported.
+# Most {{AFFECTED}} security officers prefer cream over sugar.
+# Palindrome speakers conference in {{AFFECTED}}; 'Wow!' says Otto.
+# Question mark worshipped as deity by ancient {{AFFECTED}} dwellers.
+# Spilled milk causes whole {{AFFECTED}} populace to cry.
+# World largest carp patty at display on {{AFFECTED}}.
+# Guy gets tattoo of Tau Ceti on chest '[pick(CentCom,star,starship,asteroid)] tickles most'.
+# {{AFFECTED}} Baker Wins Pickled Crumpet Toss Three Years Running
+# I Was Framed, jokes {{AFFECTED}} artist
+# Mysterious Loud Rumbling Noises In {{AFFECTED}} Found To Be Mysterious Loud Rumblings
+# Alien ambassador becomes lost on {{AFFECTED}}, refuses to ask for directions
+# Survey: 80% Of People on {{AFFECTED}} Love Clog-Dancing
+# {{AFFECTED}} Phonebooks Print All Wrong Numbers; Results In 15 New Marriages
+# Tajaran Burglar Spotted on {{AFFECTED}}, Mistaken For Dalmatian
+# Esoteric Verbosity Culminates In Communicative Ennui, {{AFFECTED}} Academics Note
+# Boy Saves Tajaran From Tree on {{AFFECTED}}, Thousands Cheer
+# Shipment Of Apples Overturns, {{AFFECTED}} Diner Offers Applesauce Special
+# Spotted Owl Spotted on {{AFFECTED}}

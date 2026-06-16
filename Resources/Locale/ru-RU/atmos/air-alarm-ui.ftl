@@ -2,7 +2,7 @@
 
 ## Window
 
-air-alarm-ui-title = Сигнализация атмосферы
+air-alarm-ui-title = Воздушная Сигнализация
 
 air-alarm-ui-access-denied = Недостаточно прав доступа!
 

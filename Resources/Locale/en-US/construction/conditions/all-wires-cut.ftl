@@ -1,4 +1,4 @@
-construction-examine-condition-all-wires-cut = Все его провода должны быть перерезаны.
-construction-examine-condition-all-wires-intact = Все его провода должны быть целы.
-construction-guide-condition-all-wires-cut = Все его провода должны быть перерезаны.
-construction-guide-condition-all-wires-intact = Все его провода должны быть целы.
+construction-examine-condition-all-wires-cut = All of its wires must be cut.
+construction-examine-condition-all-wires-intact = All of its wires must be intact.
+construction-guide-condition-all-wires-cut = All of its wires must be cut.
+construction-guide-condition-all-wires-intact = All of its wires must be intact.

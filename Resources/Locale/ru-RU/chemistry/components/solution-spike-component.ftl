@@ -1,4 +1,4 @@
-spike-solution-generic = Вы добавляете {THE($spike-entity)} в {THE($spiked-entity)}.
-spike-solution-empty-generic = {THE($spike-entity)} не растворяется в {THE($spiked-entity)}.
-spike-solution-egg = Вы разбиваете {THE($spike-entity)} в {THE($spiked-entity)}.
-spike-solution-mix = Вы смешиваете {THE($spike-entity)} с {THE($spiked-entity)}.
+spike-solution-generic = You spike {THE($spiked-entity)} with {THE($spike-entity)}.
+spike-solution-empty-generic = {THE($spike-entity)} fails to dissolve in {THE($spiked-entity)}.
+spike-solution-egg = You crack {THE($spike-entity)} into {THE($spiked-entity)}.
+spike-solution-mix = You mix {THE($spike-entity)} into {THE($spiked-entity)}.

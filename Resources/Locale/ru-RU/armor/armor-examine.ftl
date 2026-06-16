@@ -2,8 +2,8 @@
 armor-examinable-verb-text = Броня
 armor-examinable-verb-message = Исследовать параметры брони.
 armor-examine = Обеспечивает следующую защиту:
-armor-coefficient-value = - [color=yellow]{$type}[/color] урон снижен на [color=lightblue]{$value}%[/color].
-armor-reduction-value = - [color=yellow]{$type}[/color] урон снижен на [color=lightblue]{$value}[/color].
+armor-coefficient-value = - Урон типа [color=yellow]{$type}[/color] снижен на [color=lightblue]{$value}%[/color].
+armor-reduction-value = - Урон типа [color=yellow]{$type}[/color] снижен на [color=lightblue]{$value}[/color].
 armor-damage-type-blunt = Дробящий
 armor-damage-type-slash = Режущий
 armor-damage-type-piercing = Колющий

@@ -53,6 +53,10 @@ public sealed partial class FactoryIndustrialHeatComponent : Component
     [DataField] public bool EmitsSparks = true;
     public float SpillageAccumulator;
 
+    /// Сколько радиаторных пластин уже установлено на этот станок.
+    [DataField]
+    public int UpgradeCount = 0;
+
     // ========= ПОЛЯ ДЛЯ АТМОСФЕРНОГО ОХЛАЖДЕНИЯ =========
     [DataField] public bool AmbientCoolingEnabled = true;
     [DataField] public float AmbientCoolingCoefficient = 0.5f;

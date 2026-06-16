@@ -1,17 +1,19 @@
 ## RoundEndSystem
 
-round-end-system-shuttle-called-announcement = An emergency shuttle has been sent. ETA: {$time} {$units}.
-round-end-system-shuttle-already-called-announcement = An emergency shuttle has already been sent.
-round-end-system-shuttle-auto-called-announcement = An automatic crew shift change shuttle has been sent. ETA: {$time} {$units}. Recall the shuttle to extend the shift.
-round-end-system-shuttle-recalled-announcement = The emergency shuttle has been recalled.
-round-end-system-shuttle-sender-announcement = Station
-round-end-system-round-restart-eta-announcement = Restarting the round in {$time} {$units}...
+round-end-system-shuttle-called-announcement = Аварийный шаттл отправлен. Расчётное время прибытия: {$time} {$units}.
+round-end-system-shuttle-already-called-announcement = Аварийный шаттл уже был отправлен.
+round-end-system-shuttle-auto-called-announcement = Отправлен автоматический шаттл смены экипажа. Расчётное время прибытия: {$time} {$units}. Отмените вызов шаттла, чтобы продлить смену.
+round-end-system-shuttle-recalled-announcement = Аварийный шаттл был отозван.
+round-end-system-shuttle-sender-announcement = Станция
+round-end-system-round-restart-eta-announcement = Перезапуск раунда через {$time} {$units}...
 
-eta-units-minutes = {$amount ->
-    [one] minute
-    *[other] minutes
+eta-units-minutes = { $amount ->
+    [one] минуту
+    [few] минуты
+   *[many] минут
 }
-eta-units-seconds = {$amount ->
-    [one] second
-    *[other] seconds
+eta-units-seconds = { $amount ->
+    [one] секунду
+    [few] секунды
+   *[many] секунд
 }

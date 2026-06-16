@@ -62,6 +62,16 @@
     requireAtmosphereForCooling: true
   - type: FactoryMachineName
     name: Промышленная печь
+  - type: ContainerContainer
+    containers:
+      heat_sink: !type:ContainerSlot
+  - type: ItemSlots
+    slots:
+      heat_sink:
+        name: Радиаторная пластина
+        whitelist:
+          components:
+          - HeatSink
 
 
 - type: entity
@@ -126,3 +136,10 @@
     roomTemperature: 293.15         # 20°C — выше не охлаждается
     minAmbientTemperature: 73.15    # -200°C — предел эффективности
     requireAtmosphereForCooling: true
+  - type: ItemSlots
+    slots:
+      heat_sink:
+        name: Радиаторная пластина
+        whitelist:
+          components:
+          - HeatSink

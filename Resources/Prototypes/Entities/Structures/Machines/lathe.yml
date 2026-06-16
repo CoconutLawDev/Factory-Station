@@ -142,6 +142,7 @@
     - ServiceStatic
     - PowerCellsStatic
     - ElectronicsStatic
+    - HeatSinkPackFactory
   - type: EmagLatheRecipes
     emagStaticPacks:
     - SecurityAmmoStatic
@@ -188,6 +189,13 @@
     spillagePrototype: PuddleFactoryLubricant
     spillageChance: 0.4
     emitsSparks: true
+  - type: ItemSlots
+    slots:
+      heat_sink:
+        name: Радиаторная пластина
+        whitelist:
+          components:
+          - HeatSink
 
 - type: entity
   id: AutolatheHyperConvection
@@ -280,6 +288,13 @@
     spillagePrototype: PuddleFactoryLubricant
     spillageChance: 0.4
     emitsSparks: true
+  - type: ItemSlots
+    slots:
+      heat_sink:
+        name: Радиаторная пластина
+        whitelist:
+          components:
+          - HeatSink
 
 - type: entity
   id: ProtolatheHyperConvection
@@ -366,6 +381,13 @@
     spillagePrototype: PuddleFactoryLubricant
     spillageChance: 0.4
     emitsSparks: true
+  - type: ItemSlots
+    slots:
+      heat_sink:
+        name: Радиаторная пластина
+        whitelist:
+          components:
+          - HeatSink
 
 - type: entity
   id: CircuitImprinterHyperConvection
@@ -441,6 +463,13 @@
     spillagePrototype: PuddleFactoryLubricant
     spillageChance: 0.4
     emitsSparks: true
+  - type: ItemSlots
+    slots:
+      heat_sink:
+        name: Радиаторная пластина
+        whitelist:
+          components:
+          - HeatSink
 
 - type: entity
   id: Biofabricator
@@ -509,6 +538,13 @@
     spillagePrototype: PuddleFactoryLubricant
     spillageChance: 0.4
     emitsSparks: true
+  - type: ItemSlots
+    slots:
+      heat_sink:
+        name: Радиаторная пластина
+        whitelist:
+          components:
+          - HeatSink
 
 - type: entity
   id: SecurityTechFab
@@ -586,6 +622,13 @@
     spillagePrototype: PuddleFactoryLubricant
     spillageChance: 0.4
     emitsSparks: true
+  - type: ItemSlots
+    slots:
+      heat_sink:
+        name: Радиаторная пластина
+        whitelist:
+          components:
+          - HeatSink
 
 
 - type: entity
@@ -651,6 +694,13 @@
     spillagePrototype: PuddleFactoryLubricant
     spillageChance: 0.4
     emitsSparks: true
+  - type: ItemSlots
+    slots:
+      heat_sink:
+        name: Радиаторная пластина
+        whitelist:
+          components:
+          - HeatSink
 
 - type: entity
   id: MedicalTechFab
@@ -721,6 +771,13 @@
     spillagePrototype: PuddleFactoryLubricant
     spillageChance: 0.4
     emitsSparks: true
+  - type: ItemSlots
+    slots:
+      heat_sink:
+        name: Радиаторная пластина
+        whitelist:
+          components:
+          - HeatSink
 
 - type: entity
   parent: BaseLathe
@@ -793,6 +850,13 @@
     spillagePrototype: PuddleFactoryLubricant
     spillageChance: 0.4
     emitsSparks: true
+  - type: ItemSlots
+    slots:
+      heat_sink:
+        name: Радиаторная пластина
+        whitelist:
+          components:
+          - HeatSink
 
 - type: entity
   id: Biogenerator
@@ -824,6 +888,11 @@
         whitelist:
           components:
           - FitsInDispenser
+      heat_sink:
+        name: Радиаторная пластина
+        whitelist:
+          components:
+          - HeatSink
   - type: ContainerContainer
     containers:
       machine_board: !type:Container
@@ -931,6 +1000,13 @@
       spillagePrototype: PuddleFactoryLubricant
       spillageChance: 0.4
       emitsSparks: true
+    - type: ItemSlots
+      slots:
+      heat_sink:
+        name: Радиаторная пластина
+        whitelist:
+          components:
+          - HeatSink
 
 - type: entity
   parent: OreProcessor
@@ -978,6 +1054,13 @@
     spillagePrototype: PuddleFactoryLubricant
     spillageChance: 0.4
     emitsSparks: true
+  - type: ItemSlots
+    slots:
+      heat_sink:
+        name: Радиаторная пластина
+        whitelist:
+          components:
+          - HeatSink
 
 - type: entity
   parent: BaseLathe
@@ -1038,6 +1121,13 @@
     spillagePrototype: PuddleFactoryLubricant
     spillageChance: 0.4
     emitsSparks: true
+  - type: ItemSlots
+    slots:
+      heat_sink:
+        name: Радиаторная пластина
+        whitelist:
+          components:
+          - HeatSink
 
 - type: entity
   parent: BaseLathe
@@ -1109,3 +1199,10 @@
     spillagePrototype: PuddleFactoryLubricant
     spillageChance: 0.4
     emitsSparks: true
+  - type: ItemSlots
+    slots:
+      heat_sink:
+        name: Радиаторная пластина
+        whitelist:
+          components:
+          - HeatSink

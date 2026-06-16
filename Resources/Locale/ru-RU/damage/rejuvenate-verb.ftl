@@ -1,1 +1,1 @@
-rejuvenate-verb-get-data-text = Омолодить
+rejuvenate-verb-get-data-text = Rejuvenate

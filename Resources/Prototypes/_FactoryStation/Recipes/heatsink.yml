@@ -1,0 +1,14 @@
+#Волочильный станок 261
+- type: latheRecipe
+  id: HeatSinkRecipe1
+  name: "Создание радиаторной пластины"
+  result: HeatSinkPlate
+  completetime: 10
+  materials:
+    IngotCopper: 3000
+
+
+- type: latheRecipePack
+  id: HeatSinkPackFactory
+  recipes:
+    - HeatSinkRecipe1

@@ -1,3 +1,3 @@
-loadout-window = Экипировка
-loadout-none = Нет
-loadout-window-title-loadout = Экипировка для {$job}
+loadout-window = Loadout
+loadout-none = None
+loadout-window-title-loadout = { $job } loadout

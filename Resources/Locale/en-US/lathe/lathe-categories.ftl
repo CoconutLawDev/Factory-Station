@@ -1,58 +1,58 @@
 # Generic
-lathe-category-circuitry = Электроника
-lathe-category-clothing = Одежда
-lathe-category-lights = Освещение
-lathe-category-machines = Механизмы
-lathe-category-parts = Детали
-lathe-category-tools = Инструменты
-lathe-category-weapons = Оружие
+lathe-category-circuitry = Circuitry
+lathe-category-clothing = Clothing
+lathe-category-lights = Lights
+lathe-category-machines = Machines
+lathe-category-parts = Parts
+lathe-category-tools = Tools
+lathe-category-weapons = Weapons
 
 # Biogen
-lathe-category-food = Еда
-lathe-category-chemicals = Химикаты
-lathe-category-materials = Материалы
+lathe-category-food = Food
+lathe-category-chemicals = Chemicals
+lathe-category-materials = Materials
 
 # Circuit imprinter
-lathe-category-computers = Компьютеры
-lathe-category-engineering = Инженерия
-lathe-category-general = Общее
-lathe-category-medical = Медицина
-lathe-category-research = Исследования
-lathe-category-security = Безопасность
-lathe-category-service = Сервис
-lathe-category-supply = Снабжение
+lathe-category-computers = Computers
+lathe-category-engineering = Engineering
+lathe-category-general = General
+lathe-category-medical = Medical
+lathe-category-research = Research
+lathe-category-security = Security
+lathe-category-service = Service
+lathe-category-supply = Supply
 
 # Cutter
-lathe-category-tiles = Плитка
-lathe-category-circuit-tile = Электронная
-lathe-category-concrete-tile = Бетонная
-lathe-category-dark-tile = Тёмная
-lathe-category-faux-tile = Искусственная
-lathe-category-maints-tile = Техническая
-lathe-category-marble = Мраморная
-lathe-category-steel-tile = Стальная
-lathe-category-shuttle-tile = Шаттловая
-lathe-category-white-tile = Белая
-lathe-category-wood-tile = Деревянная
-lathe-category-plastic-tile = Пластиковая
-lathe-category-precious-tile = Драгоценная
-lathe-category-industrial-tile = Индустриальная
+lathe-category-tiles = Tiles
+lathe-category-circuit-tile = Circuit
+lathe-category-concrete-tile = Concrete
+lathe-category-dark-tile = Dark
+lathe-category-faux-tile = Faux
+lathe-category-maints-tile = Maints
+lathe-category-marble = Marble
+lathe-category-steel-tile = Steel
+lathe-category-shuttle-tile = Shuttle
+lathe-category-white-tile = White
+lathe-category-wood-tile = Wood
+lathe-category-plastic-tile = Plastic
+lathe-category-precious-tile = Precious
+lathe-category-industrial-tile = Industrial
 
 # Science
-lathe-category-mechs = Мехи
-lathe-category-modules = Модули
-lathe-category-robotics = Робототехника
+lathe-category-mechs = Mechs
+lathe-category-modules = Modules
+lathe-category-robotics = Robotics
 
 # Security TechFab
-lathe-category-ammo = Боеприпасы
-lathe-category-boxes = Коробки
-lathe-category-magazines = Магазины
+lathe-category-ammo = Ammo
+lathe-category-boxes = Boxes
+lathe-category-magazines = Magazines
 
 # Uniform
-lathe-category-bedsheets = Простыни
-lathe-category-carpets = Ковры
-lathe-category-coats = Куртки
-lathe-category-command = Командование
-lathe-category-hats = Головные уборы
-lathe-category-jumpsuits = Комбинезоны
-lathe-category-neck = Шея
+lathe-category-bedsheets = Bedsheets
+lathe-category-carpets = Carpets
+lathe-category-coats = Coats
+lathe-category-command = Command
+lathe-category-hats = Hats
+lathe-category-jumpsuits = Jumpsuits
+lathe-category-neck = Neck

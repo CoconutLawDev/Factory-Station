@@ -55,7 +55,13 @@
     spillagePrototype: PuddleFactoryLubricant
     spillageChance: 0.4
     emitsSparks: true
-
+  - type: ItemSlots
+    slots:
+      heat_sink:
+        name: Радиаторная пластина
+        whitelist:
+          components:
+          - HeatSink
 
 - type: entity
   id: SheetifierFactory4001
@@ -114,7 +120,13 @@
     spillagePrototype: PuddleFactoryLubricant
     spillageChance: 0.4
     emitsSparks: true
-
+  - type: ItemSlots
+    slots:
+      heat_sink:
+        name: Радиаторная пластина
+        whitelist:
+          components:
+          - HeatSink
 
 - type: entity
   id: SheetifierFactory5001
@@ -173,3 +185,10 @@
     spillagePrototype: PuddleFactoryLubricant
     spillageChance: 0.4
     emitsSparks: true
+  - type: ItemSlots
+    slots:
+      heat_sink:
+        name: Радиаторная пластина
+        whitelist:
+          components:
+          - HeatSink

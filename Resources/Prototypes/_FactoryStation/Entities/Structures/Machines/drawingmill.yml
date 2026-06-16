@@ -55,3 +55,10 @@
     spillagePrototype: PuddleFactoryLubricant
     spillageChance: 0.4
     emitsSparks: true
+  - type: ItemSlots
+    slots:
+      heat_sink:
+        name: Радиаторная пластина
+        whitelist:
+          components:
+          - HeatSink

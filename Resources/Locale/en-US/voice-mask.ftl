@@ -1,15 +1,15 @@
-voice-mask-default-name-override = Неизвестно
+voice-mask-default-name-override = Unknown
 
-voice-mask-name-change-window = Изменение имени маски голоса
-voice-mask-name-change-info = Введите имя, которое хотите имитировать.
-voice-mask-name-change-speech-style = Стиль речи
-voice-mask-name-change-set = Установить имя
-voice-mask-name-change-set-description = Изменить имя, которое слышат другие, на другое.
-voice-mask-name-change-toggle = Переключить маску голоса
-voice-mask-name-change-accent-toggle = Блокировать акцент
+voice-mask-name-change-window = Voice Mask Name Change
+voice-mask-name-change-info = Type in the name you want to mimic.
+voice-mask-name-change-speech-style = Speech style
+voice-mask-name-change-set = Set name
+voice-mask-name-change-set-description = Change the name others hear to something else.
+voice-mask-name-change-toggle = Toggle voice mask
+voice-mask-name-change-accent-toggle = Block accent
 
-voice-mask-popup-toggle = Маска голоса переключена.
-voice-mask-popup-accent-toggle = Акцент переключён.
+voice-mask-popup-toggle = Toggled voice mask.
+voice-mask-popup-accent-toggle = Toggled accent.
 
-voice-mask-popup-success = Имя успешно установлено.
-voice-mask-popup-failure = Не удалось установить имя.
+voice-mask-popup-success = Name set successfully.
+voice-mask-popup-failure = Name could not be set.

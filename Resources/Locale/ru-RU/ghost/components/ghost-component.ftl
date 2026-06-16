@@ -1,5 +1,13 @@
-ghost-component-on-examine-death-time-info-minutes = {$minutes} minutes ago
-ghost-component-on-examine-death-time-info-seconds = {$seconds} seconds ago
-ghost-component-on-examine-message = Died [color=yellow]{$timeOfDeath}[/color].
+ghost-component-on-examine-death-time-info-minutes = {$minutes} {$minutes ->
+    [one] минуту
+    [few] минуты
+   *[many] минут
+} назад
+ghost-component-on-examine-death-time-info-seconds = {$seconds} {$seconds ->
+    [one] секунду
+    [few] секунды
+   *[many] секунд
+} назад
+ghost-component-on-examine-message = Умер [color=yellow]{$timeOfDeath}[/color].
 
-ghost-component-boo-action-failed = Despite your best efforts, nothing spooky happens.
+ghost-component-boo-action-failed = Несмотря на все ваши усилия, ничего страшного не происходит.

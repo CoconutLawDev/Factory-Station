@@ -1,13 +1,13 @@
 changeling-role-greeting =
-    You are a changeling, a highly intelligent predator.
-    Your primary goal is to escape the station alive via assuming the identities of the denizens of this station.
-    You are hungry and will not make it long without sustenance...
-    Kill. Consume. Hide. Survive.
+    Вы — перевёртыш, высокоинтеллектуальный хищник.
+    Ваша главная цель — выбраться со станции живым, принимая обличья обитателей этой станции.
+    Вы голодны и не проживёте долго без пропитания...
+    Убивай. Поглощай. Прячься. Выживай.
 
 changeling-briefing =
-    You are a changeling.
-    You are able to utilize and assume the identities of those you consume to evade a grim fate.
+    Вы — перевёртыш.
+    Вы можете использовать и принимать обличья тех, кого поглотили, чтобы избежать ужасной участи.
 
-objective-issuer-changeling = [color=#FA2A55]The Hivemind[/color]
+objective-issuer-changeling = [color=#FA2A55]Коллективный разум[/color]
 
-changeling-round-end-agent-name = changeling
+changeling-round-end-agent-name = перевёртыш

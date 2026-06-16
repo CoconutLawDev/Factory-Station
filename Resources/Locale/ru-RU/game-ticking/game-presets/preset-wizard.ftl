@@ -1,50 +1,53 @@
 ## Survivor
 
-roles-antag-survivor-name = Survivor
+roles-antag-survivor-name = Выживший
 # It's a Halo reference
-roles-antag-survivor-objective = Current Objective: Survive
+roles-antag-survivor-objective = Текущая цель: Выжить
 
 survivor-role-greeting =
-    You are a Survivor. Above all you need to make it back to Central Command alive.
-    Collect as much firepower as needed to guarantee your survival.
-    Trust no one.
+    Вы — Выживший. Прежде всего вам нужно вернуться в Центральное Командование живым.
+    Соберите как можно больше огневой мощи, чтобы гарантировать своё выживание.
+    Не доверяйте никому.
 
 survivor-round-end-dead-count =
 {
     $deadCount ->
-        [one] [color=red]{$deadCount}[/color] survivor died.
-        *[other] [color=red]{$deadCount}[/color] survivors died.
+        [one] [color=red]{$deadCount}[/color] выживший погиб.
+        [few] [color=red]{$deadCount}[/color] выживших погибло.
+       *[many] [color=red]{$deadCount}[/color] выживших погибло.
 }
 
 survivor-round-end-alive-count =
 {
     $aliveCount ->
-        [one] [color=yellow]{$aliveCount}[/color] survivor was marooned on the station.
-        *[other] [color=yellow]{$aliveCount}[/color] survivors were marooned on the station.
+        [one] [color=yellow]{$aliveCount}[/color] выживший остался на станции.
+        [few] [color=yellow]{$aliveCount}[/color] выживших осталось на станции.
+       *[many] [color=yellow]{$aliveCount}[/color] выживших осталось на станции.
 }
 
 survivor-round-end-alive-on-shuttle-count =
 {
     $aliveCount ->
-        [one] [color=green]{$aliveCount}[/color] survivor made it out alive.
-        *[other] [color=green]{$aliveCount}[/color] survivors made it out alive.
+        [one] [color=green]{$aliveCount}[/color] выживший выбрался живым.
+        [few] [color=green]{$aliveCount}[/color] выживших выбралось живыми.
+       *[many] [color=green]{$aliveCount}[/color] выживших выбралось живыми.
 }
 
 ## Wizard
 
-objective-issuer-swf = [color=turquoise]The Space Wizards Federation[/color]
+objective-issuer-swf = [color=turquoise]Федерация космических волшебников[/color]
 
-wizard-title = Wizard
-wizard-description = There's a Wizard on the station! You never know what they might do.
+wizard-title = Волшебник
+wizard-description = На станции волшебник! Никогда не знаешь, что они могут сделать.
 
-roles-antag-wizard-name = Wizard
-roles-antag-wizard-objective = Teach them a lesson they'll never forget.
+roles-antag-wizard-name = Волшебник
+roles-antag-wizard-objective = Преподать им урок, который они никогда не забудут.
 
 wizard-role-greeting =
-    It's wizard time, fireball!
-    There's been tensions between the Space Wizards Federation and NanoTrasen. You've been selected by the Space Wizards Federation to pay a visit to the station and "remind them" why spellcasters are not to be trifled with.
-    Cause mayhem and destruction! What you do is up to you, but remember that the Space Wizards want you to make it out alive.
+    Время волшебника, огненный шар!
+    Между Федерацией космических волшебников и NanoTrasen возникла напряжённость. Вы были выбраны Федерацией космических волшебников, чтобы навестить станцию и «напомнить им», почему с заклинателями не стоит шутить.
+    Устройте хаос и разрушения! Что именно вы будете делать — решать вам, но помните, что Федерация волшебников хочет, чтобы вы выбрались живым.
 
-wizard-round-end-name = wizard
+wizard-round-end-name = волшебник
 
 ## TODO: Wizard Apprentice (Coming sometime post-wizard release)

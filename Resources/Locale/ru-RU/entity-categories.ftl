@@ -1,9 +1,9 @@
-entity-category-name-actions = Actions
-entity-category-name-game-rules = Game Rules
-entity-category-name-objectives = Objectives
-entity-category-name-roles = Mind Roles
-entity-category-name-mapping = Mapping
-entity-category-name-donotmap = Do not map
-entity-category-name-status-effects = Status Effects
+entity-category-name-actions = Действия
+entity-category-name-game-rules = Игровые правила
+entity-category-name-objectives = Задачи
+entity-category-name-roles = Роли разума
+entity-category-name-mapping = Для карт
+entity-category-name-donotmap = not map
+entity-category-name-status-effects = Эффекты состояний
 
-entity-category-suffix-donotmap = DO NOT MAP
+entity-category-suffix-donotmap = not map

@@ -1,2 +1,2 @@
-﻿station-anchor-unanchoring-failed = Нельзя открепить активную станционную привязку.
-station-anchor-window-title = Станционная привязка
+﻿station-anchor-unanchoring-failed = Can't unanchor an active station anchor.
+station-anchor-window-title = Station Anchor

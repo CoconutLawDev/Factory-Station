@@ -4,11 +4,15 @@ genpop-prisoner-id-popup-not-served = Срок ещё не отбыт!
 genpop-prisoner-id-crime-default = [Цензура]
 genpop-prisoner-id-examine-wait = Вы отбыли {$minutes} {$minutes ->
     [1] минуту
-    [few] минуты
+    [2] минуты
+    [3] минуты
+    [4] минуты
     *[other] минут
 } {$seconds} {$seconds ->
     [1] секунду
-    [few] секунды
+    [2] секунды
+    [3] секунды
+    [4] секунды
     *[other] секунд
 } из вашего {$sentence} минутного срока за {$crime}.
 genpop-prisoner-id-examine-wait-perm = Вы отбываете пожизненный срок за {$crime}.

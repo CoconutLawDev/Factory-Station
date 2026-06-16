@@ -48,7 +48,7 @@ criminal-records-console-hostile = {$name} ({$job}) помечен как вра
 criminal-records-console-not-hostile = Офицер {$officer} снял пометку «Враждебен» с {$name} ({$job}).
 criminal-records-console-eliminated = {$name} ({$job}) помечен как уничтоженный офицером {$officer}.
 criminal-records-console-not-eliminated = Офицер {$officer} снял пометку «Уничтожен» с {$name} ({$job}).
-criminal-records-console-unknown-officer = <неизвестно>
+criminal-records-console-unknown-officer = <unknown>
 
 ## Filters
 
@@ -61,4 +61,4 @@ criminal-records-species-filter = Вид
 
 ## Arrest auto history lines
 criminal-records-console-auto-history = АРЕСТОВАН: {$reason}
-criminal-records-console-unspecified-reason = <неуказанная причина>
+criminal-records-console-unspecified-reason = <unspecified reason>
