@@ -1,39 +1,39 @@
-﻿comp-kitchen-spike-begin-hook-self = You begin dragging yourself onto { THE($hook) }!
-comp-kitchen-spike-begin-hook-self-other = { CAPITALIZE(THE($victim)) } begins dragging { REFLEXIVE($victim) } onto { THE($hook) }!
+﻿comp-kitchen-spike-begin-hook-self = Вы начинаете насаживать себя на { THE($hook) }!
+comp-kitchen-spike-begin-hook-self-other = { CAPITALIZE($victim) } начинает насаживать себя на { THE($hook) }!
 
-comp-kitchen-spike-begin-hook-other-self = You begin dragging { CAPITALIZE(THE($victim)) } onto { THE($hook) }!
-comp-kitchen-spike-begin-hook-other = { CAPITALIZE(THE($user)) } begins dragging { CAPITALIZE(THE($victim)) } onto { THE($hook) }!
+comp-kitchen-spike-begin-hook-other-self = Вы начинаете насаживать { CAPITALIZE($victim) } на { THE($hook) }!
+comp-kitchen-spike-begin-hook-other = { CAPITALIZE($user) } начинает насаживать { CAPITALIZE($victim) } на { THE($hook) }!
 
-comp-kitchen-spike-hook-self = You threw yourself on { THE($hook) }!
-comp-kitchen-spike-hook-self-other = { CAPITALIZE(THE($victim)) } threw { REFLEXIVE($victim) } on { THE($hook) }!
+comp-kitchen-spike-hook-self = Вы насадили себя на { THE($hook) }!
+comp-kitchen-spike-hook-self-other = { CAPITALIZE($victim) } насадил(а) себя на { THE($hook) }!
 
-comp-kitchen-spike-hook-other-self = You threw { CAPITALIZE(THE($victim)) } on { THE($hook) }!
-comp-kitchen-spike-hook-other = { CAPITALIZE(THE($user)) } threw { CAPITALIZE(THE($victim)) } on { THE($hook) }!
+comp-kitchen-spike-hook-other-self = Вы насадили { CAPITALIZE($victim) } на { THE($hook) }!
+comp-kitchen-spike-hook-other = { CAPITALIZE($user) } насадил(а) { CAPITALIZE($victim) } на { THE($hook) }!
 
-comp-kitchen-spike-begin-unhook-self = You begin dragging yourself off { THE($hook) }!
-comp-kitchen-spike-begin-unhook-self-other = { CAPITALIZE(THE($victim)) } begins dragging { REFLEXIVE($victim) } off { THE($hook) }!
+comp-kitchen-spike-begin-unhook-self = Вы начинаете стаскивать себя с { THE($hook) }!
+comp-kitchen-spike-begin-unhook-self-other = { CAPITALIZE($victim) } начинает стаскивать себя с { THE($hook) }!
 
-comp-kitchen-spike-begin-unhook-other-self = You begin dragging { CAPITALIZE(THE($victim)) } off { THE($hook) }!
-comp-kitchen-spike-begin-unhook-other = { CAPITALIZE(THE($user)) } begins dragging { CAPITALIZE(THE($victim)) } off { THE($hook) }!
+comp-kitchen-spike-begin-unhook-other-self = Вы начинаете стаскивать { CAPITALIZE($victim) } с { THE($hook) }!
+comp-kitchen-spike-begin-unhook-other = { CAPITALIZE($user) } начинает стаскивать { CAPITALIZE($victim) } с { THE($hook) }!
 
-comp-kitchen-spike-unhook-self = You got yourself off { THE($hook) }!
-comp-kitchen-spike-unhook-self-other = { CAPITALIZE(THE($victim)) } got { REFLEXIVE($victim) } off { THE($hook) }!
+comp-kitchen-spike-unhook-self = Вы сняли себя с { THE($hook) }!
+comp-kitchen-spike-unhook-self-other = { CAPITALIZE($victim) } снял(а) себя с { THE($hook) }!
 
-comp-kitchen-spike-unhook-other-self = You got { CAPITALIZE(THE($victim)) } off { THE($hook) }!
-comp-kitchen-spike-unhook-other = { CAPITALIZE(THE($user)) } got { CAPITALIZE(THE($victim)) } off { THE($hook) }!
+comp-kitchen-spike-unhook-other-self = Вы сняли { CAPITALIZE($victim) } с { THE($hook) }!
+comp-kitchen-spike-unhook-other = { CAPITALIZE($user) } снял(а) { CAPITALIZE($victim) } с { THE($hook) }!
 
-comp-kitchen-spike-begin-butcher-self = You begin butchering { THE($victim) }!
-comp-kitchen-spike-begin-butcher = { CAPITALIZE(THE($user)) } begins to butcher { THE($victim) }!
+comp-kitchen-spike-begin-butcher-self = Вы начинаете разделывать { THE($victim) }!
+comp-kitchen-spike-begin-butcher = { CAPITALIZE($user) } начинает разделывать { THE($victim) }!
 
-comp-kitchen-spike-butcher-self = You butchered { THE($victim) }!
-comp-kitchen-spike-butcher = { CAPITALIZE(THE($user)) } butchered { THE($victim) }!
+comp-kitchen-spike-butcher-self = Вы разделали { THE($victim) }!
+comp-kitchen-spike-butcher = { CAPITALIZE($user) } разделал(а) { THE($victim) }!
 
-comp-kitchen-spike-unhook-verb = Unhook
+comp-kitchen-spike-unhook-verb = Снять
 
-comp-kitchen-spike-hooked = [color=red]{ CAPITALIZE(THE($victim)) } is on this spike![/color]
+comp-kitchen-spike-hooked = [color=red]{ CAPITALIZE($victim) } на этом крюке![/color]
 
 comp-kitchen-spike-meat-name = { $name } ({ $victim })
 
-comp-kitchen-spike-victim-examine = [color=orange]{ CAPITALIZE(SUBJECT($target)) } looks quite lean.[/color]
+comp-kitchen-spike-victim-examine = [color=orange]{ CAPITALIZE($target) } выглядит довольно постным.[/color]
 
-comp-kitchen-spike-deconstruct-occupied = Next, [color=red]unhook the body[/color].
+comp-kitchen-spike-deconstruct-occupied = Сначала [color=red]снимите тело[/color].

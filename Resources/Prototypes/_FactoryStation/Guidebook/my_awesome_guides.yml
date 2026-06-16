@@ -1,0 +1,23 @@
+- type: guideEntry
+  id: Factoryguides
+  name: guide-entry-factoryguides
+  text: "/ServerInfo/Guidebook/FactoryStation/factoryresourcesmain.xml"
+  children:
+  - factoryresources
+  - factoryworks
+  - factoryrole
+
+- type: guideEntry
+  id: factoryresources
+  name: guide-entry-factoryresources
+  text: "/ServerInfo/Guidebook/FactoryStation/factoryresourceshelp.xml"
+
+- type: guideEntry
+  id: factoryworks
+  name: guide-entry-factoryworks
+  text: "/ServerInfo/Guidebook/FactoryStation/factoryfactoryworkshelp.xml"
+
+- type: guideEntry
+  id: factoryrole
+  name: guide-entry-factoryrole
+  text: "/ServerInfo/Guidebook/FactoryStation/factoryrolehelp.xml"

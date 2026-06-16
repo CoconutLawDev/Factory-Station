@@ -1,6 +1,6 @@
 ### Connecting dialog when you start up the game
 
-connecting-title = Space Station 14 | Factory Station
+connecting-title = Space Station 14
 connecting-exit = Выход
 connecting-retry = Повторить
 connecting-reconnect = Переподключиться
