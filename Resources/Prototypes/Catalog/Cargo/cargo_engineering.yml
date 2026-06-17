@@ -9,11 +9,11 @@
   group: market
 
 - type: cargoProduct
-  id: MiningDrillFactory
+  id: MiningDrillFactoryStation
   icon:
-    sprite: _FactoryStation/Items/devices/drill.rsi
+    sprite: Objects/Tools/handdrill.rsi
     state: icon
-  product: DrillFactory
+  product: DrillFactoryStation
   cost: 1000
   category: cargoproduct-category-name-engineering
   group: market

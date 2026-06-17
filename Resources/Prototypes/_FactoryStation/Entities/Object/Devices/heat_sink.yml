@@ -5,7 +5,7 @@
   description: Увеличивает охлаждение станка при установке. Изготовлена из теплоотводящего сплава.
   components:
   - type: Sprite
-    sprite: _FactoryStation/Items/devices/drill.rsi
+    sprite: _FactoryStation/items/devices/drill.rsi
     state: icon
   - type: Item
     size: Normal

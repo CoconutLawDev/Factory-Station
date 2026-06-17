@@ -1,12 +1,12 @@
 - type: entity
-  id: DrillFactory
+  id: DrillFactoryStation
   parent: BaseItem
   name: бур
-  description: Переносной бур для добычи ресурсов с клеток. Требует батарейку.
+  description: Переносной бур для добычи ресурсов с клеток. Для активации нажмите на кнопку "Е" на панели.
   components:
   - type: Sprite
-    sprite: _FactoryStation/Items/devices/drill.rsi
-    state: icon
+    sprite: Objects/Tools/handdrill.rsi
+    state: handdrill
   - type: Item
     size: Large
   - type: Drill
@@ -16,7 +16,7 @@
     startingCharge: 1000
   - type: Tag
     tags:
-    - DrillFactory
+    - DrillFactoryStation
 
   # По желанию – постоянный звук работы (пока включено)
   # - type: ItemToggleActiveSound

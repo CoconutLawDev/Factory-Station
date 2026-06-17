@@ -98,7 +98,7 @@
   id: DrillTile
 
 - type: Tag
-  id: DrillFactory
+  id: DrillFactoryStation
 
 - type: Tag
   id: DrillActive
