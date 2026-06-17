@@ -2,7 +2,7 @@
   id: FactoryGoalPad
   parent: BaseStructure
   name: платформа приёма промышленных товаров
-
+  description: Автоматически принимает ресурсы, необходимые для выполнения текущего промышленного контракта.
   components:
   - type: Sprite
     sprite: Structures/cargo_telepad.rsi
@@ -13,14 +13,16 @@
     - state: idle
       map: [ "enum.CargoTelepadLayers.Beam" ]
       shader: unshaded
-
   - type: FactoryGoalPad
-
+    allowedAlertLevels:
+      - green
+      - blue
+      - yellow
+      - violet
   - type: Clickable
-
   - type: InteractionOutline
-
   - type: Physics
     bodyType: Static
-
   - type: StationMember
+  - type: Anchorable
+  - type: Pullable

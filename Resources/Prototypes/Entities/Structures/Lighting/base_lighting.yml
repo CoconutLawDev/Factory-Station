@@ -574,6 +574,7 @@
       visible: false
   - type: Appearance
   - type: FactoryFlicker
+    applyTint: false
     minEnergyMultiplier: 0.86
     maxEnergyMultiplier: 1.0
     minRadiusMultiplier: 0.93

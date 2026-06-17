@@ -1,5 +1,4 @@
 using System.Linq;
-using Content.Server.Lathe.Components;
 using Content.Server.Materials;
 using Content.Shared.Automation;
 using Content.Shared.Lathe;
@@ -21,8 +20,6 @@ public sealed partial class ActiveRecipeSystem : EntitySystem
         base.Update(frameTime);
 
         _accumulator += frameTime;
-
-        // Проверка раз в секунду
         if (_accumulator < 1f)
             return;
 
@@ -35,48 +32,40 @@ public sealed partial class ActiveRecipeSystem : EntitySystem
 
         while (query.MoveNext(out var uid, out var active, out var lathe, out var storage))
         {
+            if (TerminatingOrDeleted(uid))
+                continue;
+
             if (!active.Enabled)
                 continue;
 
             if (string.IsNullOrWhiteSpace(active.ActiveRecipeId))
                 continue;
 
-            // Уже работает
             if (lathe.CurrentRecipe != null)
                 continue;
 
-            // Уже есть очередь
             if (lathe.Queue.Count > 0)
                 continue;
 
-            if (!_proto.TryIndex<LatheRecipePrototype>(
-                    active.ActiveRecipeId,
-                    out var recipe))
+            if (!_proto.TryIndex<LatheRecipePrototype>(active.ActiveRecipeId, out var recipe))
                 continue;
 
             if (!HasEnoughMaterials(uid, recipe))
                 continue;
 
             RaiseLocalEvent(uid,
-                new LatheQueueRecipeMessage(
-                    active.ActiveRecipeId,
-                    1));
+                new LatheQueueRecipeMessage(active.ActiveRecipeId, 1));
         }
     }
 
-    private bool HasEnoughMaterials(
-        EntityUid uid,
-        LatheRecipePrototype recipe)
+    private bool HasEnoughMaterials(EntityUid uid, LatheRecipePrototype recipe)
     {
         if (recipe.Materials == null)
             return false;
 
         return recipe.Materials.All(material =>
         {
-            var amount = _materialStorage.GetMaterialAmount(
-                uid,
-                material.Key);
-
+            var amount = _materialStorage.GetMaterialAmount(uid, material.Key);
             return amount >= material.Value;
         });
     }

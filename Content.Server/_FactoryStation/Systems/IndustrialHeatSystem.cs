@@ -11,6 +11,9 @@ using Robust.Shared.Log;
 using Robust.Shared.Random;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
+using Robust.Server.GameObjects;
+using Robust.Shared.Timing;
+using Robust.Shared.Map;
 
 namespace Content.Server.FactoryStation.Systems;
 
@@ -20,7 +23,10 @@ public sealed partial class IndustrialHeatSystem : EntitySystem
     [Dependency] private DamageableSystem _damageable = default!;
     [Dependency] private ExplosionSystem _explosion = default!;
     [Dependency] private IRobustRandom _random = default!;
-    [Dependency] private AtmosphereSystem _atmosphere = default!; // <-- ДОБАВЛЕНО
+    [Dependency] private AtmosphereSystem _atmosphere = default!;
+    [Dependency] private SharedPointLightSystem _pointLight = default!;
+    [Dependency] private IGameTiming _gameTiming = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
 
     private readonly ISawmill _sawmill = Logger.GetSawmill("factory.heat");
 
@@ -31,14 +37,19 @@ public sealed partial class IndustrialHeatSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<FactoryIndustrialHeatComponent, LatheStartPrintingEvent>(OnLatheStarted);
+        SubscribeLocalEvent<FactoryIndustrialHeatComponent, ComponentShutdown>(OnHeatShutdown);
     }
 
-    private void OnLatheStarted(
-        EntityUid uid,
-        FactoryIndustrialHeatComponent component,
-        ref LatheStartPrintingEvent args)
+    private void OnLatheStarted(EntityUid uid, FactoryIndustrialHeatComponent component, ref LatheStartPrintingEvent args)
     {
         component.CurrentHeat += 35f;
+    }
+
+    private void OnHeatShutdown(EntityUid uid, FactoryIndustrialHeatComponent component, ComponentShutdown args)
+    {
+        StopRunningSound(component);
+        StopAlarm(uid, component);
+        component.SpillageAccumulator = 0f;
     }
 
     public override void Update(float frameTime)
@@ -57,7 +68,6 @@ public sealed partial class IndustrialHeatSystem : EntitySystem
         {
             var running = lathe.CurrentRecipe != null;
 
-            // 1. Базовый нагрев/охлаждение
             if (running)
             {
                 heat.CurrentHeat += heat.HeatPerSecond;
@@ -69,40 +79,84 @@ public sealed partial class IndustrialHeatSystem : EntitySystem
                 StopRunningSound(heat);
             }
 
-            // 2. Применяем атмосферное охлаждение (новое!)
             if (heat.AmbientCoolingEnabled)
                 ApplyAmbientCooling(uid, heat, running);
 
-            // 3. Ограничиваем температуру
             heat.CurrentHeat = Math.Clamp(heat.CurrentHeat, 20f, heat.MaxHeat);
 
-            // 4. Определение состояния
             var state = heat.CurrentHeat >= heat.CriticalThreshold ? OverheatState.Critical
                 : heat.CurrentHeat >= heat.DangerThreshold ? OverheatState.Warning
                 : OverheatState.Normal;
 
-            // 5. Обработка критического состояния
+            ProcessAlarm(uid, heat, state);
+
             if (state == OverheatState.Critical)
             {
                 ProcessCriticalOverheat(uid, heat);
             }
 
-            // 6. Дым (одиночный) – облака создаются в FactorySmokeSystem
             if (heat.ProducingSmoke && heat.CurrentHeat >= heat.SmokeThreshold)
             {
                 heat.SmokeAccumulator++;
                 if (heat.SmokeAccumulator >= heat.SmokeInterval)
                 {
                     heat.SmokeAccumulator = 0f;
-                    Spawn("FactoryHeavySmoke", Transform(uid).Coordinates);
+
+                    var existingSmoke = 0;
+                    var nearbyEntities = _lookup.GetEntitiesInRange(uid, heat.SmokeRadius);
+                    foreach (var entity in nearbyEntities)
+                    {
+                        if (HasComp<FactorySmokeTileComponent>(entity))
+                            existingSmoke++;
+                    }
+
+                    if (existingSmoke < 10)
+                        Spawn("FactoryHeavySmoke", Transform(uid).Coordinates);
                 }
             }
         }
     }
 
-    /// <summary>
-    /// Охлаждение или нагрев станка в зависимости от температуры окружающего воздуха.
-    /// </summary>
+    private void ProcessAlarm(EntityUid uid, FactoryIndustrialHeatComponent comp, OverheatState state)
+    {
+        if (state == OverheatState.Critical)
+        {
+            if (comp.AlarmSound != null && comp.AlarmStream == null)
+            {
+                var stream = _audio.PlayPvs(comp.AlarmSound, uid,
+                    AudioParams.Default.WithLoop(true).WithVolume(-2f));
+                if (stream != null)
+                    comp.AlarmStream = stream.Value.Entity;
+            }
+
+            if (TryComp<PointLightComponent>(uid, out var light))
+            {
+                _pointLight.SetEnabled(uid, true, light);
+                _pointLight.SetColor(uid, Color.Red, light);
+                _pointLight.SetRadius(uid, 3f, light);
+                _pointLight.SetEnergy(uid, 2f, light);
+            }
+        }
+        else
+        {
+            StopAlarm(uid, comp);
+        }
+    }
+
+    private void StopAlarm(EntityUid uid, FactoryIndustrialHeatComponent comp)
+    {
+        if (comp.AlarmStream != null)
+        {
+            _audio.Stop(comp.AlarmStream.Value);
+            comp.AlarmStream = null;
+        }
+
+        if (TryComp<PointLightComponent>(uid, out var light))
+        {
+            _pointLight.SetEnabled(uid, false, light);
+        }
+    }
+
     private void ApplyAmbientCooling(EntityUid uid, FactoryIndustrialHeatComponent heat, bool running)
     {
         var mixture = _atmosphere.GetContainingMixture(uid, true);
@@ -114,33 +168,34 @@ public sealed partial class IndustrialHeatSystem : EntitySystem
         }
         else if (heat.RequireAtmosphereForCooling)
         {
-            // Вакуум и флаг требует атмосферу — ничего не делаем
             return;
         }
         else
         {
-            // Вакуум, но охлаждение разрешено (радиационное) — считаем космический холод
             ambientTemp = 2.7f;
         }
 
-        // Если окружение холоднее комнатной температуры – охлаждаем станок
+        float coolingCoefficient = heat.AmbientCoolingCoefficient;
+        if (TryComp<HeatSinkComponent>(uid, out var heatSink))
+        {
+            coolingCoefficient += heatSink.CoolingBonus;
+        }
+
         if (ambientTemp < heat.RoomTemperature && ambientTemp > heat.MinAmbientTemperature)
         {
-            float tempDiff = heat.CurrentHeat - ambientTemp; // >0
+            float tempDiff = heat.CurrentHeat - ambientTemp;
             if (tempDiff > 0)
             {
-                float cooling = tempDiff * heat.AmbientCoolingCoefficient;
+                float cooling = tempDiff * coolingCoefficient;
                 heat.CurrentHeat -= cooling;
             }
         }
-        // Если окружение горячее станка – ускоряем нагрев
         else if (ambientTemp > heat.CurrentHeat)
         {
             float tempDiff = ambientTemp - heat.CurrentHeat;
-            heat.CurrentHeat += tempDiff * heat.AmbientCoolingCoefficient;
+            heat.CurrentHeat += tempDiff * coolingCoefficient;
         }
 
-        // Не даём температуре упасть ниже 20°C (или ниже комнатной при работе)
         if (running)
             heat.CurrentHeat = Math.Max(heat.CurrentHeat, 20f);
     }
@@ -153,9 +208,7 @@ public sealed partial class IndustrialHeatSystem : EntitySystem
         var stream = _audio.PlayPvs(
             component.RunningSound,
             uid,
-            AudioParams.Default
-                .WithLoop(true)
-                .WithVolume(-4f));
+            AudioParams.Default.WithLoop(true).WithVolume(-4f));
 
         if (stream == null)
         {
@@ -175,7 +228,6 @@ public sealed partial class IndustrialHeatSystem : EntitySystem
 
     private void ProcessCriticalOverheat(EntityUid uid, FactoryIndustrialHeatComponent heat)
     {
-        // Повреждение станка
         if (TryComp<DamageableComponent>(uid, out var damageable))
         {
             var damageSpec = new DamageSpecifier
@@ -185,9 +237,14 @@ public sealed partial class IndustrialHeatSystem : EntitySystem
             _damageable.TryChangeDamage(uid, damageSpec, interruptsDoAfters: false);
         }
 
-        // Шанс взрыва
+        var now = _gameTiming.CurTime;
+        if (heat.LastExplosionTime != null && now - heat.LastExplosionTime.Value < TimeSpan.FromSeconds(10))
+            return;
+
         if (_random.Prob(heat.ExplosionChance))
         {
+            heat.LastExplosionTime = now;
+
             _explosion.QueueExplosion(
                 uid,
                 "Default",
@@ -197,7 +254,6 @@ public sealed partial class IndustrialHeatSystem : EntitySystem
                 user: null,
                 addLog: true);
 
-            // Сброс температуры после взрыва
             heat.CurrentHeat = heat.MaxHeat * 0.6f;
         }
     }

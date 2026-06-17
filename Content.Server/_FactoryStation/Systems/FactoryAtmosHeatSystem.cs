@@ -2,8 +2,8 @@ using Content.Server.Atmos.EntitySystems;
 using Content.Server.FactoryStation.Components;
 using Content.Shared.Atmos;
 using Content.Shared.Lathe;
-using Robust.Shared.Map.Components; // MapGridComponent
-using Robust.Shared.GameObjects;    // SharedMapSystem
+using Robust.Shared.Map.Components;
+using Robust.Shared.GameObjects;
 
 namespace Content.Server.FactoryStation.Systems;
 
@@ -37,16 +37,20 @@ public sealed partial class FactoryAtmosHeatSystem : EntitySystem
             if (mixture == null)
                 continue;
 
-            // 1. Нагрев атмосферы
-            _atmosphere.AddHeat(mixture, heat.AtmosHeatPerSecond * 1000);
+            // Нормируем нагрев на объём помещения: в маленьких комнатах греется быстрее, но не выше 1500K
+            if (mixture.Temperature < 1500f)
+            {
+                // Чем больше объём смеси, тем меньше нагрев на градус
+                var volumeFactor = Math.Clamp(mixture.Volume, 1f, 1000f);
+                var heatToAdd = heat.AtmosHeatPerSecond * 1000f / volumeFactor;
+                _atmosphere.AddHeat(mixture, heatToAdd);
+            }
 
-            // 2. Выброс CO₂
             if (heat.CurrentHeat >= heat.DangerThreshold)
             {
                 mixture.AdjustMoles(Gas.CarbonDioxide, heat.CO2PerSecond);
             }
 
-            // 3. Принудительный поджог при критическом перегреве
             if (heat.CurrentHeat >= heat.CriticalThreshold)
             {
                 var transform = Transform(uid);
@@ -58,12 +62,16 @@ public sealed partial class FactoryAtmosHeatSystem : EntitySystem
                         grid,
                         transform.Coordinates);
 
-                    _atmosphere.HotspotExpose(
-                        transform.GridUid.Value,
-                        tile,
-                        1000f,   // температура источника
-                        50f,     // объём для воспламенения
-                        soh: true);
+                    var tileMixture = _atmosphere.GetTileMixture(transform.GridUid.Value, null, tile, true);
+                    if (tileMixture != null && tileMixture.GetMoles(Gas.Oxygen) > 0)
+                    {
+                        _atmosphere.HotspotExpose(
+                            transform.GridUid.Value,
+                            tile,
+                            1000f,
+                            50f,
+                            soh: true);
+                    }
                 }
             }
         }

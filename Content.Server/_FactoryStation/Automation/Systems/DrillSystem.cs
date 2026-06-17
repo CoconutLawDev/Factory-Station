@@ -8,7 +8,7 @@ using Robust.Shared.Map.Components;
 using Robust.Shared.Timing;
 using Content.Shared.Tag;
 using Content.Shared.Interaction;
-using Robust.Shared.Prototypes; // Для TagPrototype, TagSystem
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.Automation;
 
@@ -22,8 +22,7 @@ public sealed partial class DrillSystem : EntitySystem
     [Dependency] private TagSystem _tagSystem = default!;
 
     private const float DrillRadius = 0.5f;
-    private const int MaxOreItemsOnTile = 60;
-    private static readonly ProtoId<TagPrototype> OreTag = "Ore"; // ← Правильный идентификатор тега
+    private static readonly ProtoId<TagPrototype> OreTag = "Ore";
 
     public override void Initialize()
     {
@@ -73,13 +72,15 @@ public sealed partial class DrillSystem : EntitySystem
 
             var entities = _lookup.GetEntitiesInRange(center, DrillRadius);
 
-            // Ищем ресурсную клетку
+            // Ищем ресурсную клетку и запоминаем её EntityUid
             DrillableTileComponent? drillable = null;
+            EntityUid drillableUid = EntityUid.Invalid;
             foreach (var entity in entities)
             {
                 if (TryComp<DrillableTileComponent>(entity, out var tileComp))
                 {
                     drillable = tileComp;
+                    drillableUid = entity;
                     break;
                 }
             }
@@ -95,8 +96,7 @@ public sealed partial class DrillSystem : EntitySystem
                     oreItems++;
             }
 
-            // Если руды слишком много – выключаем бур
-            if (oreItems >= MaxOreItemsOnTile)
+            if (oreItems >= drill.MaxOreItemsOnTile)
             {
                 drill.Enabled = false;
                 _popup.PopupEntity($"Бур {MetaData(uid).EntityName} остановлен: нет места для новой руды, очистите пространство!!!", uid);
@@ -106,6 +106,7 @@ public sealed partial class DrillSystem : EntitySystem
             // Добываем
             _battery.SetCharge(uid, currentCharge - 10);
             drillable.TotalAmount -= drillable.AmountPerDrill;
+            Dirty(drillableUid, drillable);  // ← исправлено: передаём uid сущности
 
             Spawn(drillable.SpawnPrototype, xform.Coordinates);
 
