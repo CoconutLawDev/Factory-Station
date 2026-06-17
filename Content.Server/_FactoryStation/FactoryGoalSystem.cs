@@ -55,8 +55,8 @@ public sealed partial class FactoryGoalSystem : EntitySystem
     private const float GoalTimeoutMinutes = 45f;
 
     private static readonly SoundSpecifier ItemAcceptSound = new SoundPathSpecifier("/Audio/Machines/quickbeep.ogg");
-    private static readonly SoundSpecifier GoalCompleteSound = new SoundPathSpecifier("/Audio/_FactoryStation/fanfar.ogg");
-    private static readonly SoundSpecifier GoalExpiredSound = new SoundPathSpecifier("/Audio/_FactoryStation/fanfar.ogg");
+    private static readonly SoundSpecifier GoalCompleteSound = new SoundPathSpecifier("/Audio/Machines/quickbeep.ogg");
+    private static readonly SoundSpecifier GoalExpiredSound = new SoundPathSpecifier("/Audio/Machines/quickbeep.ogg");
 
     public override void Initialize()
     {
