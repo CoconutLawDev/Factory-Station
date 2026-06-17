@@ -25,6 +25,7 @@
     runningState: burning
     staticPacks:
     - IngotIronRecipe
+    - ClothPackFactory
   - type: AutoCollector
     interval: 0.5
     pullForce: 25.0

@@ -1,51 +1,597 @@
-# Лёгкие цели
+# ======================================================================
+# Абстрактные родители по уровням сложности
+# ======================================================================
+
 - type: factoryGoal
-  id: LightIronIngot
-  name: "Лёгкая цель: Железные слитки"
+  id: BaseLightGoal
+  abstract: true
   difficulty: Light
-  requiredItem: IngotIronSheet1
   requiredAmount: 50
   rewardMessage: "ЦентКом благодарит за выполнение лёгкой цели. Награда переведена на счета."
+
+- type: factoryGoal
+  id: BaseMediumGoal
+  abstract: true
+  difficulty: Medium
+  requiredAmount: 150
+  rewardMessage: "ЦентКом благодарит за выполнение средней цели. Награда переведена на счета."
+
+- type: factoryGoal
+  id: BaseHardGoal
+  abstract: true
+  difficulty: Hard
+  requiredAmount: 300
+  rewardMessage: "ЦентКом выражает особую благодарность за выполнение сложной цели. Значительная награда переведена на счета."
+
+# ======================================================================
+# Лёгкие цели
+# ======================================================================
+
+- type: factoryGoal
+  id: LightIronIngot
+  parent: BaseLightGoal
+  name: "Лёгкая цель: Железные слитки"
+  requiredItem: IngotIronSheet1
 
 - type: factoryGoal
   id: LightGlass
+  parent: BaseLightGoal
   name: "Лёгкая цель: Стекло"
-  difficulty: Light
   requiredItem: SheetGlass1
-  requiredAmount: 50
-  rewardMessage: "ЦентКом благодарит за выполнение лёгкой цели. Награда переведена на счета."
 
 - type: factoryGoal
   id: LightCopperIngot
+  parent: BaseLightGoal
   name: "Лёгкая цель: Медные слитки"
-  difficulty: Light
   requiredItem: IngotCopperSheet1
-  requiredAmount: 50
-  rewardMessage: "ЦентКом благодарит за выполнение лёгкой цели. Награда переведена на счета."
 
+- type: factoryGoal
+  id: LightSteel
+  parent: BaseLightGoal
+  name: "Лёгкая цель: Стальные листы"
+  requiredItem: SheetSteel1
+
+- type: factoryGoal
+  id: LightPlasteel
+  parent: BaseLightGoal
+  name: "Лёгкая цель: Пласталевые листы"
+  requiredItem: SheetPlasteel1
+
+- type: factoryGoal
+  id: LightPlastic
+  parent: BaseLightGoal
+  name: "Лёгкая цель: Пластиковые листы"
+  requiredItem: SheetPlastic1
+
+- type: factoryGoal
+  id: LightWood
+  parent: BaseLightGoal
+  name: "Лёгкая цель: Деревянные доски"
+  requiredItem: MaterialWoodPlank1
+
+- type: factoryGoal
+  id: LightCable
+  parent: BaseLightGoal
+  name: "Лёгкая цель: Мотки проводов"
+  requiredItem: CableApcStack1
+
+- type: factoryGoal
+  id: LightSandstone
+  parent: BaseLightGoal
+  name: "Лёгкая цель: Песчаниковые блоки"
+  requiredItem: SheetSandstoneFact1
+
+- type: factoryGoal
+  id: LightFloorTileSteel
+  parent: BaseLightGoal
+  name: "Лёгкая цель: Стальные плитки пола"
+  requiredItem: FloorTileItemSteel
+
+- type: factoryGoal
+  id: LightLightBulb
+  parent: BaseLightGoal
+  name: "Лёгкая цель: Лампы накаливания"
+  requiredItem: LightBulb
+
+- type: factoryGoal
+  id: LightLightTube
+  parent: BaseLightGoal
+  name: "Лёгкая цель: Флуоресцентные лампы"
+  requiredItem: LightTube
+
+- type: factoryGoal
+  id: LightBucket
+  parent: BaseLightGoal
+  name: "Лёгкая цель: Вёдра"
+  requiredItem: Bucket
+
+- type: factoryGoal
+  id: LightBeaker
+  parent: BaseLightGoal
+  name: "Лёгкая цель: Мензурки"
+  requiredItem: Beaker
+
+- type: factoryGoal
+  id: LightScrewdriver
+  parent: BaseLightGoal
+  name: "Лёгкая цель: Отвёртки"
+  requiredItem: Screwdriver
+
+- type: factoryGoal
+  id: LightWrench
+  parent: BaseLightGoal
+  name: "Лёгкая цель: Гаечные ключи"
+  requiredItem: Wrench
+
+- type: factoryGoal
+  id: LightCrowbar
+  parent: BaseLightGoal
+  name: "Лёгкая цель: Монтировки"
+  requiredItem: CrowbarGreen
+
+# --- Лёгкие печатные платы ---
+- type: factoryGoal
+  id: LightCircuitImprinter
+  parent: BaseLightGoal
+  name: "Лёгкая цель: Платы принтера плат"
+  requiredItem: CircuitImprinterMachineCircuitboard
+
+- type: factoryGoal
+  id: LightAutolathe
+  parent: BaseLightGoal
+  name: "Лёгкая цель: Платы автолата"
+  requiredItem: AutolatheMachineCircuitboard
+
+- type: factoryGoal
+  id: LightCellRecharger
+  parent: BaseLightGoal
+  name: "Лёгкая цель: Платы зарядников батарей"
+  requiredItem: CellRechargerCircuitboard
+
+- type: factoryGoal
+  id: LightMicrowave
+  parent: BaseLightGoal
+  name: "Лёгкая цель: Платы микроволновок"
+  requiredItem: MicrowaveMachineCircuitboard
+
+- type: factoryGoal
+  id: LightSmartFridge
+  parent: BaseLightGoal
+  name: "Лёгкая цель: Платы Смарт-Холодильников"
+  requiredItem: SmartFridgeCircuitboard
+
+- type: factoryGoal
+  id: LightSpaceHeater
+  parent: BaseLightGoal
+  name: "Лёгкая цель: Платы обогревателей"
+  requiredItem: SpaceHeaterMachineCircuitBoard
+
+- type: factoryGoal
+  id: LightBorgCharger
+  parent: BaseLightGoal
+  name: "Лёгкая цель: Платы зарядных станций киборгов"
+  requiredItem: BorgChargerCircuitboard
+
+- type: factoryGoal
+  id: LightReagentGrinder
+  parent: BaseLightGoal
+  name: "Лёгкая цель: Платы измельчителей реагентов"
+  requiredItem: ReagentGrinderMachineCircuitboard
+
+# --- Лёгкие батарейки ---
+- type: factoryGoal
+  id: LightPowerCellSmall
+  parent: BaseLightGoal
+  name: "Лёгкая цель: Маленькие батарейки"
+  requiredItem: PowerCellSmallPrinted
+
+- type: factoryGoal
+  id: LightPowerCageSmall
+  parent: BaseLightGoal
+  name: "Лёгкая цель: Маленькие энергоклетки"
+  requiredItem: PowerCageSmall
+
+# --- Лёгкая одежда и ковры ---
+- type: factoryGoal
+  id: LightJumpsuitGrey
+  parent: BaseLightGoal
+  name: "Лёгкая цель: Серые комбинезоны"
+  requiredItem: ClothingUniformJumpsuitColorGrey
+
+- type: factoryGoal
+  id: LightJumpsuitCargo
+  parent: BaseLightGoal
+  name: "Лёгкая цель: Комбинезоны карго"
+  requiredItem: ClothingUniformJumpsuitCargo
+
+- type: factoryGoal
+  id: LightJumpsuitMedical
+  parent: BaseLightGoal
+  name: "Лёгкая цель: Комбинезоны медиков"
+  requiredItem: ClothingUniformJumpsuitMedicalDoctor
+
+- type: factoryGoal
+  id: LightJumpsuitEngineering
+  parent: BaseLightGoal
+  name: "Лёгкая цель: Комбинезоны инженеров"
+  requiredItem: ClothingUniformJumpsuitEngineering
+
+- type: factoryGoal
+  id: LightJumpsuitScience
+  parent: BaseLightGoal
+  name: "Лёгкая цель: Комбинезоны учёных"
+  requiredItem: ClothingUniformJumpsuitScientist
+
+- type: factoryGoal
+  id: LightJumpsuitSecurity
+  parent: BaseLightGoal
+  name: "Лёгкая цель: Комбинезоны СБ"
+  requiredItem: ClothingUniformJumpsuitSec
+
+- type: factoryGoal
+  id: LightCarpetRed
+  parent: BaseLightGoal
+  name: "Лёгкая цель: Красный ковёр"
+  requiredItem: FloorCarpetItemRed
+
+- type: factoryGoal
+  id: LightCarpetBlue
+  parent: BaseLightGoal
+  name: "Лёгкая цель: Синий ковёр"
+  requiredItem: FloorCarpetItemBlue
+
+- type: factoryGoal
+  id: LightCarpetBlack
+  parent: BaseLightGoal
+  name: "Лёгкая цель: Чёрный ковёр"
+  requiredItem: FloorCarpetItemBlack
+
+# ======================================================================
 # Средние цели
+# ======================================================================
 
 - type: factoryGoal
   id: MediumCrystal
+  parent: BaseMediumGoal
   name: "Средняя цель: Обработанные кристаллы"
-  difficulty: Medium
   requiredItem: IngotCrystalSheet1
-  requiredAmount: 100
-  rewardMessage: "ЦентКом благодарит за выполнение средней цели. Награда переведена на счета."
 
+- type: factoryGoal
+  id: MediumSilver
+  parent: BaseMediumGoal
+  name: "Средняя цель: Серебряные слитки"
+  requiredItem: IngotSilver1
+
+- type: factoryGoal
+  id: MediumGold
+  parent: BaseMediumGoal
+  name: "Средняя цель: Золотые слитки"
+  requiredItem: IngotGold1
+
+- type: factoryGoal
+  id: MediumPlasma
+  parent: BaseMediumGoal
+  name: "Средняя цель: Плазменные листы"
+  requiredItem: SheetPlasma1
+
+- type: factoryGoal
+  id: MediumUranium
+  parent: BaseMediumGoal
+  name: "Средняя цель: Урановые листы"
+  requiredItem: SheetUranium1
+
+- type: factoryGoal
+  id: MediumPlasmaGlass
+  parent: BaseMediumGoal
+  name: "Средняя цель: Плазменное стекло"
+  requiredItem: SheetPlasmaGlass1
+
+- type: factoryGoal
+  id: MediumRPGlass
+  parent: BaseMediumGoal
+  name: "Средняя цель: Бронированное стекло"
+  requiredItem: SheetRPGlass1
+
+- type: factoryGoal
+  id: MediumPowerCell
+  parent: BaseMediumGoal
+  name: "Средняя цель: Батарейки (заряженные)"
+  requiredItem: PowerCellSmall
+
+- type: factoryGoal
+  id: MediumHandcuffs
+  parent: BaseMediumGoal
+  name: "Средняя цель: Наручники"
+  requiredItem: Handcuffs
+
+- type: factoryGoal
+  id: MediumWelder
+  parent: BaseMediumGoal
+  name: "Средняя цель: Сварочные аппараты"
+  requiredItem: Welder
+
+- type: factoryGoal
+  id: MediumMultitool
+  parent: BaseMediumGoal
+  name: "Средняя цель: Мультитулы"
+  requiredItem: Multitool
+
+# --- Средние печатные платы ---
+- type: factoryGoal
+  id: MediumProtolathe
+  parent: BaseMediumGoal
+  name: "Средняя цель: Платы протолатов"
+  requiredItem: ProtolatheMachineCircuitboard
+
+- type: factoryGoal
+  id: MediumExosuitFabricator
+  parent: BaseMediumGoal
+  name: "Средняя цель: Платы фабрикаторов экзокостюмов"
+  requiredItem: ExosuitFabricatorMachineCircuitboard
+
+- type: factoryGoal
+  id: MediumSecurityTechFab
+  parent: BaseMediumGoal
+  name: "Средняя цель: Платы техфабов СБ"
+  requiredItem: SecurityTechFabCircuitboard
+
+- type: factoryGoal
+  id: MediumMedicalTechFab
+  parent: BaseMediumGoal
+  name: "Средняя цель: Платы медтехфабов"
+  requiredItem: MedicalTechFabCircuitboard
+
+- type: factoryGoal
+  id: MediumSMES
+  parent: BaseMediumGoal
+  name: "Средняя цель: Платы СМЭС"
+  requiredItem: SMESMachineCircuitboard
+
+- type: factoryGoal
+  id: MediumSubstation
+  parent: BaseMediumGoal
+  name: "Средняя цель: Платы подстанций"
+  requiredItem: SubstationMachineCircuitboard
+
+- type: factoryGoal
+  id: MediumCargoTelepad
+  parent: BaseMediumGoal
+  name: "Средняя цель: Платы грузовых телепадов"
+  requiredItem: CargoTelepadMachineCircuitboard
+
+- type: factoryGoal
+  id: MediumChemMaster
+  parent: BaseMediumGoal
+  name: "Средняя цель: Платы ХимМастер 4000"
+  requiredItem: ChemMasterMachineCircuitboard
+
+- type: factoryGoal
+  id: MediumBoozeDispenser
+  parent: BaseMediumGoal
+  name: "Средняя цель: Платы раздатчиков алкоголя"
+  requiredItem: BoozeDispenserMachineCircuitboard
+
+# --- Средние батарейки и клетки ---
+- type: factoryGoal
+  id: MediumPowerCellMedium
+  parent: BaseMediumGoal
+  name: "Средняя цель: Средние батарейки"
+  requiredItem: PowerCellMediumPrinted
+
+- type: factoryGoal
+  id: MediumPowerCageMedium
+  parent: BaseMediumGoal
+  name: "Средняя цель: Средние энергоклетки"
+  requiredItem: PowerCageMedium
+
+# --- Среднее оружие и броня ---
+- type: factoryGoal
+  id: MediumRiotShield
+  parent: BaseMediumGoal
+  name: "Средняя цель: Противопультные щиты"
+  requiredItem: RiotShield
+
+- type: factoryGoal
+  id: MediumStunbaton
+  parent: BaseMediumGoal
+  name: "Средняя цель: Станбатоны"
+  requiredItem: Stunbaton
+
+- type: factoryGoal
+  id: MediumDisabler
+  parent: BaseMediumGoal
+  name: "Средняя цель: Дизейблеры"
+  requiredItem: WeaponDisabler
+
+- type: factoryGoal
+  id: MediumLaserCarbine
+  parent: BaseMediumGoal
+  name: "Средняя цель: Лазерные карабины"
+  requiredItem: WeaponLaserCarbine
+
+- type: factoryGoal
+  id: MediumFlash
+  parent: BaseMediumGoal
+  name: "Средняя цель: Флешеры"
+  requiredItem: Flash
+
+- type: factoryGoal
+  id: MediumWinterCoat
+  parent: BaseMediumGoal
+  name: "Средняя цель: Зимние куртки"
+  requiredItem: ClothingOuterWinterCoat
+
+- type: factoryGoal
+  id: MediumHudSecurity
+  parent: BaseMediumGoal
+  name: "Средняя цель: Защитные очки СБ"
+  requiredItem: ClothingEyesHudSecurity
+
+# ======================================================================
 # Сложные цели
+# ======================================================================
+
 - type: factoryGoal
   id: HardAlloy
+  parent: BaseHardGoal
   name: "Сложная цель: Синтез-гель"
-  difficulty: Hard
   requiredItem: SlimeGelSheet1
-  requiredAmount: 200
-  rewardMessage: "ЦентКом выражает особую благодарность за выполнение сложной цели. Значительная награда переведена на счета."
 
 - type: factoryGoal
   id: HardCoal
+  parent: BaseHardGoal
   name: "Сложная цель: Упакованный уголь"
-  difficulty: Hard
   requiredItem: IngotCoalSheet1
-  requiredAmount: 200
-  rewardMessage: "ЦентКом выражает особую благодарность за выполнение сложной цели. Значительная награда переведена на счета."
+
+- type: factoryGoal
+  id: HardMedkit
+  parent: BaseHardGoal
+  name: "Сложная цель: Аптечки"
+  requiredItem: Medkit
+
+- type: factoryGoal
+  id: HardDefibrillator
+  parent: BaseHardGoal
+  name: "Сложная цель: Дефибрилляторы"
+  requiredItem: DefibrillatorEmpty
+
+- type: factoryGoal
+  id: HardTaser
+  parent: BaseHardGoal
+  name: "Сложная цель: Тазеры"
+  requiredItem: WeaponTaser
+
+- type: factoryGoal
+  id: HardDisabler
+  parent: BaseHardGoal
+  name: "Сложная цель: Дизейблеры"
+  requiredItem: WeaponDisabler
+
+# --- Сложные печатные платы ---
+- type: factoryGoal
+  id: HardAutolatheHyperConvection
+  parent: BaseHardGoal
+  name: "Сложная цель: Платы гиперконвекционных автолатов"
+  requiredItem: AutolatheHyperConvectionMachineCircuitboard
+
+- type: factoryGoal
+  id: HardProtolatheHyperConvection
+  parent: BaseHardGoal
+  name: "Сложная цель: Платы гиперконвекционных протолатов"
+  requiredItem: ProtolatheHyperConvectionMachineCircuitboard
+
+- type: factoryGoal
+  id: HardCircuitImprinterHyperConvection
+  parent: BaseHardGoal
+  name: "Сложная цель: Платы гиперконвекционных принтеров плат"
+  requiredItem: CircuitImprinterHyperConvectionMachineCircuitboard
+
+- type: factoryGoal
+  id: HardHellfireFreezer
+  parent: BaseHardGoal
+  name: "Сложная цель: Платы адских морозильников"
+  requiredItem: HellfireFreezerMachineCircuitBoard
+
+- type: factoryGoal
+  id: HardHellfireHeater
+  parent: BaseHardGoal
+  name: "Сложная цель: Платы адских нагревателей"
+  requiredItem: HellfireHeaterMachineCircuitBoard
+
+- type: factoryGoal
+  id: HardMiniGravityGenerator
+  parent: BaseHardGoal
+  name: "Сложная цель: Платы мини-генераторов гравитации"
+  requiredItem: MiniGravityGeneratorCircuitboard
+
+- type: factoryGoal
+  id: HardCryoPod
+  parent: BaseHardGoal
+  name: "Сложная цель: Платы криокапсул"
+  requiredItem: CryoPodMachineCircuitboard
+
+- type: factoryGoal
+  id: HardCloningPod
+  parent: BaseHardGoal
+  name: "Сложная цель: Платы капсул клонирования"
+  requiredItem: CloningPodMachineCircuitboard
+
+- type: factoryGoal
+  id: HardOreProcessorIndustrial
+  parent: BaseHardGoal
+  name: "Сложная цель: Платы промышленных переработчиков руды"
+  requiredItem: OreProcessorIndustrialMachineCircuitboard
+
+# --- Сложные батарейки и клетки ---
+- type: factoryGoal
+  id: HardPowerCellHigh
+  parent: BaseHardGoal
+  name: "Сложная цель: Высокомощные батарейки"
+  requiredItem: PowerCellHighPrinted
+
+- type: factoryGoal
+  id: HardPowerCellHyper
+  parent: BaseHardGoal
+  name: "Сложная цель: Гипербатарейки"
+  requiredItem: PowerCellHyperPrinted
+
+- type: factoryGoal
+  id: HardPowerCellMicroreactor
+  parent: BaseHardGoal
+  name: "Сложная цель: Микрореакторные батарейки"
+  requiredItem: PowerCellMicroreactorPrinted
+
+- type: factoryGoal
+  id: HardPowerCageHigh
+  parent: BaseHardGoal
+  name: "Сложная цель: Высокомощные энергоклетки"
+  requiredItem: PowerCageHigh
+
+# --- Сложное оружие и снаряжение ---
+- type: factoryGoal
+  id: HardLaserCannon
+  parent: BaseHardGoal
+  name: "Сложная цель: Лазерные пушки"
+  requiredItem: WeaponLaserCannon
+
+- type: factoryGoal
+  id: HardXrayCannon
+  parent: BaseHardGoal
+  name: "Сложная цель: Рентгеновские пушки"
+  requiredItem: WeaponXrayCannon
+
+- type: factoryGoal
+  id: HardAdvancedLaser
+  parent: BaseHardGoal
+  name: "Сложная цель: Продвинутые лазеры"
+  requiredItem: WeaponAdvancedLaser
+
+- type: factoryGoal
+  id: HardSvalinnLaser
+  parent: BaseHardGoal
+  name: "Сложная цель: Лазерные пистолеты Свалин"
+  requiredItem: WeaponLaserSvalinn
+
+- type: factoryGoal
+  id: HardTemperatureGun
+  parent: BaseHardGoal
+  name: "Сложная цель: Температурные пушки"
+  requiredItem: WeaponTemperatureGun
+
+- type: factoryGoal
+  id: HardTelescopicShield
+  parent: BaseHardGoal
+  name: "Сложная цель: Телескопические щиты"
+  requiredItem: TelescopicShield
+
+- type: factoryGoal
+  id: HardElectropack
+  parent: BaseHardGoal
+  name: "Сложная цель: Электро-рюкзаки"
+  requiredItem: ClothingBackpackElectropack
+
+- type: factoryGoal
+  id: HardPortableRecharger
+  parent: BaseHardGoal
+  name: "Сложная цель: Портативные перезарядчики"
+  requiredItem: PortableRecharger

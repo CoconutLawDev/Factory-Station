@@ -1,0 +1,22 @@
+- type: latheRecipe
+  id: ClothRecipe
+  name: "Создание ткани"
+  result: MaterialCloth1
+  completetime: 5
+  materials:
+    Plastic: 100
+
+- type: latheRecipe
+  id: DurathreadRecipe
+  name: "Синтез дюрадткани"
+  result: MaterialDurathread1
+  completetime: 10
+  materials:
+    Plastic: 400
+    Steel: 200
+
+- type: latheRecipePack
+  id: ClothPackFactory
+  recipes:
+    - ClothRecipe
+    - DurathreadRecipe
