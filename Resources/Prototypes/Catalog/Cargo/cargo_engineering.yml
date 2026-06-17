@@ -9,6 +9,16 @@
   group: market
 
 - type: cargoProduct
+  id: MiningDrillFactory
+  icon:
+    sprite: _FactoryStation/Items/devices/drill.rsi
+    state: icon
+  product: DrillFactory
+  cost: 1000
+  category: cargoproduct-category-name-engineering
+  group: market
+
+- type: cargoProduct
   id: EngineeringCableMv
   icon:
     sprite: Objects/Tools/cable-coils.rsi

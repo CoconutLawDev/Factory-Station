@@ -1002,11 +1002,11 @@
       emitsSparks: true
     - type: ItemSlots
       slots:
-      heat_sink:
-        name: Радиаторная пластина
-        whitelist:
-          components:
-          - HeatSink
+        heat_sink:
+          name: Радиаторная пластина
+          whitelist:
+           components:
+           - HeatSink
 
 - type: entity
   parent: OreProcessor
