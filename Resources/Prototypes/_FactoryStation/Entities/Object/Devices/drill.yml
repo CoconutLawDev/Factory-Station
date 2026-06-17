@@ -5,7 +5,7 @@
   description: Переносной бур для добычи ресурсов с клеток. Требует батарейку.
   components:
   - type: Sprite
-    sprite: _FactoryStation/items/devices/drill.rsi
+    sprite: _FactoryStation/Items/devices/drill.rsi
     state: icon
   - type: Item
     size: Large
