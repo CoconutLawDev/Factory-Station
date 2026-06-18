@@ -24,16 +24,9 @@ jobs:
 
     - name: Create archive
       run: |
-        echo "=== Find output ==="
-        find . -path "*/Server/linux-x64/*" -type d 2>/dev/null
-        find . -name "Content.Server.dll" -type f 2>/dev/null
-        find . -name "Robust.Server" -type f 2>/dev/null
-        echo "=== bin/Server ==="
-        ls -la bin/Server/linux-x64/ 2>/dev/null || echo "not found"
-        echo "=== Content.Server/bin ==="
-        ls -la Content.Server/bin/Release/ 2>/dev/null || echo "not found"
-        echo "=== RobustToolbox/bin ==="
-        ls -la RobustToolbox/bin/Server/ 2>/dev/null || echo "not found"
+        cd RobustToolbox/bin/Server
+        tar -czf /tmp/server.tar.gz .
+        ls -la /tmp/server.tar.gz
 
     - name: Upload to Releases
       uses: softprops/action-gh-release@v2
