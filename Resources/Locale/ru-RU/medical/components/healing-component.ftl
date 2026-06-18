@@ -1,5 +1,5 @@
-﻿medical-item-finished-using = Вы закончили лечение с помощью {$item}.
-medical-item-cant-use = Нет повреждений, которые можно вылечить с помощью {$item}.
-medical-item-stop-bleeding = {CAPITALIZE($target)} перестал(а) кровоточить.
-medical-item-stop-bleeding-self = Вы перестали кровоточить.
-medical-item-popup-target = {CAPITALIZE($user)} пытается вылечить вас с помощью {$item}!
+﻿medical-item-finished-using = You have finished healing with the {$item}.
+medical-item-cant-use = There is no damage you can heal with the {$item}.
+medical-item-stop-bleeding = {CAPITALIZE($target)} has stopped bleeding.
+medical-item-stop-bleeding-self = You have stopped bleeding.
+medical-item-popup-target = {CAPITALIZE(THE($user))} is trying to heal you with the {$item}!

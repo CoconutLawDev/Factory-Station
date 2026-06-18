@@ -11,6 +11,7 @@ using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 
 namespace Content.Client.Lathe.UI;
@@ -31,7 +32,6 @@ public sealed partial class LatheMenu : FancyWindow
     public event Action<int>? QueueMoveUpAction;
     public event Action<int>? QueueMoveDownAction;
     public event Action? DeleteFabricatingAction;
-    // Событие для авто-режима
     public event Action<string?, bool>? OnAutoRecipeToggled;
 
     public List<ProtoId<LatheRecipePrototype>> Recipes = new();
@@ -44,6 +44,11 @@ public sealed partial class LatheMenu : FancyWindow
 
     private string? _activeRecipeId;
     private bool _autoMode;
+
+    // FactoryStation-Edit-Start: Temperature fields
+    private float _currentTemperature;
+    private float _maxSafeTemperature = 100f;
+    // FactoryStation-Edit-End
 
     public LatheMenu()
     {
@@ -96,6 +101,10 @@ public sealed partial class LatheMenu : FancyWindow
             }
 
             AmountLineEdit.SetText(latheComponent.DefaultProductionAmount.ToString());
+
+            // FactoryStation-Edit-Start: Get temperature limits
+            _maxSafeTemperature = latheComponent.MaxSafeTemperature;
+            // FactoryStation-Edit-End
         }
 
         MaterialsList.SetOwner(Entity);
@@ -103,7 +112,55 @@ public sealed partial class LatheMenu : FancyWindow
         _activeRecipeId = null;
         _autoMode = false;
         AutoButton.Pressed = false;
+
+        // FactoryStation-Edit-Start: Initialize temperature
+        UpdateTemperatureDisplay();
+        // FactoryStation-Edit-End
     }
+
+    // FactoryStation-Edit-Start: Temperature display
+    public void UpdateTemperature(float currentTemp)
+    {
+        _currentTemperature = currentTemp;
+        UpdateTemperatureDisplay();
+    }
+
+    private void UpdateTemperatureDisplay()
+    {
+        TemperatureLabel.Text = $"{_currentTemperature:F1}°C";
+
+        if (_currentTemperature > _maxSafeTemperature * 1.5f)
+        {
+            TemperatureLabel.FontColorOverride = Color.Red;
+            ExplosionWarning.Text = Loc.GetString("lathe-menu-explosion-critical");
+            ExplosionWarning.Visible = true;
+        }
+        else if (_currentTemperature > _maxSafeTemperature)
+        {
+            TemperatureLabel.FontColorOverride = Color.Orange;
+            ExplosionWarning.Text = Loc.GetString("lathe-menu-explosion-warning");
+            ExplosionWarning.Visible = true;
+        }
+        else
+        {
+            TemperatureLabel.FontColorOverride = Color.Green;
+            ExplosionWarning.Visible = false;
+        }
+    }
+
+    protected override void FrameUpdate(FrameEventArgs args)
+    {
+        base.FrameUpdate(args);
+
+        if (Entity is not { Valid: true })
+            return;
+
+        if (_entityManager.TryGetComponent<LatheComponent>(Entity, out var lathe))
+        {
+            UpdateTemperature(lathe.CurrentTemperature);
+        }
+    }
+    // FactoryStation-Edit-End
 
     public void PopulateRecipes()
     {
@@ -201,11 +258,11 @@ public sealed partial class LatheMenu : FancyWindow
             var sheetVolume = _materialStorage.GetSheetVolume(proto);
 
             var unit = Loc.GetString(proto.Unit);
-            var sheets = adjustedAmount / (float) sheetVolume;
+            var sheets = adjustedAmount / (float)sheetVolume;
 
             var availableAmount = _materialStorage.GetMaterialAmount(Entity, id);
             var missingAmount = Math.Max(0, adjustedAmount - availableAmount);
-            var missingSheets = missingAmount / (float) sheetVolume;
+            var missingSheets = missingAmount / (float)sheetVolume;
 
             var name = Loc.GetString(proto.Name);
 

@@ -153,6 +153,15 @@
                     <ui:MaterialStorageControl Name="MaterialsList" SizeFlagsStretchRatio="8"/>
                 </BoxContainer>
             </PanelContainer>
+
+            <!-- FactoryStation-Edit-Start: Temperature -->
+            <BoxContainer Orientation="Horizontal" Margin="0 4 0 0">
+                <Label Text="Temperature:" />
+                <Label Name="TemperatureLabel" Margin="4 0 0 0" Text="20°C" />
+            </BoxContainer>
+            <Label Name="ExplosionWarning" StyleClasses="LabelDanger" Visible="False" Margin="0 4" />
+            <!-- FactoryStation-Edit-End -->
+
         </BoxContainer>
         </BoxContainer>
 

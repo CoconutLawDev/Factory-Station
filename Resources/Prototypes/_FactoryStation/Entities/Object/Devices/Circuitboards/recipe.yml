@@ -1,8 +1,6 @@
 # Крафт плат
 - type: latheRecipePack
   id: FactoryCircuitboardRecipes
-  name: "Рецепты для печатных плат фабрики"
-  description: "Набор рецептов для печатных плат, используемых в различных устройствах."
   recipes:
     - FurnaceMachineCircuitboard2Recipe
     - FurnaceMachineCircuitboardRecipe
@@ -24,40 +22,44 @@
 - type: latheRecipe
   id: FurnaceMachineCircuitboard2Recipe
   name: Плата промышленной печи
-  category: Circuits
+  categories:
+  - FactoryCircuits
   materials:
     Glass: 1000
     Gold: 100
-    Copper: 500
+    CopperList: 500
   result: FurnaceMachineCircuitboard2
 
 # Плата для промышленной печи (базовая)
 - type: latheRecipe
   id: FurnaceMachineCircuitboardRecipe
   name: Плата промышленной печи (базовая)
-  category: Circuits
+  categories:
+  - FactoryCircuits
   materials:
     Glass: 800
     Steel: 1500
-    Copper: 400
+    CopperList: 400
   result: FurnaceMachineCircuitboard
 
 # Плата упаковщика 711
 - type: latheRecipe
   id: PackerMachineCircuitboard711Recipe
   name: Плата упаковщика 711
-  category: Circuits
+  categories:
+  - FactoryCircuits
   materials:
     Glass: 1500
     Steel: 2000
-    Copper: 800
+    CopperList: 800
   result: PackerMachineCircuitboard711
 
 # Плата формирователя 261
 - type: latheRecipe
   id: ShaperMachineCircuitboard261Recipe
   name: Плата формирователя 261
-  category: Circuits
+  categories:
+  - FactoryCircuits
   materials:
     Glass: 1200
     Steel: 1800
@@ -68,18 +70,20 @@
 - type: latheRecipe
   id: SheetifierMachineCircuitboard3001Recipe
   name: Плата лист-мастера 3001
-  category: Circuits
+  categories:
+  - FactoryCircuits
   materials:
-    Glass: 80
-    Steel: 150
-    Copper: 60
+    Glass: 800
+    Steel: 1500
+    CopperList: 600
   result: SheetifierMachineCircuitboard3001
 
 # Плата лист-мастера 4001
 - type: latheRecipe
   id: SheetifierMachineCircuitboard4001Recipe
   name: Плата лист-мастера 4001
-  category: Circuits
+  categories:
+  - FactoryCircuits
   materials:
     Glass: 10000
     Steel: 20000
@@ -90,7 +94,8 @@
 - type: latheRecipe
   id: SheetifierMachineCircuitboard5001Recipe
   name: Плата лист-мастера 5001
-  category: Circuits
+  categories:
+  - FactoryCircuits
   materials:
     Glass: 1200
     Steel: 2500
@@ -101,7 +106,8 @@
 - type: latheRecipe
   id: GlassBlowingFurnaceCircuitboardRecipe
   name: Плата стеклодувной печи
-  category: Circuits
+  categories:
+  - FactoryCircuits
   materials:
     Glass: 1200
     Steel: 2500
@@ -112,7 +118,8 @@
 - type: latheRecipe
   id: FurnaceKreningMachineCircuitboardRecipe
   name: Плата кренинг печи
-  category: Circuits
+  categories:
+  - FactoryCircuits
   materials:
     Glass: 1200
     Steel: 2500
@@ -123,7 +130,8 @@
 - type: latheRecipe
   id: FactoryGoalConsoleCircuitboardRecipe
   name: Плата консоли целей фабрики
-  category: Circuits
+  categories:
+  - FactoryCircuits
   materials:
     Glass: 6000
     Steel: 5000

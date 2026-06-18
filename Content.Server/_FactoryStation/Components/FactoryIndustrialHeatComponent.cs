@@ -24,8 +24,39 @@ public sealed partial class FactoryIndustrialHeatComponent : Component
     [DataField] public float SmokeRadius = 3f;
     [DataField] public float SmokeSpreadInterval = 2f;
 
+    // FactoryStation-Edit-Start: Smoke expansion over time
+    /// <summary>
+    /// How long the station has been producing smoke continuously.
+    /// Used to gradually expand smoke radius.
+    /// </summary>
+    public float SmokeActiveTime = 0f;
+
+    /// <summary>
+    /// Current radius of smoke cloud, grows over time up to SmokeRadius.
+    /// </summary>
+    public float CurrentSmokeRadius = 1f;
+
+    /// <summary>
+    /// How fast the smoke radius expands per SmokeInterval.
+    /// </summary>
+    [DataField] public float SmokeExpansionRate = 0.5f;
+
+    /// <summary>
+    /// The minimum radius the smoke starts at.
+    /// </summary>
+    [DataField] public float MinSmokeRadius = 1f;
+    // FactoryStation-Edit-End
+
     [DataField] public float AtmosHeatPerSecond = 25f;
     [DataField] public float CO2PerSecond = 0.25f;
+
+    // FactoryStation-Edit-Start: Atmospheric heat transfer scaling
+    /// <summary>
+    /// Maximum multiplier for atmospheric heating based on CurrentHeat.
+    /// At DangerThreshold, heating is 1x. At CriticalThreshold, heating is MaxAtmosHeatMultiplier.
+    /// </summary>
+    [DataField] public float MaxAtmosHeatMultiplier = 3f;
+    // FactoryStation-Edit-End
 
     [DataField] public float ExplosionChance = 0.05f;
     [DataField] public float ExplosionIntensity = 50f;
@@ -51,7 +82,7 @@ public sealed partial class FactoryIndustrialHeatComponent : Component
 
     [DataField] public bool AmbientCoolingEnabled = true;
     [DataField] public float AmbientCoolingCoefficient = 0.5f;
-    [DataField] public float MinAmbientTemperature = 73.15f;
-    [DataField] public float RoomTemperature = 293.15f;
+    [DataField] public float MinAmbientTemperature = -200f;
+    [DataField] public float RoomTemperature = 20f;
     [DataField] public bool RequireAtmosphereForCooling = true;
 }

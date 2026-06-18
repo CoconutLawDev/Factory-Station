@@ -168,7 +168,7 @@
     enabled: true
   - type: FactoryIndustrialHeat
     maxHeat: 1400
-    heatPerSecond: 12
+    heatPerSecond: 8
     cooldownPerSecond: 10
     smokeThreshold: 320
     dangerThreshold: 720
@@ -267,7 +267,7 @@
     enabled: true
   - type: FactoryIndustrialHeat
     maxHeat: 1400
-    heatPerSecond: 12
+    heatPerSecond: 8
     cooldownPerSecond: 10
     smokeThreshold: 320
     dangerThreshold: 720
@@ -349,7 +349,12 @@
     emagDynamicPacks:
     - SecurityBoards
   - type: MaterialStorage
-    whitelist: *StandardMaterialWhitelist
+    whitelist:
+    tags:
+      - Sheet
+      - RawMaterial
+      - Ingot
+      - OreSandstoneFact
   - type: OreSiloClient
   - type: RequireProjectileTarget
   - type: AutoCollector
@@ -360,7 +365,7 @@
     enabled: true
   - type: FactoryIndustrialHeat
     maxHeat: 1400
-    heatPerSecond: 12
+    heatPerSecond: 8
     cooldownPerSecond: 10
     smokeThreshold: 320
     dangerThreshold: 720
@@ -442,7 +447,7 @@
     enabled: true
   - type: FactoryIndustrialHeat
     maxHeat: 1400
-    heatPerSecond: 12
+    heatPerSecond: 8
     cooldownPerSecond: 10
     smokeThreshold: 320
     dangerThreshold: 720
@@ -517,7 +522,7 @@
     enabled: true
   - type: FactoryIndustrialHeat
     maxHeat: 1400
-    heatPerSecond: 12
+    heatPerSecond: 8
     cooldownPerSecond: 10
     smokeThreshold: 320
     dangerThreshold: 720
@@ -601,7 +606,7 @@
     enabled: true
   - type: FactoryIndustrialHeat
     maxHeat: 1400
-    heatPerSecond: 12
+    heatPerSecond: 8
     cooldownPerSecond: 10
     smokeThreshold: 320
     dangerThreshold: 720
@@ -673,7 +678,7 @@
     enabled: true
   - type: FactoryIndustrialHeat
     maxHeat: 1400
-    heatPerSecond: 12
+    heatPerSecond: 8
     cooldownPerSecond: 10
     smokeThreshold: 320
     dangerThreshold: 720
@@ -750,7 +755,7 @@
     enabled: true
   - type: FactoryIndustrialHeat
     maxHeat: 1400
-    heatPerSecond: 12
+    heatPerSecond: 8
     cooldownPerSecond: 10
     smokeThreshold: 320
     dangerThreshold: 720
@@ -829,7 +834,7 @@
     enabled: true
   - type: FactoryIndustrialHeat
     maxHeat: 1400
-    heatPerSecond: 12
+    heatPerSecond: 8
     cooldownPerSecond: 10
     smokeThreshold: 320
     dangerThreshold: 720
@@ -917,7 +922,7 @@
     enabled: true
   - type: FactoryIndustrialHeat
     maxHeat: 1400
-    heatPerSecond: 12
+    heatPerSecond: 8
     cooldownPerSecond: 10
     smokeThreshold: 320
     dangerThreshold: 720
@@ -979,7 +984,7 @@
       enabled: true
     - type: FactoryIndustrialHeat
       maxHeat: 1400
-      heatPerSecond: 12
+      heatPerSecond: 8
       cooldownPerSecond: 10
       smokeThreshold: 320
       dangerThreshold: 720
@@ -1033,7 +1038,7 @@
     enabled: true
   - type: FactoryIndustrialHeat
     maxHeat: 1400
-    heatPerSecond: 12
+    heatPerSecond: 8
     cooldownPerSecond: 10
     smokeThreshold: 320
     dangerThreshold: 720
@@ -1100,7 +1105,7 @@
     enabled: true
   - type: FactoryIndustrialHeat
     maxHeat: 1400
-    heatPerSecond: 12
+    heatPerSecond: 8
     cooldownPerSecond: 10
     smokeThreshold: 320
     dangerThreshold: 720
@@ -1178,7 +1183,7 @@
     enabled: true
   - type: FactoryIndustrialHeat
     maxHeat: 1400
-    heatPerSecond: 12
+    heatPerSecond: 8
     cooldownPerSecond: 10
     smokeThreshold: 320
     dangerThreshold: 720

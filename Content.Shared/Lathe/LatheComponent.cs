@@ -7,7 +7,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Lathe
 {
-    [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+    [RegisterComponent, NetworkedComponent, AutoGenerateComponentState(raiseAfterAutoHandleState: true)]
     public sealed partial class LatheComponent : Component
     {
         /// <summary>
@@ -21,17 +21,10 @@ namespace Content.Shared.Lathe
         /// </summary>
         [DataField]
         public List<ProtoId<LatheRecipePackPrototype>> DynamicPacks = new();
-        // Note that this shouldn't be modified dynamically.
-        // I.e., this + the static recipies should represent all recipies that the lathe can ever make
-        // Otherwise the material arbitrage test and/or LatheSystem.GetAllBaseRecipes needs to be updated
 
         /// <summary>
         /// The lathe's construction queue.
         /// </summary>
-        /// <remarks>
-        /// This is a LinkedList to allow for constant time insertion/deletion (vs a List), and more efficient
-        /// moves (vs a Queue).
-        /// </remarks>
         [DataField]
         public LinkedList<LatheRecipeBatch> Queue = new();
 
@@ -71,18 +64,26 @@ namespace Content.Shared.Lathe
         public ProtoId<LatheRecipePrototype>? CurrentRecipe;
 
         #region MachineUpgrading
-        /// <summary>
-        /// A modifier that changes how long it takes to print a recipe
-        /// </summary>
         [DataField, ViewVariables(VVAccess.ReadWrite)]
         public float TimeMultiplier = 1;
 
-        /// <summary>
-        /// A modifier that changes how much of a material is needed to print a recipe
-        /// </summary>
         [DataField, ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
         public float MaterialUseMultiplier = 1;
         #endregion
+
+        // FactoryStation-Edit-Start: Temperature
+        [DataField, AutoNetworkedField]
+        public float CurrentTemperature = 20f;
+
+        [DataField, AutoNetworkedField]
+        public float MaxSafeTemperature = 100f;
+
+        [DataField]
+        public float HeatPerSecond = 2f;
+
+        [DataField]
+        public float CoolPerSecond = 1.5f;
+        // FactoryStation-Edit-End
     }
 
     public sealed class LatheGetRecipesEvent : EntityEventArgs
@@ -116,9 +117,6 @@ namespace Content.Shared.Lathe
         }
     }
 
-    /// <summary>
-    /// Event raised on a lathe when it starts producing a recipe.
-    /// </summary>
     [ByRefEvent]
     public readonly record struct LatheStartPrintingEvent(LatheRecipePrototype Recipe);
 }

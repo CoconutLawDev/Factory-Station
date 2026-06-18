@@ -26,13 +26,26 @@ public sealed class FactorySmokeSystem : EntitySystem
 
         while (query.MoveNext(out var uid, out var heat, out var lathe))
         {
-            // Станок не работает
             if (lathe.CurrentRecipe == null)
+            {
+                heat.SmokeActiveTime = 0f;
+                heat.CurrentSmokeRadius = heat.MinSmokeRadius;
                 continue;
+            }
 
-            // Недостаточно температуры
             if (heat.CurrentHeat < heat.SmokeThreshold)
+            {
+                heat.SmokeActiveTime = 0f;
+                heat.CurrentSmokeRadius = heat.MinSmokeRadius;
                 continue;
+            }
+
+            heat.SmokeActiveTime += 2f;
+
+            heat.CurrentSmokeRadius = heat.MinSmokeRadius +
+                (heat.SmokeActiveTime / heat.SmokeSpreadInterval) * heat.SmokeExpansionRate;
+
+            heat.CurrentSmokeRadius = Math.Min(heat.CurrentSmokeRadius, heat.SmokeRadius);
 
             SpawnSmokeCloud(uid, heat);
         }
@@ -44,25 +57,18 @@ public sealed class FactorySmokeSystem : EntitySystem
     {
         var origin = Transform(uid).Coordinates;
 
-        // Центральный дым
-        Spawn("FactoryHeavySmoke", origin);
+        var radius = (int)MathF.Ceiling(heat.CurrentSmokeRadius);
 
-        var radius = (int)heat.SmokeRadius;
-
+        // Спавним все тайлы от центра до текущего радиуса
         for (var x = -radius; x <= radius; x++)
         {
             for (var y = -radius; y <= radius; y++)
             {
-                // Пропускаем центр
-                if (x == 0 && y == 0)
-                    continue;
-
                 // Круг вместо квадрата
                 if (x * x + y * y > radius * radius)
                     continue;
 
                 var offset = new Vector2(x, y);
-
                 var coords = origin.Offset(offset);
 
                 Spawn("FactoryHeavySmoke", coords);

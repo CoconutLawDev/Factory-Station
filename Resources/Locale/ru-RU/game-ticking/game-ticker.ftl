@@ -1,50 +1,49 @@
-game-ticker-restart-round = Перезапуск раунда...
-game-ticker-start-round = Раунд начинается сейчас...
-game-ticker-start-round-cannot-start-game-mode-fallback = Не удалось запустить режим {$failedGameMode}! Переключение на {$fallbackMode}...
-game-ticker-start-round-cannot-start-game-mode-restart = Не удалось запустить режим {$failedGameMode}! Перезапуск раунда...
-game-ticker-start-round-invalid-map = Выбранная карта {$map} не подходит для режима {$mode}. Режим может работать не так, как задумано...
-game-ticker-unknown-role = Неизвестно
-game-ticker-delay-start = Запуск раунда отложен на {$seconds} секунд.
-game-ticker-pause-start = Запуск раунда приостановлен.
-game-ticker-pause-start-resumed = Обратный отсчёт запуска раунда возобновлён.
-game-ticker-player-join-game-message = Добро пожаловать на Space Station 14! Если вы играете в первый раз, обязательно ознакомьтесь с правилами игры и не стесняйтесь обращаться за помощью в LOOC (локальный OOC) или OOC (обычно доступен только между раундами).
-game-ticker-get-info-text = Привет и добро пожаловать на [color=white]FactoryStation![/color]
-                            Текущий раунд: [color=white]#{$roundId}[/color]
-                            Количество игроков: [color=white]{$playerCount}[/color]
-                            Текущая карта: [color=white]{$mapName}[/color]
-                            Текущий игровой режим: [color=white]{$gmTitle}[/color]
+game-ticker-restart-round = Restarting round...
+game-ticker-start-round = The round is starting now...
+game-ticker-start-round-cannot-start-game-mode-fallback = Failed to start {$failedGameMode} mode! Defaulting to {$fallbackMode}...
+game-ticker-start-round-cannot-start-game-mode-restart = Failed to start {$failedGameMode} mode! Restarting round...
+game-ticker-start-round-invalid-map = Selected map {$map} is inelligible for gamemode {$mode}. Gamemode may not function as intended...
+game-ticker-unknown-role = Unknown
+game-ticker-delay-start = Round start has been delayed for {$seconds} seconds.
+game-ticker-pause-start = Round start has been paused.
+game-ticker-pause-start-resumed = Round start countdown is now resumed.
+game-ticker-player-join-game-message = Welcome to Space Station 14! If this is your first time playing, be sure to read the game rules, and don't be afraid to ask for help in LOOC (local OOC) or OOC (usually available only between rounds).
+game-ticker-get-info-text = Hi and welcome to [color=white]Space Station 14![/color]
+                            The current round is: [color=white]#{$roundId}[/color]
+                            The current player count is: [color=white]{$playerCount}[/color]
+                            The current map is: [color=white]{$mapName}[/color]
+                            The current game mode is: [color=white]{$gmTitle}[/color]
                             >[color=yellow]{$desc}[/color]
-game-ticker-get-info-preround-text = Привет и добро пожаловать на [color=white]Space Station 14![/color]
-                            Текущий раунд: [color=white]#{$roundId}[/color]
-                            Количество игроков: [color=white]{$playerCount}[/color] ([color=white]{$readyCount}[/color] {$readyCount ->
-                                [one] готов
-                                [few] готово
-                               *[many] готовы
-                            })
-                            Текущая карта: [color=white]{$mapName}[/color]
-                            Текущий игровой режим: [color=white]{$gmTitle}[/color]
+game-ticker-get-info-preround-text = Hi and welcome to [color=white]Space Station 14![/color]
+                            The current round is: [color=white]#{$roundId}[/color]
+                            The current player count is: [color=white]{$playerCount}[/color] ([color=white]{$readyCount}[/color] {$readyCount ->
+                                [one] is
+                                *[other] are
+                            } ready)
+                            The current map is: [color=white]{$mapName}[/color]
+                            The current game mode is: [color=white]{$gmTitle}[/color]
                             >[color=yellow]{$desc}[/color]
-game-ticker-no-map-selected = [color=yellow]Карта ещё не выбрана![/color]
-game-ticker-player-no-jobs-available-when-joining = При попытке присоединиться к игре не было доступных должностей.
+game-ticker-no-map-selected = [color=yellow]Map not yet selected![/color]
+game-ticker-player-no-jobs-available-when-joining = When attempting to join to the game, no jobs were available.
 
 # Displayed in chat to admins when a player joins
-player-join-message = Игрок {$name} присоединился.
-player-first-join-message = Игрок {$name} присоединился впервые.
+player-join-message = Player {$name} joined.
+player-first-join-message = Player {$name} joined for the first time.
 
 # Displayed in chat to admins when a player leaves
-player-leave-message = Игрок {$name} покинул игру.
+player-leave-message = Player {$name} left.
 
-latejoin-arrival-announcement = {$character} ({$job}) прибыл на станцию!
-latejoin-arrival-announcement-special = {$job} {$character} на борту!
-latejoin-arrival-sender = Станция
-latejoin-arrivals-direction = Шаттл, доставляющий вас на станцию, скоро прибудет.
-latejoin-arrivals-direction-time = Шаттл, доставляющий вас на станцию, прибудет через {$time}.
-latejoin-arrivals-dumped-from-shuttle = Таинственная сила не даёт вам покинуть прибывающий шаттл.
-latejoin-arrivals-teleport-to-spawn = Таинственная сила телепортирует вас с прибывающего шаттла. Удачной смены!
+latejoin-arrival-announcement = {$character} ({$job}) has arrived at the station!
+latejoin-arrival-announcement-special = {$job} {$character} on deck!
+latejoin-arrival-sender = Station
+latejoin-arrivals-direction = A shuttle transferring you to your station will arrive shortly.
+latejoin-arrivals-direction-time = A shuttle transferring you to your station will arrive in {$time}.
+latejoin-arrivals-dumped-from-shuttle = A mysterious force prevents you from leaving with the arrivals shuttle.
+latejoin-arrivals-teleport-to-spawn = A mysterious force teleports you off the arrivals shuttle. Have a safe shift!
 
-preset-not-enough-ready-players = Не удаётся запустить {$presetName}. Требуется {$minimumPlayers} игроков, но готово {$readyPlayersCount}.
-preset-no-one-ready = Не удаётся запустить {$presetName}. Никто не готов.
+preset-not-enough-ready-players = Can't start {$presetName}. Requires {$minimumPlayers} players but we have {$readyPlayersCount}.
+preset-no-one-ready = Can't start {$presetName}. No players are ready.
 
-game-run-level-PreRoundLobby = Лобби перед раундом
-game-run-level-InRound = В раунде
-game-run-level-PostRound = После раунда
+game-run-level-PreRoundLobby = Pre-round lobby
+game-run-level-InRound = In round
+game-run-level-PostRound = Post round

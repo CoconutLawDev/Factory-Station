@@ -1,11 +1,11 @@
-ninja-no-power = Недостаточно заряда в батарее костюма!
-ninja-revealed = Вы раскрыты!
-ninja-suit-cooldown = Костюму нужно время, чтобы восстановиться после последней атаки.
-ninja-cell-downgrade = Костюм примет только новый элемент питания, который лучше текущего!
-ninja-cell-too-large = Этот источник питания не помещается в костюм ниндзя!
+ninja-no-power = Not enough charge in suit battery!
+ninja-revealed = You have been revealed!
+ninja-suit-cooldown = The suit needs time to recuperate from the last attack.
+ninja-cell-downgrade = The suit will only accept a new power cell that is better than the current one!
+ninja-cell-too-large = This power source does not fit in the ninja suit!
 
-ninja-download-fail = На сервере нет исследовательских данных...
-ninja-research-steal-fail = Не было украдено ни одного нового исследовательского узла...
-ninja-research-steal-success = Украдено {$count} новых узлов с {THE($server)}.
+ninja-download-fail = Server has no research data...
+ninja-research-steal-fail = No new research nodes were stolen...
+ninja-research-steal-success = Stole {$count} new nodes from {THE($server)}.
 
-ninja-criminal-records-hack-announcement = ОШИБКА: Криминальные записи обнаружили ошибку [REDACTED] #*;"
+ninja-criminal-records-hack-announcement = ERROR: Criminal records has detected a [REDACTED] error #*;"

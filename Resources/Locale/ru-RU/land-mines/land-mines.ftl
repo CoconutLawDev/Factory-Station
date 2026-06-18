@@ -1,2 +1,2 @@
-﻿land-mine-triggered = Вы наступаете на { $mine }!
-land-mine-verb-begin = Взвести
+﻿land-mine-triggered = You step on the { $mine }!
+land-mine-verb-begin = Arm

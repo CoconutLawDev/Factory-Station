@@ -1,59 +1,59 @@
 # named frequencies
-device-frequency-prototype-name-atmos = Атмосферные устройства
-device-frequency-prototype-name-suit-sensors = Датчики скафандра
-device-frequency-prototype-name-crew-monitor = Монитор экипажа
-device-frequency-prototype-name-lights = Умное освещение
-device-frequency-prototype-name-mailing-units = Почтовые блоки
-device-frequency-prototype-name-pdas = КПК
-device-frequency-prototype-name-fax = Факс
-device-frequency-prototype-name-basic-device = Базовые устройства
-device-frequency-prototype-name-cyborg-control = Управление киборгами
-device-frequency-prototype-name-robotics-console = Консоль робототехники
-device-frequency-prototype-name-turret = Турель
-device-frequency-prototype-name-turret-control = Управление турелью
-device-frequency-prototype-name-xenoborg = Ксеноборг
-device-frequency-prototype-name-mothership = Материнский корабль
+device-frequency-prototype-name-atmos = Atmospheric Devices
+device-frequency-prototype-name-suit-sensors = Suit Sensors
+device-frequency-prototype-name-crew-monitor = Crew Monitor
+device-frequency-prototype-name-lights = Smart Lights
+device-frequency-prototype-name-mailing-units = Mailing Units
+device-frequency-prototype-name-pdas = PDAs
+device-frequency-prototype-name-fax = Fax
+device-frequency-prototype-name-basic-device = Basic Devices
+device-frequency-prototype-name-cyborg-control = Cyborg Control
+device-frequency-prototype-name-robotics-console = Robotics Console
+device-frequency-prototype-name-turret = Sentry Turret
+device-frequency-prototype-name-turret-control = Sentry Turret Control
+device-frequency-prototype-name-xenoborg = Xenoborg
+device-frequency-prototype-name-mothership = Mothership
 
 ## camera frequencies
-device-frequency-prototype-name-surveillance-camera-test = Тестовая подсеть
-device-frequency-prototype-name-surveillance-camera-engineering = Инженерные камеры
-device-frequency-prototype-name-surveillance-camera-security = Камеры безопасности
-device-frequency-prototype-name-surveillance-camera-science = Научные камеры
-device-frequency-prototype-name-surveillance-camera-supply = Камеры снабжения
-device-frequency-prototype-name-surveillance-camera-command = Командные камеры
-device-frequency-prototype-name-surveillance-camera-service = Сервисные камеры
-device-frequency-prototype-name-surveillance-camera-medical = Медицинские камеры
-device-frequency-prototype-name-surveillance-camera-general = Общие камеры
-device-frequency-prototype-name-surveillance-camera-entertainment = Развлекательные камеры
+device-frequency-prototype-name-surveillance-camera-test = Subnet Test
+device-frequency-prototype-name-surveillance-camera-engineering = Engineering Cameras
+device-frequency-prototype-name-surveillance-camera-security = Security Cameras
+device-frequency-prototype-name-surveillance-camera-science = Science Cameras
+device-frequency-prototype-name-surveillance-camera-supply = Supply Cameras
+device-frequency-prototype-name-surveillance-camera-command = Command Cameras
+device-frequency-prototype-name-surveillance-camera-service = Service Cameras
+device-frequency-prototype-name-surveillance-camera-medical = Medical Cameras
+device-frequency-prototype-name-surveillance-camera-general = General Cameras
+device-frequency-prototype-name-surveillance-camera-entertainment = Entertainment Cameras
 
 # prefixes for randomly generated device addresses
-device-address-prefix-vent = ВНТ-
-device-address-prefix-scrubber = СКР-
-device-address-prefix-sensor = СНС-
+device-address-prefix-vent = VNT-
+device-address-prefix-scrubber = SCR-
+device-address-prefix-sensor = SNS-
 # Damn bet you couldn't see this one coming.
-device-address-prefix-teg = ТЭГ-
-device-address-prefix-heater = НГР-
-device-address-prefix-freezer = МРЗ-
-device-address-prefix-volume-pump = ОНП-
-device-address-prefix-smes = СМЭС-
-device-address-prefix-turret = ТРТ-
+device-address-prefix-teg = TEG-
+device-address-prefix-heater = HTR-
+device-address-prefix-freezer = FZR-
+device-address-prefix-volume-pump = VPP-
+device-address-prefix-smes = SMS-
+device-address-prefix-turret = TRT-
 
 # PDAs and terminals
-device-address-prefix-console = КЛС-
-device-address-prefix-fire-alarm = ПЖР-
-device-address-prefix-air-alarm = АТМ-
+device-address-prefix-console = CLS-
+device-address-prefix-fire-alarm = FIR-
+device-address-prefix-air-alarm = AIR-
 
-device-address-prefix-sensor-monitor = МНТ-
+device-address-prefix-sensor-monitor = MON-
 
-device-address-examine-message = Адрес устройства: {$address}.
+device-address-examine-message = The device's address is {$address}.
 
 # Device net ID names
-device-net-id-private = Частная
-device-net-id-wired = Проводная
-device-net-id-wireless = Беспроводная
-device-net-id-apc = ЗПС
-device-net-id-atmos-devices = Атмосферные устройства
-device-net-id-reserved = Зарезервировано
+device-net-id-private = Private
+device-net-id-wired = Wired
+device-net-id-wireless = Wireless
+device-net-id-apc = Apc
+device-net-id-atmos-devices = Atmos Devices
+device-net-id-reserved = Reserved
 
 # Unknown
 device-address-unknown = ????-????

@@ -40,6 +40,8 @@ public sealed partial class IndustrialSpillageSystem : EntitySystem
 
             var temperatureFactor = heat.CurrentHeat / heat.MaxHeat;
             var adjustedChance = heat.SpillageChance * (1f + temperatureFactor * 2f);
+            // FactoryStation-Edit: Clamp chance to 0-1 range
+            adjustedChance = Math.Clamp(adjustedChance, 0f, 1f);
 
             if (_random.Prob(adjustedChance))
             {

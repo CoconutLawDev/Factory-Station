@@ -1,5 +1,5 @@
-all-at-once-title = Всё сразу
-all-at-once-description = Видимо, сегодня не ваш день...
+all-at-once-title = All at once
+all-at-once-description = It's just not your day...
 
-aller-at-once-title = Полный швах
-aller-at-once-description = Теперь вы влипли. Вы *действительно* влипли.
+aller-at-once-title = Aller at once
+aller-at-once-description = You have fucked up now. You *have* fucked up now.

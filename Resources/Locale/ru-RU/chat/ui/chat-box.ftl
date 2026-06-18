@@ -38,5 +38,5 @@ hud-chatbox-highlights-tooltip = Слова должны быть разделе
                                  Если они заключены в кавычки, они будут выделены
                                  только если отделены пробелами или знаками препинания.
 hud-chatbox-highlights-placeholder = @McHands
-                                     «Судья»
-                                     Медицинский
+                                     "Judge"
+                                     Medical

@@ -114,3 +114,9 @@
 
 - type: Tag
   id: WireGoldSheet
+
+- type: Tag
+  id: CopperList
+
+- type: Tag
+  id: FactoryCircuits

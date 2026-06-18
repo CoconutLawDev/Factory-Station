@@ -9,6 +9,8 @@ using Robust.Shared.Timing;
 using Content.Shared.Tag;
 using Content.Shared.Interaction;
 using Robust.Shared.Prototypes;
+using Content.Shared.Containers.ItemSlots;
+using Content.Shared.PowerCell.Components; // ← добавить
 
 namespace Content.Server.Automation;
 
@@ -20,6 +22,7 @@ public sealed partial class DrillSystem : EntitySystem
     [Dependency] private EntityLookupSystem _lookup = default!;
     [Dependency] private PopupSystem _popup = default!;
     [Dependency] private TagSystem _tagSystem = default!;
+    [Dependency] private ItemSlotsSystem _itemSlots = default!; // ← добавить
 
     private const float DrillRadius = 0.5f;
     private static readonly ProtoId<TagPrototype> OreTag = "Ore";
@@ -47,8 +50,9 @@ public sealed partial class DrillSystem : EntitySystem
     {
         base.Update(frameTime);
 
-        var query = EntityQueryEnumerator<DrillComponent, BatteryComponent, TransformComponent>();
-        while (query.MoveNext(out var uid, out var drill, out var battery, out var xform))
+        // Изменено: ищем DrillComponent и PowerCellSlotComponent вместо BatteryComponent
+        var query = EntityQueryEnumerator<DrillComponent, PowerCellSlotComponent, TransformComponent>();
+        while (query.MoveNext(out var uid, out var drill, out var cellSlot, out var xform))
         {
             if (!drill.Enabled)
                 continue;
@@ -56,7 +60,25 @@ public sealed partial class DrillSystem : EntitySystem
             if (_timing.CurTime - drill.LastDrillTime < TimeSpan.FromSeconds(drill.Interval))
                 continue;
 
-            var currentCharge = _battery.GetCharge(uid);
+            // Получаем батарейку из слота
+            if (!_itemSlots.TryGetSlot(uid, cellSlot.CellSlotId, out var slot) || slot.Item == null)
+            {
+                drill.Enabled = false;
+                _popup.PopupEntity($"Бур {MetaData(uid).EntityName} остановлен: нет батарейки", uid);
+                continue;
+            }
+
+            var batteryUid = slot.Item.Value;
+
+            // Проверяем заряд через батарейку в слоте
+            if (!TryComp<BatteryComponent>(batteryUid, out var battery))
+            {
+                drill.Enabled = false;
+                _popup.PopupEntity($"Бур {MetaData(uid).EntityName} остановлен: неисправная батарейка", uid);
+                continue;
+            }
+
+            var currentCharge = _battery.GetCharge(batteryUid);
             if (currentCharge < 10)
             {
                 drill.Enabled = false;
@@ -72,7 +94,6 @@ public sealed partial class DrillSystem : EntitySystem
 
             var entities = _lookup.GetEntitiesInRange(center, DrillRadius);
 
-            // Ищем ресурсную клетку и запоминаем её EntityUid
             DrillableTileComponent? drillable = null;
             EntityUid drillableUid = EntityUid.Invalid;
             foreach (var entity in entities)
@@ -88,7 +109,6 @@ public sealed partial class DrillSystem : EntitySystem
             if (drillable == null || drillable.TotalAmount <= 0)
                 continue;
 
-            // Подсчитываем предметы руды на тайле
             int oreItems = 0;
             foreach (var entity in entities)
             {
@@ -103,10 +123,10 @@ public sealed partial class DrillSystem : EntitySystem
                 continue;
             }
 
-            // Добываем
-            _battery.SetCharge(uid, currentCharge - 10);
+            // Разряжаем батарейку в слоте
+            _battery.SetCharge(batteryUid, currentCharge - 10);
             drillable.TotalAmount -= drillable.AmountPerDrill;
-            Dirty(drillableUid, drillable);  // ← исправлено: передаём uid сущности
+            Dirty(drillableUid, drillable);
 
             Spawn(drillable.SpawnPrototype, xform.Coordinates);
 

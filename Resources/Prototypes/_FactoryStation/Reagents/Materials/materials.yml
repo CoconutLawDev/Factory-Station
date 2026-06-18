@@ -115,3 +115,11 @@
   icon: { sprite: _FactoryStation/Items/Materials/wire-gold.rsi, state: icon }
   color: "#D4AF37"
   price: 0.03
+
+- type: material
+  id: CopperList
+  stackEntity: ListCopperSheet1
+  name: Медные листы
+  icon: { sprite: _FactoryStation/Items/Materials/copperlist.rsi, state: icon }
+  color: "#D4AF37"
+  price: 0.4

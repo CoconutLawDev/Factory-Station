@@ -12,7 +12,7 @@
   id: MiningDrillFactoryStation
   icon:
     sprite: Objects/Tools/handdrill.rsi
-    state: icon
+    state: handdrill
   product: DrillFactoryStation
   cost: 1000
   category: cargoproduct-category-name-engineering

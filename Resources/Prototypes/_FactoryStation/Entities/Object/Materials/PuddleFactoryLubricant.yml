@@ -10,7 +10,8 @@
   - type: Slippery
     launchForwardsMultiplier: 1.5
     paralyzeTime: 2
-    intersectPercent: 0.8
+    intersectPercent: 0.3
+    requiredTriggeredSpeed: 0
   - type: TimedDespawn
     lifetime: 120
   - type: Solution
@@ -18,3 +19,21 @@
       reagents:
       - ReagentId: SpaceLube
         Quantity: 5
+  - type: StepTrigger
+    intersectRatio: 0.1
+  - type: FootstepModifier
+    footprintSprite:
+      sprite: Fluids/puddle.rsi
+      state: splat0
+
+- type: entity
+  id: PuddleFactoryLubricantTrace
+  parent: PuddleTemporary
+  name: следы смазки
+  description: Маслянистые следы.
+  components:
+  - type: Sprite
+    sprite: Fluids/puddle.rsi
+    state: splat1
+  - type: TimedDespawn
+    lifetime: 30

@@ -1,9 +1,9 @@
 ﻿# Rules
 
-ui-rules-header = Официальные правила серверов FactoryStation
-ui-rules-header-rp = Официальные правила ролевого сервера FactoryStation
-ui-rules-accept = Я прочитал(а) и соглашаюсь соблюдать правила
-ui-rules-wait = Кнопка подтверждения станет доступна через {$time} секунд.
+ui-rules-header = Wizard's Den Official Server Rules
+ui-rules-header-rp = Wizard's Den Roleplay Official Server Rules
+ui-rules-accept = I have read and agree to follow the rules
+ui-rules-wait = The accept button will be enabled after {$time} seconds.
 
-ui-rules-button-home = На главную
-ui-rules-button-back = Назад
+ui-rules-button-home = Home
+ui-rules-button-back = Back

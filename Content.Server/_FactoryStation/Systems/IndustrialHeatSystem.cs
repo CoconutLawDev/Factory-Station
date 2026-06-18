@@ -28,7 +28,7 @@ public sealed partial class IndustrialHeatSystem : EntitySystem
     [Dependency] private IGameTiming _gameTiming = default!;
     [Dependency] private EntityLookupSystem _lookup = default!;
 
-    private readonly ISawmill _sawmill = Logger.GetSawmill("factory.heat");
+    private ISawmill _sawmill = Logger.GetSawmill("factory.heat");
 
     private float _updateAccumulator;
 
@@ -38,11 +38,28 @@ public sealed partial class IndustrialHeatSystem : EntitySystem
 
         SubscribeLocalEvent<FactoryIndustrialHeatComponent, LatheStartPrintingEvent>(OnLatheStarted);
         SubscribeLocalEvent<FactoryIndustrialHeatComponent, ComponentShutdown>(OnHeatShutdown);
+        SubscribeLocalEvent<FactoryIndustrialHeatComponent, MapInitEvent>(OnMapInit);
+    }
+
+    private void OnMapInit(EntityUid uid, FactoryIndustrialHeatComponent component, MapInitEvent args)
+    {
+        if (TryComp<LatheComponent>(uid, out var lathe))
+        {
+            lathe.CurrentTemperature = component.CurrentHeat;
+            lathe.MaxSafeTemperature = component.DangerThreshold;
+            Dirty(uid, lathe);
+        }
     }
 
     private void OnLatheStarted(EntityUid uid, FactoryIndustrialHeatComponent component, ref LatheStartPrintingEvent args)
     {
         component.CurrentHeat += 35f;
+
+        if (TryComp<LatheComponent>(uid, out var lathe))
+        {
+            lathe.CurrentTemperature = component.CurrentHeat;
+            Dirty(uid, lathe);
+        }
     }
 
     private void OnHeatShutdown(EntityUid uid, FactoryIndustrialHeatComponent component, ComponentShutdown args)
@@ -84,6 +101,10 @@ public sealed partial class IndustrialHeatSystem : EntitySystem
 
             heat.CurrentHeat = Math.Clamp(heat.CurrentHeat, 20f, heat.MaxHeat);
 
+            lathe.CurrentTemperature = heat.CurrentHeat;
+            lathe.MaxSafeTemperature = heat.DangerThreshold;
+            Dirty(uid, lathe);
+
             var state = heat.CurrentHeat >= heat.CriticalThreshold ? OverheatState.Critical
                 : heat.CurrentHeat >= heat.DangerThreshold ? OverheatState.Warning
                 : OverheatState.Normal;
@@ -93,26 +114,6 @@ public sealed partial class IndustrialHeatSystem : EntitySystem
             if (state == OverheatState.Critical)
             {
                 ProcessCriticalOverheat(uid, heat);
-            }
-
-            if (heat.ProducingSmoke && heat.CurrentHeat >= heat.SmokeThreshold)
-            {
-                heat.SmokeAccumulator++;
-                if (heat.SmokeAccumulator >= heat.SmokeInterval)
-                {
-                    heat.SmokeAccumulator = 0f;
-
-                    var existingSmoke = 0;
-                    var nearbyEntities = _lookup.GetEntitiesInRange(uid, heat.SmokeRadius);
-                    foreach (var entity in nearbyEntities)
-                    {
-                        if (HasComp<FactorySmokeTileComponent>(entity))
-                            existingSmoke++;
-                    }
-
-                    if (existingSmoke < 10)
-                        Spawn("FactoryHeavySmoke", Transform(uid).Coordinates);
-                }
             }
         }
     }
@@ -164,7 +165,7 @@ public sealed partial class IndustrialHeatSystem : EntitySystem
 
         if (mixture != null)
         {
-            ambientTemp = mixture.Temperature;
+            ambientTemp = mixture.Temperature - 273.15f; // K → °C
         }
         else if (heat.RequireAtmosphereForCooling)
         {
@@ -241,7 +242,9 @@ public sealed partial class IndustrialHeatSystem : EntitySystem
         if (heat.LastExplosionTime != null && now - heat.LastExplosionTime.Value < TimeSpan.FromSeconds(10))
             return;
 
-        if (_random.Prob(heat.ExplosionChance))
+        var chance = Math.Clamp(heat.ExplosionChance, 0f, 1f);
+
+        if (_random.Prob(chance))
         {
             heat.LastExplosionTime = now;
 

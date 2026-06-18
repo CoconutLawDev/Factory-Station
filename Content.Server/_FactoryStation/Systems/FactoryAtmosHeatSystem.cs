@@ -37,20 +37,29 @@ public sealed partial class FactoryAtmosHeatSystem : EntitySystem
             if (mixture == null)
                 continue;
 
-            // Нормируем нагрев на объём помещения: в маленьких комнатах греется быстрее, но не выше 1500K
+            // Нагрев атмосферы пропорционально температуре печи
+            // Чем горячее печь, тем сильнее греет воздух
+            float heatRatio = heat.CurrentHeat / heat.DangerThreshold;
+            heatRatio = Math.Clamp(heatRatio, 0.5f, heat.MaxAtmosHeatMultiplier);
+
+            var effectiveAtmosHeat = heat.AtmosHeatPerSecond * heatRatio * 100f; // Увеличиваем множитель
+
+            // Нагреваем воздух, не выше 1500K (1227°C)
             if (mixture.Temperature < 1500f)
             {
-                // Чем больше объём смеси, тем меньше нагрев на градус
                 var volumeFactor = Math.Clamp(mixture.Volume, 1f, 1000f);
-                var heatToAdd = heat.AtmosHeatPerSecond * 1000f / volumeFactor;
+                var heatToAdd = effectiveAtmosHeat * 1000f / volumeFactor;
                 _atmosphere.AddHeat(mixture, heatToAdd);
             }
 
+            // CO2 при опасной температуре
             if (heat.CurrentHeat >= heat.DangerThreshold)
             {
-                mixture.AdjustMoles(Gas.CarbonDioxide, heat.CO2PerSecond);
+                float co2Ratio = heat.CurrentHeat >= heat.CriticalThreshold ? 3f : 1f;
+                mixture.AdjustMoles(Gas.CarbonDioxide, heat.CO2PerSecond * co2Ratio);
             }
 
+            // Поджог при критической температуре
             if (heat.CurrentHeat >= heat.CriticalThreshold)
             {
                 var transform = Transform(uid);

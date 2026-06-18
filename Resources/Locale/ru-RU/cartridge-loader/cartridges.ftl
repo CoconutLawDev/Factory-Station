@@ -5,7 +5,7 @@ notekeeper-program-name = Заметки
 nano-task-program-name = NanoTask
 news-read-program-name = Новости станции
 
-crew-manifest-program-name = Манифест экипажа
+crew-manifest-program-name = Манифест
 crew-manifest-cartridge-loading = Загрузка...
 crew-manifest-cartridge-loading-failed = Не удалось загрузить манифест экипажа!
 

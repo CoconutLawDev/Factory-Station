@@ -23,7 +23,6 @@ public sealed partial class LatheSystem : SharedLatheSystem
         if (args.Sprite == null)
             return;
 
-        // Lathe specific stuff
         if (_appearance.TryGetData<bool>(uid, LatheVisuals.IsRunning, out var isRunning, args.Component))
         {
             if (_sprite.LayerMapTryGet((uid, args.Sprite), LatheVisualLayers.IsRunning, out var runningLayer, false) &&
@@ -47,12 +46,12 @@ public sealed partial class LatheSystem : SharedLatheSystem
                 _sprite.LayerSetRsiState((uid, args.Sprite), powerLayer, state);
             }
         }
+
+        // FactoryStation-Edit-Start: Update temperature via subscription
+        // Temperature update is handled by subscribing to component state changes
+        // FactoryStation-Edit-End
     }
 
-    ///<remarks>
-    /// Whether or not a recipe is available is not really visible to the client,
-    /// so it just defaults to true.
-    ///</remarks>
     protected override bool HasRecipe(EntityUid uid, LatheRecipePrototype recipe, LatheComponent component)
     {
         return true;

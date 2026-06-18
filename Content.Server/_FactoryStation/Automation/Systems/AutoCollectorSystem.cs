@@ -2,6 +2,7 @@ using System.Linq;
 using Content.Server.Materials;
 using Content.Shared.Automation;
 using Content.Shared.Materials;
+using Content.Shared.Whitelist;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Timing;
@@ -15,6 +16,7 @@ public sealed partial class AutoCollectorSystem : EntitySystem
     [Dependency] private SharedTransformSystem _transformSystem = default!;
     [Dependency] private MaterialStorageSystem _materialStorageSystem = default!;
     [Dependency] private EntityLookupSystem _entityLookup = default!;
+    [Dependency] private EntityWhitelistSystem _whitelistSystem = default!;
 
     private readonly Dictionary<EntityUid, TimeSpan> _nextCheck = new();
     private readonly HashSet<Entity<TransformComponent>> _entitySet = new();
@@ -40,54 +42,61 @@ public sealed partial class AutoCollectorSystem : EntitySystem
         base.Update(frameTime);
         var curTime = _timing.CurTime;
 
-        // Притягиваем предметы каждый тик
-        foreach (var (uid, _) in _nextCheck.ToArray())
-        {
-            if (!TryComp<AutoCollectorComponent>(uid, out var collector) || collector.Deleted)
-            {
-                _nextCheck.Remove(uid);
-                continue;
-            }
-            TryCollectItems(uid, collector);
-        }
-
-        // Проверка на вставку — раз в интервал
         foreach (var (uid, next) in _nextCheck.ToArray())
         {
-            if (curTime < next) continue;
             if (!TryComp<AutoCollectorComponent>(uid, out var collector) || collector.Deleted)
             {
                 _nextCheck.Remove(uid);
                 continue;
             }
-            _nextCheck[uid] = curTime + TimeSpan.FromSeconds(collector.Interval);
-            TryInsertItems(uid, collector);
+
+            TryCollectItems(uid, collector);
+
+            if (curTime >= next)
+            {
+                _nextCheck[uid] = curTime + TimeSpan.FromSeconds(collector.Interval);
+                TryInsertItems(uid, collector);
+            }
         }
     }
 
     private void TryCollectItems(EntityUid uid, AutoCollectorComponent collector)
     {
+        if (!TryComp<MaterialStorageComponent>(uid, out var storage))
+            return;
+
         var mapCoords = _transformSystem.GetMapCoordinates(uid);
         _entitySet.Clear();
-        _entityLookup.GetEntitiesInRange(mapCoords, 0.7f, _entitySet, LookupFlags.Dynamic);
+        _entityLookup.GetEntitiesInRange(mapCoords, collector.CollectionRadius, _entitySet, LookupFlags.Dynamic);
 
         foreach (var entity in _entitySet)
         {
             if (entity.Owner == uid) continue;
             if (!HasComp<PhysicsComponent>(entity.Owner)) continue;
+            if (TerminatingOrDeleted(entity.Owner)) continue;
+
+            if (!IsWhitelisted(entity.Owner, storage))
+                continue;
 
             var stationPos = _transformSystem.GetWorldPosition(uid);
             var itemPos = _transformSystem.GetWorldPosition(entity.Owner);
             var direction = stationPos - itemPos;
             var distance = direction.Length();
 
-            if (distance > 0.01f && distance <= collector.CollectionRadius)
+            if (distance <= 0.01f)
+                continue;
+
+            direction = direction.Normalized();
+
+            if (TryComp<PhysicsComponent>(entity.Owner, out var physics))
             {
-                direction = direction.Normalized();
-                if (TryComp<PhysicsComponent>(entity.Owner, out var physics))
+                var forceMultiplier = Math.Clamp(distance / collector.CollectionRadius, 0.2f, 1f);
+                var pullForce = collector.PullForce * forceMultiplier;
+                _physicsSystem.ApplyLinearImpulse(entity.Owner, direction * pullForce, body: physics);
+
+                if (physics.LinearVelocity.Length() > 2f)
                 {
-                    // Притягиваем каждый тик
-                    _physicsSystem.ApplyLinearImpulse(entity.Owner, direction * collector.PullForce, body: physics);
+                    _physicsSystem.SetLinearVelocity(entity.Owner, physics.LinearVelocity * 0.9f, body: physics);
                 }
             }
         }
@@ -107,19 +116,19 @@ public sealed partial class AutoCollectorSystem : EntitySystem
             if (entity.Owner == uid) continue;
             if (TerminatingOrDeleted(entity.Owner)) continue;
             if (!HasComp<PhysicsComponent>(entity.Owner)) continue;
-            if (!CanInsert(uid, entity.Owner, storage)) continue;
 
-            if (_materialStorageSystem.TryInsertMaterialEntity(uid, entity.Owner, uid, storage))
-            {
-                QueueDel(entity.Owner);
-            }
+            if (!IsWhitelisted(entity.Owner, storage))
+                continue;
+
+            _materialStorageSystem.TryInsertMaterialEntity(uid, entity.Owner, uid, storage);
         }
     }
 
-    private bool CanInsert(EntityUid station, EntityUid item, MaterialStorageComponent storage)
+    private bool IsWhitelisted(EntityUid item, MaterialStorageComponent storage)
     {
-        var totalStored = storage.Storage.Values.Sum();
-        var storageLimit = storage.StorageLimit ?? int.MaxValue;
-        return totalStored < storageLimit;
+        if (storage.Whitelist == null)
+            return true;
+
+        return _whitelistSystem.IsWhitelistPass(storage.Whitelist, item);
     }
 }

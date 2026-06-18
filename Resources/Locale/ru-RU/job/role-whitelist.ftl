@@ -1,1 +1,1 @@
-﻿role-not-whitelisted = У вас нет вайтлиста для игры на этой роли. Обратитесь за помощью к wenstelex
+﻿role-not-whitelisted = You are not whitelisted to play this role.

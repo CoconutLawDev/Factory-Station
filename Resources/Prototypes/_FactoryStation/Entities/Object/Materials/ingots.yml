@@ -169,7 +169,8 @@
     sprite: _FactoryStation/Items/Materials/copperlist.rsi
   - type: Tag
     tags:
-    - IngotCopper
+    - CopperList
+    - Sheet
 
 - type: entity
   parent: SheetFactoryCopperListBase
@@ -179,7 +180,7 @@
   components:
   - type: PhysicalComposition
     materialComposition:
-      IngotCopper: 100
+      CopperList: 100
   - type: Stack
     stackType: ListCopperSheet
     baseLayer: icon
