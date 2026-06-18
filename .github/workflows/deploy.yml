@@ -19,27 +19,15 @@ jobs:
       with:
         dotnet-version: '10.0.x'
 
-    - name: Restore
-      run: dotnet restore
+    - name: Build Server
+      run: dotnet build Content.Server/Content.Server.csproj -c Release --no-restore -p:TreatWarningsAsErrors=false
 
-    - name: Build Hybrid ACZ
+    - name: Create archive
       run: |
-        dotnet run --project RobustToolbox/Robust.Packaging/Robust.Packaging.csproj -- \
-          --platform linux-x64 --client false --hybrid-acz true \
-          -p:TreatWarningsAsErrors=false
-
-    - name: Find and archive build
-      run: |
-        SERVER_DIR=$(dirname $(find . -name "Robust.Server" -type f | head -1))
-        if [ -z "$SERVER_DIR" ]; then
-          echo "ERROR: Robust.Server not found!"
-          find . -type d -name "publish" 2>/dev/null
-          find . -type d -name "Server" 2>/dev/null
-          exit 1
-        fi
-        echo "Found server in: $SERVER_DIR"
-        cd "$SERVER_DIR"
-        tar -czf /tmp/server.tar.gz .
+        mkdir -p /tmp/server
+        cp -r RobustToolbox/bin/Server/linux-x64/Release/* /tmp/server/ 2>/dev/null || \
+        cp -r bin/Server/linux-x64/Release/* /tmp/server/ 2>/dev/null
+        tar -czf /tmp/server.tar.gz -C /tmp/server .
         ls -la /tmp/server.tar.gz
 
     - name: Upload to Releases
