@@ -20,7 +20,7 @@ jobs:
         dotnet-version: '10.0.x'
 
     - name: Build Server
-      run: dotnet build Content.Server/Content.Server.csproj -c Release --no-restore -p:TreatWarningsAsErrors=false
+      run: dotnet build Content.Server/Content.Server.csproj -c Release -p:TreatWarningsAsErrors=false
 
     - name: Create archive
       run: |
