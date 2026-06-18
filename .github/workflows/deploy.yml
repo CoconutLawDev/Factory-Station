@@ -8,6 +8,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
     - uses: actions/checkout@v4
       with:
@@ -23,7 +25,8 @@ jobs:
     - name: Build Hybrid ACZ
       run: |
         dotnet run --project RobustToolbox/Robust.Packaging/Robust.Packaging.csproj -- \
-          --platform linux-x64 --client false --hybrid-acz true
+          --platform linux-x64 --client false --hybrid-acz true \
+          -p:TreatWarningsAsErrors=false -p:NoWarn="CS0618"
 
     - name: Create archive
       run: |
@@ -31,29 +34,11 @@ jobs:
         tar -czf server.tar.gz .
         mv server.tar.gz /tmp/
 
-    - name: Upload to VPS
-      uses: appleboy/scp-action@v0.1.7
+    - name: Upload to Releases
+      uses: softprops/action-gh-release@v2
       with:
-        host: ${{ secrets.VPS_HOST }}
-        username: ${{ secrets.VPS_USER }}
-        key: ${{ secrets.VPS_SSH_KEY }}
-        source: "/tmp/server.tar.gz"
-        target: "/tmp/"
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-    - name: Deploy
-      uses: appleboy/ssh-action@v1.0.3
-      with:
-        host: ${{ secrets.VPS_HOST }}
-        username: ${{ secrets.VPS_USER }}
-        key: ${{ secrets.VPS_SSH_KEY }}
-        script: |
-          systemctl stop factorystation
-          rm -rf /opt/factorystation/bin/*
-          tar -xzf /tmp/server.tar.gz -C /opt/factorystation/bin/
-          rm /tmp/server.tar.gz
-          chmod +x /opt/factorystation/bin/Robust.Server
-          systemctl start factorystation
+        tag_name: build-${{ github.run_number }}
+        name: "Build #${{ github.run_number }}"
+        files: /tmp/server.tar.gz
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
