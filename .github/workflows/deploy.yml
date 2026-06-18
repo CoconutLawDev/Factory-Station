@@ -2,51 +2,78 @@ name: Build and Deploy
 
 on:
   push:
-    branches: [ master ]
+    branches:
+      - master
   workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
+
     steps:
-    - uses: actions/checkout@v4
-      with:
-        submodules: recursive
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
 
-    - uses: actions/setup-dotnet@v4
-      with:
-        dotnet-version: '10.0.x'
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
 
-    - name: Restore
-      run: dotnet restore
+      - name: Restore
+        run: dotnet restore
 
-    - name: Build Hybrid ACZ
-      run: |
-        dotnet run --project RobustToolbox/Robust.Packaging/Robust.Packaging.csproj -- \
-          --platform linux-x64 --client false --hybrid-acz true \
-          -p:TreatWarningsAsErrors=false
+      - name: Build Hybrid ACZ
+        run: |
+          dotnet run \
+            --project RobustToolbox/Robust.Packaging/Robust.Packaging.csproj -- \
+            --platform linux-x64 \
+            --client false \
+            --hybrid-acz true \
+            -p:TreatWarningsAsErrors=false
 
-    - name: Create archive
-      run: |
-        find . -name "Robust.Server" -type f 2>/dev/null
-        find . -path "*/publish" -type d 2>/dev/null
-        # Find where Packaging put the output
-        PACK_DIR=$(dirname $(find . -name "Robust.Server" -path "*/publish/*" -type f | head -1))
-        if [ -z "$PACK_DIR" ]; then
-          PACK_DIR=$(dirname $(find . -name "Robust.Server" -type f | head -1))
-        fi
-        echo "Packaging output: $PACK_DIR"
-        cd "$PACK_DIR"
-        tar -czf /tmp/server.tar.gz .
-        ls -la /tmp/server.tar.gz
+      - name: Find build output
+        id: locate
+        shell: bash
+        run: |
+          echo "=== Robust.Server files ==="
+          find . -name "Robust.Server" -type f || true
 
-    - name: Upload to Releases
-      uses: softprops/action-gh-release@v2
-      with:
-        tag_name: build-${{ github.run_number }}
-        name: "Build #${{ github.run_number }}"
-        files: /tmp/server.tar.gz
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          echo "=== ACZ files ==="
+          find . -name "*.acz" -type f || true
+
+          SERVER=$(find . -name "Robust.Server" -type f | head -n1)
+
+          if [ -z "$SERVER" ]; then
+            echo "Build output not found!"
+            exit 1
+          fi
+
+          PACK_DIR=$(dirname "$SERVER")
+
+          echo "Found output directory:"
+          echo "$PACK_DIR"
+
+          echo "pack_dir=$PACK_DIR" >> "$GITHUB_OUTPUT"
+
+      - name: Create archive
+        run: |
+          cd "${{ steps.locate.outputs.pack_dir }}"
+
+          tar -czf "$RUNNER_TEMP/server.tar.gz" .
+
+          echo "Archive created:"
+          ls -lh "$RUNNER_TEMP/server.tar.gz"
+
+      - name: Upload to Releases
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: build-${{ github.run_number }}
+          name: Build #${{ github.run_number }}
+          files: ${{ runner.temp }}/server.tar.gz
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
