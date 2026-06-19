@@ -7,7 +7,7 @@
   - type: MachineBoard
     prototype: KreningFurnace
     stackRequirements:
-      Glass: 500
-      Steel: 800
+      Glass: 5
+      Steel: 8
   - type: Sprite
     state: generic  # стандартный спрайт платы

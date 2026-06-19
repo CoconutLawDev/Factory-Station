@@ -13,7 +13,7 @@
     totalAmount: 200
   - type: Tag
     tags:
-    - OreIron
+    - OreIronFact
   - type: Clickable
   - type: InteractionOutline
   - type: Physics
@@ -34,7 +34,7 @@
     totalAmount: 200
   - type: Tag
     tags:
-    - OreCopper
+    - OreCopperFact
   - type: Clickable
   - type: InteractionOutline
   - type: Physics
@@ -76,7 +76,7 @@
     totalAmount: 200
   - type: Tag
     tags:
-    - OreSandstone
+    - OreSandstoneFact
   - type: Clickable
   - type: InteractionOutline
   - type: Physics

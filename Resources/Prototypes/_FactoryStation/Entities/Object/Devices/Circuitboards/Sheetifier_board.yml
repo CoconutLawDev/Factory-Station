@@ -7,8 +7,8 @@
   - type: MachineBoard
     prototype: Sheetifier
     stackRequirements:
-      Glass: 500
-      Steel: 800
+      Glass: 5
+      Steel: 8
   - type: Sprite
     state: generic  # стандартный спрайт платы
 
@@ -21,8 +21,8 @@
   - type: MachineBoard
     prototype: Sheetifier
     stackRequirements:
-      Glass: 2500
-      Steel: 1800
+      Glass: 25
+      Steel: 18
   - type: Sprite
     state: generic  # стандартный спрайт платы
 
@@ -35,7 +35,7 @@
   - type: MachineBoard
     prototype: Sheetifier
     stackRequirements:
-      Glass: 3800
-      Steel: 4500
+      Glass: 38
+      Steel: 45
   - type: Sprite
     state: generic  # стандартный спрайт платы

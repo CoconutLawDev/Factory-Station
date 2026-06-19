@@ -7,8 +7,8 @@
   - type: MachineBoard
     prototype: Furnace
     stackRequirements:
-      Glass: 500
-      Steel: 800
+      Glass: 5
+      Steel: 8
   - type: Sprite
     state: generic  # стандартный спрайт платы
 
@@ -21,7 +21,7 @@
   - type: MachineBoard
     prototype: Furnace2
     stackRequirements:
-      Glass: 1000
-      Steel: 3000
+      Glass: 10
+      Steel: 30
   - type: Sprite
     state: generic  # стандартный спрайт платы

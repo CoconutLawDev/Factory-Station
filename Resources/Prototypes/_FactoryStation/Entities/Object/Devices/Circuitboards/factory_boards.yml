@@ -7,7 +7,7 @@
   - type: ComputerBoard
     prototype: FactoryGoalConsole
     stackRequirements:
-      Glass: 5000
-      Steel: 8000
+      Glass: 5
+      Steel: 8
   - type: Sprite
     state: generic

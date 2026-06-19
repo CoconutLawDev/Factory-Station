@@ -39,8 +39,8 @@
   description: Переносная установка для добычи нефти и газа. Требует батарейку. Для активации нажмите на кнопку "Е" на панели.
   components:
   - type: Sprite
-    sprite: _FactoryStation/items/devices/blackoildrill.rsi
-    state: burning
+    sprite: Objects/Tools/handdrill.rsi
+    state: handdrill
   - type: Item
     size: Large
   - type: Drill
