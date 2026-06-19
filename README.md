@@ -1,68 +1,78 @@
-<div class="header" align="center">  
-<img alt="Space Station 14" width="880" height="300" src="https://raw.githubusercontent.com/space-wizards/asset-dump/de329a7898bb716b9d5ba9a0cd07f38e61f1ed05/github-logo.svg">  
+<div align="center">
+  <img alt="FactoryStation" width="880" height="300" src="https://raw.githubusercontent.com/space-wizards/asset-dump/de329a7898bb716b9d5ba9a0cd07f38e61f1ed05/github-logo.svg" />
+  <h3>Создание промышленной атмосферы SS14 на современном движке</h3>
 </div>
 
-Space Station 14 is a remake of SS13 that runs on [Robust Toolbox](https://github.com/space-wizards/RobustToolbox), our homegrown engine written in C#.
+**FactoryStation** — это полностью переработанный игровой проект, построенный на базе [Robust Toolbox](https://github.com/space-wizards/RobustToolbox) — высокопроизводительном игровом движке, написанном на C# и созданном для обеспечения максимальной гибкости мультиплеерных ролевых игр.
 
-This is the primary repo for Space Station 14. To prevent people forking RobustToolbox, a "content" pack is loaded by the client and server. This content pack contains everything needed to play the game on one specific server.
+Space Station 14 — это ролевая игра, вдохновлённая культовой классикой Space Station 13. Space Station 14 наполнена весельем и хаосом. С первого взгляда игра кажется сложной, и это так, но мы поможем тебе освоиться в этой игре и найти своё место. 
 
-If you want to host or create content for SS14, this is the repo you need. It contains both RobustToolbox and the content pack for development of new content packs.
+Данный репозиторий является основным для разработки FactoryStation. Чтобы упростить процесс модификации и отделить код движка от игровой логики, клиент и сервер загружают «контент-пак». Этот пакет содержит всё необходимое для полноценной игры на целевом сервере — от визуальных ассетов до сложных механик взаимодействия.
 
-## Links
+Если ваша цель — создание собственного сервера или разработка контента для FactoryStation, вы находитесь в правильном месте. Репозиторий включает как движок Robust Toolbox, так и эталонный контент-пак, ускоряющий создание новых сборок.
 
-<div class="header" align="center">  
+<div align="center">
 
-[Website](https://spacestation14.com/) | [Discord](https://discord.ss14.io/) | [Forum](https://forum.spacestation14.com/) | [Mastodon](https://mastodon.gamedev.place/@spacestation14) | [Patreon](https://www.patreon.com/spacestation14) | [Steam](https://store.steampowered.com/app/1255460/Space_Station_14/) | [Standalone Download](https://spacestation14.com/about/nightlies/)  
+[Веб-сайт](https://spacestation14.com/) | [Discord](https://discord.gg/awJwQcKefm) | [Форум](https://forum.spacestation14.com/) | [Mastodon](https://mastodon.gamedev.place/@spacestation14) | [Patreon](https://www.patreon.com/spacestation14) | [Steam](https://store.steampowered.com/app/1255460/Space_Station_14/) 
 
 </div>
 
-## Documentation/Wiki
+---
 
-Our [docs site](https://docs.spacestation14.com/) has documentation on SS14's content, engine, game design, and more.  
-Additionally, see these resources for license and attribution information:  
-- [Robust Generic Attribution](https://docs.spacestation14.com/en/specifications/robust-generic-attribution.html)  
-- [Robust Station Image](https://docs.spacestation14.com/en/specifications/robust-station-image.html)
+## Документация и Вики
 
-We also have lots of resources for new contributors to the project.
+[Официальный портал документации](https://docs.spacestation14.com/) содержит подробные руководства по контенту, архитектуре движка, геймдизайну и инструментарию разработчика.
 
-## Contributing
+Обязательно ознакомьтесь с условиями использования и лицензионными требованиями для ассетов:
+- [Правила атрибуции Robust Generic](https://docs.spacestation14.com/en/specifications/robust-generic-attribution.html)
+- [Стандарт изображения Robust Station](https://docs.spacestation14.com/en/specifications/robust-station-image.html)
 
-We are happy to accept contributions from anybody. Get in Discord if you want to help. We've got a [list of issues](https://github.com/space-wizards/space-station-14-content/issues) that need to be done and anybody can pick them up. Don't be afraid to ask for help either!  
-Just make sure your changes and pull requests are in accordance with the [contribution guidelines](https://docs.spacestation14.com/en/general-development/codebase-info/pull-request-guidelines.html).
+Для новичков подготовлен обширный набор материалов, помогающих быстро погрузиться в проект.
 
-We are not currently accepting translations of the game on our main repository. If you would like to translate the game into another language, consider creating a fork or contributing to a fork.
+## Как внести вклад
 
-## AI-generated contributions disclaimer
-This project does not accept low-effort or wholesale AI-generated contributions. Examples include, but are not limited to:
+Мы приветствуем участников с любым уровнем подготовки. Присоединяйтесь к нашему Discord — там всегда можно получить помощь и скоординировать усилия. Ознакомьтесь со [списком актуальных задач](https://github.com/space-wizards/space-station-14-content/issues) — большинство из них посильны даже начинающим. Не стесняйтесь задавать вопросы!
 
-- Any code (including yaml) generated by tools like GitHub Copilot, ChatGPT, or similar.
-- AI-created artwork, sound files, or other assets.
-- Auto-generated documentation, issue reports or pull request descriptions.
+Пожалуйста, следуйте рекомендациям по оформлению Pull Request-ов при отправке своих изменений.
 
-Exceptions to this are simple tools like Rider's single-line completion feature.
+---
 
-## Building
+### Политика в отношении контента, созданного ИИ
 
-1. Clone this repo:
-```shell
+Данный проект **не принимает** низкокачественные или полностью сгенерированные искусственным интеллектом материалы. Примеры неприемлемого контента включают (но не ограничиваются):
+
+- Любой код (в том числе YAML), созданный инструментами вроде GitHub Copilot, ChatGPT и аналогов.
+- Художественные ассеты, звуковые файлы и прочие ресурсы, полученные с помощью генеративных моделей.
+- Автоматически сгенерированная документация, описания проблем (issues) или Pull Request-ов.
+
+Исключение составляют простые утилиты, такие как построчное автодополнение в Rider, которые не влияют на архитектурные решения.
+
+## Сборка проекта
+
+1. Клонируйте репозиторий:
+
 git clone https://github.com/space-wizards/space-station-14.git
-```
-2. Go to the project folder and run `RUN_THIS.py` to initialize the submodules and load the engine:
-```shell
+
+2. Перейдите в директорию проекта и запустите скрипт инициализации. Он автоматически подтянет подмодули и загрузит движок:
+
 cd space-station-14
 python RUN_THIS.py
-```
-3. Compile the solution:  
 
-Build the server using `dotnet build`.
+3. Скомпилируйте решение.
 
-[More detailed instructions on building the project.](https://docs.spacestation14.com/en/general-development/setup.html)
+Для сборки сервера выполните:
 
-## License
+dotnet build
 
-All code for the content repository is licensed under the [MIT license](https://github.com/space-wizards/space-station-14/blob/master/LICENSE.TXT).  
+[Подробная инструкция по настройке окружения для разработки](https://docs.spacestation14.com/en/general-development/setup.html)
 
-Most assets are licensed under [CC-BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) unless stated otherwise. Assets have their license and copyright specified in the metadata file. For example, see the [metadata for a crowbar](https://github.com/space-wizards/space-station-14/blob/master/Resources/Textures/Objects/Tools/crowbar.rsi/meta.json).  
+---
 
-> [!NOTE]
-> Some assets are licensed under the non-commercial [CC-BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/) or similar non-commercial licenses and will need to be removed if you wish to use this project commercially.
+## Лицензия
+
+Исходный код репозитория контента распространяется под лицензией [MIT](https://github.com/space-wizards/space-station-14/blob/master/LICENSE.TXT).
+
+Большая часть ассетов лицензирована на условиях [CC-BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/), если не указано иное. Точные сведения о лицензии и копирайте каждого ассета хранятся в его метаданных. Пример можно посмотреть в [файле монтировки](https://github.com/space-wizards/space-station-14/blob/master/Resources/Textures/Objects/Tools/crowbar.rsi/meta.json).
+
+> [!IMPORTANT]
+> Некоторые ассеты распространяются под некоммерческой лицензией [CC-BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/) или её аналогами. Если вы планируете коммерческое использование FactoryStation, такие ресурсы подлежат обязательному удалению.
