@@ -33,6 +33,7 @@ public sealed partial class AsteroidFieldComponent : Component
         new() { Prototype = "DrillTileCopper",    Weight = 20, MaxPerDebris = 2 },
         new() { Prototype = "DrillTileCoal",      Weight = 15, MaxPerDebris = 2 },
         new() { Prototype = "DrillTileSandStone", Weight = 10, MaxPerDebris = 1 },
+        new() { Prototype = "DrillTileBlackOil", Weight = 10, MaxPerDebris = 1 },
     };
 }
 

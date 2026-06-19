@@ -2,7 +2,7 @@
   id: DrillFactoryStation
   parent: BaseItem
   name: бур
-  description: Переносной бур для добычи ресурсов с клеток. Требует батарейку.
+  description: Переносной бур для добычи ресурсов с клеток. Требует батарейку. Для активации нажмите на кнопку "Е" на панели. Не добывает нефть.
   components:
   - type: Sprite
     sprite: Objects/Tools/handdrill.rsi
@@ -11,6 +11,13 @@
     size: Large
   - type: Drill
     interval: 5
+    whitelist:
+      tags:
+      - OreIronFact
+      - OreCopperFact
+      - OreCoal
+      - OreSandstoneFact
+      - OreCrystal
   - type: PowerCellSlot
     cellSlotId: cell_slot
   - type: ItemSlots
@@ -24,3 +31,33 @@
   - type: Tag
     tags:
     - DrillFactoryStation
+
+- type: entity
+  id: BlackOilDrillFactoryStation
+  parent: BaseItem
+  name: Нефтяная установка
+  description: Переносная установка для добычи нефти и газа. Требует батарейку. Для активации нажмите на кнопку "Е" на панели.
+  components:
+  - type: Sprite
+    sprite: _FactoryStation/items/devices/blackoildrill.rsi
+    state: burning
+  - type: Item
+    size: Large
+  - type: Drill
+    interval: 12
+    whitelist:
+      tags:
+      - OilFactory
+  - type: PowerCellSlot
+    cellSlotId: cell_slot
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellMedium
+  - type: ContainerContainer
+    containers:
+      cell_slot: !type:ContainerSlot
+  - type: Tag
+    tags:
+    - BlackOilDrillFactoryStation

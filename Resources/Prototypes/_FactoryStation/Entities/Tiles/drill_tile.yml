@@ -11,6 +11,9 @@
     spawnPrototype: OreIronSheet1
     amountPerDrill: 2
     totalAmount: 200
+  - type: Tag
+    tags:
+    - OreIron
   - type: Clickable
   - type: InteractionOutline
   - type: Physics
@@ -29,6 +32,9 @@
     spawnPrototype: OreCopperSheet1
     amountPerDrill: 2
     totalAmount: 200
+  - type: Tag
+    tags:
+    - OreCopper
   - type: Clickable
   - type: InteractionOutline
   - type: Physics
@@ -47,6 +53,9 @@
     spawnPrototype: OreCoalSheet1
     amountPerDrill: 2
     totalAmount: 200
+  - type: Tag
+    tags:
+    - OreCoal
   - type: Clickable
   - type: InteractionOutline
   - type: Physics
@@ -65,6 +74,30 @@
     spawnPrototype: OreSandstoneFactSheet1
     amountPerDrill: 2
     totalAmount: 200
+  - type: Tag
+    tags:
+    - OreSandstone
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Physics
+    bodyType: Static
+
+- type: entity
+  id: DrillTileBlackOil
+  parent: BaseStructure
+  name: клетка для добычи нефти
+  description: Специальная клетка, на которой можно добывать нефть с помощью нефтяной установки.
+  components:
+  - type: Sprite
+    sprite: _FactoryStation/Tiles/drill_tile_blackoil.rsi
+    state: icon
+  - type: DrillableTile
+    spawnPrototype: OilFactorySheet1
+    amountPerDrill: 2
+    totalAmount: 200
+  - type: Tag
+    tags:
+    - OilFactory
   - type: Clickable
   - type: InteractionOutline
   - type: Physics

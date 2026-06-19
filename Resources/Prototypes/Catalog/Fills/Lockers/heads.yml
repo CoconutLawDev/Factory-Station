@@ -274,6 +274,8 @@
     - id: HandTeleporter
     - id: RubberStampRd
     - id: PlushieLizardJobResearchdirector
+    - id: FurnaceMachineCircuitboard #FactoryStation-Add
+    - id: SheetifierMachineCircuitboard3001 #FactoryStation-Add
       prob: 0.02
 
 # Hardsuit table, used for suit storage as well

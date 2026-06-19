@@ -10,7 +10,9 @@ using Content.Shared.Tag;
 using Content.Shared.Interaction;
 using Robust.Shared.Prototypes;
 using Content.Shared.Containers.ItemSlots;
-using Content.Shared.PowerCell.Components; // ← добавить
+using Content.Shared.PowerCell.Components;
+using Content.Shared.Whitelist;
+using Robust.Shared.Random;
 
 namespace Content.Server.Automation;
 
@@ -22,7 +24,9 @@ public sealed partial class DrillSystem : EntitySystem
     [Dependency] private EntityLookupSystem _lookup = default!;
     [Dependency] private PopupSystem _popup = default!;
     [Dependency] private TagSystem _tagSystem = default!;
-    [Dependency] private ItemSlotsSystem _itemSlots = default!; // ← добавить
+    [Dependency] private ItemSlotsSystem _itemSlots = default!;
+    [Dependency] private EntityWhitelistSystem _whitelistSystem = default!;
+    [Dependency] private IRobustRandom _random = default!;
 
     private const float DrillRadius = 0.5f;
     private static readonly ProtoId<TagPrototype> OreTag = "Ore";
@@ -50,7 +54,6 @@ public sealed partial class DrillSystem : EntitySystem
     {
         base.Update(frameTime);
 
-        // Изменено: ищем DrillComponent и PowerCellSlotComponent вместо BatteryComponent
         var query = EntityQueryEnumerator<DrillComponent, PowerCellSlotComponent, TransformComponent>();
         while (query.MoveNext(out var uid, out var drill, out var cellSlot, out var xform))
         {
@@ -60,7 +63,6 @@ public sealed partial class DrillSystem : EntitySystem
             if (_timing.CurTime - drill.LastDrillTime < TimeSpan.FromSeconds(drill.Interval))
                 continue;
 
-            // Получаем батарейку из слота
             if (!_itemSlots.TryGetSlot(uid, cellSlot.CellSlotId, out var slot) || slot.Item == null)
             {
                 drill.Enabled = false;
@@ -70,7 +72,6 @@ public sealed partial class DrillSystem : EntitySystem
 
             var batteryUid = slot.Item.Value;
 
-            // Проверяем заряд через батарейку в слоте
             if (!TryComp<BatteryComponent>(batteryUid, out var battery))
             {
                 drill.Enabled = false;
@@ -100,6 +101,10 @@ public sealed partial class DrillSystem : EntitySystem
             {
                 if (TryComp<DrillableTileComponent>(entity, out var tileComp))
                 {
+                    // FactoryStation-Edit: Check whitelist
+                    if (drill.Whitelist != null && !_whitelistSystem.IsWhitelistPass(drill.Whitelist, entity))
+                        continue;
+
                     drillable = tileComp;
                     drillableUid = entity;
                     break;
@@ -123,12 +128,16 @@ public sealed partial class DrillSystem : EntitySystem
                 continue;
             }
 
-            // Разряжаем батарейку в слоте
             _battery.SetCharge(batteryUid, currentCharge - 10);
             drillable.TotalAmount -= drillable.AmountPerDrill;
             Dirty(drillableUid, drillable);
 
-            Spawn(drillable.SpawnPrototype, xform.Coordinates);
+            // FactoryStation-Edit: 20% chance for gas instead of oil
+            var spawnProto = drillable.SpawnPrototype;
+            if (spawnProto == "OilFactorySheet1" && _random.Prob(0.2f))
+                spawnProto = "GasFactorySheet1";
+
+            Spawn(spawnProto, xform.Coordinates);
 
             drill.LastDrillTime = _timing.CurTime;
         }

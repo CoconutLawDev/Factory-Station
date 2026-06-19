@@ -7,14 +7,14 @@ game-ticker-unknown-role = Неизвестно
 game-ticker-delay-start = Запуск раунда отложен на {$seconds} секунд.
 game-ticker-pause-start = Запуск раунда приостановлен.
 game-ticker-pause-start-resumed = Обратный отсчёт запуска раунда возобновлён.
-game-ticker-player-join-game-message = Добро пожаловать на Space Station 14! Если вы играете в первый раз, обязательно ознакомьтесь с правилами игры и не стесняйтесь обращаться за помощью в LOOC (локальный OOC) или OOC (обычно доступен только между раундами).
+game-ticker-player-join-game-message = Добро пожаловать на FactoryStation! Если вы играете в первый раз, обязательно ознакомьтесь с правилами игры и не стесняйтесь обращаться за помощью в LOOC (локальный OOC) или OOC (обычно доступен только между раундами).
 game-ticker-get-info-text = Привет и добро пожаловать на [color=white]FactoryStation![/color]
                             Текущий раунд: [color=white]#{$roundId}[/color]
                             Количество игроков: [color=white]{$playerCount}[/color]
                             Текущая карта: [color=white]{$mapName}[/color]
                             Текущий игровой режим: [color=white]{$gmTitle}[/color]
                             >[color=yellow]{$desc}[/color]
-game-ticker-get-info-preround-text = Привет и добро пожаловать на [color=white]Space Station 14![/color]
+game-ticker-get-info-preround-text = Привет и добро пожаловать на [color=white]FactoryStation![/color]
                             Текущий раунд: [color=white]#{$roundId}[/color]
                             Количество игроков: [color=white]{$playerCount}[/color] ([color=white]{$readyCount}[/color] {$readyCount ->
                                 [one] готов

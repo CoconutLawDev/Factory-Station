@@ -7,6 +7,7 @@
   completetime: 10
   materials:
     OreIronFact: 200
+    OreCoal: 100
 
 - type: latheRecipe
   id: SmeltCopperOre
@@ -15,6 +16,7 @@
   completetime: 10
   materials:
     OreCopperFact: 200
+    OreCoal: 100
 
 - type: latheRecipe
   id: SmeltCrystalOre

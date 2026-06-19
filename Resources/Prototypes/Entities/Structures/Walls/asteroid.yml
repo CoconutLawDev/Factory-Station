@@ -460,6 +460,7 @@
       - DrillTileCopper #FactoryStation Add
       - DrillTileCoal #FactoryStation Add
       - DrillTileSandStone #FactoryStation Add
+      - DrillTileBlackOil #FactoryStation Add
 
 - type: entity
   id: IronRock
@@ -494,6 +495,7 @@
       - DrillTileCopper #FactoryStation Add
       - DrillTileCoal #FactoryStation Add
       - DrillTileSandStone #FactoryStation Add
+      - DrillTileBlackOil #FactoryStation Add
 
 - type: entity
   id: IronRockMining
@@ -512,6 +514,7 @@
       - DrillTileCopper #FactoryStation Add
       - DrillTileCoal #FactoryStation Add
       - DrillTileSandStone #FactoryStation Add
+      - DrillTileBlackOil #FactoryStation Add
 
 - type: entity
   id: IronSandstone
@@ -550,6 +553,7 @@
       - DrillTileCopper #FactoryStation Add
       - DrillTileCoal #FactoryStation Add
       - DrillTileSandStone #FactoryStation Add
+      - DrillTileBlackOil #FactoryStation Add
 
 # Ore veins
 - type: entity
@@ -877,6 +881,7 @@
       - DrillTileCopper #FactoryStation Add
       - DrillTileCoal #FactoryStation Add
       - DrillTileSandStone #FactoryStation Add
+      - DrillTileBlackOil #FactoryStation Add
 
 # Ore veins
 - type: entity
@@ -1232,6 +1237,7 @@
       - DrillTileCopper #FactoryStation Add
       - DrillTileCoal #FactoryStation Add
       - DrillTileSandStone #FactoryStation Add
+      - DrillTileBlackOil #FactoryStation Add
 
 - type: entity
   id: WallRockBasaltCoal
@@ -1515,6 +1521,7 @@
       - DrillTileCopper #FactoryStation Add
       - DrillTileCoal #FactoryStation Add
       - DrillTileSandStone #FactoryStation Add
+      - DrillTileBlackOil #FactoryStation Add
 
 - type: entity
   id: WallRockSnowCoal

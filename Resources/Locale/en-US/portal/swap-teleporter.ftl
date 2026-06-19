@@ -14,5 +14,5 @@ swap-teleporter-examine-link-absent = [color=yellow]В настоящее вре
 swap-teleporter-examine-time-remaining = Осталось времени до перезарядки: [color=purple]{$second} секунд{$second ->
     [one]а
     [few]ы
-   *[many]
+   *[other]
 }[/color]

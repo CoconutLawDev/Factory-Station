@@ -30,7 +30,7 @@
   result: SheetPlastic1
   completetime: 10
   materials:
-    OilFactory: 300
+    OilFactory: 50
 
 - type: latheRecipePack
   id: KreningFurnacePack
@@ -45,6 +45,7 @@
   completetime: 10
   materials:
     SandstoneFact: 300
+    OreCoal: 100
 
 - type: latheRecipePack
   id: GlassBlowingFurnacePack
