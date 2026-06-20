@@ -23,4 +23,11 @@ public sealed partial class DrillComponent : Component
     // FactoryStation-Edit: Whitelist for drillable tiles
     [DataField]
     public EntityWhitelist? Whitelist;
+
+    // FactoryStation-Edit: Progress bar
+    [DataField]
+    public float DrillProgress;
+
+    [DataField]
+    public string CellSlotId = "cell_slot";
 }

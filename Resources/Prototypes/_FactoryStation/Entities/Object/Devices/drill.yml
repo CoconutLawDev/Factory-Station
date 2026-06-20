@@ -1,12 +1,18 @@
 - type: entity
   id: DrillFactoryStation
   parent: BaseItem
-  name: бур
-  description: Переносной бур для добычи ресурсов с клеток. Требует батарейку. Для активации нажмите на кнопку "Е" на панели. Не добывает нефть.
+  name: Промышленная установка для добычи
+  description: Промышленная установка для добычи ресурсов с клеток. Требует батарею. Для активации нажмите на кнопку "Е" на панели. Не добывает нефть.
   components:
   - type: Sprite
-    sprite: Objects/Tools/handdrill.rsi
-    state: handdrill
+    sprite: _FactoryStation/Items/devices/drill.rsi
+    state: icon
+    layers:
+    - state: icon
+      map: ["base"]
+    - state: burning
+      map: ["burning"]
+      visible: false
   - type: Item
     size: Large
   - type: Drill
@@ -31,16 +37,35 @@
   - type: Tag
     tags:
     - DrillFactoryStation
+  - type: Physics
+    bodyType: Dynamic
+  - type: Anchorable
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.DrillVisuals.Running:
+        base:
+          True: { visible: false }
+          False: { visible: true }
+        burning:
+          True: { visible: true }
+          False: { visible: false }
 
 - type: entity
   id: BlackOilDrillFactoryStation
   parent: BaseItem
   name: Нефтяная установка
-  description: Переносная установка для добычи нефти и газа. Требует батарейку. Для активации нажмите на кнопку "Е" на панели.
+  description: Переносная установка для добычи нефти и газа. Требует батарейку. Для работы должна быть прикручена к полу. Для активации нажмите на кнопку "Е" на панели.
   components:
   - type: Sprite
-    sprite: Objects/Tools/handdrill.rsi
-    state: handdrill
+    sprite: _FactoryStation/Items/devices/blackoildrill.rsi
+    state: icon
+    layers:
+    - state: icon
+      map: ["base"]
+    - state: burning
+      map: ["burning"]
+      visible: false
   - type: Item
     size: Large
   - type: Drill
@@ -61,3 +86,16 @@
   - type: Tag
     tags:
     - BlackOilDrillFactoryStation
+  - type: Physics
+    bodyType: Dynamic
+  - type: Anchorable
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.DrillVisuals.Running:
+        base:
+          True: { visible: false }
+          False: { visible: true }
+        burning:
+          True: { visible: true }
+          False: { visible: false }

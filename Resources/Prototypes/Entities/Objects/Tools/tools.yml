@@ -89,7 +89,7 @@
     price: 30
 
 - type: entity
-  name: wrench
+  name: гаечный ключ
   parent: BaseItem
   id: Wrench
   description: 'A common tool for assembly and disassembly. Remember: lefty latchy, righty removey.'

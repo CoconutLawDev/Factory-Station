@@ -16,4 +16,8 @@ public sealed partial class DrillableTileComponent : Component
 
     [DataField]
     public int TotalAmount = 100;
+
+    // FactoryStation-Edit: Max amount for examine
+    [DataField]
+    public int MaxAmount = 100;
 }

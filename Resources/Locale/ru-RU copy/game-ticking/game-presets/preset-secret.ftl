@@ -1,5 +1,5 @@
-secret-title = Секретный
+secret-title = Секрет
 secret-description = Это секрет для всех. Встречающиеся угрозы выбираются случайно.
 
-dynamic-title = Динамический
+dynamic-title = Динамик
 dynamic-description = Никто не знает, что грядёт. Вы можете столкнуться с любым количеством угроз.
