@@ -2,7 +2,7 @@
   id: ClothRecipe
   name: "Создание ткани"
   result: MaterialCloth1
-  completetime: 5
+  completetime: 3
   materials:
     Plastic: 100
 
@@ -10,7 +10,7 @@
   id: DurathreadRecipe
   name: "Синтез дюрадткани"
   result: MaterialDurathread1
-  completetime: 10
+  completetime: 5
   materials:
     Plastic: 400
     Steel: 200

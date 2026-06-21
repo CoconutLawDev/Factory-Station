@@ -13,5 +13,5 @@ public sealed partial class HeatSinkComponent : Component
     /// На сколько увеличивается AmbientCoolingCoefficient станка.
     /// </summary>
     [DataField]
-    public float CoolingBonus = 0.5f;
+    public float CoolingBonus = 0.01f;
 }

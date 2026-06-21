@@ -1,6 +1,6 @@
 - type: entity
   id: FactoryGoalPad
-  parent: BaseStructure
+  parent: BaseComputer
   name: платформа приёма промышленных товаров
   description: Автоматически принимает ресурсы, необходимые для выполнения текущего промышленного контракта.
   components:
@@ -26,3 +26,5 @@
   - type: StationMember
   - type: Anchorable
   - type: Pullable
+  - type: Machine
+    board: FactoryGoalpadCircuitboard

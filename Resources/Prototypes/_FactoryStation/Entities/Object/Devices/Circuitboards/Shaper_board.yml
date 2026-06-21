@@ -5,10 +5,10 @@
   description: "Печатная плата для формировщика 261."
   components:
   - type: MachineBoard
-    prototype: Sheetifier
+    prototype: DrawingMill261
     stackRequirements:
       Glass: 5
       Steel: 8
   - type: Sprite
-    state: generic  # стандартный спрайт платы
+    state: engineering  #  спрайт платы
 

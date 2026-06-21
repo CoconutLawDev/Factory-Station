@@ -12,6 +12,7 @@
     - GlassBlowingFurnaceCircuitboardRecipe
     - FurnaceKreningMachineCircuitboardRecipe
     - FactoryGoalConsoleCircuitboardRecipe
+    - FactoryGoalpadCircuitboardRecipe
 
 
 # =============================================================================
@@ -138,3 +139,14 @@
     Gold: 1800
     Silver: 1500
   result: FactoryGoalConsoleCircuitboard
+
+- type: latheRecipe
+  id: FactoryGoalpadCircuitboardRecipe
+  name: Плата платформы промышленных контрактов
+  categories:
+  - FactoryCircuits
+  materials:
+    Glass: 2000
+    Steel: 3000
+    Silver: 500
+  result: FactoryGoalpadCircuitboard

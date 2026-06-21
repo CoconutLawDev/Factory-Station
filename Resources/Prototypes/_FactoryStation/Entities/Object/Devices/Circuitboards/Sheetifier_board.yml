@@ -5,12 +5,12 @@
   description: "Печатная плата для лист-мастера 3001."
   components:
   - type: MachineBoard
-    prototype: Sheetifier
+    prototype: SheetifierFactory3001
     stackRequirements:
       Glass: 5
       Steel: 8
   - type: Sprite
-    state: generic  # стандартный спрайт платы
+    state: engineering  #  спрайт платы
 
 - type: entity
   parent: BaseMachineCircuitboard
@@ -19,12 +19,12 @@
   description: "Печатная плата для лист-мастера 4001."
   components:
   - type: MachineBoard
-    prototype: Sheetifier
+    prototype: SheetifierFactory4001
     stackRequirements:
       Glass: 25
       Steel: 18
   - type: Sprite
-    state: generic  # стандартный спрайт платы
+    state: supply  # стандартный спрайт платы
 
 - type: entity
   parent: BaseMachineCircuitboard
@@ -33,9 +33,9 @@
   description: "Печатная плата для лист-мастера 5001."
   components:
   - type: MachineBoard
-    prototype: Sheetifier
+    prototype: SheetifierFactory5001
     stackRequirements:
       Glass: 38
       Steel: 45
   - type: Sprite
-    state: generic  # стандартный спрайт платы
+    state: cpu_supply  # стандартный спрайт платы

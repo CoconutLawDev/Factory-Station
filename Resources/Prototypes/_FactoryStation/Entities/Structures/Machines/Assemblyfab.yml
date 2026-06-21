@@ -24,7 +24,8 @@
     idleState: icon
     runningState: burning
     staticPacks:
-      - GlassBlowingFurnacePack
+      - CableStackApcPackFactory
+      - HeatSinkPackFactory
   - type: AutoCollector
     interval: 0.5
     pullForce: 25.0
@@ -33,7 +34,7 @@
     enabled: true
   - type: FactoryIndustrialHeat
     maxHeat: 1500
-    heatPerSecond: 8
+    heatPerSecond: 10
     cooldownPerSecond: 10
     smokeThreshold: 300
     dangerThreshold: 700
@@ -56,7 +57,7 @@
     emitsSparks: true
     # Включение атмосферного охлаждения
     ambientCoolingEnabled: true
-    ambientCoolingCoefficient: 0.8   # сильное охлаждение от холодного воздуха
+    ambientCoolingCoefficient: 0.01   # сильное охлаждение от холодного воздуха
     roomTemperature: 293.15         # 20°C — выше не охлаждается
     minAmbientTemperature: 73.15    # -200°C — предел эффективности
     requireAtmosphereForCooling: true

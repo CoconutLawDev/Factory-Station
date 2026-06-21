@@ -10,7 +10,7 @@
       Glass: 5
       Steel: 8
   - type: Sprite
-    state: generic  # стандартный спрайт платы
+    state: engineering  #  спрайт платы
 
 - type: entity
   parent: BaseMachineCircuitboard
@@ -24,4 +24,4 @@
       Glass: 10
       Steel: 30
   - type: Sprite
-    state: generic  # стандартный спрайт платы
+    state: supply  #  спрайт платы

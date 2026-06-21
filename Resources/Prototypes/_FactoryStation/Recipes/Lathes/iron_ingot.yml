@@ -4,7 +4,7 @@
   id: SmeltIronOre
   name: "выплавка железа"
   result: IngotIronSheet1
-  completetime: 10
+  completetime: 2
   materials:
     OreIronFact: 200
     OreCoal: 100
@@ -13,7 +13,7 @@
   id: SmeltCopperOre
   name: "выплавка меди"
   result: IngotCopperSheet1
-  completetime: 10
+  completetime: 2
   materials:
     OreCopperFact: 200
     OreCoal: 100
@@ -22,7 +22,7 @@
   id: SmeltCrystalOre
   name: "выплавка кристаллов"
   result: IngotCrystalSheet1
-  completetime: 15
+  completetime: 5
   materials:
     OreCrystal: 200
 
@@ -39,7 +39,7 @@
   id: SmeltIronOre2
   name: "выплавка железа"
   result: IngotIronSheet1
-  completetime: 5
+  completetime: 3
   materials:
     OreIronFact: 200
 
@@ -47,7 +47,7 @@
   id: SmeltCopperOre2
   name: "выплавка меди"
   result: IngotCopperSheet1
-  completetime: 5
+  completetime: 3
   materials:
     OreCopperFact: 200
 
@@ -55,7 +55,7 @@
   id: SmeltCrystalOre2
   name: "выплавка кристаллов"
   result: IngotCrystalSheet1
-  completetime: 7
+  completetime: 3
   materials:
     OreCrystal: 200
 
@@ -72,7 +72,7 @@
   id: SmeltsheetifierCopper
   name: "Создание листов меди"
   result: ListCopperSheet1
-  completetime: 10
+  completetime: 3
   materials:
     IngotCopper: 100
 
@@ -80,7 +80,7 @@
   id: SmeltsheetifierIron
   name: "Создание листов железа"
   result: SheetSteel1
-  completetime: 10
+  completetime: 3
   materials:
     IngotIron: 100
 
@@ -96,7 +96,7 @@
   id: SmeltsheetifierCopper2
   name: "Создание листов меди"
   result: ListCopperSheet1
-  completetime: 5
+  completetime: 2
   materials:
     IngotCopper: 100
 
@@ -104,7 +104,7 @@
   id: SmeltsheetifierIron2
   name: "Создание листов железа"
   result: SheetSteel1
-  completetime: 5
+  completetime: 2
   materials:
     IngotIron: 100
 
@@ -120,7 +120,7 @@
   id: SmeltsheetifierCopper3
   name: "Создание листов меди"
   result: ListCopperSheet1
-  completetime: 5
+  completetime: 2
   materials:
     IngotCopper: 50
 
@@ -128,7 +128,7 @@
   id: SmeltsheetifierIron3
   name: "Создание листов железа"
   result: SheetSteel1
-  completetime: 5
+  completetime: 2
   materials:
     IngotIron: 50
 
@@ -145,7 +145,7 @@
   id: PackCoal
   name: "Упаковка и обработка угля"
   result: IngotCoalSheet1
-  completetime: 5
+  completetime: 3
   materials:
     OreCoal: 50
 
@@ -153,7 +153,7 @@
   id: PackSlimeGreen
   name: "Упаковка и обработка зеленой слизи"
   result: SlimeGelSheet1
-  completetime: 5
+  completetime: 3
   materials:
     OreSlimeGreen: 500
     Plastic: 200

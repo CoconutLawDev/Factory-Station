@@ -10,4 +10,4 @@
       Glass: 5
       Steel: 8
   - type: Sprite
-    state: generic  # стандартный спрайт платы
+    state: engineering  #  спрайт платы

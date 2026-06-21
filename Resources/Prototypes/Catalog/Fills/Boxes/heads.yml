@@ -9,6 +9,8 @@
         children:
         - id: CommsComputerCircuitboard
         - id: StationRecordsComputerCircuitboard
+        - id: FactoryGoalConsoleCircuitboard
+        - id: FactoryGoalpadCircuitboard
 
 - type: entity
   parent: ToteBase

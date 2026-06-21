@@ -80,7 +80,7 @@
   abstract: true
   parent: SheetFactoryWireBase
   id: SheetFactoryWireGoldBase
-  description: несколько кусков золотой проволоки.
+  description: несколько кусков улучшенной проволоки.
   components:
   - type: Sprite
     sprite: _FactoryStation/Items/Materials/wire-gold.rsi

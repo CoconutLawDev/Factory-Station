@@ -34,7 +34,7 @@
     enabled: true
   - type: FactoryIndustrialHeat
     maxHeat: 1300
-    heatPerSecond: 8
+    heatPerSecond: 10
     cooldownPerSecond: 12
     smokeThreshold: 350
     dangerThreshold: 750

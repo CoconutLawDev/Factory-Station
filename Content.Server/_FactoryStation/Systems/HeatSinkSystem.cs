@@ -1,36 +1,35 @@
 using Content.Server.FactoryStation.Components;
-using Content.Server.Popups;
-using Content.Shared.Item;
 using Robust.Shared.Containers;
+using System;
 
 namespace Content.Server.FactoryStation.Systems;
 
 public sealed partial class HeatSinkSystem : EntitySystem
 {
-    [Dependency] private PopupSystem _popup = default!;
-
     public override void Initialize()
     {
         base.Initialize();
 
-        // Событие вставки предмета в слот
         SubscribeLocalEvent<FactoryIndustrialHeatComponent, EntInsertedIntoContainerMessage>(OnItemInserted);
-        // Событие извлечения предмета из слота
         SubscribeLocalEvent<FactoryIndustrialHeatComponent, EntRemovedFromContainerMessage>(OnItemRemoved);
     }
 
     private void OnItemInserted(EntityUid uid, FactoryIndustrialHeatComponent heat, EntInsertedIntoContainerMessage args)
     {
-        // Проверяем, что вставили именно в слот "heat_sink"
         if (args.Container.ID != "heat_sink")
             return;
 
-        // Проверяем, что вставленный предмет — радиаторная пластина
         if (!TryComp<HeatSinkComponent>(args.Entity, out var sink))
             return;
 
-        // Увеличиваем коэффициент охлаждения
+        // Защита от дублирования — если в контейнере уже есть предметы, корректируем
+        if (args.Container.ContainedEntities.Count > 1)
+        {
+            heat.AmbientCoolingCoefficient -= sink.CoolingBonus * (args.Container.ContainedEntities.Count - 1);
+        }
+
         heat.AmbientCoolingCoefficient += sink.CoolingBonus;
+        heat.AmbientCoolingCoefficient = Math.Max(heat.AmbientCoolingCoefficient, 0.1f);
     }
 
     private void OnItemRemoved(EntityUid uid, FactoryIndustrialHeatComponent heat, EntRemovedFromContainerMessage args)
@@ -41,7 +40,7 @@ public sealed partial class HeatSinkSystem : EntitySystem
         if (!TryComp<HeatSinkComponent>(args.Entity, out var sink))
             return;
 
-        // Уменьшаем коэффициент обратно
         heat.AmbientCoolingCoefficient -= sink.CoolingBonus;
+        heat.AmbientCoolingCoefficient = Math.Max(heat.AmbientCoolingCoefficient, 0.1f);
     }
 }

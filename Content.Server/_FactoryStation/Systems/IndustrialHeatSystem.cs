@@ -14,6 +14,7 @@ using Content.Shared.Damage.Systems;
 using Robust.Server.GameObjects;
 using Robust.Shared.Timing;
 using Robust.Shared.Map;
+using Content.Shared.Atmos;
 
 namespace Content.Server.FactoryStation.Systems;
 
@@ -38,6 +39,7 @@ public sealed partial class IndustrialHeatSystem : EntitySystem
 
         SubscribeLocalEvent<FactoryIndustrialHeatComponent, LatheStartPrintingEvent>(OnLatheStarted);
         SubscribeLocalEvent<FactoryIndustrialHeatComponent, ComponentShutdown>(OnHeatShutdown);
+        SubscribeLocalEvent<FactoryIndustrialHeatComponent, ComponentRemove>(OnHeatRemove);
         SubscribeLocalEvent<FactoryIndustrialHeatComponent, MapInitEvent>(OnMapInit);
     }
 
@@ -53,7 +55,9 @@ public sealed partial class IndustrialHeatSystem : EntitySystem
 
     private void OnLatheStarted(EntityUid uid, FactoryIndustrialHeatComponent component, ref LatheStartPrintingEvent args)
     {
-        component.CurrentHeat += 35f;
+        // Добавляем нагрев только при холодном старте
+        if (component.CurrentHeat < 100f)
+            component.CurrentHeat += 35f;
 
         if (TryComp<LatheComponent>(uid, out var lathe))
         {
@@ -69,16 +73,28 @@ public sealed partial class IndustrialHeatSystem : EntitySystem
         component.SpillageAccumulator = 0f;
     }
 
+    private void OnHeatRemove(EntityUid uid, FactoryIndustrialHeatComponent component, ComponentRemove args)
+    {
+        StopRunningSound(component);
+        StopAlarm(uid, component);
+    }
+
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
 
         _updateAccumulator += frameTime;
-        if (_updateAccumulator < 1f)
-            return;
 
-        _updateAccumulator = 0f;
+        // Обрабатываем накопившееся время при лагах
+        while (_updateAccumulator >= 1f)
+        {
+            _updateAccumulator -= 1f;
+            ProcessHeat();
+        }
+    }
 
+    private void ProcessHeat()
+    {
         var query = EntityQueryEnumerator<FactoryIndustrialHeatComponent, LatheComponent>();
 
         while (query.MoveNext(out var uid, out var heat, out var lathe))
@@ -97,7 +113,7 @@ public sealed partial class IndustrialHeatSystem : EntitySystem
             }
 
             if (heat.AmbientCoolingEnabled)
-                ApplyAmbientCooling(uid, heat, running);
+                ApplyAmbientCooling(uid, heat);
 
             heat.CurrentHeat = Math.Clamp(heat.CurrentHeat, 20f, heat.MaxHeat);
 
@@ -158,14 +174,14 @@ public sealed partial class IndustrialHeatSystem : EntitySystem
         }
     }
 
-    private void ApplyAmbientCooling(EntityUid uid, FactoryIndustrialHeatComponent heat, bool running)
+    private void ApplyAmbientCooling(EntityUid uid, FactoryIndustrialHeatComponent heat)
     {
         var mixture = _atmosphere.GetContainingMixture(uid, true);
         float ambientTemp;
 
         if (mixture != null)
         {
-            ambientTemp = mixture.Temperature - 273.15f; // K → °C
+            ambientTemp = mixture.Temperature - 273.15f;
         }
         else if (heat.RequireAtmosphereForCooling)
         {
@@ -177,28 +193,26 @@ public sealed partial class IndustrialHeatSystem : EntitySystem
         }
 
         float coolingCoefficient = heat.AmbientCoolingCoefficient;
-        if (TryComp<HeatSinkComponent>(uid, out var heatSink))
-        {
-            coolingCoefficient += heatSink.CoolingBonus;
-        }
 
-        if (ambientTemp < heat.RoomTemperature && ambientTemp > heat.MinAmbientTemperature)
+        if (mixture != null)
         {
-            float tempDiff = heat.CurrentHeat - ambientTemp;
-            if (tempDiff > 0)
+            var frezonMoles = mixture.GetMoles(Gas.Frezon);
+            if (frezonMoles > 0)
             {
-                float cooling = tempDiff * coolingCoefficient;
-                heat.CurrentHeat -= cooling;
+                var frezonBonus = 1f + Math.Min(frezonMoles * 0.5f, 1f);
+                coolingCoefficient *= frezonBonus;
+
+                var frezonToRemove = Math.Min(frezonMoles, 0.1f * coolingCoefficient);
+                mixture.AdjustMoles(Gas.Frezon, -frezonToRemove);
             }
         }
-        else if (ambientTemp > heat.CurrentHeat)
-        {
-            float tempDiff = ambientTemp - heat.CurrentHeat;
-            heat.CurrentHeat += tempDiff * coolingCoefficient;
-        }
 
-        if (running)
-            heat.CurrentHeat = Math.Max(heat.CurrentHeat, 20f);
+        if (heat.CurrentHeat > ambientTemp)
+        {
+            float tempDiff = heat.CurrentHeat - ambientTemp;
+            float cooling = tempDiff * coolingCoefficient;
+            heat.CurrentHeat -= cooling;
+        }
     }
 
     private void EnsureRunningSound(EntityUid uid, FactoryIndustrialHeatComponent component)
