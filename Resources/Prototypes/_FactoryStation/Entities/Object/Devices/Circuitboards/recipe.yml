@@ -13,6 +13,7 @@
     - FurnaceKreningMachineCircuitboardRecipe
     - FactoryGoalConsoleCircuitboardRecipe
     - FactoryGoalpadCircuitboardRecipe
+    - AssemblyFabCircuitboardRecipe
 
 
 # =============================================================================
@@ -28,6 +29,7 @@
   materials:
     Glass: 1000
     Gold: 100
+    Steel: 1500
     CopperList: 500
   result: FurnaceMachineCircuitboard2
 
@@ -40,7 +42,6 @@
   materials:
     Glass: 800
     Steel: 1500
-    CopperList: 400
   result: FurnaceMachineCircuitboard
 
 # Плата упаковщика 711
@@ -65,6 +66,7 @@
     Glass: 1200
     Steel: 1800
     Silver: 300
+    CopperList: 500
   result: ShaperMachineCircuitboard261
 
 # Плата лист-мастера 3001
@@ -76,7 +78,6 @@
   materials:
     Glass: 800
     Steel: 1500
-    CopperList: 600
   result: SheetifierMachineCircuitboard3001
 
 # Плата лист-мастера 4001
@@ -86,9 +87,10 @@
   categories:
   - FactoryCircuits
   materials:
-    Glass: 10000
-    Steel: 20000
+    Glass: 1000
+    Steel: 2000
     Silver: 500
+    CopperList: 500
   result: SheetifierMachineCircuitboard4001
 
 # Плата лист-мастера 5001
@@ -100,8 +102,9 @@
   materials:
     Glass: 1200
     Steel: 2500
-    Gold: 1800
-    Silver: 1500
+    Gold: 500
+    Silver: 1000
+    CopperList: 500
   result: SheetifierMachineCircuitboard5001
 
 - type: latheRecipe
@@ -112,8 +115,9 @@
   materials:
     Glass: 1200
     Steel: 2500
-    Gold: 1800
-    Silver: 1500
+    Gold: 800
+    Silver: 800
+    CopperList: 500
   result: GlassBlowingFurnaceCircuitboard
 
 - type: latheRecipe
@@ -124,8 +128,9 @@
   materials:
     Glass: 1200
     Steel: 2500
-    Gold: 1800
-    Silver: 1500
+    Gold: 800
+    Silver: 800
+    CopperList: 500
   result: FurnaceKreningMachineCircuitboard
 
 - type: latheRecipe
@@ -136,8 +141,9 @@
   materials:
     Glass: 6000
     Steel: 5000
-    Gold: 1800
-    Silver: 1500
+    Gold: 800
+    Silver: 800
+    CopperList: 500
   result: FactoryGoalConsoleCircuitboard
 
 - type: latheRecipe
@@ -146,7 +152,20 @@
   categories:
   - FactoryCircuits
   materials:
-    Glass: 2000
-    Steel: 3000
+    Glass: 1000
+    Steel: 2000
     Silver: 500
+    CopperList: 500
   result: FactoryGoalpadCircuitboard
+
+- type: latheRecipe
+  id: AssemblyFabCircuitboardRecipe
+  name: Плата сборкафаба
+  categories:
+  - FactoryCircuits
+  materials:
+    Glass: 1200
+    Steel: 2500
+    Silver: 1000
+    CopperList: 500
+  result: AssemblyFabCircuitboard

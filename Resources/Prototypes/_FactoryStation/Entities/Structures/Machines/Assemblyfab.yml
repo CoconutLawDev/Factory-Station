@@ -5,7 +5,7 @@
   description: "Промышленная печь используется для выплавки стекла из песка."
   components:
   - type: Sprite
-    sprite: _FactoryStation/Machines/assemblyfab.rsi
+    sprite: _FactoryStation/Machines/Assemblyfab.rsi
     snapCardinals: true
     layers:
     - state: icon

@@ -21,8 +21,8 @@
   - type: MachineBoard
     prototype: SheetifierFactory4001
     stackRequirements:
-      Glass: 25
-      Steel: 18
+      Glass: 5
+      Steel: 8
   - type: Sprite
     state: supply  # стандартный спрайт платы
 
@@ -35,7 +35,7 @@
   - type: MachineBoard
     prototype: SheetifierFactory5001
     stackRequirements:
-      Glass: 38
-      Steel: 45
+      Glass: 8
+      Steel: 5
   - type: Sprite
     state: cpu_supply  # стандартный спрайт платы

@@ -21,7 +21,7 @@
   - type: MachineBoard
     prototype: Furnace2
     stackRequirements:
-      Glass: 10
-      Steel: 30
+      Glass: 5
+      Steel: 8
   - type: Sprite
     state: supply  #  спрайт платы
