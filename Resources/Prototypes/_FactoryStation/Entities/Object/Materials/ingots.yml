@@ -53,6 +53,7 @@
   - type: Tag
     tags:
     - IngotIron
+    - Ingot
 
 - type: entity
   parent: SheetFactoryIngotIronBase
