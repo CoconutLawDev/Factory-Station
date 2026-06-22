@@ -235,9 +235,9 @@ public sealed partial class FactoryGoalSystem : EntitySystem
     {
         return difficulty switch
         {
-            "Light" => 10000,
-            "Medium" => 50000,
-            "Hard" => 100000,
+            "Light" => 50000,
+            "Medium" => 100000,
+            "Hard" => 200000,
             _ => 0
         };
     }
