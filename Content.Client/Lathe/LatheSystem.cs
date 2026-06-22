@@ -11,11 +11,15 @@ public sealed partial class LatheSystem : SharedLatheSystem
     [Dependency] private SharedAppearanceSystem _appearance = default!;
     [Dependency] private SpriteSystem _sprite = default!;
 
+    // FactoryStation-Edit: Pending active recipe
+    public string? PendingActiveRecipe;
+
     public override void Initialize()
     {
         base.Initialize();
-
         SubscribeLocalEvent<LatheComponent, AppearanceChangeEvent>(OnAppearanceChange);
+        // FactoryStation-Edit: ActiveRecipe UI update
+        SubscribeNetworkEvent<ActiveRecipeUpdateMessage>(OnActiveRecipeUpdate);
     }
 
     private void OnAppearanceChange(EntityUid uid, LatheComponent component, ref AppearanceChangeEvent args)
@@ -46,10 +50,12 @@ public sealed partial class LatheSystem : SharedLatheSystem
                 _sprite.LayerSetRsiState((uid, args.Sprite), powerLayer, state);
             }
         }
+    }
 
-        // FactoryStation-Edit-Start: Update temperature via subscription
-        // Temperature update is handled by subscribing to component state changes
-        // FactoryStation-Edit-End
+    // FactoryStation-Edit: ActiveRecipe UI update
+    private void OnActiveRecipeUpdate(ActiveRecipeUpdateMessage args)
+    {
+        PendingActiveRecipe = args.RecipeName;
     }
 
     protected override bool HasRecipe(EntityUid uid, LatheRecipePrototype recipe, LatheComponent component)

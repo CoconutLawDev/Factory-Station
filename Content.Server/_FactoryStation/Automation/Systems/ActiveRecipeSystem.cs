@@ -15,6 +15,22 @@ public sealed partial class ActiveRecipeSystem : EntitySystem
 
     private float _accumulator;
 
+    public override void Initialize()
+    {
+        base.Initialize();
+        SubscribeLocalEvent<ActiveRecipeComponent, MapInitEvent>(OnMapInit);
+    }
+
+    private void OnMapInit(EntityUid uid, ActiveRecipeComponent component, MapInitEvent args)
+    {
+        if (!string.IsNullOrWhiteSpace(component.ActiveRecipeId) &&
+            _proto.TryIndex<LatheRecipePrototype>(component.ActiveRecipeId, out var recipe))
+        {
+            component.ActiveRecipeName = recipe.Name ?? recipe.ID;
+            Dirty(uid, component);
+        }
+    }
+
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
@@ -52,6 +68,9 @@ public sealed partial class ActiveRecipeSystem : EntitySystem
 
             if (!HasEnoughMaterials(uid, recipe))
                 continue;
+
+            active.ActiveRecipeName = recipe.Name ?? recipe.ID;
+            Dirty(uid, active);
 
             RaiseLocalEvent(uid,
                 new LatheQueueRecipeMessage(active.ActiveRecipeId, 1));

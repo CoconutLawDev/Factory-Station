@@ -86,15 +86,24 @@ namespace Content.Server.Lathe
             SubscribeLocalEvent<LatheHeatProducingComponent, LatheStartPrintingEvent>(OnHeatStartPrinting);
             SubscribeLocalEvent<LatheComponent, LatheSetActiveRecipeMessage>(OnSetActiveRecipe);
         }
+        //FactoryStation-Edit Start
         private void OnSetActiveRecipe(EntityUid uid, LatheComponent component, LatheSetActiveRecipeMessage args)
         {
             if (TryComp<ActiveRecipeComponent>(uid, out var active))
             {
                 active.ActiveRecipeId = args.RecipeId;
                 active.Enabled = args.Enabled;
-                // Dirty не требуется, компонент не сетевой
+
+                // FactoryStation-Edit: Update recipe name for UI
+                if (args.RecipeId != null && _proto.TryIndex<LatheRecipePrototype>(args.RecipeId, out var recipe))
+                    active.ActiveRecipeName = recipe.Name ?? recipe.ID;
+                else
+                    active.ActiveRecipeName = null;
+
+                Dirty(uid, active);
             }
         }
+        //FactoryStation-Edit Stop
         public override void Update(float frameTime)
         {
             var query = EntityQueryEnumerator<LatheProducingComponent, LatheComponent>();

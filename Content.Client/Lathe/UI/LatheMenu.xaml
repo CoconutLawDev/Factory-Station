@@ -85,6 +85,8 @@
                         Mode="Press">
                     </Button>
                 </BoxContainer>
+                <!-- FactoryStation-Edit: ActiveRecipe label -->
+                <Label Name="ActiveRecipeLabel" Margin="0 2" Text="{Loc 'lathe-menu-auto-none'}" />
                 <Label Text="{Loc 'lathe-menu-queue-title'}" Margin="5 5 5 5" HorizontalAlignment="Center"/>
                 <BoxContainer
                     Name="FabricatingContainer"
@@ -153,18 +155,14 @@
                     <ui:MaterialStorageControl Name="MaterialsList" SizeFlagsStretchRatio="8"/>
                 </BoxContainer>
             </PanelContainer>
-
             <!-- FactoryStation-Edit-Start: Temperature -->
             <BoxContainer Orientation="Horizontal" Margin="0 4 0 0">
-                <Label Text="Temperature:" />
+                <Label Text="{Loc 'lathe-menu-temperature'}" />
                 <Label Name="TemperatureLabel" Margin="4 0 0 0" Text="20°C" />
             </BoxContainer>
             <Label Name="ExplosionWarning" StyleClasses="LabelDanger" Visible="False" Margin="0 4" />
             <!-- FactoryStation-Edit-End -->
-
         </BoxContainer>
         </BoxContainer>
-
     </BoxContainer>
-
 </controls:FancyWindow>

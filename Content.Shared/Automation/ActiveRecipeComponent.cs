@@ -1,20 +1,18 @@
 using Robust.Shared.GameObjects;
+using Robust.Shared.GameStates;
 using Robust.Shared.Serialization.Manager.Attributes;
 
 namespace Content.Shared.Automation;
 
-[RegisterComponent]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class ActiveRecipeComponent : Component
 {
-    /// <summary>
-    /// ID выбранного рецепта. Если null — авто-производство неактивно.
-    /// </summary>
-    [DataField("activeRecipeId")]
+    [DataField("activeRecipeId"), AutoNetworkedField]
     public string? ActiveRecipeId;
 
-    /// <summary>
-    /// Включён ли режим постоянного автопроизводства.
-    /// </summary>
-    [DataField("enabled")]
+    [DataField("enabled"), AutoNetworkedField]
     public bool Enabled = true;
+
+    [DataField("activeRecipeName"), AutoNetworkedField]
+    public string? ActiveRecipeName;
 }

@@ -2,6 +2,7 @@ using System.Linq;
 using System.Text;
 using Content.Client.Materials;
 using Content.Client.UserInterface.Controls;
+using Content.Shared.Automation;
 using Content.Shared.Lathe;
 using Content.Shared.Lathe.Prototypes;
 using Content.Shared.Research.Prototypes;
@@ -35,11 +36,8 @@ public sealed partial class LatheMenu : FancyWindow
     public event Action<string?, bool>? OnAutoRecipeToggled;
 
     public List<ProtoId<LatheRecipePrototype>> Recipes = new();
-
     public List<ProtoId<LatheCategoryPrototype>>? Categories;
-
     public ProtoId<LatheCategoryPrototype>? CurrentCategory;
-
     public EntityUid Entity;
 
     private string? _activeRecipeId;
@@ -59,10 +57,7 @@ public sealed partial class LatheMenu : FancyWindow
         _lathe = _entityManager.System<LatheSystem>();
         _materialStorage = _entityManager.System<MaterialStorageSystem>();
 
-        SearchBar.OnTextChanged += _ =>
-        {
-            PopulateRecipes();
-        };
+        SearchBar.OnTextChanged += _ => PopulateRecipes();
         AmountLineEdit.OnTextChanged += _ =>
         {
             if (int.TryParse(AmountLineEdit.Text, out var amount))
@@ -72,12 +67,10 @@ public sealed partial class LatheMenu : FancyWindow
                 else if (amount < 0)
                     AmountLineEdit.Text = "0";
             }
-
             PopulateRecipes();
         };
 
         FilterOption.OnItemSelected += OnItemSelected;
-
         ServerListButton.OnPressed += a => OnServerListButtonPressed?.Invoke(a);
         DeleteFabricating.OnPressed += _ => DeleteFabricatingAction?.Invoke();
 
@@ -96,9 +89,7 @@ public sealed partial class LatheMenu : FancyWindow
         if (_entityManager.TryGetComponent<LatheComponent>(Entity, out var latheComponent))
         {
             if (!latheComponent.DynamicPacks.Any())
-            {
                 ServerListButton.Visible = false;
-            }
 
             AmountLineEdit.SetText(latheComponent.DefaultProductionAmount.ToString());
 
@@ -116,6 +107,20 @@ public sealed partial class LatheMenu : FancyWindow
         // FactoryStation-Edit-Start: Initialize temperature
         UpdateTemperatureDisplay();
         // FactoryStation-Edit-End
+
+        // FactoryStation-Edit: Show active recipe
+        if (_entityManager.TryGetComponent<ActiveRecipeComponent>(Entity, out var activeRecipe))
+            SetActiveRecipe(activeRecipe.ActiveRecipeName);
+        else
+            SetActiveRecipe(null);
+    }
+
+    // FactoryStation-Edit: ActiveRecipe display
+    public void SetActiveRecipe(string? recipeName)
+    {
+        ActiveRecipeLabel.Text = recipeName != null
+            ? Loc.GetString("lathe-menu-auto-recipe", ("recipe", recipeName))
+            : Loc.GetString("lathe-menu-auto-none");
     }
 
     // FactoryStation-Edit-Start: Temperature display
@@ -128,7 +133,6 @@ public sealed partial class LatheMenu : FancyWindow
     private void UpdateTemperatureDisplay()
     {
         TemperatureLabel.Text = $"{_currentTemperature:F1}°C";
-
         if (_currentTemperature > _maxSafeTemperature * 1.5f)
         {
             TemperatureLabel.FontColorOverride = Color.Red;
@@ -151,14 +155,14 @@ public sealed partial class LatheMenu : FancyWindow
     protected override void FrameUpdate(FrameEventArgs args)
     {
         base.FrameUpdate(args);
-
         if (Entity is not { Valid: true })
             return;
-
         if (_entityManager.TryGetComponent<LatheComponent>(Entity, out var lathe))
-        {
             UpdateTemperature(lathe.CurrentTemperature);
-        }
+
+        // FactoryStation-Edit: Update active recipe in real time
+        if (_entityManager.TryGetComponent<ActiveRecipeComponent>(Entity, out var activeRecipe))
+            SetActiveRecipe(activeRecipe.ActiveRecipeName);
     }
     // FactoryStation-Edit-End
 
@@ -169,26 +173,21 @@ public sealed partial class LatheMenu : FancyWindow
         {
             if (!_prototypeManager.Resolve(recipe, out var proto))
                 continue;
-
             if (CurrentCategory != null)
             {
                 if (proto.Categories.Count <= 0)
                     continue;
-
                 var validRecipe = proto.Categories.Any(category => category == CurrentCategory);
                 if (!validRecipe)
                     continue;
             }
-
             if (SearchBar.Text.Trim().Length != 0)
             {
                 if (_lathe.GetRecipeName(recipe).ToLowerInvariant().Contains(SearchBar.Text.Trim().ToLowerInvariant()))
                     recipesToShow.Add(proto);
             }
             else
-            {
                 recipesToShow.Add(proto);
-            }
         }
 
         if (!int.TryParse(AmountLineEdit.Text, out var quantity) || quantity <= 0)
@@ -214,7 +213,6 @@ public sealed partial class LatheMenu : FancyWindow
                     _activeRecipeId = prototype.ID;
                     if (_autoMode && AutoButton.Pressed)
                         OnAutoRecipeToggled?.Invoke(prototype.ID, true);
-
                     if (!int.TryParse(AmountLineEdit.Text, out var amount) || amount <= 0)
                         amount = 1;
                     RecipeQueueAction?.Invoke(s, amount);
@@ -229,7 +227,6 @@ public sealed partial class LatheMenu : FancyWindow
                     DebugTools.Assert($"Lathe menu recipe control at {idx} is not of type RecipeControl");
                     continue;
                 }
-
                 child.SetRecipe(prototype);
                 child.SetTooltipSupplier(tooltipFunction);
                 child.SetCanProduce(canProduce);
@@ -239,54 +236,40 @@ public sealed partial class LatheMenu : FancyWindow
         }
 
         for (var childIdx = oldChildCount - 1; idx <= childIdx; childIdx--)
-        {
             RecipeList.RemoveChild(childIdx);
-        }
     }
 
     private string GenerateTooltipText(LatheRecipePrototype prototype)
     {
         StringBuilder sb = new();
         var multiplier = _entityManager.GetComponent<LatheComponent>(Entity).MaterialUseMultiplier;
-
         foreach (var (id, amount) in prototype.Materials)
         {
             if (!_prototypeManager.Resolve(id, out var proto))
                 continue;
-
             var adjustedAmount = SharedLatheSystem.AdjustMaterial(amount, prototype.ApplyMaterialDiscount, multiplier);
             var sheetVolume = _materialStorage.GetSheetVolume(proto);
-
             var unit = Loc.GetString(proto.Unit);
             var sheets = adjustedAmount / (float)sheetVolume;
-
             var availableAmount = _materialStorage.GetMaterialAmount(Entity, id);
             var missingAmount = Math.Max(0, adjustedAmount - availableAmount);
             var missingSheets = missingAmount / (float)sheetVolume;
-
             var name = Loc.GetString(proto.Name);
-
             string tooltipText;
             if (missingSheets > 0)
-            {
                 tooltipText = Loc.GetString("lathe-menu-material-amount-missing", ("amount", sheets), ("missingAmount", missingSheets), ("unit", unit), ("material", name));
-            }
             else
             {
                 var amountText = Loc.GetString("lathe-menu-material-amount", ("amount", sheets), ("unit", unit));
                 tooltipText = Loc.GetString("lathe-menu-tooltip-display", ("material", name), ("amount", amountText));
             }
-
             sb.AppendLine(tooltipText);
         }
-
         var desc = _lathe.GetRecipeDescription(prototype);
         if (!string.IsNullOrWhiteSpace(desc))
             sb.AppendLine(Loc.GetString("lathe-menu-description-display", ("description", desc)));
-
         if (sb.Length > 0)
             sb.Remove(sb.Length - 1, 1);
-
         return sb.ToString();
     }
 
@@ -296,54 +279,42 @@ public sealed partial class LatheMenu : FancyWindow
         foreach (var recipeId in Recipes)
         {
             var recipe = _prototypeManager.Index(recipeId);
-
             if (recipe.Categories.Count <= 0)
                 continue;
-
             foreach (var category in recipe.Categories)
             {
                 if (currentCategories.Contains(category))
                     continue;
-
                 currentCategories.Add(category);
             }
         }
-
         if (Categories != null && (Categories.Count == currentCategories.Count || !Categories.All(currentCategories.Contains)))
             return;
-
         Categories = currentCategories;
         var sortedCategories = currentCategories
             .Select(p => _prototypeManager.Index(p))
             .OrderBy(p => Loc.GetString(p.Name))
             .ToList();
-
         FilterOption.Clear();
         FilterOption.AddItem(Loc.GetString("lathe-menu-category-all"), -1);
         foreach (var category in sortedCategories)
-        {
             FilterOption.AddItem(Loc.GetString(category.Name), Categories.IndexOf(category.ID));
-        }
-
         FilterOption.SelectId(-1);
     }
 
     public void PopulateQueueList(IReadOnlyCollection<LatheRecipeBatch> queue)
     {
         var oldChildCount = QueueList.ChildCount;
-
         var idx = 0;
         foreach (var batch in queue)
         {
             var recipe = _prototypeManager.Index(batch.Recipe);
-
             var itemName = _lathe.GetRecipeName(batch.Recipe);
             string displayText;
             if (batch.ItemsRequested > 1)
                 displayText = Loc.GetString("lathe-menu-item-batch", ("index", idx + 1), ("name", itemName), ("printed", batch.ItemsPrinted), ("total", batch.ItemsRequested));
             else
                 displayText = Loc.GetString("lathe-menu-item-single", ("index", idx + 1), ("name", itemName));
-
             if (idx >= oldChildCount)
             {
                 var queuedRecipeBox = new QueuedRecipeControl(displayText, idx, GetRecipeDisplayControl(recipe));
@@ -355,24 +326,19 @@ public sealed partial class LatheMenu : FancyWindow
             else
             {
                 var child = QueueList.GetChild(idx) as QueuedRecipeControl;
-
                 if (child == null)
                 {
                     DebugTools.Assert($"Lathe menu queued recipe control at {idx} is not of type QueuedRecipeControl");
                     continue;
                 }
-
                 child.SetDisplayText(displayText);
                 child.SetIndex(idx);
                 child.SetDisplayControl(GetRecipeDisplayControl(recipe));
             }
             idx++;
         }
-
         for (var childIdx = oldChildCount - 1; idx <= childIdx; childIdx--)
-        {
             QueueList.RemoveChild(childIdx);
-        }
     }
 
     public void SetQueueInfo(ProtoId<LatheRecipePrototype>? recipeProto)
@@ -380,12 +346,9 @@ public sealed partial class LatheMenu : FancyWindow
         FabricatingContainer.Visible = recipeProto != null;
         if (recipeProto == null)
             return;
-
         var recipe = _prototypeManager.Index(recipeProto.Value);
-
         FabricatingDisplayContainer.Children.Clear();
         FabricatingDisplayContainer.AddChild(GetRecipeDisplayControl(recipe));
-
         NameLabel.Text = _lathe.GetRecipeName(recipe);
     }
 
@@ -397,14 +360,12 @@ public sealed partial class LatheMenu : FancyWindow
             textRect.Texture = _spriteSystem.Frame0(recipe.Icon);
             return textRect;
         }
-
         if (recipe.Result is { } result)
         {
             var entProtoView = new EntityPrototypeView();
             entProtoView.SetPrototype(result);
             return entProtoView;
         }
-
         return new Control();
     }
 
@@ -412,13 +373,9 @@ public sealed partial class LatheMenu : FancyWindow
     {
         FilterOption.SelectId(obj.Id);
         if (obj.Id == -1)
-        {
             CurrentCategory = null;
-        }
         else
-        {
             CurrentCategory = Categories?[obj.Id];
-        }
         PopulateRecipes();
     }
 }
