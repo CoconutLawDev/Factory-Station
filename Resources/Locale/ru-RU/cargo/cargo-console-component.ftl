@@ -78,13 +78,13 @@ cargo-funding-alloc-console-label-code = [bold] Код [/bold]
 cargo-funding-alloc-console-label-balance = [bold] Баланс [/bold]
 cargo-funding-alloc-console-label-cut = [bold] Доля от доходов (%) [/bold]
 
-cargo-funding-alloc-console-label-primary-cut = Доля грузового отдела из средств из не сейфов:
-cargo-funding-alloc-console-label-lockbox-cut = Доля грузового отдела из средств от продажи из сейфов:
+cargo-funding-alloc-console-label-primary-cut = Доля грузового отдела из средств от несейфовых источников (%):
+cargo-funding-alloc-console-label-lockbox-cut = Доля грузового отдела от продаж из сейфов (%):
 
-cargo-funding-alloc-console-label-help-non-adjustible = Грузовой отдел получает {$percent}% от прибыли от продажи не из сейфов. Остальное распределяется, как указано ниже:
-cargo-funding-alloc-console-label-help-adjustible = Оставшиеся средства из источников не из сейфов распределяются, как указано ниже:
+cargo-funding-alloc-console-label-help-non-adjustible = Грузовой отдел получает {$percent}% от прибыли от несейфовых продаж. Остальное распределяется, как указано ниже:
+cargo-funding-alloc-console-label-help-adjustible = Оставшиеся средства из несейфовых источников распределяются, как указано ниже:
 cargo-funding-alloc-console-button-save = Сохранить изменения
-cargo-funding-alloc-console-label-save-fail = [bold]Распределение доходов некорректно![/color] [color=red]({$pos ->
+cargo-funding-alloc-console-label-save-fail = [bold]Некорректное распределение доходов![/bold] [color=red]({$pos ->
     [1] +
     *[-1] -
 }{$val}%)[/color]

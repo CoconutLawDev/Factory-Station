@@ -1,9 +1,9 @@
-action-name-internals-toggle-on = Включить дыхание из баллона
-action-description-internals-toggle-on = Дышать из установленного газового баллона. Также требуется дыхательная маска.
-action-name-internals-toggle-off = Выключить дыхание из баллона
-action-description-internals-toggle-off = Дышать окружающим воздухом.
+action-name-internals-toggle-on = Toggle Internals On
+action-description-internals-toggle-on = Breathe from the equipped gas tank. Also requires equipped breath mask.
+action-name-internals-toggle-off = Toggle Internals Off
+action-description-internals-toggle-off = Breathe from the environment.
 
-internals-self-no-breath-tool = На вас не надето дыхательное устройство
-internals-other-no-breath-tool = {$ent} не использует дыхательное устройство
-internals-self-no-tank = На вас нет газового баллона
-internals-other-no-tank = {$ent} не использует газовый баллон
+internals-self-no-breath-tool = You are not wearing a breathing tool
+internals-other-no-breath-tool = {$ent} is not wearing a breathing tool
+internals-self-no-tank = You are not wearing a gas tank
+internals-other-no-tank = {$ent} is not wearing a gas tank

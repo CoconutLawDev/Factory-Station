@@ -12,7 +12,7 @@ changeling-devour-attempt-failed-protected = Биомасса этой жерт�
 changeling-devour-attempt-failed-no-space = Мы превысили максимальное количество обличий!
 
 changeling-devour-begin-windup-self = Наш жуткий рот открывается с неземным голодом.
-changeling-devour-begin-windup-others = { CAPITALIZE(POSS-ADJ($user)) } жуткий рот открывается с неземным голодом.
+changeling-devour-begin-windup-others = Жуткий рот { CAPITALIZE(POSS-ADJ($user)) } открывается с неземным голодом.
 changeling-devour-begin-consume-self = Жуткий рот впивается глубоко в свою жертву.
 changeling-devour-begin-consume-others = Жуткий рот { CAPITALIZE(POSS-ADJ($user)) } впивается глубоко в свою жертву.
 changeling-devour-consume-complete-self = Наш жуткий рот исчезает, биомасса поглощена.

@@ -1,30 +1,30 @@
 ## UI
-cloning-console-window-title = Cloning Console
-cloning-console-window-clone-button-text = Clone
+cloning-console-window-title = Консоль клонирования
+cloning-console-window-clone-button-text = Клонировать
 cloning-console-window-scanner-id = ID: [color=white]{$scannerOccupantName}[/color]
 cloning-console-window-pod-id = ID: [color=white]{$podOccupantName}[/color]
-cloning-console-window-no-patient-data-text = No patient data.
+cloning-console-window-no-patient-data-text = Нет данных о пациенте.
 cloning-console-window-id-blank = ID:
-cloning-console-window-scanner-details-label = Genetic Scanner Status
-cloning-console-window-pod-details-label = Cloning Pod Status
-cloning-console-window-no-scanner-detected-label = Link a genetic scanner with a multitool or network configurator.
-cloning-console-window-no-clone-pod-detected-label = Link a cloning pod with a multitool or network configurator.
-cloning-console-window-scanner-far-label = Genetic Scanner Too Far Away
-cloning-console-window-clone-pod-far-label = Cloning Pod Too Far Away
-cloning-console-eject-body-button = Eject Body
-cloning-console-neural-interface-label = Neural Interface:
-cloning-console-no-mind-activity-text = Neural Interface: [color=red]No Activity[/color]
-cloning-console-mind-present-text = Neural Interface: [color=green]Consciousness Detected[/color]
-cloning-console-component-msg-ready = Ready To Clone
-cloning-console-component-msg-empty = No Body Detected
-cloning-console-component-msg-scanner-occupant-alive = Not Ready: Scanner Occupant Living
-cloning-console-component-msg-already-alive = Not Ready: Metaphysical Conflict
-cloning-console-component-msg-occupied = Not Ready: The Pod Already Contains A Clone
-cloning-console-component-msg-already-cloning = Not Ready: Pod Network Conflict
-cloning-console-component-msg-incomplete = Not Ready: Cloning In Progress
-cloning-console-component-msg-no-cloner = Not Ready: No Cloner Detected
-cloning-console-component-msg-no-mind = Not Ready: No Soul Activity Detected
+cloning-console-window-scanner-details-label = Статус генетического сканера
+cloning-console-window-pod-details-label = Статус капсулы клонирования
+cloning-console-window-no-scanner-detected-label = Подключите генетический сканер с помощью мультитула или сетевого конфигуратора.
+cloning-console-window-no-clone-pod-detected-label = Подключите капсулу клонирования с помощью мультитула или сетевого конфигуратора.
+cloning-console-window-scanner-far-label = Генетический сканер слишком далеко
+cloning-console-window-clone-pod-far-label = Капсула клонирования слишком далеко
+cloning-console-eject-body-button = Извлечь тело
+cloning-console-neural-interface-label = Нейроинтерфейс:
+cloning-console-no-mind-activity-text = Нейроинтерфейс: [color=red]Бездействует[/color]
+cloning-console-mind-present-text = Нейроинтерфейс: [color=green]Обнаружено сознание[/color]
+cloning-console-component-msg-ready = Готов к клонированию
+cloning-console-component-msg-empty = Тело не обнаружено
+cloning-console-component-msg-scanner-occupant-alive = Не готово: Сканируемый жив
+cloning-console-component-msg-already-alive = Не готово: Метафизический конфликт
+cloning-console-component-msg-occupied = Не готово: В капсуле уже есть клон
+cloning-console-component-msg-already-cloning = Не готово: Конфликт сети капсул
+cloning-console-component-msg-incomplete = Не готово: Клонирование в процессе
+cloning-console-component-msg-no-cloner = Не готово: Клонатор не обнаружен
+cloning-console-component-msg-no-mind = Не готово: Активность души не обнаружена
 
-cloning-console-chat-error = ERROR: INSUFFICIENT BIOMASS. CLONING THIS BODY REQUIRES {$units} UNITS OF BIOMASS.
-cloning-console-uncloneable-trait-error = ERROR: CLONING IS IMPOSSIBLE DUE TO ABNORMAL BODY COMPOSITION.
-cloning-console-cellular-warning = WARNING: GENEFSCK CONFIDENCE SCORE IS {$percent}%. CLONING MAY HAVE UNEXPECTED RESULTS.
+cloning-console-chat-error = ОШИБКА: НЕДОСТАТОЧНО БИОМАССЫ. ДЛЯ КЛОНИРОВАНИЯ ЭТОГО ТЕЛА ТРЕБУЕТСЯ {$units} ЕДИНИЦ БИОМАССЫ.
+cloning-console-uncloneable-trait-error = ОШИБКА: КЛОНИРОВАНИЕ НЕВОЗМОЖНО ИЗ-ЗА НЕНОРМАЛЬНОГО СОСТАВА ТЕЛА.
+cloning-console-cellular-warning = ПРЕДУПРЕЖДЕНИЕ: УРОВЕНЬ ДОВЕРИЯ GENEFSCK СОСТАВЛЯЕТ {$percent}%. КЛОНИРОВАНИЕ МОЖЕТ ПРИВЕСТИ К НЕОЖИДАННЫМ РЕЗУЛЬТАТАМ.

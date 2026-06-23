@@ -1,2 +1,2 @@
-jetpack-no-station = Can't use jetpacks under gravity
-jetpack-to-grid = The jetpack turns off
+jetpack-no-station = Нельзя использовать реактивный ранец в условиях гравитации
+jetpack-to-grid = Реактивный ранец выключается

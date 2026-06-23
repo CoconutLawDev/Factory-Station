@@ -164,7 +164,7 @@ chat-speech-verb-vulpkanin-3 = урчит
 chat-speech-verb-vulpkanin-4 = тявкает
 chat-speech-verb-vulpkanin = Вульпканин
 
-chat-speech-verb-name-wawa = Вава
+chat-speech-verb-name-wawa = Wawa
 chat-speech-verb-wawa-1 = вещает
 chat-speech-verb-wawa-2 = изрекает
 chat-speech-verb-wawa-3 = заявляет

@@ -1,1 +1,1 @@
-station-event-zombie-outbreak-announcement = Confirmed sightings of various undead aboard the station. All personnel should arm themselves, barricade doors, and secure their location in order to prevent further infection.
+station-event-zombie-outbreak-announcement = Подтверждены случаи появления нежити на станции. Всему персоналу следует вооружиться, забаррикадировать двери и обезопасить свою позицию, чтобы предотвратить дальнейшее заражение.

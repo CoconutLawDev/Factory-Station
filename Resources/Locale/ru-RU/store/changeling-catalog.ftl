@@ -1,14 +1,14 @@
-changeling-catalog-arm-blade-name = Retractable Arm Blade
-changeling-catalog-arm-blade-desc = Transform your arm into a terrifying flesh blade. Can be toggled.
+changeling-catalog-arm-blade-name = Втягивающееся лезвие на руке
+changeling-catalog-arm-blade-desc = Превратите свою руку в ужасающее лезвие из плоти. Можно переключать.
 
-changeling-catalog-flesh-clothing-name = Flesh Clothing
-changeling-catalog-flesh-clothing-desc = Your body's surface will adapt to mirror the clothing of any person you are transforming into. However, these clothing items are non-functional and will make you easy to identify as a changeling if someone tries to remove them. Can be toggled.
+changeling-catalog-flesh-clothing-name = Одежда из плоти
+changeling-catalog-flesh-clothing-desc = Поверхность вашего тела адаптируется, копируя одежду любого человека, в которого вы превращаетесь. Однако эта одежда не функциональна, и если кто-то попытается её снять, это легко выдаст в вас перевёртыша. Можно переключать.
 
-changeling-catalog-voice-mimic-name = Voice Mimicry
-changeling-catalog-voice-mimic-desc = Change your vocal coords at will to imitate existing (and imaginary) crew members. Perfect for luring in prey.
+changeling-catalog-voice-mimic-name = Мимикрия голоса
+changeling-catalog-voice-mimic-desc = Меняйте свои голосовые связки по желанию, чтобы имитировать существующих (и вымышленных) членов экипажа. Идеально подходит для заманивания жертв.
 
-changeling-catalog-biodegrade-name = Biodegrade
-changeling-catalog-biodegrade-desc = You learn to utilize acid glands within your body to vomit acid over constraints, setting yourself free.
+changeling-catalog-biodegrade-name = Биоразложение
+changeling-catalog-biodegrade-desc = Вы учитесь использовать кислотные железы в своём теле, чтобы выплёвывать кислоту на оковы, освобождая себя.
 
-changeling-catalog-sting-dna-name = Extract DNA
-changeling-catalog-sting-dna-desc = Learn to utilize your stinger to absorb the identity of unsuspecting victims. Does not grant DNA to your store or objective progress.
+changeling-catalog-sting-dna-name = Извлечение ДНК
+changeling-catalog-sting-dna-desc = Научитесь использовать своё жало, чтобы впитывать личность ничего не подозревающих жертв. Это не даёт ДНК вашему хранилищу и не продвигает задачи.

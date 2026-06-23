@@ -1,2 +1,2 @@
-﻿station-event-bureaucratic-error-announcement = A recent bureaucratic error in the Organic Resources Department may result in personnel shortages in some departments and redundant staffing in others.
-station-event-clerical-error-announcement = A minor clerical error in the Organic Resources Department has resulted in the permanent destruction of some of the station records.
+﻿station-event-bureaucratic-error-announcement = Недавняя бюрократическая ошибка в отделе кадров может привести к нехватке персонала в одних отделах и избытку в других.
+station-event-clerical-error-announcement = Незначительная канцелярская ошибка в отделе кадров привела к безвозвратному уничтожению части записей станции.

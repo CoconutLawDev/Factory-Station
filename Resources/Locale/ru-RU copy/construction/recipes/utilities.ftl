@@ -1,5 +1,0 @@
-construction-recipe-gas-pipe-half = газовая труба (половинка)
-construction-recipe-gas-pipe-bend = газовая труба (угол)
-construction-recipe-gas-pipe-t-junction = газовая труба (Т-образное соединение)
-construction-recipe-gas-pipe-fourway = газовая труба (крестовина)
-construction-recipe-heat-exchanger-bend = радиатор (угол)

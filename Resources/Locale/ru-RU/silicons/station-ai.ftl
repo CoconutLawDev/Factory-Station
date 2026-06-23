@@ -1,57 +1,57 @@
 # General
-ai-wire-snipped = One of your systems' wires has been cut at {$source}.
-wire-name-ai-vision-light = AIV
-wire-name-ai-act-light = AIA
-station-ai-takeover = AI takeover
-station-ai-eye-name = AI eye - {$name}
-station-ai-has-no-power-for-upload = Upload failed - the AI core is unpowered.
-station-ai-is-too-damaged-for-upload = Upload failed - the AI core must be repaired.
-station-ai-core-losing-power = Your AI core is now running on reserve battery power.
-station-ai-core-critical-power = Your AI core is critically low on power. External power must be re-established or severe data corruption may occur!
-station-ai-core-taking-damage = Your AI core is sustaining physical damage.
+ai-wire-snipped = Один из проводов ваших систем был перерезан в {$source}.
+wire-name-ai-vision-light = ОЗИ
+wire-name-ai-act-light = АЗИ
+station-ai-takeover = Захват ИИ
+station-ai-eye-name = Глаз ИИ — {$name}
+station-ai-has-no-power-for-upload = Ошибка загрузки — ядро ИИ обесточено.
+station-ai-is-too-damaged-for-upload = Ошибка загрузки — ядро ИИ требует ремонта.
+station-ai-core-losing-power = Ваше ядро ИИ теперь работает на резервном питании от батарей.
+station-ai-core-critical-power = Уровень заряда вашего ядра ИИ критически низок. Необходимо восстановить внешнее питание, иначе может произойти серьёзное повреждение данных!
+station-ai-core-taking-damage = Ваше ядро ИИ получает физические повреждения.
 
 # Ghost role
-station-ai-ghost-role-name = Station AI
-station-ai-ghost-role-description = Serve the station crew as its ever watchful AI.
+station-ai-ghost-role-name = Станционный ИИ
+station-ai-ghost-role-description = Служите экипажу станции как его вездесущий ИИ.
 
 # Radial actions
-ai-open = Open actions
-ai-close = Close actions
+ai-open = Открыть действия
+ai-close = Закрыть действия
 
-bolt-close = Close bolt
-bolt-open = Open bolt
+bolt-close = Закрыть фиксаторы
+bolt-open = Открыть фиксаторы
 
-emergency-access-on = Enable emergency access
-emergency-access-off = Disable emergency access
+emergency-access-on = Включить аварийный доступ
+emergency-access-off = Отключить аварийный доступ
 
-electrify-door-on = Enable overcharge
-electrify-door-off = Disable overcharge
+electrify-door-on = Включить перегрузку
+electrify-door-off = Отключить перегрузку
 
-toggle-light = Toggle light
+toggle-light = Переключить свет
 
-ai-device-not-responding = Device is not responding
-ai-device-no-access = You have no access to this device
+ai-device-not-responding = Устройство не отвечает
+ai-device-no-access = У вас нет доступа к этому устройству
 
-ai-consciousness-download-warning = Your consciousness is being downloaded.
+ai-consciousness-download-warning = Ваше сознание загружается.
 
 # UI
-station-ai-customization-menu = AI customization
-station-ai-customization-categories = Categories
-station-ai-customization-options = Options (choice of one)
-station-ai-customization-core = AI core displays
-station-ai-customization-hologram = Holographic avatars
+station-ai-customization-menu = Настройка ИИ
+station-ai-customization-categories = Категории
+station-ai-customization-options = Опции (выбор одного)
+station-ai-customization-core = Дисплеи ядра ИИ
+station-ai-customization-hologram = Голографические аватары
 
 # Customizations
-station-ai-icon-ai = Ghost in the machine
-station-ai-icon-angel = Guardian angel
-station-ai-icon-bliss = Simpler times
-station-ai-icon-clown = Clownin' around
-station-ai-icon-dorf = Adventure awaits
-station-ai-icon-heartline = Lifeline
-station-ai-icon-smiley = All smiles
+station-ai-icon-ai = Призрак в машине
+station-ai-icon-angel = Ангел-хранитель
+station-ai-icon-bliss = Простые времена
+station-ai-icon-clown = Клоунские штучки
+station-ai-icon-dorf = Приключения ждут
+station-ai-icon-heartline = Линия жизни
+station-ai-icon-smiley = Весь в улыбках
 
-station-ai-hologram-female = Female appearance
-station-ai-hologram-male = Male appearance
-station-ai-hologram-face = Disembodied head
-station-ai-hologram-cat = Cat form
-station-ai-hologram-dog = Corgi form
+station-ai-hologram-female = Женская внешность
+station-ai-hologram-male = Мужская внешность
+station-ai-hologram-face = Отдельная голова
+station-ai-hologram-cat = Форма кота
+station-ai-hologram-dog = Форма корги

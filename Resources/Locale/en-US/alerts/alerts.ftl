@@ -1,7 +1,7 @@
-alerts-low-oxygen-name = [color=red]Низкий уровень кислорода[/color]
+alerts-low-oxygen-name = [color=red]Низкое содержание кислорода[/color]
 alerts-low-oxygen-desc = В воздухе, которым вы дышите, [color=red]недостаточно кислорода[/color]. Наденьте [color=green]дыхательное оборудование[/color].
 
-alerts-low-nitrogen-name = [color=red]Низкий уровень азота[/color]
+alerts-low-nitrogen-name = [color=red]Низкое содержание азота[/color]
 alerts-low-nitrogen-desc = В воздухе, которым вы дышите, [color=red]недостаточно азота[/color]. Наденьте [color=green]дыхательное оборудование[/color].
 
 alerts-high-toxin-name = [color=red]Высокий уровень токсинов[/color]
@@ -13,7 +13,7 @@ alerts-low-pressure-desc = Воздух вокруг вас [color=red]опас�
 alerts-high-pressure-name = [color=red]Высокое давление[/color]
 alerts-high-pressure-desc = Воздух вокруг вас [color=red]опасно плотный[/color]. [color=green]Герметичный костюм[/color] будет достаточной защитой.
 
-alerts-on-fire-name = [color=red]На вас огонь[/color]
+alerts-on-fire-name = [color=red]В огне[/color]
 alerts-on-fire-desc = Вы [color=red]в огне[/color]. Нажмите на оповещение, чтобы остановиться, упасть и покатиться, потушив огонь, или переместитесь в вакуумную зону.
 
 alerts-too-cold-name = [color=cyan]Слишком холодно[/color]
@@ -90,10 +90,10 @@ alerts-vow-silence-desc = Вы дали обет, запрещающий вер�
 alerts-vow-broken-name = Обет нарушен
 alerts-vow-broken-desc = Вы нарушили свой обет перед мимами повсюду. Вы можете говорить и писать, но потеряли свои силы как минимум на 5 целых минут!!! Нажмите, чтобы попытаться принять обет заново.
 
-alerts-pulled-name = Вас тащат
+alerts-pulled-name = Тащат
 alerts-pulled-desc = Вас тащат. Двигайтесь, чтобы освободиться.
 
-alerts-pulling-name = Тянете
+alerts-pulling-name = Тянет
 alerts-pulling-desc = Вы тянете что-то. Нажмите на оповещение, чтобы остановиться.
 
 alerts-bleed-name = [color=red]Кровотечение[/color]

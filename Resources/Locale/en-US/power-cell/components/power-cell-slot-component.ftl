@@ -1,2 +1,2 @@
 # Verbs
-power-cell-slot-component-slot-name-default = Элемент питания
+power-cell-slot-component-slot-name-default = Power cell

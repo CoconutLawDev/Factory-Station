@@ -1,6 +1,6 @@
-cmd-nukearm-desc = Toggle nuclear bomb timer. You can set timer directly. Uid is optional.
+cmd-nukearm-desc = Включить/выключить таймер ядерной бомбы. Вы можете установить таймер напрямую. Uid необязателен.
 cmd-nukearm-help = nukearm <timer> <uid>
-cmd-nukearm-not-found = Can't find any entity with a NukeComponent.
+cmd-nukearm-not-found = Не удаётся найти сущность с компонентом NukeComponent.
 
-cmd-nukearm-1-help = Time (in seconds)
-cmd-nukearm-2-help = Nuke
+cmd-nukearm-1-help = Время (в секундах)
+cmd-nukearm-2-help = Ядерная бомба

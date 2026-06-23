@@ -1,6 +1,6 @@
-vending-machine-restock-invalid-inventory = { CAPITALIZE(THE($this)) } isn't the right package to restock { THE($target) }.
-vending-machine-restock-needs-panel-open = { CAPITALIZE(THE($target)) } needs { POSS-ADJ($target) } maintenance panel opened first.
-vending-machine-restock-start-self = You start restocking { THE($target) }.
-vending-machine-restock-start-others = { CAPITALIZE(THE($user)) } starts restocking { THE($target) }.
-vending-machine-restock-done-self = You finish restocking { THE($target) }.
-vending-machine-restock-done-others = { CAPITALIZE(THE($user)) } finishes restocking { THE($target) }.
+vending-machine-restock-invalid-inventory = { CAPITALIZE($this) } не является правильной упаковкой для пополнения { THE($target) }.
+vending-machine-restock-needs-panel-open = Сначала необходимо открыть панель техобслуживания { THE($target) }.
+vending-machine-restock-start-self = Вы начинаете пополнять { THE($target) }.
+vending-machine-restock-start-others = { CAPITALIZE($user) } начинает пополнять { THE($target) }.
+vending-machine-restock-done-self = Вы заканчиваете пополнение { THE($target) }.
+vending-machine-restock-done-others = { CAPITALIZE($user) } заканчивает пополнение { THE($target) }.

@@ -1,9 +1,0 @@
-access-overrider-window-privileged-id = Основная ID:
-access-overrider-window-eject-button = Извлечь
-access-overrider-window-insert-button = Вставить
-access-overrider-window-target-label = Подключённое устройство:
-access-overrider-window-no-target = Нет подключённого устройства
-access-overrider-window-missing-privileges = Доступ к этому устройству не может быть изменён. Вставленная ID не имеет следующих прав:
-access-overrider-window-missing-privileges-no-id = Доступ к этому устройству не может быть изменён. Отсутствуют следующие права:
-access-overrider-cannot-modify-access = У вас недостаточно прав для изменения этого устройства!
-access-overrider-out-of-range = Подключённое устройство находится слишком далеко

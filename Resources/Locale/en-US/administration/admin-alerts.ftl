@@ -1,6 +1,6 @@
-﻿admin-alert-shared-connection = У {$player} общее соединение с {$otherCount} подключённым(и) игроком(ами): {$otherList}
-admin-alert-ipintel-blocked = Игроку {$player} было отказано во входе из-за того, что его IP имеет уверенность {TOSTRING($percent, "P2")} в том, что это VPN/Дата-центр.
-admin-alert-ipintel-warning = IP игрока {$player} имеет уверенность {TOSTRING($percent, "P2")} в том, что это VPN/Дата-центр. Пожалуйста, присмотрите за ним.
-admin-alert-antag-label = {$message} [АНТАГ: {$name}, {$subtype}]
-admin-alert-tp-to-players-header = Игроки:{" "}
-admin-alert-tp-to-coords-header = Координаты:{" "}
+﻿admin-alert-shared-connection = {$player} is sharing a connection with {$otherCount} connected player(s): {$otherList}
+admin-alert-ipintel-blocked = {$player} was rejected from joining due to their IP having a {TOSTRING($percent, "P2")} confidence of being a VPN/Datacenter.
+admin-alert-ipintel-warning = {$player} IP has a {TOSTRING($percent, "P2")} confidence of being a VPN/Datacenter. Please watch them.
+admin-alert-antag-label = {$message} [ANTAG: {$name}, {$subtype}]
+admin-alert-tp-to-players-header = Players:{" "}
+admin-alert-tp-to-coords-header = Coords:{" "}

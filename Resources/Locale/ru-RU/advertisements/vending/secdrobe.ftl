@@ -1,5 +1,5 @@
-advertisement-secdrobe-1 = Beat perps in style!
-advertisement-secdrobe-2 = It's red so you can't see the blood!
-advertisement-secdrobe-3 = You have the right to be fashionable!
-advertisement-secdrobe-4 = Now you can be the fashion police you always wanted to be!
-advertisement-secdrobe-5 = The best shade of red, TOTALLY not, like, the same shade as what Syndicates use!
+advertisement-secdrobe-1 = Расправляйтесь с преступниками стильно!
+advertisement-secdrobe-2 = Оно красное, так что крови не видно!
+advertisement-secdrobe-3 = Вы имеете право быть модным!
+advertisement-secdrobe-4 = Теперь вы можете быть полицейским моды, кем всегда хотели быть!
+advertisement-secdrobe-5 = Лучший оттенок красного, СОВСЕМ не такой же, как у Синдиката!

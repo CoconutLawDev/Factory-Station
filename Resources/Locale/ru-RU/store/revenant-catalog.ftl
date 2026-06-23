@@ -1,11 +1,11 @@
-revenant-defile-name = Defile
-revenant-defile-desc = Defiles the surrounding area, ripping up floors, damaging windows, opening containers, and throwing items. Using it leaves you vulnerable to attacks for a short period of time.
+revenant-defile-name = Осквернение
+revenant-defile-desc = Оскверняет окружающую местность, вырывая полы, повреждая окна, открывая контейнеры и разбрасывая предметы. Использование делает вас уязвимым для атак на короткое время.
 
-revenant-overload-name = Overload Lights
-revenant-overload-desc = Overloads all nearby lights, causing lights to pulse and sending out dangerous lightning. Using it leaves you vulnerable to attacks for a long period of time.
+revenant-overload-name = Перегрузка света
+revenant-overload-desc = Перегружает все ближайшие источники света, заставляя их пульсировать и испускать опасные электрические разряды. Использование делает вас уязвимым для атак на длительное время.
 
-revenant-blight-name = Blight
-revenant-blight-desc = Infects all nearby organisms with an infectious disease that causes toxic buildup and tiredness. Using it leaves you vulnerable to attacks for a medium period of time.
+revenant-blight-name = Проклятие
+revenant-blight-desc = Заражает всех близлежащих организмов инфекционной болезнью, вызывающей накопление токсинов и усталость. Использование делает вас уязвимым для атак на среднее время.
 
-revenant-malfunction-name = Malfunction
-revenant-malfunction-desc = Makes nearby electronics stop working properly. Using it leaves you vulnerable to attacks for a long period of time.
+revenant-malfunction-name = Неисправность
+revenant-malfunction-desc = Заставляет близлежащую электронику работать неправильно. Использование делает вас уязвимым для атак на длительное время.

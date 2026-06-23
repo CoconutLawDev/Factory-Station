@@ -1,2 +1,2 @@
-emag-success = Устройство что-то прожигает в {THE($target)}.
-emag-no-charges = Больше нет зарядов!
+emag-success = The device zaps something in {THE($target)}.
+emag-no-charges = No charges left!

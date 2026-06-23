@@ -9,8 +9,9 @@ namespace Content.Shared.Localizations
     {
         [Dependency] private ILocalizationManager _loc = default!;
 
-        // If you want to change your codebase's language, do it here.
-        private const string Culture = "en-US";
+        // FactoryStation-Edit: Russian as primary culture
+        private const string PrimaryCulture = "ru-RU";
+        private const string FallbackCulture = "en-US";
 
         /// <summary>
         /// Custom format strings used for parsing and displaying minutes:seconds timespans.
@@ -25,13 +26,12 @@ namespace Content.Shared.Localizations
 
         public void Initialize()
         {
-            var culture = new CultureInfo(Culture);
-
+            // FactoryStation-Edit-Start: Load Russian as primary, English as fallback
+            var culture = new CultureInfo(PrimaryCulture);
             _loc.LoadCulture(culture);
             _loc.AddFunction(culture, "PRESSURE", FormatPressure);
             _loc.AddFunction(culture, "POWERWATTS", FormatPowerWatts);
             _loc.AddFunction(culture, "POWERJOULES", FormatPowerJoules);
-            // NOTE: ENERGYWATTHOURS() still takes a value in joules, but formats as watt-hours.
             _loc.AddFunction(culture, "ENERGYWATTHOURS", FormatEnergyWattHours);
             _loc.AddFunction(culture, "UNITS", FormatUnits);
             _loc.AddFunction(culture, "TOSTRING", args => FormatToString(culture, args));
@@ -39,18 +39,31 @@ namespace Content.Shared.Localizations
             _loc.AddFunction(culture, "NATURALFIXED", FormatNaturalFixed);
             _loc.AddFunction(culture, "NATURALPERCENT", FormatNaturalPercent);
             _loc.AddFunction(culture, "PLAYTIME", FormatPlaytime);
+            _loc.AddFunction(culture, "MAKEPLURAL", FormatRussianPlural);
 
-
-            /*
-             * The following language functions are specific to the english localization. When working on your own
-             * localization you should NOT modify these, instead add new functions specific to your language/culture.
-             * This ensures the english translations continue to work as expected when fallbacks are needed.
-             */
-            var cultureEn = new CultureInfo("en-US");
-
+            var cultureEn = new CultureInfo(FallbackCulture);
+            _loc.LoadCulture(cultureEn);
             _loc.AddFunction(cultureEn, "MAKEPLURAL", FormatMakePlural);
             _loc.AddFunction(cultureEn, "MANY", FormatMany);
+            // FactoryStation-Edit-End
         }
+
+        // FactoryStation-Edit-Start: Russian plural function
+        private ILocValue FormatRussianPlural(LocArgs args)
+        {
+            var count = (int)((LocValueNumber) args.Args[1]).Value;
+            var countMod10 = count % 10;
+            var countMod100 = count % 100;
+
+            if (countMod100 >= 11 && countMod100 <= 19)
+                return (LocValueString) args.Args[2]; // many
+            if (countMod10 == 1)
+                return (LocValueString) args.Args[0]; // one
+            if (countMod10 >= 2 && countMod10 <= 4)
+                return (LocValueString) args.Args[1]; // few
+            return (LocValueString) args.Args[2]; // many
+        }
+        // FactoryStation-Edit-End
 
         private ILocValue FormatMany(LocArgs args)
         {
@@ -70,7 +83,8 @@ namespace Content.Shared.Localizations
         {
             var number = ((LocValueNumber) args.Args[0]).Value * 100;
             var maxDecimals = (int)Math.Floor(((LocValueNumber) args.Args[1]).Value);
-            var formatter = (NumberFormatInfo)NumberFormatInfo.GetInstance(CultureInfo.GetCultureInfo(Culture)).Clone();
+            // FactoryStation-Edit: Use PrimaryCulture
+            var formatter = (NumberFormatInfo)NumberFormatInfo.GetInstance(CultureInfo.GetCultureInfo(PrimaryCulture)).Clone();
             formatter.NumberDecimalDigits = maxDecimals;
             return new LocValueString(string.Format(formatter, "{0:N}", number).TrimEnd('0').TrimEnd(char.Parse(formatter.NumberDecimalSeparator)) + "%");
         }
@@ -79,7 +93,8 @@ namespace Content.Shared.Localizations
         {
             var number = ((LocValueNumber) args.Args[0]).Value;
             var maxDecimals = (int)Math.Floor(((LocValueNumber) args.Args[1]).Value);
-            var formatter = (NumberFormatInfo)NumberFormatInfo.GetInstance(CultureInfo.GetCultureInfo(Culture)).Clone();
+            // FactoryStation-Edit: Use PrimaryCulture
+            var formatter = (NumberFormatInfo)NumberFormatInfo.GetInstance(CultureInfo.GetCultureInfo(PrimaryCulture)).Clone();
             formatter.NumberDecimalDigits = maxDecimals;
             return new LocValueString(string.Format(formatter, "{0:N}", number).TrimEnd('0').TrimEnd(char.Parse(formatter.NumberDecimalSeparator)));
         }
@@ -107,10 +122,6 @@ namespace Content.Shared.Localizations
             }
         }
 
-        // TODO: allow fluent to take in lists of strings so this can be a format function like it should be.
-        /// <summary>
-        /// Formats a list as per english grammar rules.
-        /// </summary>
         public static string FormatList(List<string> list)
         {
             return list.Count switch
@@ -122,9 +133,6 @@ namespace Content.Shared.Localizations
             };
         }
 
-        /// <summary>
-        /// Formats a list as per english grammar rules, but uses or instead of and.
-        /// </summary>
         public static string FormatListToOr(List<string> list)
         {
             return list.Count switch
@@ -136,17 +144,11 @@ namespace Content.Shared.Localizations
             };
         }
 
-        /// <summary>
-        /// Formats a direction struct as a human-readable string.
-        /// </summary>
         public static string FormatDirection(Direction dir)
         {
             return Loc.GetString($"zzzz-fmt-direction-{dir.ToString()}");
         }
 
-        /// <summary>
-        /// Formats playtime as hours and minutes.
-        /// </summary>
         public static string FormatPlaytime(TimeSpan time)
         {
             time = TimeSpan.FromMinutes(Math.Ceiling(time.TotalMinutes));
@@ -179,7 +181,7 @@ namespace Content.Shared.Localizations
             string mode,
             Func<double, double>? transformValue = null)
         {
-            const int maxPlaces = 5; // Matches amount in _lib.ftl
+            const int maxPlaces = 5;
             var pressure = ((LocValueNumber) args.Args[0]).Value;
 
             if (transformValue != null)
@@ -245,10 +247,6 @@ namespace Content.Shared.Localizations
 
             fargs[^1] = Loc.GetString($"units-{mu.Unit.ToLower()}");
 
-            // Before anyone complains about "{"+"${...}", at least it's better than MS's approach...
-            // https://docs.microsoft.com/en-us/dotnet/standard/base-types/composite-formatting#escaping-braces
-            //
-            // Note that the closing brace isn't replaced so that format specifiers can be applied.
             var res = String.Format(
                 fmtstr.Replace("{UNIT", "{" + $"{fargs.Length - 1}"),
                 fargs

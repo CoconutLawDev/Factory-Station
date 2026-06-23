@@ -1,1 +1,1 @@
-construction-step-condition-no-windows-in-tile = В этом тайле не должно быть окон.
+construction-step-condition-no-windows-in-tile = There can be no windows in that tile.
