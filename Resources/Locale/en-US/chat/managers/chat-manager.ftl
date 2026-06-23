@@ -49,8 +49,8 @@ chat-manager-send-hook-admin-wrap-message = ADMIN: [bold](D){$senderName}:[/bold
 chat-manager-dead-channel-name = МЁРТВЫЕ
 chat-manager-admin-channel-name = АДМИН
 
-chat-manager-rate-limited = Вы отправляете сообщения слишком быстро!
-chat-manager-rate-limit-admin-announcement = Предупреждение о лимите отправки: { $player }
+chat-manager-rate-limited = You are sending messages too quickly!
+chat-manager-rate-limit-admin-announcement = Rate limit warning: { $player }
 
 ## Speech verbs for chat
 
@@ -119,10 +119,10 @@ chat-speech-verb-canine-1 = лает
 chat-speech-verb-canine-2 = гавкает
 chat-speech-verb-canine-3 = воет
 
-chat-speech-verb-name-goat = Коза
-chat-speech-verb-goat-1 = блеет
-chat-speech-verb-goat-2 = хрюкает
-chat-speech-verb-goat-3 = плачет
+chat-speech-verb-name-goat = Goat
+chat-speech-verb-goat-1 = bleats
+chat-speech-verb-goat-2 = grunts
+chat-speech-verb-goat-3 = cries
 
 chat-speech-verb-name-small-mob = Мышь
 chat-speech-verb-small-mob-1 = пищит

@@ -6,37 +6,37 @@ cargo-console-menu-flavor-right = v2.1
 cargo-console-menu-account-name-label = Счёт:{" "}
 cargo-console-menu-account-name-none-text = Отсутствует
 cargo-console-menu-account-name-format = [bold][color={$color}]{$name}[/color][/bold] [font="Monospace"]\[{$code}\][/font]
-cargo-console-menu-shuttle-name-label = Название шаттла:{" "}
-cargo-console-menu-shuttle-name-none-text = Отсутствует
-cargo-console-menu-points-label = Баланс:{" "}
-cargo-console-menu-points-amount = {$amount}$
-cargo-console-menu-shuttle-status-label = Статус шаттла:{" "}
-cargo-console-menu-shuttle-status-away-text = Вне станции
-cargo-console-menu-order-capacity-label = Лимит заказов:{" "}
-cargo-console-menu-call-shuttle-button = Активировать телепад
-cargo-console-menu-permissions-button = Права доступа
-cargo-console-menu-categories-label = Категории:{" "}
-cargo-console-menu-search-bar-placeholder = Поиск
-cargo-console-menu-requests-label = Запросы
-cargo-console-menu-orders-label = Заказы
-cargo-console-menu-populate-categories-all-text = Всё
-cargo-console-menu-order-row-title = {$productName} (x{$orderAmount} за {$orderPrice}$)
-cargo-console-menu-populate-orders-cargo-order-row-product-name-text = Запрошено: {$orderRequester} со счёта [color={$accountColor}]{$account}[/color]
-cargo-console-menu-order-row-product-description = Причина: {$orderReason}
-cargo-console-menu-order-row-button-approve = Одобрить
-cargo-console-menu-order-row-button-cancel = Отменить
-cargo-console-menu-order-row-alerts-reason-absent = Причина не указана
-cargo-console-menu-order-row-alerts-requester-unknown = Неизвестен
-cargo-console-menu-tab-title-orders = Заказы
-cargo-console-menu-tab-title-funds = Переводы
-cargo-console-menu-account-action-transfer-limit = [bold]Лимит перевода:[/bold] {$limit}$
-cargo-console-menu-account-action-transfer-limit-unlimited-notifier = [color=gold](Безлимитный)[/color]
-cargo-console-menu-account-action-select = [bold]Действие со счётом:[/bold]
-cargo-console-menu-account-action-amount = [bold]Сумма:[/bold] $
-cargo-console-menu-account-action-button = Перевести
-cargo-console-menu-toggle-account-lock-button = Переключить лимит перевода
-cargo-console-menu-account-action-option-withdraw = Снять наличные
-cargo-console-menu-account-action-option-transfer = Перевести средства на счёт {$code}
+cargo-console-menu-shuttle-name-label = Shuttle name:{" "}
+cargo-console-menu-shuttle-name-none-text = None
+cargo-console-menu-points-label = Balance:{" "}
+cargo-console-menu-points-amount = ${$amount}
+cargo-console-menu-shuttle-status-label = Shuttle status:{" "}
+cargo-console-menu-shuttle-status-away-text = Away
+cargo-console-menu-order-capacity-label = Order capacity:{" "}
+cargo-console-menu-call-shuttle-button = Activate telepad
+cargo-console-menu-permissions-button = Permissions
+cargo-console-menu-categories-label = Categories:{" "}
+cargo-console-menu-search-bar-placeholder = Search
+cargo-console-menu-requests-label = Requests
+cargo-console-menu-orders-label = Orders
+cargo-console-menu-populate-categories-all-text = All
+cargo-console-menu-order-row-title = {$productName} (x{$orderAmount} for {$orderPrice}$)
+cargo-console-menu-populate-orders-cargo-order-row-product-name-text = Requested by: {$orderRequester} from [color={$accountColor}]{$account}[/color]
+cargo-console-menu-order-row-product-description = Reason: {$orderReason}
+cargo-console-menu-order-row-button-approve = Approve
+cargo-console-menu-order-row-button-cancel = Cancel
+cargo-console-menu-order-row-alerts-reason-absent = The reason is not specified
+cargo-console-menu-order-row-alerts-requester-unknown = Unknown
+cargo-console-menu-tab-title-orders = Orders
+cargo-console-menu-tab-title-funds = Transfers
+cargo-console-menu-account-action-transfer-limit = [bold]Transfer Limit:[/bold] ${$limit}
+cargo-console-menu-account-action-transfer-limit-unlimited-notifier = [color=gold](Unlimited)[/color]
+cargo-console-menu-account-action-select = [bold]Account Action:[/bold]
+cargo-console-menu-account-action-amount = [bold]Amount:[/bold] $
+cargo-console-menu-account-action-button = Transfer
+cargo-console-menu-toggle-account-lock-button = Toggle Transfer Limit
+cargo-console-menu-account-action-option-withdraw = Withdraw Cash
+cargo-console-menu-account-action-option-transfer = Transfer Funds to {$code}
 
 # Orders
 cargo-console-order-not-allowed = Доступ запрещён
@@ -52,12 +52,12 @@ cargo-console-fund-withdraw-broadcast = [bold]{$name} снял {$amount} спе�
 cargo-console-fund-transfer-broadcast = [bold]{$name} перевёл {$amount} специан со счёта {$name1} \[{$code1}\] на счёт {$name2} \[{$code2}\][/bold]
 cargo-console-fund-transfer-user-unknown = Неизвестен
 
-cargo-console-paper-reason-default = Отсутствует
-cargo-console-paper-approver-default = Самостоятельно
-cargo-console-paper-print-name = Заказ №{$orderNumber}
-cargo-console-paper-print-text = [head=2]Заказ №{$orderNumber}[/head]
-    {"[bold]Товар:[/bold]"} {$itemName} (x{$orderQuantity})
-    {"[bold]Запросил:[/bold]"} {$requester}
+cargo-console-paper-reason-default = None
+cargo-console-paper-approver-default = Self
+cargo-console-paper-print-name = Order #{$orderNumber}
+cargo-console-paper-print-text = [head=2]Order #{$orderNumber}[/head]
+    {"[bold]Item:[/bold]"} {$itemName} (x{$orderQuantity})
+    {"[bold]Requested by:[/bold]"} {$requester}
 
     {"[head=3]Информация о заказе[/head]"}
     {"[bold]Плательщик:[/bold]"} {$account} [font="Monospace"]\[{$accountcode}\][/font]
